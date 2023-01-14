@@ -1,0 +1,15 @@
+.app__header {
+    background-color: var(--color-white);
+    background: linear-gradient(90deg, rgba(204, 228, 228, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.app__header-h1 {
+    font-family: var(--font-base);
+    color: var(--color-green);
+    letter-spacing: 0.017em;
+    text-transform: uppercase;
+    line-height: 117px;
+    font-size: 70px;
+    width: 82%;
+}
+
