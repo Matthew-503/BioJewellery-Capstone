@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// import { AboutUs, Footer, Gallery, Header, } from '../src/containers';
+// import { Navbar } from './components';
+// components are things that are reused in multiple containers
+
+import './App.css';
+import { Navbar } from './components';
+import { Header, Gallery, Benefits, Footer } from './containers';
+
+const App = () => (
+    <div>
+        <Navbar />
+        <Header />
+        <Gallery />
+        <Benefits />
+        <Footer />
     </div>
-  );
-}
+);
 
 export default App;
