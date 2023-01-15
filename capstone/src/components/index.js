@@ -1,13 +1,13 @@
 import SubHeading from './SubHeading/SubHeading';
 import Navbar from './Navbar/Navbar';
-
-// import Newsletter from './Footer/Newsletter';
+import Article from './article/Article';
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
 
 export {
     SubHeading,
     Navbar,
+    Article,
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
