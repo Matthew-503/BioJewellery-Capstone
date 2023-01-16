@@ -1,5 +1,5 @@
 // Author: Ling Shan Matthew Ng
-// Version 0.1
+// Version 0.2
 // Date: 15/1/2023
 
 // Description: This is the home page. 
