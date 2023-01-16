@@ -19,11 +19,11 @@ import { Header, Gallery, Benefits, Footer, Blog } from './containers';
 
 const App = () => (
     <div>
-        <Navbar />
+        {/* <Navbar />
         <Header />
         <Gallery />
         <Benefits />
-        <Footer />
+        <Footer /> */}
 
         <Navbar />
         <Blog />
