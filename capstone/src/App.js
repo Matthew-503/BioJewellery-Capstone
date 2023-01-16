@@ -9,6 +9,9 @@
 // Input: Currently no input available
 // Output: Currently no specific output
 
+// Notes: Aim to make the header text in carousel scroll with the images
+// Notes: Will implement the images for background
+
 import React from 'react';
 
 import './App.css';
