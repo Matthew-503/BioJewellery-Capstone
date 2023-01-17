@@ -1,3 +1,18 @@
+// Author: Ling Shan Matthew Ng
+// Version 0.1
+// Date: 17/1/2023
+
+// Description: This is the shop category with 4 cards
+// Precondition: A category page with required categories with title and button
+// Postcondition: Shop category page all required functions
+
+// Input: Currently no input available
+// Output: Currently no specific output
+
+// Notes: Aim to make the title text and button align centered 
+// Notes: Will implement related images
+
+
 import React from 'react';
 
 import { Article } from '../../components';
