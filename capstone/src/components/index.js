@@ -1,21 +1,22 @@
-// Author: Ling Shan Matthew Ng
-// Version 0.1
-// Date: 18/1/2023
-
-// Description: Index page for components 
-// Precondition: Able to import and export the components 
-// Postcondition: All functions fulfilled
-
-// Input: 4 components
-// Output: 4 components
-
-// Notes: 
-
-
 import SubHeading from './SubHeading/SubHeading';
 import Navbar from './Navbar/Navbar';
 
+//import SubHeading from './SubHeading/SubHeading';
+//import Navbar from './Navbar/Navbar';
+// import AddProduct from './AddProduct/AddProduct';
+// import Uploader from "./Uploader/Uploader";
+// import Newsletter from './Footer/Newsletter';
+// import FooterOverlay from './Footer/FooterOverlay';
+// import MenuItem from './Menuitem/MenuItem';
+import  ManageProduct from "./ManageProduct/ManageProduct";
+
 export {
-    SubHeading,
-    Navbar,
+    //SubHeading,
+    //Navbar,
+    // AddProduct
+    // Newsletter,
+    // FooterOverlay,
+    // MenuItem,
+    // Uploader
+    ManageProduct
 };

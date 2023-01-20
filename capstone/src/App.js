@@ -18,7 +18,9 @@ import './App.css';
 import { Navbar } from './components';
 import { Header, Gallery, Benefits, Footer } from './containers';
 // components are things that are reused in multiple containers
+// import {AddProduct} from './components';
 
+import {ManageProduct} from './components'
 
 const App = () => (
     <div>
@@ -27,6 +29,11 @@ const App = () => (
         <Gallery />
         <Benefits />
         <Footer />
+
+        <Footer /> */
+        {/* <AddProduct /> */}
+        {/* <Uploader /> */}
+        <ManageProduct/>
     </div>
 );
 
