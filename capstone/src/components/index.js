@@ -45,11 +45,11 @@ Rating,
     CartItem,
     EmployeeMenu,
 
-    Article
+    Article,
 
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
-    // Uploader
-    AddProduct
+    // Uploader,
+    AddProduct,
 };
