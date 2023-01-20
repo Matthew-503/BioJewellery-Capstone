@@ -5,7 +5,7 @@ import React from 'react';
 // components are things that are reused in multiple containers
 
 import './App.css';
-import { Navbar, CartItem, EmployeeMenu } from './components';
+import { Navbar, CartItem, EmployeeMenu, AdminMenu } from './components';
 import { Header, Gallery, Benefits, Footer, ShoppingCart } from './containers';
 
 const App = () => (
@@ -15,9 +15,11 @@ const App = () => (
         <Gallery />
         <Benefits />
         <Footer /> 
-        <SideMenu /> */}
-        <ShoppingCart />
+        <SideMenu /> 
         <EmployeeMenu />
+        */}
+        <ShoppingCart />
+        <AdminMenu />
     </div>
 );
 

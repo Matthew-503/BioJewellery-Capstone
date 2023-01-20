@@ -1,5 +1,5 @@
 // Author: Buola Achor
-// Version 0.1
+// Version 0.2
 // Date: 16/1/2023
 
 // Description: This is the admin side menu
@@ -13,38 +13,68 @@
 
 import React from 'react';
 
+import { CgProfile } from 'react-icons/cg';
+import { ImParagraphLeft } from 'react-icons/im';
+import { BsFillSuitHeartFill, BsFillPeopleFill } from 'react-icons/bs';
+import { FaRegClipboard } from 'react-icons/fa';
+import { AiOutlinePlus } from 'react-icons/ai';
+
 import './AdminMenu.css';
 
-const AdminMenu = () => {
+const AdminMenu = (profilePicture) => {
 
     return (
-        <nav className="admin__menu">
+        <nav className="admin__menu" class="admin">
         
-            <div className="admin__photo">
-                <CgProfile color='#818181' size={120} />
-            </div>
-
             <li className="admin__text">
-                
-                    <div className="a__dash">
-                        <a href="#Edit">Dashboards</a>
-                    </div>
-                
-                    <div className="a__social">
-                        <a href="#Return">Monitor Social Media</a>
-                    </div>
+                <div className="admin__photo">
+                    {/* {profilePicture} */}
+                    <CgProfile color='#818181' size={120} />
+                </div>
 
-                    <div className="a__employee">    
-                        <a href="#View">Manage Employees</a>
-                    </div>
+                <h1 className="admin__name">Hornby Trung</h1>
 
-                    <div className="a__user">    
-                        <a href="#Products">Mange Users</a>
-                    </div>
+                        <br></br>
 
-                    <div className="a__admin">    
-                        <a href="#Products">Add Admin</a>
-                    </div>      
+                        <div className="a__icons">
+                            <ImParagraphLeft color='#818181' size={30}/>
+                        </div>
+
+                        <div className="a__dash">
+                            <a href="#Edit">Dashboards</a>
+                        </div>
+
+                        <div className="a__icons">
+                            <BsFillSuitHeartFill color='#818181' size={30}/>
+                        </div>
+
+                        <div className="a__social">
+                            <a href="#Return">Monitor Social Media</a>
+                        </div>
+
+                        <div className="a__icons">
+                            <FaRegClipboard color='#818181' size={30}/>
+                        </div>
+
+                        <div className="a__employee">    
+                            <a href="#View">Manage Employees</a>
+                        </div>
+
+                        <div className="a__icons">
+                            <BsFillPeopleFill color='#818181' size={30}/>
+                        </div>
+
+                        <div className="a__user">    
+                            <a href="#Products">Mange Users</a>
+                        </div>
+
+                        <div className="a__icons">
+                            <AiOutlinePlus color='#818181' size={30}/>
+                        </div>
+
+                        <div className="a__admin">    
+                            <a href="#Products">Add Admin</a>
+                        </div>      
             </li>
         </nav>  
     )

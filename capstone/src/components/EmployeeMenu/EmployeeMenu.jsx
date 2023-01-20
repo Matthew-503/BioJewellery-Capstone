@@ -25,7 +25,7 @@ import { HiPencilAlt } from "react-icons/hi";
 import './EmployeeMenu.css';
 
 
-const EmployeeMenu = () => {
+const EmployeeMenu = (profilePicture) => {
 
     return (
         <div className="employee__menu" class="employee">
@@ -33,6 +33,7 @@ const EmployeeMenu = () => {
             <li className="employee__text">
 
                     <div className="employee__photo">
+                        {/* {profilePicture} */}
                         <CgProfile color='#818181' size={120} />
                     </div>
                     
@@ -44,7 +45,7 @@ const EmployeeMenu = () => {
                             <a href="#Settings">Hailey Johnson</a>
                         </div>
 
-                    <div className="e__photo-edit"> 
+                    <div className="e__icons"> 
                         <HiPencilAlt color='#818181' size={30} />
                     </div>
                 
@@ -52,7 +53,7 @@ const EmployeeMenu = () => {
                             <a href="#Edit">Edit Page</a>
                         </div>
 
-                    <div className="e__return-person"> 
+                    <div className="e__icons"> 
                         <BsPersonCheckFill color='#818181' size={30} />
                     </div>
                 
@@ -60,7 +61,7 @@ const EmployeeMenu = () => {
                             <a href="#Return">Return Requests</a>
                         </div>
 
-                    <div className="e__kpi-bars"> 
+                    <div className="e__icons"> 
                         <ImParagraphLeft color='#818181' size={30} />
                     </div>
 
@@ -68,7 +69,7 @@ const EmployeeMenu = () => {
                             <a href="#View">View KPIs</a>
                         </div>
 
-                    <div className="e__products-grid"> 
+                    <div className="e__icons"> 
                         <TbGridDots color='#818181' size={30} />
                     </div>
                     
