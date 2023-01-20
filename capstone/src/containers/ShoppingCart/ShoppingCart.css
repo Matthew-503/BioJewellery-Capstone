@@ -1,0 +1,26 @@
+.shop__cart {
+    background-color: white;;
+}
+
+.shop__header-text {
+    color: #072D2E;
+    padding: 100px;
+    padding-left: 675px;
+    font-size: 55px;
+}
+
+.shop__subtotal {
+    background-color: #ECF1E3;
+    border-radius: 7px;
+    margin-right: 150px;
+    float: right;
+    width: 250px;
+    height: 200px;
+}
+
+.shop__subtotal-text {
+    color: #072D2E;
+    padding-top: 55px;
+    padding-left: 25px;
+    font-size: 22px;
+}
