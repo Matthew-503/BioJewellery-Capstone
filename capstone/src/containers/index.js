@@ -16,17 +16,25 @@ import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
+
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+
 import Blog from './blog/Blog';
 import Follow from './FollowUs/Follow';
 import Video from './Video/Video';
+
 
 export {
   Header,
   Gallery,
   Benefits,
   Footer,
+
+  ShoppingCart,
+
   Blog,
   Follow,
   Video,
+
 
 };

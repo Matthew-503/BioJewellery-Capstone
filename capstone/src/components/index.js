@@ -15,7 +15,13 @@
 import SubHeading from './SubHeading/SubHeading';
 import Navbar from './Navbar/Navbar';
 
+import CartItem from './CartItem/CartItem';
+import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+// import Newsletter from './Footer/Newsletter';
+
+
 import Article from './article/Article';
+
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
 
@@ -23,7 +29,12 @@ import Article from './article/Article';
 export {
     SubHeading,
     Navbar,
+
+    CartItem,
+    EmployeeMenu,
+
     Article,
+
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
