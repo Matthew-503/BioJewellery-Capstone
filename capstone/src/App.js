@@ -1,6 +1,8 @@
 // Author: Ling Shan Matthew Ng
-// Version 0.2
-// Date: 15/1/2023
+
+// Version 0.3
+// Date: 20/1/2023
+
 
 // Description: This is the home page. 
 // Precondition: A home page with required containers and functional carousel
@@ -15,19 +17,43 @@
 import React from 'react';
 
 import './App.css';
-import { Navbar } from './components';
-import { Header, Gallery, Benefits, Footer, OrderConfirmation } from './containers';
-// components are things that are reused in multiple containers
 
+
+import { Navbar, EmployeeMenu } from './components';
+
+import { Header, Gallery, Benefits, Footer, ShoppingCart , Blog, Follow, Video, ProductDetail, ShopProduct, OrderConfirmation  } from './containers';
+// components are things that are reused in multiple containers
 
 const App = () => (
     <div>
+
         {/* <Navbar />
+
         <Header />
         <Gallery />
+        <Video />
+        <Follow />
         <Benefits />
+
         <Footer /> */}
         <OrderConfirmation />
+
+
+        <Footer /> 
+        <ShoppingCart />
+        <EmployeeMenu />
+
+        <Footer />
+
+        <Navbar />
+        <Blog />
+
+       
+        <Navbar />
+        <ProductDetail />
+
+
+
     </div>
 );
 
