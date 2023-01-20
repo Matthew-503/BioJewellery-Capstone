@@ -18,12 +18,19 @@ import { FiPackage } from 'react-icons/fi';
 import { MdPayment } from 'react-icons/md';
 
 import { SubHeading } from '../../components';
+
 import './Benefits.css';
 
 const Benefits = () => (
     <div className='app__benefits section__padding' id='login'>
 
+        <h1 className="app__benefits-headtext">
+            Benefits for your expendicy
+        </h1>
+
+
         <SubHeading title="Benefits For Your Expendicy" />
+
 
         <div className='app__benefits-links'>
             <div className='app__benefits-links_work'>
@@ -38,7 +45,6 @@ const Benefits = () => (
                 <p className='app__benefits-paragraph'>
                     We offer multiple payment methods including crypto currency
                 </p>
-
             </div>
 
             <div className='app__benefits-links_work'>
@@ -53,7 +59,6 @@ const Benefits = () => (
                 <p className='app__benefits-paragraph'>
                     You have a warrenty within 1 year of purhcace
                 </p>
-
             </div>
 
             <div className='app__benefits-links_work'>
@@ -68,11 +73,8 @@ const Benefits = () => (
                 <p className='app__benefits-paragraph'>
                     Our customer support is 24/7
                 </p>
-
             </div>
-
         </div>
-
     </div>
 );
 

@@ -1,3 +1,16 @@
+
+import React from 'react';
+// import { images } from '../../constants';
+
+const SubHeading = ({ title }) => (
+    <div style={{ marginBottom: '1rem' }}>
+        <p className='p__cormorant'>{title}</p>
+        {/* <img src={images.spoon} alt='spoon' className='spoon__img' /> */}
+    </div>
+);
+
+export default SubHeading;
+
 // Author: Ling Shan Matthew Ng
 // Version 0.1
 // Date: 18/1/2023
@@ -21,3 +34,4 @@ const SubHeading = ({ title }) => (
 );
 
 export default SubHeading;
+

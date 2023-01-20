@@ -12,21 +12,28 @@
 // Notes: Aim to make the header text in carousel scroll with the images
 // Notes: Will implement the images for background
 
+
 import React from 'react';
 
 import './App.css';
 import { Navbar } from './components';
-import { Header, Gallery, Benefits, Footer } from './containers';
+
+import { Header, Gallery, Benefits, Footer, Blog, Follow, Video } from './containers';
 // components are things that are reused in multiple containers
 
 
 const App = () => (
     <div>
-        <Navbar />
+        {/* <Navbar />
         <Header />
-        <Gallery />
+        <Gallery /> */}
+        {/* <Video /> */}
+        {/* <Follow />
         <Benefits />
-        <Footer />
+        <Footer /> */}
+
+        <Navbar />
+        <Blog />
     </div>
 );
 

@@ -29,7 +29,7 @@ const Header = () => (
                 Explore different categories. Find the best deals.
             </p>
             <button type='button' className='custom__button'>
-                Shop Now
+                Shop Now 
             </button>
         </div>
     </div>
