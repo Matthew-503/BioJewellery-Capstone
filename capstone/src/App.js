@@ -17,17 +17,10 @@ import React from 'react';
 
 import './App.css';
 import { Navbar } from './components';
-<<<<<<< Updated upstream
-import { Header, Gallery, Benefits, Footer } from './containers';
-=======
-<<<<<<< HEAD
+
+
 import { Header, Gallery, Benefits, Footer, ProductDetail, ShopCategory, Blog, ShopProduct } from './containers';
 
-=======
-import { Header, Gallery, Benefits, Footer, Blog, Follow } from './containers';
-// components are things that are reused in multiple containers
->>>>>>> b72ef99157fe3eab4b2f3143b9e6beeaa8cab44b
->>>>>>> Stashed changes
 
 const App = () => (
     <div>
@@ -36,21 +29,15 @@ const App = () => (
         <Gallery />
         <Benefits />
         <Footer />
-<<<<<<< Updated upstream
-=======
+
 
         <Navbar />
         <Blog />
-<<<<<<< HEAD
 
        
         <Navbar />
         <ProductDetail />
-=======
-        <Follow />
-        <Blog />
->>>>>>> b72ef99157fe3eab4b2f3143b9e6beeaa8cab44b
->>>>>>> Stashed changes
+
     </div>
 );
 

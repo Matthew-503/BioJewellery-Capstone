@@ -17,7 +17,7 @@ import React from 'react';
 
 import { Article } from '../../components';
 // import { SubHeading } from '../../components';
-import { blog02, blog03, blog04, blog05 } from './imports.js';
+import { gallery01, gallery02, gallery03, gallery04 } from './import.js';
 
 import './Blog.css';
 
@@ -30,22 +30,22 @@ const Blog = () => {
             <div className="gpt3__blog-container">
                 <div className="gpt3__blog-container_groupB">
                     <Article
-                        imgUrl={blog02}
+                        imgUrl={gallery01}
                         text="Popular"
                     />
 
                     <Article
-                        imgUrl={blog03}
+                        imgUrl={gallery02}
                         text="Trending"
                     />
 
                     <Article
-                        imgUrl={blog04}
+                        imgUrl={gallery03}
                         text="Most Saved"
                     />
 
                     <Article
-                        imgUrl={blog05}
+                        imgUrl={gallery04}
                         text="On Sale"
                     />
                 </div>

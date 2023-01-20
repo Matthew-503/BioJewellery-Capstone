@@ -7,18 +7,14 @@ import Navbar from './Navbar/Navbar';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
+import Article from './Article/Article';
 export {
     SubHeading,
     Navbar,
-<<<<<<< Updated upstream
-=======
-    Article,
     Rating,
     ReviewBlock,
-    ShopProductIcon
-
-
->>>>>>> Stashed changes
+    ShopProductIcon,
+    Article
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
