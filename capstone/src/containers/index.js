@@ -16,6 +16,7 @@ import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
+import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 
 
 import ShopCategory from './ShopCategory/ShopCategory';
@@ -36,6 +37,9 @@ export {
   Benefits,
   Footer,
 
+  OrderConfirmation
+
+
 
   ShopCategory,
   
@@ -47,6 +51,5 @@ export {
   Blog,
   Follow,
   Video,
-
 
 };

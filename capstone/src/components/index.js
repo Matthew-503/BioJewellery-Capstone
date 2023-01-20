@@ -33,6 +33,7 @@ import Article from './Article/Article';
 
 export {
     SubHeading,
+
     Navbar,
 Rating,
     ReviewBlock,
