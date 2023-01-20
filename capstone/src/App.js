@@ -1,6 +1,6 @@
 // Author: Ling Shan Matthew Ng
-// Version 0.2
-// Date: 15/1/2023
+// Version 0.3
+// Date: 20/1/2023
 
 // Description: This is the home page. 
 // Precondition: A home page with required containers and functional carousel
@@ -24,13 +24,13 @@ import { Header, Gallery, Benefits, Footer, Blog, Follow, Video } from './contai
 
 const App = () => (
     <div>
-        {/* <Navbar />
+        <Navbar />
         <Header />
-        <Gallery /> */}
-        {/* <Video /> */}
-        {/* <Follow />
+        <Gallery />
+        <Video />
+        <Follow />
         <Benefits />
-        <Footer /> */}
+        <Footer />
 
         <Navbar />
         <Blog />

@@ -24,9 +24,9 @@ import './Benefits.css';
 const Benefits = () => (
     <div className='app__benefits section__padding' id='login'>
 
-        <h1 className="app__benefits-headtext">
+        {/* <h1 className="app__benefits-headtext">
             Benefits for your expendicy
-        </h1>
+        </h1> */}
 
 
         <SubHeading title="Benefits For Your Expendicy" />
