@@ -1,5 +1,4 @@
 // Author: Ling Shan Matthew Ng
-
 // Version 0.3
 // Date: 20/1/2023
 
@@ -29,11 +28,17 @@ const App = () => (
 
         {/* <Navbar />
 
+
         <Header />
         <Gallery />
         <Video />
         <Follow />
         <Benefits />
+
+        <Footer /> */}
+        {/* <Uploader/> */}
+        <AddProduct/>
+
 
         <Footer /> */}
         <OrderConfirmation />
@@ -51,7 +56,6 @@ const App = () => (
        
         <Navbar />
         <ProductDetail />
-
 
 
     </div>

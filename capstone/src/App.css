@@ -8,9 +8,11 @@
     align-items: center;
 }
 
+
 .app__bg {
 
     background: url('./assets/socialbg4.png');
+
 
     background-position: center;
     background-size: cover;
