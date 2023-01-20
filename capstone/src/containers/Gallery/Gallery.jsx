@@ -1,3 +1,19 @@
+// Author: Ling Shan Matthew Ng
+// Version 0.1
+// Date: 18/1/2023
+
+// Description: This is the gallery container
+// Precondition: A gallery container that has a functioning carousel
+// Postcondition: Gallery container with a fully functional carousel
+
+// Input: Currently no input available
+// Output: Currently no specific output
+
+// Notes: Aim to make the header text in carousel scroll with the images
+// Notes: Images used will remain the same for now
+// Notes: May consider about the color theme of the arrows 
+
+
 import React from 'react';
 import { BsInstagram, BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { SubHeading } from '../../components';
@@ -25,9 +41,9 @@ const Gallery = () => {
     return (
         <div className="app__gallery flex__center">
             <div className="app__gallery-content">
-                <h1 className="headtext__cormorant">
-                    Popular Products
-                </h1>
+
+                <SubHeading title="Popular Products" />
+
                 <p className="p__opensans" style={{ marginTop: '2rem' }}>
                     Numbers don't lie, check out our most popular from our collection
                 </p>

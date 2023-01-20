@@ -9,11 +9,16 @@
 }
 
 .app__bg {
-    background: url('./assets/bg.png');
+
+    background: url('./assets/socialbg4.png');
+
     background-position: center;
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
+
+    z-index: -1;
+
 }
 
 .app__wrapper {
@@ -54,6 +59,36 @@
 
 .custom__button {
     background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.custom__button-submit {
+    background-color:#70908B;
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.custom__button-checkout {
+    background-color:#70908B;
     color: var(--color-white);
     font-family: var(--font-alt);
     font-weight: 600;
