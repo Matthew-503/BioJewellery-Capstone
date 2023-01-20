@@ -26,10 +26,12 @@ import { Header, Gallery, Benefits, Footer, ShoppingCart, Blog, Follow, Video, P
 
 const App = () => (
     <div>
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
         <Navbar />
-
         <Header />
         <Gallery />
         <Video />
@@ -37,8 +39,8 @@ const App = () => (
         <Benefits />
         <Footer />
 
-        <Footer />
         {/* <Uploader/> */}
+<<<<<<< Updated upstream
 
         {/* <AddProduct/> */}
         <EditProduct/>
@@ -50,6 +52,9 @@ const App = () => (
 
 
         <Footer />
+=======
+        {/* <AddProduct />
+>>>>>>> Stashed changes
 
 
         <OrderConfirmation />
@@ -61,12 +66,13 @@ const App = () => (
         <Footer />
 
         <Navbar />
-        <Blog />
+        <Blog />v
 
         <Navbar />
         <ProductDetail />
 
-
+        <Navbar />
+        <ShopProduct /> */}
     </div>
 );
 
