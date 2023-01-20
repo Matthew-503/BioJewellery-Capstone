@@ -4,6 +4,7 @@ import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import ShopCategory from './ShopCategory/ShopCategory';
 import Blog from './blog/Blog';
+import Follow from './FollowUs/Follow';
 
 export {
   Header,
@@ -12,5 +13,5 @@ export {
   Footer,
   ShopCategory,
   Blog,
-
+  Follow,
 };

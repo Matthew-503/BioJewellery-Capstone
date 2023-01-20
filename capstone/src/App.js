@@ -17,18 +17,20 @@ import React from 'react';
 
 import './App.css';
 import { Navbar } from './components';
-import { Header, Gallery, Benefits, Footer, Blog } from './containers';
+import { Header, Gallery, Benefits, Footer, Blog, Follow } from './containers';
 // components are things that are reused in multiple containers
 
 const App = () => (
     <div>
-        {/* <Navbar />
+        <Navbar />
         <Header />
         <Gallery />
         <Benefits />
-        <Footer /> */}
+        <Footer />
 
         <Navbar />
+        <Blog />
+        <Follow />
         <Blog />
     </div>
 );
