@@ -1,5 +1,5 @@
 // Author: Buola Achor
-// Version 0.1
+// Version 0.2
 // Date: 18/1/2023
 
 // Description: This is the shopping cart item. 
@@ -40,10 +40,9 @@ const CartItem = () => {
                     </li>
                 </ul>
 
-            <button type='button' className='custom__button'>
-                Remove
-            </button>
-
+                <button type='button' className='custom__button-submit'>
+                    Remove
+                </button>
         </div>
     );
 }

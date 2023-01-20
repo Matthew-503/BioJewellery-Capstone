@@ -5,19 +5,19 @@ import React from 'react';
 // components are things that are reused in multiple containers
 
 import './App.css';
-import { Navbar, Employee, CartItem } from './components';
+import { Navbar, CartItem, EmployeeMenu } from './components';
 import { Header, Gallery, Benefits, Footer, ShoppingCart } from './containers';
 
 const App = () => (
     <div>
-        {/* <Navbar />
+        {/*
         <Header />
         <Gallery />
         <Benefits />
         <Footer /> 
-        <SideMenu />
-        <SideMenu */}
+        <SideMenu /> */}
         <ShoppingCart />
+        <EmployeeMenu />
     </div>
 );
 
