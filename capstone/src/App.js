@@ -26,11 +26,7 @@ import { Header, Gallery, Benefits, Footer, ShoppingCart, Blog, Follow, Video, P
 
 const App = () => (
     <div>
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
         <Navbar />
         <Header />
         <Gallery />
@@ -40,7 +36,6 @@ const App = () => (
         <Footer />
 
         {/* <Uploader/> */}
-<<<<<<< Updated upstream
 
         {/* <AddProduct/> */}
         <EditProduct/>
@@ -52,9 +47,7 @@ const App = () => (
 
 
         <Footer />
-=======
         {/* <AddProduct />
->>>>>>> Stashed changes
 
 
         <OrderConfirmation />
