@@ -22,13 +22,13 @@ import { Header, Gallery, Benefits, Footer, Blog, Follow, Video } from './contai
 
 const App = () => (
     <div>
-        <Navbar />
+        {/* <Navbar />
         <Header />
-        <Gallery />
+        <Gallery /> */}
         {/* <Video /> */}
-        <Follow />
+        {/* <Follow />
         <Benefits />
-        <Footer />
+        <Footer /> */}
 
         <Navbar />
         <Blog />
