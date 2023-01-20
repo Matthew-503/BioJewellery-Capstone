@@ -7,7 +7,7 @@ import Navbar from './Navbar/Navbar';
 
 export {
     SubHeading,
-    Navbar,
+    Navbar
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
