@@ -5,6 +5,21 @@ import './ShopProduct.css';
 
 const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
 
+/*
+// Author: Nicholas Proc
+// Version: 0.1 
+// Date: 20/1/2023
+ 
+// Description: This container is for displaying a list of products
+// Precondition: Must have a list of products
+// Postcondition: Display a list of products
+ 
+// Input 
+N/A
+// Output
+ShopProduct Container
+
+*/
 const ShopProduct = () => {
 
 
