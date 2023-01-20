@@ -17,8 +17,10 @@ import React from 'react';
 
 import './App.css';
 import { Navbar } from './components';
+
 import { Header, Gallery, Benefits, Footer, Blog, Follow, Video } from './containers';
 // components are things that are reused in multiple containers
+
 
 const App = () => (
     <div>
