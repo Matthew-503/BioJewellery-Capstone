@@ -2,6 +2,7 @@ import React from 'react';
 import { SubHeading } from '../../components';
 import { data, images } from '../../constants';
 
+
 import { FiInstagram } from 'react-icons/fi';
 import { FaTiktok } from 'react-icons/fa';
 
@@ -32,6 +33,7 @@ const Follow = () => (
                     <FaTiktok />
                 </div>
             </div>
+
         </div>
     </div>
 )

@@ -9,12 +9,16 @@
 }
 
 .app__bg {
+
     background: url('./assets/socialbg4.png');
+
     background-position: center;
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
+
     z-index: -1;
+
 }
 
 .app__wrapper {

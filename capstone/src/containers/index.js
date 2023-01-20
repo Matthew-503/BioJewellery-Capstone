@@ -17,6 +17,12 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 
+
+import ShopCategory from './ShopCategory/ShopCategory';
+
+import ProductDetail from './ProductDetail/ProductDetail';
+import ShopProduct from './ShopProduct/ShopProduct';
+
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 
 import Blog from './blog/Blog';
@@ -29,6 +35,12 @@ export {
   Gallery,
   Benefits,
   Footer,
+
+
+  ShopCategory,
+  
+  ProductDetail,
+  ShopProduct
 
   ShoppingCart,
 

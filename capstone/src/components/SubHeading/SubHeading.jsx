@@ -1,3 +1,4 @@
+
 // Author: Ling Shan Matthew Ng
 // Version 0.1
 // Date: 18/1/2023
@@ -21,4 +22,3 @@ const SubHeading = ({ title }) => (
 );
 
 export default SubHeading;
-
