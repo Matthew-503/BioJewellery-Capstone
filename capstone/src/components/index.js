@@ -50,7 +50,12 @@ export {
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
+
     // Uploader
+
+    EditProduct,
+
+    // Uploader,
     AddProduct,
-    EditProduct
+
 };

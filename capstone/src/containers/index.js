@@ -17,15 +17,10 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-
-
 import ShopCategory from './ShopCategory/ShopCategory';
-
 import ProductDetail from './ProductDetail/ProductDetail';
 import ShopProduct from './ShopProduct/ShopProduct';
-
 import ShoppingCart from './ShoppingCart/ShoppingCart';
-
 import Blog from './blog/Blog';
 import Follow from './FollowUs/Follow';
 import Video from './Video/Video';
@@ -36,20 +31,12 @@ export {
   Gallery,
   Benefits,
   Footer,
-
-  OrderConfirmation
-
-
-
+  OrderConfirmation,
   ShopCategory,
-  
   ProductDetail,
   ShopProduct,
-
   ShoppingCart,
-
   Blog,
   Follow,
   Video,
-
 };
