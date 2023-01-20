@@ -28,7 +28,7 @@ import Article from './article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
-import Article from './Article/Article';
+
 
 
 export {
@@ -41,7 +41,7 @@ Rating,
     CartItem,
     EmployeeMenu,
 
-    Article,
+    Article
 
     // Newsletter,
     // FooterOverlay,
