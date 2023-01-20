@@ -31,7 +31,7 @@ import Article from './article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
-
+import EditProduct from "./EditProduct/EditProduct";
 
 
 export {
@@ -39,7 +39,7 @@ export {
     SubHeading,
 
     Navbar,
-Rating,
+    Rating,
     ReviewBlock,
     ShopProductIcon,
     CartItem,
@@ -50,6 +50,12 @@ Rating,
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
+
+    // Uploader
+
+    EditProduct,
+
     // Uploader,
     AddProduct,
+
 };
