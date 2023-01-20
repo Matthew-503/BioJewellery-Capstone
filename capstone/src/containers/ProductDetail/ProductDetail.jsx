@@ -25,7 +25,7 @@ const ProductDetail = () => {
     var productName = null;
     var price = null;
     var description = null;
-    var stars = 4;
+    var stars = 2;
 
     //Default Variable for review block
     var customerDefaultName = "Very Cool Name";
