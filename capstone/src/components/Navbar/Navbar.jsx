@@ -1,19 +1,33 @@
+// Author: Ling Shan Matthew Ng
+// Version 0.1
+// Date: 18/1/2023
+
+// Description: Navbar for reuse
+// Precondition: Navbar that's able to minimize logo when scrolling, search content inputted, navigate to respective pages
+// Postcondition: Basic structure is made
+
+// Input: Currently no input
+// Output: Currently no output
+
+// Notes: The animation of the logo will be done soon
+// Notes: Styling of the search area will be modified soon
+
+
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-// import { BiSearch } from 'react-icons/bi';
 import { FaShoppingCart } from 'react-icons/fa';
 import { MdSearch, MdAccountCircle, MdOutlineRestaurantMenu } from 'react-icons/md';
 
-// import images from '../../constants/images';
+import images from '../../constants/images';
 import './Navbar.css';
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = React.useState(false);
     return (
         <nav className="app__navbar">
-            {/* <div className="app__navbar-logo">
-                <img src={images.gericht} alt="app__logo" />
-            </div> */}
+            <div className="app__navbar-logo">
+                <img src={images.logo} alt="app__logo" />
+            </div>
 
             <ul className="app__navbar-links">
                 <li className="p__opensans-nav">

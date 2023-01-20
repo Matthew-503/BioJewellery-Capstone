@@ -1,8 +1,21 @@
+// Author: Ling Shan Matthew Ng
+// Version 0.1
+// Date: 18/1/2023
+
+// Description: This is the footer container
+// Precondition: A footer container that has 4 columns, 2 social media icons, and contact details
+// Postcondition: Home page with a scrollable carousel
+
+// Input: Currently no input available
+// Output: Currently no specific output
+
+// Notes: Not sure if the company name is copyrighted for the moment. It has been created just in case
+// Notes: Styling of the icons can be further modified if needed
+
 import React from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaTiktok } from 'react-icons/fa';
 
-import { images } from '../../constants';
 import './Footer.css';
 
 const Footer = () => (
@@ -37,7 +50,6 @@ const Footer = () => (
                 <p className='p__opensans'>
                     Order Status
                 </p>
-
             </div>
 
             <div className='app__footer-links_work'>
