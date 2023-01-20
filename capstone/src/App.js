@@ -25,7 +25,7 @@ const App = () => (
         <Navbar />
         <Header />
         <Gallery />
-        <Video />
+        {/* <Video /> */}
         <Follow />
         <Benefits />
         <Footer />
