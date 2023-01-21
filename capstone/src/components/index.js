@@ -1,6 +1,6 @@
 
 // Author: Ling Shan Matthew Ng
-// Version 0.1
+// Version 0.2
 // Date: 18/1/2023
 
 // Description: Index page for components 
@@ -10,52 +10,49 @@
 // Input: 4 components
 // Output: 4 components
 
-// Notes: 
-import AddProduct from './AddProduct/AddProduct';
+// Notes: Updated the sequence
 
-import Uploader from "./Uploader/Uploader";
-import SubHeading from './SubHeading/SubHeading';
+
 import Navbar from './Navbar/Navbar';
+import SubHeading from './SubHeading/SubHeading';
 
-import CartItem from './CartItem/CartItem';
-import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
-
-// import Newsletter from './Footer/Newsletter';
-
-
-import Article from './article/Article';
-
-// import FooterOverlay from './Footer/FooterOverlay';
-///import MenuItem from './Menuitem/MenuItem';
+import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
-import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
+
+import CartItem from './CartItem/CartItem';
+
+import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+import Uploader from "./Uploader/Uploader";
+import AddProduct from './AddProduct/AddProduct';
 import EditProduct from "./EditProduct/EditProduct";
 
+// import Newsletter from './Footer/Newsletter';
+// import FooterOverlay from './Footer/FooterOverlay';
+// import MenuItem from './Menuitem/MenuItem';
+// import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
 export {
 
-    SubHeading,
-
     Navbar,
-    Rating,
-    ReviewBlock,
-    ShopProductIcon,
-    CartItem,
-    EmployeeMenu,
+    SubHeading,
 
     Article,
 
+    Rating,
+    ReviewBlock,
+
+    CartItem,
+
+    EmployeeMenu,
+    Uploader,
+    AddProduct,
+    EditProduct,
+
+    // ShopProductIcon,
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
-
     // Uploader
-
-    EditProduct,
-
-    // Uploader,
-    AddProduct,
-
 };

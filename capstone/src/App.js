@@ -1,5 +1,5 @@
 // Author: Ling Shan Matthew Ng
-// Version 0.3
+// Version 0.4
 // Date: 20/1/2023
 
 
@@ -11,57 +11,54 @@
 // Output: Currently no specific output
 
 // Notes: Aim to make the header text in carousel scroll with the images
-// Notes: Will implement the images for background
+// Notes: Have figured out which component is causing issues
 
 import React from 'react';
-import { Navbar, EmployeeMenu, AddProduct,EditProduct } from './components';
-import { Header, Gallery, Benefits, Footer, ShoppingCart, Blog, Follow, Video, ProductDetail, ShopProduct, OrderConfirmation } from './containers';
+import { Navbar, AddProduct, EditProduct, EmployeeMenu } from './components';
+import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart } from './containers';
 // components are things that are reused in multiple containers
 
-// import './App.css';
+import './App.css';
 
 const App = () => (
     <div>
 
         <Navbar />
-        {/* <Header />
+        {/* Header causing navbar styling to fail */}
+        <Header />
         <Gallery />
         <Video />
         <Follow />
         <Benefits />
-        <Footer /> */}
-
-        {/* <Uploader/> */}
-
-        {/* <AddProduct/> */}
-        {/* <EditProduct/> */}
-
-        {/* <Footer />  */}
-        {/* <OrderConfirmation /> */}
-
-        {/* <AddProduct /> */}
-
-
-        {/* <Footer /> */}
-        {/* <AddProduct />
-
-
-        <OrderConfirmation />
         <Footer />
 
-        <ShoppingCart />
-
-        <EmployeeMenu />
-        <Footer />
 
         <Navbar />
-        <Blog />v
+        <Blog />
+
+        <Navbar />
+        <ShopProduct />
 
         <Navbar />
         <ProductDetail />
 
         <Navbar />
-        <ShopProduct /> */}
+        <OrderConfirmation />
+
+        <Navbar />
+        <ShoppingCart />
+
+        {/* The uploader is causing the spacing issues, have to comment out everything inside css*/}
+        {/* <Uploader /> */}
+
+        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
+        {/* <AddProduct /> */}
+
+        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
+        {/* <EditProduct /> */}
+
+        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
+        {/* <EmployeeMenu /> */}
     </div>
 );
 
