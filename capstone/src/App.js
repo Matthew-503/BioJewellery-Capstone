@@ -14,39 +14,35 @@
 // Notes: Will implement the images for background
 
 import React from 'react';
-
-import './App.css';
-
-
 import { Navbar, EmployeeMenu, AddProduct,EditProduct } from './components';
-
-
 import { Header, Gallery, Benefits, Footer, ShoppingCart, Blog, Follow, Video, ProductDetail, ShopProduct, OrderConfirmation } from './containers';
 // components are things that are reused in multiple containers
+
+// import './App.css';
 
 const App = () => (
     <div>
 
         <Navbar />
-        <Header />
+        {/* <Header />
         <Gallery />
         <Video />
         <Follow />
         <Benefits />
-        <Footer />
+        <Footer /> */}
 
         {/* <Uploader/> */}
 
         {/* <AddProduct/> */}
-        <EditProduct/>
+        {/* <EditProduct/> */}
 
-        <Footer /> 
-        <OrderConfirmation />
+        {/* <Footer />  */}
+        {/* <OrderConfirmation /> */}
 
-        <AddProduct />
+        {/* <AddProduct /> */}
 
 
-        <Footer />
+        {/* <Footer /> */}
         {/* <AddProduct />
 
 
