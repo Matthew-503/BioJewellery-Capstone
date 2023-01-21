@@ -1,27 +1,26 @@
+// Author: Nicholas Proc
+// Version: 0.1 
+// Date: 20/1/2023
+
+// Description: This container is for displaying a list of products
+// Precondition: Must have a list of products
+// Postcondition: Display a list of products
+
+// Input 
+// N/A
+// Output
+// ShopProduct Container
+
 import React from 'react';
+
 import ShopProductIcon from '../../components/ShopProductIcon/ShopProductIcon';
 import { images } from '../../constants';
+
 import './ShopProduct.css';
 
 const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
 
-/*
-// Author: Nicholas Proc
-// Version: 0.1 
-// Date: 20/1/2023
- 
-// Description: This container is for displaying a list of products
-// Precondition: Must have a list of products
-// Postcondition: Display a list of products
- 
-// Input 
-N/A
-// Output
-ShopProduct Container
-
-*/
 const ShopProduct = () => {
-
 
     return (
         <div>
@@ -54,9 +53,9 @@ const ShopProduct = () => {
                     </div>
                     <div>
                         <ShopProductIcon
-                        productImage={galleryImages[1]}
-                        productPrice={99.99}
-                        productTitle={"Default Product"}
+                            productImage={galleryImages[1]}
+                            productPrice={99.99}
+                            productTitle={"Default Product"}
                         />
                     </div>
                 </div>
@@ -64,7 +63,5 @@ const ShopProduct = () => {
         </div>
     )
 };
-
-
 
 export default ShopProduct;

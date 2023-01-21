@@ -61,7 +61,7 @@
 //                 </a>
 //             </div>
 
-//             <div className="app__navbar-smallscreen">
+//             {/* <div className="app__navbar-smallscreen">
 //                 <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
 //                 {toggleMenu && (
 //                     <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
@@ -81,7 +81,7 @@
 //                         </ul>
 //                     </div>
 //                 )}
-//             </div>
+//             </div> */}
 //         </nav>
 //     );
 // };
@@ -90,40 +90,48 @@
 
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { MdOutlineRestaurantMenu } from 'react-icons/md';
+import { FaShoppingCart } from 'react-icons/fa';
+import { MdSearch, MdAccountCircle, MdOutlineRestaurantMenu } from 'react-icons/md';
 
 import images from '../../constants/images';
-// import './Navbar.css';
+import './Navbar.css';
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = React.useState(false);
     return (
         <nav className="app__navbar">
             <div className="app__navbar-logo">
-                <img src={images.gericht} alt="app__logo" />
+                <img src={images.logo} alt="app__logo" />
             </div>
 
             <ul className="app__navbar-links">
-                <li className="p__opensans">
+                <li className="p__opensans-nav">
                     <a href="#home">Home</a>
                 </li>
 
-                <li className="p__opensans">
+                <li className="p__opensans-nav">
                     <a href="#shop">Shop</a>
                 </li>
 
-                <li className="p__opensans">
+                <li className="p__opensans-nav">
                     <a href="#about">About Us</a>
                 </li>
             </ul>
 
-            <div className="app__navbar-login">
-                <a href="#login" className="p__opensans">
-                    Cart
+            <div className="app__navbar-input">
+                <input type='email' placeholder='' />
+
+                <a href="#login" className="app__navbar-icons">
+                    <MdSearch />
                 </a>
-                <div />
-                <a href="#login" className="p__opensans">
-                    Account
+            </div>
+            <div className="app__navbar-login">
+                <a href="#login" className="app__navbar-icons">
+                    <FaShoppingCart />
+                </a>
+
+                <a href="#login" className="app__navbar-icons">
+                    <MdAccountCircle />
                 </a>
             </div>
 
@@ -160,4 +168,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar; 
+export default Navbar;

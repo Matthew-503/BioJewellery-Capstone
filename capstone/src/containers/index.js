@@ -16,27 +16,32 @@ import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
-import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-import ShopCategory from './ShopCategory/ShopCategory';
-import ProductDetail from './ProductDetail/ProductDetail';
-import ShopProduct from './ShopProduct/ShopProduct';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
-import Blog from './blog/Blog';
 import Follow from './FollowUs/Follow';
 import Video from './Video/Video';
 
+import Blog from './Blog/Blog';
+import ShopProduct from './ShopProduct/ShopProduct';
+import ProductDetail from './ProductDetail/ProductDetail';
+
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
+
+// import ShopCategory from './ShopCategory/ShopCategory';
 
 export {
   Header,
   Gallery,
   Benefits,
-  Footer,
-  OrderConfirmation,
-  ShopCategory,
-  ProductDetail,
-  ShopProduct,
-  ShoppingCart,
-  Blog,
   Follow,
   Video,
+  Footer,
+
+  Blog,
+  ShopProduct,
+  ProductDetail,
+
+  ShoppingCart,
+  OrderConfirmation,
+
+  // ShopCategory,
 };
