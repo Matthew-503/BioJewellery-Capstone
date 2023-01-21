@@ -33,6 +33,16 @@ import EditProduct from "./EditProduct/EditProduct";
 // import MenuItem from './Menuitem/MenuItem';
 // import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
+// import Newsletter from './Footer/Newsletter';
+
+// import FooterOverlay from './Footer/FooterOverlay';
+// import MenuItem from './Menuitem/MenuItem';
+
+
+// import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
+
+
+
 export {
 
     Navbar,
@@ -40,10 +50,9 @@ export {
 
     Article,
 
+    CartItem,
     Rating,
     ReviewBlock,
-
-    CartItem,
 
     EmployeeMenu,
     Uploader,

@@ -12,6 +12,7 @@
 // Notes: The animation of the logo will be done soon
 // Notes: Styling of the search area will be modified soon
 
+
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';

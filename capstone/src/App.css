@@ -69,7 +69,7 @@
     cursor: pointer;
 }
 
-/* .custom__button-submit {
+.custom__button-submit {
     background-color: #70908B;
     color: var(--color-white);
     font-family: var(--font-alt);
@@ -82,9 +82,9 @@
     border: none;
     outline: none;
     cursor: pointer;
-} */
+}
 
-/* .custom__button-checkout {
+.custom__button-checkout {
     background-color: #70908B;
     color: var(--color-white);
     font-family: var(--font-alt);
@@ -97,7 +97,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-} */
+}
 
 .p__cormorant {
     font-family: var(--font-base);
