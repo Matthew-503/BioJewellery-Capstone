@@ -9,7 +9,7 @@ function Uploader () {
     const [image, setImage] = useState(null)
     const [fileName, setFileName] = useState("No Selected file")
     return (
-        <main>
+        <div>
             <form 
             onClick={() => document.querySelector(".input-field").click()}
             >
@@ -43,7 +43,7 @@ function Uploader () {
                     </span>
                 </section>
 
-        </main>
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './AddProduct.css';
 
 class AddProduct extends Component {
@@ -6,7 +6,7 @@ class AddProduct extends Component {
     render() 
     { 
         return(
-            <div className='flex__center'>
+            <div className="flex__center">
             <form>
             <h1>Add Product</h1>
             <p>Product Information</p>
@@ -31,8 +31,8 @@ class AddProduct extends Component {
                 </label>
                 
                 <div>
-                    <button className='custom__button' >Save</button>
-                    <button className='custom__button'>Cancel</button>  
+                    <button className="custom__button" >Save</button>
+                    <button className="custom__button">Cancel</button>  
                 </div>             
             </form>     
             </div>

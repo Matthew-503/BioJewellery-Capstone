@@ -30,7 +30,7 @@ const EmployeeMenu = () => {
     return (
         <div className="employee__menu" class="employee">
 
-            <li className="employee__text">
+            <div className="employee__text">
 
                     <div className="employee__photo">
                         <CgProfile color='#818181' size={120} />
@@ -75,7 +75,7 @@ const EmployeeMenu = () => {
                         <div className="e__products">    
                             <a href="#Products">Mange Products</a>
                         </div>
-            </li>
+            </div>
         </div>  
     )
 }

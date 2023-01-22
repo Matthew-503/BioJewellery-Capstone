@@ -19,7 +19,7 @@ import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
 import Video from './Video/Video';
 
-import Blog from './Blog/Blog';
+import Blog from './blog/Blog';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
 

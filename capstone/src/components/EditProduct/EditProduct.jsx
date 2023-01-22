@@ -6,7 +6,7 @@ class EditProduct extends Component {
     render() 
     { 
         return(
-            <div className='flex__center'>
+            <div className="flex__center">
             <form>
             <h1>Edit Product</h1>
             <p>Product Information</p>
@@ -31,8 +31,8 @@ class EditProduct extends Component {
                 </label>
                 
                 <div>
-                    <button className='custom__button' >Save</button>
-                    <button className='custom__button'>Cancel</button>  
+                    <button className="custom__button" >Save</button>
+                    <button className="custom__button">Cancel</button>  
                 </div>             
             </form>     
             </div>
