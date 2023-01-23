@@ -53,7 +53,7 @@ const Benefits = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    You have a warrenty within 1 year of purhcace
+                    You have a warrenty within 1 year of purchace
                 </p>
             </div>
 
