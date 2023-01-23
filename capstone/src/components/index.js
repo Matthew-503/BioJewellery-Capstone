@@ -14,14 +14,15 @@
 
 import SubHeading from './SubHeading/SubHeading';
 import Navbar from './Navbar/Navbar';
+// import Article from './Article/Article';
+
+import Rating from './Rating/Rating';
+import ReviewBlock from './ReviewBlock/ReviewBlock';
 
 import CartItem from './CartItem/CartItem';
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import AdminMenu from './AdminMenu/AdminMenu';
 // import Newsletter from './Footer/Newsletter';
-
-
-import Article from './article/Article';
 
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
@@ -29,7 +30,9 @@ import Article from './article/Article';
 
 export {
     SubHeading,
+
     Navbar,
+    // Article,
 
     CartItem,
     EmployeeMenu,

@@ -28,8 +28,6 @@ const App = () => (
         {/*
         <Header />
         <Gallery />
-        <Video />
-        <Follow />
         <Benefits />
 
         <Footer /> 
