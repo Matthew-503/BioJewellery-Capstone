@@ -21,7 +21,7 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 
 import Blog from './blog/Blog';
 import Follow from './FollowUs/Follow';
-import Video from './Video/Video';
+//import Video from './Video/Video';
 
 
 export {
@@ -34,7 +34,6 @@ export {
 
   Blog,
   Follow,
-  Video,
 
 
 };
