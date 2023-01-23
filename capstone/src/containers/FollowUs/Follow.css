@@ -18,7 +18,7 @@
 }
 
 
-.app__follow-headtext {
+.follow__h1 {
     font-family: var(--font-base);
     color: var(--color-black);
 
@@ -26,15 +26,9 @@
     line-height: 83.2px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
-    margin-top: 3rem;
-
-
 }
 
-
-
-
-.app__follow-headtext-p {
+.follow__p {
     font-family: var(--font-alt);
     color: var(--color-black);
     font-weight: 500;
@@ -45,7 +39,7 @@
     margin: 0;
 }
 
-.app__header-section {
+.follow__context {
     text-align: center;
 }
 
@@ -68,11 +62,11 @@
 }
 
 
-.app__follow-links_icons {
+.app__card-links-icons {
     margin-top: 0.5rem;
 }
 
-.app__follow-links_icons svg {
+.app__card-links-icons svg {
     color: var(--color-black);
     margin: rem;
     font-size: 90px;

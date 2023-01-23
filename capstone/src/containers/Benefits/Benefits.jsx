@@ -22,55 +22,51 @@ import { SubHeading } from '../../components';
 import './Benefits.css';
 
 const Benefits = () => (
-    <div className='app__benefits section__padding' id='login'>
+    <div className='app__benefits app__section-padding' id='benefits'>
 
-        {/* <h1 className="app__benefits-headtext">
+        <h1 className="benefits__h1">
             Benefits for your expendicy
-        </h1> */}
+        </h1>
 
-
-        <SubHeading title="Benefits For Your Expendicy" />
-
-
-        <div className='app__benefits-links'>
-            <div className='app__benefits-links_work'>
-                <div className='app__benefits-links_icons'>
+        <div className='app__card-links'>
+            <div className='app__card-links-align'>
+                <div className='app__card-links_icons'>
                     <MdPayment />
                 </div>
 
-                <h1 className='app__benefits-title'>
+                <h1 className='benefits__title'>
                     Payment Method
                 </h1>
 
-                <p className='app__benefits-paragraph'>
+                <p className='benefits__p'>
                     We offer multiple payment methods including crypto currency
                 </p>
             </div>
 
-            <div className='app__benefits-links_work'>
-                <div className='app__benefits-links_icons'>
+            <div className='app__card-links-align'>
+                <div className='app__card-links_icons'>
                     <FiPackage />
                 </div>
 
-                <h1 className='app__benefits-title'>
+                <h1 className='benefits__title'>
                     Warranty Policy
                 </h1>
 
-                <p className='app__benefits-paragraph'>
+                <p className='benefits__p'>
                     You have a warrenty within 1 year of purhcace
                 </p>
             </div>
 
-            <div className='app__benefits-links_work'>
-                <div className='app__benefits-links_icons'>
+            <div className='app__card-links-align'>
+                <div className='app__card-links_icons'>
                     <BiSupport />
                 </div>
 
-                <h1 className='app__benefits-title'>
+                <h1 className='benefits__title'>
                     Customer Support
                 </h1>
 
-                <p className='app__benefits-paragraph'>
+                <p className='benefits__p'>
                     Our customer support is 24/7
                 </p>
             </div>

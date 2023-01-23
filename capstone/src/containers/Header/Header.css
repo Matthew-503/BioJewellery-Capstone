@@ -1,9 +1,9 @@
-.app__header {
+.header {
     background-color: var(--color-white);
     background: linear-gradient(90deg, rgba(204, 228, 228, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-.app__header-h1 {
+.header__h1 {
     font-family: var(--font-base);
     color: var(--color-green);
     letter-spacing: 0.017em;
@@ -13,14 +13,10 @@
     width: 82%;
 }
 
-/* capstone/src/assets/header-image.JPG */
 .image {
     width: 100%;
     height: 50%;
     margin-bottom: 20px;
-    /* object-position: top 100px; */
-    /* background-image: './capstone/src/assets/headerImage.png';
-    */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat; 
@@ -29,17 +25,16 @@
 .overlay {
     width: 100%;
     height: 50%;
-    background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(204, 228, 228, 1) 0%, rgba(255, 255, 255, 0.475) 37%);
     z-index: 1;
 }
 
-.app__aboutus-overlay {
+.header-overlay {
     position: absolute;
     inset: 0;
 }
 
-.app__aboutus-overlay img {
+.header-overlay img {
     width: 100%;
     height: 150%;
     z-index: -1;

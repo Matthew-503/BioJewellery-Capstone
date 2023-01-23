@@ -1,8 +1,8 @@
-.section__padding {
+.app__section-padding {
     padding: 4rem 6rem;
 }
 
-.flex__center {
+.app__flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     min-height: 100vh;
 }
 
-.app__wrapper_info {
+.app__wrapper-info {
     flex: 1;
     width: 100%;
     display: flex;
@@ -54,7 +54,7 @@
     width: 80%;
 }
 
-.custom__button {
+.app__button {
     background-color: var(--color-green);
     color: var(--color-white);
     font-family: var(--font-alt);
@@ -69,7 +69,7 @@
     cursor: pointer;
 }
 
-.custom__button-submit {
+.button-submit {
     background-color: #70908B;
     color: var(--color-white);
     font-family: var(--font-alt);
@@ -84,7 +84,7 @@
     cursor: pointer;
 }
 
-.custom__button-checkout {
+.button-checkout {
     background-color: #70908B;
     color: var(--color-white);
     font-family: var(--font-alt);
@@ -110,9 +110,9 @@
     font-size: 23px;
 }
 
-.p__opensans {
+.app__p {
     font-family: var(--font-alt);
-    color: var(--color-black);
+    color: var(--color-green);
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: capitalize;
@@ -134,17 +134,49 @@
     width: 45px;
 }
 
+.app__card-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 
+    margin-top: 5rem;
+    padding: 0 2rem;
+}
+
+.app__card-links_contact,
+.app__card-links_logo,
+.app__card-links-align {
+    flex: 1;
+    margin: 1rem;
+    text-align: center;
+}
+
+.app__card-links_logo img:first-child {
+    width: 210px;
+    margin-bottom: 0.75rem;
+}
+
+.app__card-links_icons {
+    margin-top: 0.5rem;
+}
+
+.app__card-links_icons svg {
+    color: var(--color-black);
+    margin: .5rem;
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+}
 
 @media screen and (min-width: 2000px) {
 
-    .custom__button,
+    .button,
     .p__cormorant {
         font-size: 37px;
         line-height: 67px;
     }
 
-    .p__opensans {
+    .app__p {
         font-size: 30px;
         line-height: 50px;
     }
@@ -178,13 +210,13 @@
 }
 
 @media screen and (max-width: 850px) {
-    .section__padding {
+    .app__section-padding {
         padding: 4rem;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .section__padding {
+    .app__section-padding {
         padding: 4rem 2rem;
     }
 
@@ -192,13 +224,13 @@
         font-size: 21px;
     }
 
-    .p__opensans {
+    .app__p {
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .p__opensans {
+    .app__p {
         font-size: 12px;
     }
 

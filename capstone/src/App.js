@@ -14,7 +14,7 @@
 // Notes: Have figured out which component is causing issues
 
 import React from 'react';
-import { Navbar, AddProduct, EditProduct, EmployeeMenu,Uploader } from './components';
+import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
 import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart } from './containers';
 // components are things that are reused in multiple containers
 
@@ -28,39 +28,39 @@ const App = () => (
         <Header />
         <Gallery />
         <Video />
-        <Follow />
         <Benefits />
+        <Follow />
         <Footer />
 
 
-        <Navbar />
-        <Blog />
+        {/* <Navbar /> */}
+        {/* <Blog /> */}
 
-        <Navbar />
-        <ShopProduct />
+        {/* <Navbar /> */}
+        {/* <ShopProduct /> */}
 
-        <Navbar />
-        <ProductDetail />
+        {/* <Navbar /> */}
+        {/* <ProductDetail /> */}
 
-        <Navbar />
-        <OrderConfirmation />
+        {/* <Navbar /> */}
+        {/* <OrderConfirmation /> */}
 
-        <Navbar />
-        <ShoppingCart />
+        {/* <Navbar /> */}
+        {/* <ShoppingCart /> */}
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}
-        <Navbar />
-        <Uploader /> 
+        {/* <Navbar />
+        <Uploader />  */}
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-         <AddProduct /> 
+        {/* <AddProduct />  */}
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        <EditProduct /> 
+        {/* <EditProduct />  */}
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        <EmployeeMenu />
+        {/* <EmployeeMenu /> */}
     </div>
 );
 
