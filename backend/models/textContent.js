@@ -7,4 +7,4 @@ const textContentSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('textContent', textContentSchema);
+module.exports = mongoose.model('TextContent', textContentSchema);

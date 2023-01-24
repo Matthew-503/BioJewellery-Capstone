@@ -10,3 +10,5 @@ const productImages = new mongoose.Schema({
         ref: 'Product'
     }
 });
+
+module.exports = mongoose.model('ProductImages', productImages);
