@@ -18,43 +18,43 @@ import React from 'react';
 import { Article } from '../../components';
 // import { SubHeading } from '../../components';
 
-import { blog02, blog03, blog04, blog05 } from './imports.js';
+import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
 
 
 import './Blog.css';
 
 const Blog = () => {
     return (
-        <div className="gpt3__blog section__padding" id="blog">
+        <div className="category__blog category__section-padding" id="blog">
 
             {/* <SubHeading title="Chef's word" /> */}
 
-            <div className="gpt3__blog-container">
-                <div className="gpt3__blog-container_groupB">
+            <div className="category__blog-container">
+                <div className="category__blog-container_groupB">
                     <Article
 
-                        imgUrl={blog02}
+                        imgUrl={gallery02}
 
                         text="Popular"
                     />
 
                     <Article
 
-                        imgUrl={blog03}
+                        imgUrl={gallery03}
 
                         text="Trending"
                     />
 
                     <Article
 
-                        imgUrl={blog04}
+                        imgUrl={gallery04}
 
                         text="Most Saved"
                     />
 
                     <Article
 
-                        imgUrl={blog05}
+                        imgUrl={gallery01}
 
                         text="On Sale"
                     />

@@ -23,18 +23,18 @@ import './App.css';
 const App = () => (
     <div>
 
-        <Navbar />
-        {/* Header causing navbar styling to fail */}
-        <Header />
-        <Gallery />
-        <Video />
-        <Benefits />
-        <Follow />
-        <Footer />
-
-
         {/* <Navbar /> */}
-        {/* <Blog /> */}
+        {/* Header causing navbar styling to fail */}
+        {/* <Header /> */}
+        {/* <Gallery /> */}
+        {/* <Video /> */}
+        {/* <Benefits /> */}
+        {/* <Follow /> */}
+        {/* <Footer /> */}
+
+
+        <Navbar />
+        <Blog />
 
         {/* <Navbar /> */}
         {/* <ShopProduct /> */}
