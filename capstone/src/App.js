@@ -15,7 +15,7 @@
 
 import React from 'react';
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart } from './containers';
+import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, ShopCategory } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -23,18 +23,18 @@ import './App.css';
 const App = () => (
     <div>
 
-        {/* <Navbar /> */}
+        <Navbar />
         {/* Header causing navbar styling to fail */}
-        {/* <Header /> */}
-        {/* <Gallery /> */}
-        {/* <Video /> */}
-        {/* <Benefits /> */}
-        {/* <Follow /> */}
-        {/* <Footer /> */}
+        <Header />
+        <Gallery />
+        <Video />
+        <Benefits />
+        <Follow />
+        <Footer />
 
 
         <Navbar />
-        <Blog />
+        <ShopCategory />
 
         {/* <Navbar /> */}
         {/* <ShopProduct /> */}
