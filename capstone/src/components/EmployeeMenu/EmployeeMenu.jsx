@@ -18,7 +18,7 @@ import React from 'react';
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { TbGridDots } from "react-icons/tb";
-    import { ImParagraphLeft } from "react-icons/im";
+import { ImParagraphLeft } from "react-icons/im";
 import { BsPersonCheckFill } from "react-icons/bs";
 import { HiPencilAlt } from "react-icons/hi"; 
 

@@ -47,7 +47,7 @@ const App = () => (
                  <Route index element={<HomeAdmin />} />              
             </Route> */}
 
-            {/* Route spec for the Login Page
+            {/* Route specifications for the Login Page
                 <Route path="/login" element={<LoginTemplate />}>
                 <Route index element={<Blog />} /> 
                 <Route path=":cat" element={<ShopProduct />} />  
