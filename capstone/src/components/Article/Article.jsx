@@ -1,7 +1,9 @@
 import React from 'react';
 import './Article.css';
+import { Link, useParams } from "react-router-dom"
 
-const Article = ({ imgUrl, text }) => {
+const Article = ({ imgUrl, text, link }) => {
+    const {id} = useParams()
     return (
         <>
             <div className="gpt3__blog-container_article">
@@ -15,7 +17,7 @@ const Article = ({ imgUrl, text }) => {
                     </div>
 
                     <button class='click__button'>
-                        Click
+                        <Link to={link}>Click</Link>
                     </button>
 
                 </div>

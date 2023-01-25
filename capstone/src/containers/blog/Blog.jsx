@@ -36,6 +36,8 @@ const Blog = () => {
                         imgUrl={blog02}
 
                         text="Popular"
+
+                        link="/categories/popular"
                     />
 
                     <Article
@@ -43,6 +45,8 @@ const Blog = () => {
                         imgUrl={blog03}
 
                         text="Trending"
+
+                        link="/categories/trending"
                     />
 
                     <Article
@@ -50,6 +54,9 @@ const Blog = () => {
                         imgUrl={blog04}
 
                         text="Most Saved"
+
+                        link="/categories/saved"
+
                     />
 
                     <Article
@@ -57,6 +64,9 @@ const Blog = () => {
                         imgUrl={blog05}
 
                         text="On Sale"
+
+                        link="/categories/sale"
+
                     />
                 </div>
             </div>

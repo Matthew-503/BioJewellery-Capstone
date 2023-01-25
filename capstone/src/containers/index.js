@@ -25,7 +25,7 @@ import ProductDetail from './ProductDetail/ProductDetail';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-
+import Home from './Home/Home';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 export {
@@ -35,7 +35,7 @@ export {
   Follow,
   Video,
   Footer,
-
+  Home,
   Blog,
   ShopProduct,
   ProductDetail,

@@ -73,7 +73,7 @@ const EmployeeMenu = () => {
                     </div>
                     
                         <div className="e__products">    
-                            <a href="#Products">Mange Products</a>
+                            <a href="#Products">Manage Products</a>
                         </div>
             </div>
         </div>  

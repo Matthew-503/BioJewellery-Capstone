@@ -3,7 +3,7 @@ import { images } from '../../constants';
 import './Product.css';
 import { Rating, ReviewBlock } from '../../components';
 
-
+import { Link } from "react-router-dom";
 const productImage = images.gallery01;
 
 /*
@@ -49,9 +49,12 @@ const ProductDetail = () => {
                 <p>{description == null ? "This is the default description of the product" : description}</p>
             </div>
 
-            <button className="custom__button">
-                Add to Cart
-            </button>
+            <Link to="/cart">
+                <button className="custom__button">
+                    Add to Cart
+                </button>
+            </Link>
+            
             <div className="">
                 <div className="app__benefits-headtext">
                     <h3>Product Information</h3>
