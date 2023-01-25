@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart } from './containers';
+import { Home, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -24,21 +24,25 @@ import './App.css';
 const App = () => (
     <div>
         
-        <Navbar />
+        
         <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/home" element={<Home />}/>
-            <Route path="/categories">
-                <Route index element={<Blog />} /> 
-                <Route path=":cat" element={<ShopProduct />} />              
-            </Route>
-            <Route path="/products">
-                <Route index element={<ShopProduct />} /> 
-                <Route path=":product" element={<ProductDetail />} />              
+            <Route path="/" element={<UserNavigation />}>
+                <Route index element={<Home />} /> 
+                <Route path="/home" element={<Home />}/>
+                <Route path="/categories">
+                    <Route index element={<Blog />} /> 
+                    <Route path=":cat" element={<ShopProduct />} />              
+                </Route>
+                <Route path="/products">
+                    <Route index element={<ShopProduct />} /> 
+                    <Route path=":product" element={<ProductDetail />} />              
+                </Route>
+                
+                <Route path="/cart" element={<ShoppingCart />}/>
+                <Route path="/checkout" element={<OrderConfirmation />}/>
+
             </Route>
             
-            <Route path="/cart" element={<ShoppingCart />}/>
-            <Route path="/checkout" element={<OrderConfirmation />}/>
 
             <Route path="/add" element={<AddProduct />} />      
             <Route path="/editproduct" element={<EditProduct />} />
@@ -60,7 +64,7 @@ const App = () => (
              <Route path="*" element={<NotFound />}/> 
             */}
         </Routes>
-        <Footer />
+       
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}

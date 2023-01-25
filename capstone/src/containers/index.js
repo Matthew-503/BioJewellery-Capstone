@@ -11,7 +11,6 @@
 
 // Notes: updated the sequence
 
-
 import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
@@ -26,6 +25,7 @@ import ProductDetail from './ProductDetail/ProductDetail';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import Home from './Home/Home';
+import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 export {
@@ -42,6 +42,7 @@ export {
 
   ShoppingCart,
   OrderConfirmation,
+  UserNavigation
 
   // ShopCategory,
 };  
