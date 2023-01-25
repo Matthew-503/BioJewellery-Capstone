@@ -56,6 +56,7 @@ const ShopProduct = () => {
                             productImage={galleryImages[1]}
                             productPrice={99.99}
                             productTitle={"Default Product"}
+                            productLink={"/products/product1"}
                         />
                     </div>
                 </div>

@@ -11,6 +11,7 @@
 // customerTitle: String -- Title of the review
 // customerDescription: String -- Description of the review
 // reviewStarRating: int -- Amount of stars of the review
+// reviewLink: string -- Link for product
 // Output
 // ReviewBlock component
 
@@ -18,13 +19,15 @@ import React from 'react';
 
 // import images from '../../constants/images';
 import './ShopProductIcon.css';
+import { Link, useParams } from "react-router-dom"
 
-const ShopProductIcon = ({ productImage,productTitle, productPrice }) => {
+const ShopProductIcon = ({ productImage,productTitle, productPrice, productLink }) => {
+    //it will be used too know what produuct it is being stored under product in the URL
+    const {product} = useParams()
     return (
-        
         <div>
             <div>
-                <img src={productImage} alt="" />
+                <Link to={productLink}><img src={productImage} alt="" /></Link>
             </div>
            <div>
                 <p>{productTitle}</p>

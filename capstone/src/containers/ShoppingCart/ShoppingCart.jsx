@@ -14,7 +14,7 @@
 
 import React from 'react';
 import { CartItem } from '../../components';
-
+import { Link} from "react-router-dom"
 import './ShoppingCart.css';
 
 const ShoppingCart = () => (
@@ -26,9 +26,12 @@ const ShoppingCart = () => (
         <div className="shop__subtotal">
             <h3 className="shop__subtotal-text">Subtotal:</h3>
 
-            <button type='button' className='custom__button-checkout'>
-                Proceed to Checkout
-            </button>
+            <Link to="/checkout">
+                <button type='button' className='custom__button-checkout'>
+                    Proceed to Checkout
+                </button>
+            </Link>
+            
         </div>
 
         <div className="shop__cartbody">

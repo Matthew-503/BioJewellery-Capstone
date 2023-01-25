@@ -16,6 +16,7 @@
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
+import { NavLink, Link } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineRestaurantMenu } from 'react-icons/md';
 
 import images from '../../constants/images';
@@ -31,15 +32,15 @@ const Navbar = () => {
 
             <ul className="navbar-links">
                 <li className="navbar-p">
-                    <a href="#home">Home</a>
+                    <NavLink to="/home">Home</NavLink>
                 </li>
 
                 <li className="navbar-p">
-                    <a href="#shop">Shop</a>
+                    <NavLink to="/categories">Shop</NavLink>
                 </li>
 
                 <li className="navbar-p">
-                    <a href="#about">About Us</a>
+                    <NavLink to="/about">About Us</NavLink>
                 </li>
             </ul>
 
@@ -55,9 +56,9 @@ const Navbar = () => {
                     <FaShoppingCart />
                 </a>
 
-                <a href="#login" className="navbar-icons">
+                <Link to="/add" className="navbar-icons">
                     <MdAccountCircle />
-                </a>
+                </Link>
             </div>
 
             <div className="navbar-smallscreen">
