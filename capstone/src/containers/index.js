@@ -38,9 +38,9 @@ export {
 
 
   ShopCategory,
-  
+
   ProductDetail,
-  ShopProduct
+  ShopProduct,
 
   ShoppingCart,
 

@@ -12,35 +12,35 @@
 // Notes: 
 
 
-import SubHeading from './SubHeading/SubHeading';
 import Navbar from './Navbar/Navbar';
+import SubHeading from './SubHeading/SubHeading';
 
-import CartItem from './CartItem/CartItem';
-import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
-// import Newsletter from './Footer/Newsletter';
-
-
-import Article from './article/Article';
-
-// import FooterOverlay from './Footer/FooterOverlay';
-// import MenuItem from './Menuitem/MenuItem';
+import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
+import CartItem from './CartItem/CartItem';
 import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
-import Article from './Article/Article';
+
+import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+
+// import Newsletter from './Footer/Newsletter';
+// import FooterOverlay from './Footer/FooterOverlay';
+// import MenuItem from './Menuitem/MenuItem';
 
 
 export {
     SubHeading,
     Navbar,
-Rating,
+
+    Article,
+
+    Rating,
     ReviewBlock,
     ShopProductIcon,
     CartItem,
-    EmployeeMenu,
 
-    Article,
+    EmployeeMenu,
 
     // Newsletter,
     // FooterOverlay,

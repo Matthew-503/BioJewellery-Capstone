@@ -20,30 +20,30 @@ import './App.css';
 
 import { Navbar, EmployeeMenu } from './components';
 
-import { Header, Gallery, Benefits, Footer, ShoppingCart , Blog, Follow, Video, ProductDetail, ShopProduct } from './containers';
+import { Header, Gallery, Benefits, Footer, ShoppingCart, Blog, Follow, Video, ProductDetail, ShopProduct } from './containers';
 // components are things that are reused in multiple containers
 
 const App = () => (
     <div>
-        
-        <Header />
-        <Gallery />
-        <Video />
-        <Follow />
-        <Benefits />
+        {/* <Navbar /> */}
+        {/* <Header /> */}
+        {/* <Gallery /> */}
+        {/* <Video /> */}
+        {/* <Benefits /> */}
+        {/* <Follow /> */}
+        {/* <Footer /> */}
 
-        <Footer /> 
-        <ShoppingCart />
-        <EmployeeMenu />
+        {/* <Navbar /> */}
+        {/* <Blog /> */}
 
-        <Footer />
-
-        <Navbar />
-        <Blog />
-
-       
         <Navbar />
         <ProductDetail />
+
+        {/* <Navbar /> */}
+        {/* <ShoppingCart /> */}
+
+        {/* <Navbar /> */}
+        {/* <EmployeeMenu /> */}
 
 
     </div>
