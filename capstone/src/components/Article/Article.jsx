@@ -6,11 +6,11 @@ const Article = ({ imgUrl, text, link }) => {
     const {id} = useParams()
     return (
         <>
-            <div className="gpt3__blog-container_article">
-                <div className="gpt3__blog-container_article-image">
+            <div className="card__blog-container_article">
+                <div className="card__blog-container_article-image">
                     <img src={imgUrl} alt="blog" />
 
-                    <div class='text-on-image'>
+                    <div class='card__blog-container_article-content'>
                         <h3 >
                             {text}
                         </h3>
