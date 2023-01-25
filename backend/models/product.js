@@ -40,6 +40,11 @@ const productSchema = new mongoose.Schema({
         require:false,
         default:false
     },
+    isVisible: {
+        type:Boolean,
+        require:true,
+        default:true
+    },
     salePercent: {
         type:Number,
         require:false,
