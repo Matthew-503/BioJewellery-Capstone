@@ -11,42 +11,84 @@
 // Output
 // ShopProduct Container
 
+
 import React from 'react';
 
-import ShopProductIcon from '../../components/ShopProductIcon/ShopProductIcon';
-import { images } from '../../constants';
+import { ProductItems } from '../../components';
+// import { SubHeading } from '../../components';
+
+import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
+
 
 import './ShopProduct.css';
 
-const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
-
 const ShopProduct = () => {
-
     return (
-        <div>
-            <div>
-                <h1>Products</h1>
-            </div>
-            <div>
-                <h3>Filter by: </h3>
-            </div>
-            <div>
-                <div className="app__gallery-images">
-                    <div>
-                        <h5>Products</h5>
-                    </div>
-                    <br />
-                    <div>
-                        <ShopProductIcon
-                            productImage={galleryImages[1]}
-                            productPrice={99.99}
-                            productTitle={"Default Product"}
-                        />
-                    </div>
+        <div className="product product__section-padding" id="blog">
+
+            {/* <SubHeading title="Chef's word" /> */}
+
+            <div className="product__container">
+                <div className="product__container-card">
+                    <ProductItems
+
+                        imgUrl={gallery02}
+                        text="Popular"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery03}
+                        text="Trending"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery04}
+                        text="Most Saved"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery01}
+                        text="On Sale"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery02}
+                        text="Popular"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery03}
+                        text="Trending"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery04}
+                        text="Most Saved"
+                        price={100}
+                    />
+
+                    <ProductItems
+
+                        imgUrl={gallery01}
+                        text="On Sale"
+                        price={100}
+                    />
                 </div>
             </div>
         </div>
     )
-};
+}
 
-export default ShopProduct;
+export default ShopProduct
