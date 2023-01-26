@@ -1,0 +1,13 @@
+.feed__content-box {
+    padding: 2rem;
+    overflow-y: "auto";
+    height: "90vh";
+    flex: 2;
+}
+
+.feed__content-title {
+    font-weight: bold;
+    color: var(--color-darkgreen);
+    margin-bottom: 2rem;
+    font-size: 100px;
+}

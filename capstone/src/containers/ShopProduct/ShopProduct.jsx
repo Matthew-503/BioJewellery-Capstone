@@ -29,28 +29,13 @@ const ShopProduct = () => {
             </div>
             <div>
                 <h3>Filter by: </h3>
-                <ul className="">
-                    <li className="">
-                        <button>ASC</button>
-                    </li>
-
-                    <li className="">
-                        <button>DSC</button>
-                    </li>
-
-                    <li className="">
-                        <button>Price</button>
-                    </li>
-                    <li className="">
-                        <button>Brand</button>
-                    </li>
-                </ul>
             </div>
             <div>
                 <div className="app__gallery-images">
                     <div>
                         <h5>Products</h5>
                     </div>
+                    <br />
                     <div>
                         <ShopProductIcon
                             productImage={galleryImages[1]}

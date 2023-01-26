@@ -23,6 +23,9 @@ import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
 
+import Feed from './Feed/Feed';
+import Videos from './Videos/Videos'
+
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 
@@ -39,6 +42,9 @@ export {
   ShopCategory,
   ShopProduct,
   ProductDetail,
+
+  Feed,
+  Videos,
 
   ShoppingCart,
   OrderConfirmation,
