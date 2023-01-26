@@ -19,7 +19,7 @@ import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, Pr
 // components are things that are reused in multiple containers
 
 import './App.css';
-import SideBar from './components/SideBar/SideBar';
+// import SideBar from './components/SideBar/SideBar';
 
 const App = () => (
     <div>
@@ -30,12 +30,12 @@ const App = () => (
         {/* <Gallery /> */}
         {/* <Video /> */}
         {/* <Benefits /> */}
-        <Follow />
+        {/* <Follow /> */}
         {/* <Footer /> */}
 
 
         {/* <Navbar /> */}
-        <ShopCategory />
+        {/* <ShopCategory /> */}
 
         {/* <Navbar /> */}
         {/* <SideBar /> */}

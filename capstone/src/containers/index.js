@@ -17,14 +17,13 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
-import Video from './Video/Video';
+// import Video from './Video/Video';
 
 import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
 
 import Feed from './Feed/Feed';
-import Videos from './Videos/Videos'
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
@@ -36,7 +35,7 @@ export {
   Gallery,
   Benefits,
   Follow,
-  Video,
+  // Video,
   Footer,
 
   ShopCategory,
@@ -44,7 +43,6 @@ export {
   ProductDetail,
 
   Feed,
-  Videos,
 
   ShoppingCart,
   OrderConfirmation,

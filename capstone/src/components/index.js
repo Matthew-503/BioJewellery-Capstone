@@ -25,6 +25,7 @@ import CartItem from './CartItem/CartItem';
 
 // import SideBar from './SideBar/SideBar';
 import SideBar from './SideBar/SideBar';
+import ProductItems from './ProductItems/ProductItems';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import Uploader from "./Uploader/Uploader";
@@ -58,6 +59,7 @@ export {
     ReviewBlock,
 
     SideBar,
+    ProductItems,
     // SideBar,
 
     EmployeeMenu,
