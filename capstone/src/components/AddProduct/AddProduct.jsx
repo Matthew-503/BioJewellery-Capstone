@@ -3,6 +3,17 @@ import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
 import Uploader from '../Uploader/Uploader';
 import './AddProduct.css';
 
+// Author: Buola Achor
+// Version 0.1
+// Date: 18/1/2023
+
+// Description: This is the add product employee page. 
+// Precondition: Must be connected and be able to add to the database also have the uploader component
+// Postcondition: nothing
+
+// Input: User Product Specifications, 
+// Output: Page
+
 class AddProduct extends Component {
    
     render() 
