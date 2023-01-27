@@ -20,6 +20,7 @@ import { Home, Footer, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCa
 // components are things that are reused in multiple containers
 
 import './App.css';
+// import SideBar from './components/SideBar/SideBar';
 
 const App = () => (
     <div>
