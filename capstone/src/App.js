@@ -14,7 +14,7 @@
 // Notes: Have figured out which component is causing issues
 
 import React from 'react';
-import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
+import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader, SideBar } from './components';
 import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, ShopCategory, Feed } from './containers';
 // components are things that are reused in multiple containers
 
@@ -25,7 +25,7 @@ const App = () => (
     <div>
 
         {/* <Navbar /> */}
-        {/* Header causing navbar styling to fail: z-index*/}
+        {/* Header causing navbar styling to fail: z-index */}
         {/* <Header /> */}
         {/* <Gallery /> */}
         {/* <Video /> */}
