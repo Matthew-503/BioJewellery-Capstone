@@ -19,6 +19,7 @@ import Navbar from './Navbar/Navbar';
 
 import CartItem from './CartItem/CartItem';
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+// import AdminMenu from './AdminMenu/AdminMenu';
 
 // import Newsletter from './Footer/Newsletter';
 
@@ -39,13 +40,13 @@ export {
     SubHeading,
 
     Navbar,
-Rating,
+    Rating,
     ReviewBlock,
     ShopProductIcon,
     CartItem,
     EmployeeMenu,
 
-    Article
+    // AdminMenu,
 
     // Newsletter,
     // FooterOverlay,

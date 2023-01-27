@@ -37,9 +37,7 @@ export {
   Benefits,
   Footer,
 
-  OrderConfirmation
-
-
+  OrderConfirmation,
 
   ShopCategory,
   
@@ -47,9 +45,11 @@ export {
   ShopProduct,
 
   ShoppingCart,
-
   Blog,
   Follow,
   Video,
+
+  AddProduct,
+  EditProduct,
 
 };
