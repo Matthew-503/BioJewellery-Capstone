@@ -1,2 +1,104 @@
+.flex__center {
+    color: #0b3435;
+    margin-left: 300px;
+}
 
+.add__title {
+    font-size: 50px;
+}
+
+.add__name {
+    padding-left: 6rem;
+    padding-top: 7rem;
+
+}
+
+.add__product-info {
+    padding-top: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 1rem;
+}
+
+.add__product-name {
+    padding-left: 7rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.add__product-description {
+    padding-left: 7rem;
+    padding-bottom: 2rem;
+}
+
+.add__price-prod {
+    padding-left: 5.7rem;
+    list-style: none;
+    margin: 0;
+}
+
+.add__price-prod li {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.input__name {
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+
+.add__product-uploader {
+    float: right;
+    background-color: #ECF1E3;
+    height: 200px;
+    width: 500px;
+    margin-top: 50px;
+    margin-right: 150px;
+    padding: 9rem 8rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.add__uploader {
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_input-name {
+    height: 35px;
+    width: 400px;
+}
+
+.add_input-desc {
+    height: 100px;
+    width: 400px;
+}
+
+.add_input-price {
+    height: 35px;
+    width: 100px;
+}
+
+.add_input-stock {
+    height: 35px;
+    width: 281px;
+}
+
+.add__buttons {
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.button-cancel {
+    margin-left: 20px;
+    width: 350px;
+    height: 40px;
+}
+
+.button-save {
+    width: 350px;
+    height: 40px;
+}
 
