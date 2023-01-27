@@ -16,7 +16,7 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
-import Video from './Video/Video';
+// import Video from './Video/Video';
 
 import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
@@ -33,7 +33,7 @@ export {
   Gallery,
   Benefits,
   Follow,
-  Video,
+  // Video,
   Footer,
   Home,
   ShopCategory,

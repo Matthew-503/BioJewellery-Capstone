@@ -6,7 +6,7 @@ const Home = () => {
       
         <Header />
         <Gallery />
-        <Video />
+        {/* <Video /> */}
         <Benefits />
         <Follow />
     </div>
