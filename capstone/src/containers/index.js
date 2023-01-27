@@ -21,6 +21,7 @@ import Follow from './FollowUs/Follow';
 import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
+import Feed from './Feed/Feed';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
@@ -39,6 +40,8 @@ export {
   ShopCategory,
   ShopProduct,
   ProductDetail,
+
+  Feed,
 
   ShoppingCart,
   OrderConfirmation,

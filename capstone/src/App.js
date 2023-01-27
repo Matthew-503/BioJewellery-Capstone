@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Footer, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory } from './containers';
+import { Home, Footer, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -31,7 +31,7 @@ const App = () => (
                 <Route path="/home" element={<Home />}/>
                 <Route path="/categories">
                     <Route index element={<ShopCategory />} /> 
-                    <Route path=":cat" element={<ShopProduct />} />              
+                    <Route path=":cat" element={<Feed />} />              
                 </Route>
                 <Route path="/products">
                     <Route index element={<ShopProduct />} /> 

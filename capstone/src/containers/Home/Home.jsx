@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Gallery, Video, Follow, Benefits} from '../../containers';
+import { Header, Gallery, Follow, Benefits} from '../../containers';
 const Home = () => {
   return (
     <div>
