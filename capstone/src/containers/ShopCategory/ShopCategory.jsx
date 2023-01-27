@@ -36,8 +36,6 @@ const ShopCategory = () => {
                         imgUrl={gallery02}
 
                         text="Popular"
-
-                        link="/categories/popular"
                     />
 
                     <Article
@@ -45,8 +43,6 @@ const ShopCategory = () => {
                         imgUrl={gallery03}
 
                         text="Trending"
-
-                        link="/categories/trending"
                     />
 
                     <Article
@@ -54,8 +50,6 @@ const ShopCategory = () => {
                         imgUrl={gallery04}
 
                         text="Most Saved"
-
-                        link="/categories/mostsaved"
                     />
 
                     <Article
@@ -63,8 +57,6 @@ const ShopCategory = () => {
                         imgUrl={gallery01}
 
                         text="On Sale"
-
-                        link="/categories/onsale"
                     />
                 </div>
             </div>

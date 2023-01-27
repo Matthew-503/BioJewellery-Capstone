@@ -1,9 +1,7 @@
 import React from 'react';
 import './Article.css';
-import { Link, useParams } from "react-router-dom"
 
-const Article = ({ imgUrl, text, link }) => {
-    const {id} = useParams()
+const Article = ({ imgUrl, text }) => {
     return (
         <>
             <div className="card__blog-container_article">
@@ -17,7 +15,7 @@ const Article = ({ imgUrl, text, link }) => {
                     </div>
 
                     <button class='click__button'>
-                        <Link to={link}>Click</Link>
+                        Click
                     </button>
 
                 </div>

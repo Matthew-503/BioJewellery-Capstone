@@ -10,7 +10,7 @@
 // Output: Currently no specific output
 
 import React from 'react';
-import { Link, useParams } from "react-router-dom"
+
 import './CartItem.css';
 
 const CartItem = () => {
