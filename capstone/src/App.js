@@ -23,28 +23,28 @@ import './App.css';
 
 const App = () => (
     <div>
-        
-        
+
+
         <Routes>
             <Route path="/" element={<UserNavigation />}>
-                <Route index element={<Home />} /> 
-                <Route path="/home" element={<Home />}/>
+                <Route index element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/categories">
-                    <Route index element={<ShopCategory />} /> 
-                    <Route path=":cat" element={<Feed />} />              
+                    <Route index element={<ShopCategory />} />
+                    <Route path=":cat" element={<Feed />} />
                 </Route>
                 <Route path="/products">
-                    <Route index element={<ShopProduct />} /> 
-                    <Route path=":product" element={<ProductDetail />} />              
+                    <Route index element={<ShopProduct />} />
+                    <Route path=":product" element={<ProductDetail />} />
                 </Route>
-                
-                <Route path="/cart" element={<ShoppingCart />}/>
-                <Route path="/checkout" element={<OrderConfirmation />}/>
+
+                <Route path="/cart" element={<ShoppingCart />} />
+                <Route path="/checkout" element={<OrderConfirmation />} />
 
             </Route>
-            
 
-            <Route path="/add" element={<AddProduct />} />      
+
+            <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
             {/* <Route path="/admin">
                 
@@ -64,7 +64,7 @@ const App = () => (
              <Route path="*" element={<NotFound />}/> 
             */}
         </Routes>
-       
+
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}
@@ -81,7 +81,7 @@ const App = () => (
         {/* <EmployeeMenu /> */}
 
     </div>
-    
+
 );
 
 export default App;
