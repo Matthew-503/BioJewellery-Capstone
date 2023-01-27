@@ -11,84 +11,58 @@
 // Output
 // ShopProduct Container
 
-
 import React from 'react';
 
-import { ProductItems } from '../../components';
-// import { SubHeading } from '../../components';
-
-import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
-
+import ShopProductIcon from '../../components/ShopProductIcon/ShopProductIcon';
+import { images } from '../../constants';
 
 import './ShopProduct.css';
 
+const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
+
 const ShopProduct = () => {
+
     return (
-        <div className="product product__section-padding" id="blog">
+        <div>
+            <div>
+                <h1>Products</h1>
+            </div>
+            <div>
+                <h3>Filter by: </h3>
+                <ul className="">
+                    <li className="">
+                        <button>ASC</button>
+                    </li>
 
-            {/* <SubHeading title="Chef's word" /> */}
+                    <li className="">
+                        <button>DSC</button>
+                    </li>
 
-            <div className="product__container">
-                <div className="product__container-card">
-                    <ProductItems
-
-                        imgUrl={gallery02}
-                        text="Popular"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery03}
-                        text="Trending"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery04}
-                        text="Most Saved"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery01}
-                        text="On Sale"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery02}
-                        text="Popular"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery03}
-                        text="Trending"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery04}
-                        text="Most Saved"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery01}
-                        text="On Sale"
-                        price={100}
-                    />
+                    <li className="">
+                        <button>Price</button>
+                    </li>
+                    <li className="">
+                        <button>Brand</button>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div className="app__gallery-images">
+                    <div>
+                        <h5>Products</h5>
+                    </div>
+                    <div>
+                        <ShopProductIcon
+                            productImage={galleryImages[1]}
+                            productPrice={99.99}
+                            productTitle={"Default Product"}
+                            productLink={"/products/product1"}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
     )
-}
+};
 
-export default ShopProduct
+export default ShopProduct;
