@@ -15,12 +15,22 @@ import React from 'react';
 
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
-
+import { Rating, ReviewBlock } from '../../components';
 import './ProductDetail.css';
 
 const productImage = images.gallery01;
 
 const ProductDetail = () => {
+    var productName = null;
+    var price = null;
+    var description = null;
+    var stars = 3;
+
+    //Default Variable for review block
+    var customerDefaultName = "Very Cool Name";
+    var customerDefaultTitle = "Default Title";
+    var customerDefaultDescription = "Default Description";
+
     return (
         <div className="app__gallery app__section-padding">
             <div className="detail__headtext">
@@ -31,7 +41,24 @@ const ProductDetail = () => {
                     src={productImage}
                     alt="product image"
                 />
-                <ProductDetailBar />
+
+                <div className='detail__sidebar'>
+                    <ProductDetailBar />
+                </div>
+
+                <div className="detail__headtext">
+                    <h3>
+                        Reviews
+                    </h3>
+                    <ReviewBlock
+                        customerUsername={customerDefaultName}
+                        customerDescription={customerDefaultDescription}
+                        customerTitle={customerDefaultTitle}
+                        reviewStarRating={stars}
+                    />
+                </div>
+
+
             </div>
         </div>
     )

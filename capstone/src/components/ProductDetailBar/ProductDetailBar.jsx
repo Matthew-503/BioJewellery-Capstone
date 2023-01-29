@@ -29,23 +29,12 @@ const ProductDetailBar = () => {
     var description = null;
     var stars = 3;
 
-    //Default Variable for review block
-    var customerDefaultName = "Very Cool Name";
-    var customerDefaultTitle = "Default Title";
-    var customerDefaultDescription = "Default Description";
+    // //Default Variable for review block
+    // var customerDefaultName = "Very Cool Name";
+    // var customerDefaultTitle = "Default Title";
+    // var customerDefaultDescription = "Default Description";
     return (
-        <div className="app__gallery app__section-padding">
-
-            <div className="app__benefits-headtext">
-                <h3>Reviews</h3>
-                <ReviewBlock
-                    customerUsername={customerDefaultName}
-                    customerDescription={customerDefaultDescription}
-                    customerTitle={customerDefaultTitle}
-                    reviewStarRating={stars}
-                />
-            </div>
-            <br />
+        <div className="">
             <div>
                 <table className='detail__table'>
                     <tr>
