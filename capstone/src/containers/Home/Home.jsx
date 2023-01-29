@@ -9,7 +9,6 @@ const Home = () => {
       {/* <Video /> */}
       <Benefits />
       <Follow />
-      <ProductDetail />
     </div>
   )
 }
