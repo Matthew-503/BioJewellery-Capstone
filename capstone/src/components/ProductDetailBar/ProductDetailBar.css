@@ -5,7 +5,8 @@
     padding: 1rem;
     background-color: #fff;
     box-shadow: 0 0 5px 5px rgb(224, 224, 224);
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    /* float: left; */
 }
 
 .detail__table th {
