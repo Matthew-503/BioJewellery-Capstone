@@ -5,8 +5,8 @@ import { Rating, ReviewBlock, FeatureBlock } from '../../components';
 import './SwitchDetail.css';
 
 const Zoom = () => {
-    const detailswitch = ["Feature", "Review"];
-    const [myProfession, setMyProfession] = useState("Feature");
+    const detailswitch = ["Description", "Review"];
+    const [myProfession, setMyProfession] = useState("Description");
 
     var productName = null;
     var price = null;
@@ -47,7 +47,7 @@ const Zoom = () => {
 
             <div className="col text-center">
                 <p>
-                    {myProfession === "Feature" && (
+                    {myProfession === "Description" && (
                         <FeatureBlock
                             productFeatureName={productFeatureName}
                             productFeatureType={productFeatureType}
