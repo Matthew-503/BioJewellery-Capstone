@@ -38,17 +38,17 @@ export {
   Follow,
   // Video,
   Footer,
-  
+
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
 
-  
+
 
   ShoppingCart,
   OrderConfirmation,
-  UserNavigation
+  UserNavigation,
 
   // ShopCategory,
 };  

@@ -12,7 +12,6 @@
 
 // Notes: Updated the sequence
 
-
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
 
@@ -20,6 +19,8 @@ import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
+// import FeatureBlock from './FeatureBlock/FeatureBlock';
+import CartBlock from './CartBlock/CartBlock'
 
 import CartItem from './CartItem/CartItem';
 
@@ -57,6 +58,8 @@ export {
     CartItem,
     Rating,
     ReviewBlock,
+    // FeatureBlock,
+    CartBlock,
 
     SideBar,
     ProductItems,
