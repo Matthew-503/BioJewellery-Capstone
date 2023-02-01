@@ -8,6 +8,17 @@
     /* text-align: center; */
 }
 
+.cart__icons {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart__subtotal {
+    float: right;
+    justify-content: space-between;
+    display: block;
+}
+
 /* .cart__headtext div {
     width: 60vw;
     height: 3px;

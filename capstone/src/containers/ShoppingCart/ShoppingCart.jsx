@@ -74,7 +74,7 @@
 // export default ShoppingCart;
 
 import React from 'react';
-import { Rating, CartBlock, ReviewBlock } from '../../components';
+import { Rating, CartBlock, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
 import { Link } from "react-router-dom"
 
 import { HiOutlineShoppingBag } from 'react-icons/hi';
@@ -90,34 +90,41 @@ const ShoppingCart = () => {
     var cartProductQuantity = "1";
     return (
         <div className="cart app__section-padding">
-            <div>ShoppingCart</div>
+            <div className='cart__headtext'>
+                <h1>
+                    ShoppingCart <HiOutlineShoppingBag className='cart__icons' />
+                </h1>
 
-            <div className="shop__subtotal">
-                <h3 className="shop__subtotal-text">Subtotal:</h3>
+            </div>
 
-                <Link to="/checkout">
-                    <button type='button' className='custom__button-checkout'>
-                        Proceed to Checkout
-                    </button>
-                </Link>
+            <div className='detail__sidebar'>
+                <CartBar />
+            </div>
+            <div className="shop__cartbody">
+                <CartBlock
+                    cartName={cartProductName}
+                    cartColor={cartProductColor}
+                    cartSize={cartProductSize}
+                    cartPrice={cartProductPrice}
+                    cartQuantity={cartProductQuantity}
+                />
 
-                <div className="shop__cartbody">
-                    <CartBlock
-                        cartName={cartProductName}
-                        cartColor={cartProductColor}
-                        cartSize={cartProductSize}
-                        cartPrice={cartProductPrice}
-                        cartQuantity={cartProductQuantity}
-                    />
+                <CartBlock
+                    cartName={cartProductName}
+                    cartColor={cartProductColor}
+                    cartSize={cartProductSize}
+                    cartPrice={cartProductPrice}
+                    cartQuantity={cartProductQuantity}
+                />
+                {/* <div className="cart__subtotal">
+                    <h3 className="cart__subtotal-header">Subtotal:</h3>
 
-                    <CartBlock
-                        cartName={cartProductName}
-                        cartColor={cartProductColor}
-                        cartSize={cartProductSize}
-                        cartPrice={cartProductPrice}
-                        cartQuantity={cartProductQuantity}
-                    />
-                </div>
+                    <Link to="/checkout">
+                        <button type='button' className='custom__button-checkout'>
+                            Proceed to Checkout
+                        </button>
+                    </Link>
+                </div> */}
             </div>
         </div>
 
