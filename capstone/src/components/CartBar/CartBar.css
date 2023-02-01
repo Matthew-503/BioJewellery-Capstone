@@ -1,58 +1,70 @@
-.cart__table {
+.cartbar__table {
     /* border: 2px solid forestgreen; */
-    width: 50vw;
-    /* height: 25vw; */
+    width: 20vw;
+    height: 10vw;
     padding: 1rem;
     background-color: #fff;
-    /* box-shadow: 0 0 5px 5px rgb(224, 224, 224); */
-    line-height: 2vw;
+    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
     /* overflow-y: auto; */
     /* float: left; */
 }
 
-.cart__table th {
-    font-size: 18px;
+.cartbar__table th {
+    font-size: 26px;
     text-align: left;
+    /* border-bottom: 1px solid black; */
+}
+
+.cartbar__table td {
+    text-align: left;
+    font-size: 24px;
     /* border: 1px solid black; */
-    line-height: 1vw;
-    justify-content: space-between;
-    padding-bottom: 0.25rem;
 }
 
-.cart_table td {
+/* .cartbar__table tr :first-child {
     text-align: left;
-    font-size: 18px;
-    border: 1px solid black;
-    justify-content: space-between;
-}
-
-/* .review__table tr :first-child {
-    width: 50%
+    font-size: 10px;
+    border-bottom: 1px solid black;
 } */
 
-.review__stock {
+.cartbar__button {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.cartbar__stock {
     font-size: 18px;
     color: lightgreen;
     /* padding: 1px; */
 }
 
-.review__button {
+.cartbar__button {
     text-align: center;
 }
 
-.review__star {
+.cartbar__star {
     font-size: 18px;
     text-align: center;
 }
 
-.review__icons {
+.cartbar__icons {
     /* position: relative; */
     justify-content: space-between;
     margin: 0 0 0 1vw;
 }
 
-/* .review__rating {
-    padding: 0 10vw 0 0;
+/* .cartbar__rating {
+    padding: 0 1vw 0 0;
 } */
 
 
@@ -104,7 +116,7 @@
     display: none;
 }
 
-.review__image {
+.cartbar__image {
     position: relative;
     min-width: 301px;
     height: 30vw;
@@ -121,7 +133,7 @@
 }
 
 /* image styling */
-.review__imageimg {
+.cartbar__imageimg {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -181,7 +193,7 @@
         padding: 4rem;
     }
 
-    .review__image {
+    .cartbar__image {
         min-width: 400px;
         height: 550px;
     }
@@ -217,7 +229,7 @@
         padding: 4rem;
     }
 
-    .review__image {
+    .cartbar__image {
         min-width: 240px;
         height: 320px;
     }
