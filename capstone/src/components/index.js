@@ -12,7 +12,6 @@
 
 // Notes: Updated the sequence
 
-
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
 
@@ -20,13 +19,18 @@ import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
+
+import CartBlock from './CartBlock/CartBlock'
+
 import FeatureBlock from './FeatureBlock/FeatureBlock';
+
 
 import CartItem from './CartItem/CartItem';
 
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
+import CartBar from './CartBar/CartBar';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import Uploader from "./Uploader/Uploader";
@@ -58,11 +62,16 @@ export {
     CartItem,
     Rating,
     ReviewBlock,
+
+    CartBlock,
+
     FeatureBlock,
+
 
     SideBar,
     ProductItems,
     ProductDetailBar,
+    CartBar,
 
     EmployeeMenu,
     Uploader,

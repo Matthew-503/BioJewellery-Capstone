@@ -51,7 +51,9 @@ export {
   ShoppingCart,
   OrderConfirmation,
   UserNavigation,
+
   SwitchDetail,
+
 
   // ShopCategory,
 };  

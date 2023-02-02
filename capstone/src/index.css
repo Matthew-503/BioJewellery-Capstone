@@ -13,6 +13,8 @@
     --color-green: #07484A;
     --color-lightgreen: #ECF1E3;
     --color-darkgreen: #072D2E;
+
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
 }
 
 * {

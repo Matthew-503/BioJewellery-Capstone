@@ -31,7 +31,6 @@ const ReviewBlock = ({ customerUsername, customerTitle, customerDescription, rev
                         <Rating starRating={stars} className="review__rating" />
                         {customerTitle}
                         {/* <div className="detail__star">
-
                         </div> */}
                     </th>
                 </tr>
