@@ -30,6 +30,8 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
+import SwitchDetail from './SwitchDetail/SwitchDetail';
+
 export {
   Home,
   Header,
@@ -49,6 +51,9 @@ export {
   ShoppingCart,
   OrderConfirmation,
   UserNavigation,
+
+  SwitchDetail,
+
 
   // ShopCategory,
 };  

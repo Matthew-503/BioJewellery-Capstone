@@ -71,13 +71,6 @@ const ProductDetailBar = () => {
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Product Description
-                            </p>
-                        </td>
-                    </tr>
                 </table>
             </div>
         </div>
