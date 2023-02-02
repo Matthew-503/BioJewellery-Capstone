@@ -17,6 +17,7 @@ import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import { Rating, ReviewBlock } from '../../components';
 import './ProductDetail.css';
+import Zoom from '../SwitchDetail/SwitchDetail';
 
 const productImage = images.gallery01;
 
@@ -46,16 +47,8 @@ const ProductDetail = () => {
                     <ProductDetailBar />
                 </div>
 
-                <div className="detail__headtext">
-                    <h3>
-                        Reviews
-                    </h3>
-                    <ReviewBlock
-                        customerUsername={customerDefaultName}
-                        customerDescription={customerDefaultDescription}
-                        customerTitle={customerDefaultTitle}
-                        reviewStarRating={stars}
-                    />
+                <div>
+                    <Zoom />
                 </div>
 
 

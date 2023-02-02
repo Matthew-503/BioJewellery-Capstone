@@ -20,6 +20,7 @@ import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
+import FeatureBlock from './FeatureBlock/FeatureBlock';
 
 import CartItem from './CartItem/CartItem';
 
@@ -57,6 +58,7 @@ export {
     CartItem,
     Rating,
     ReviewBlock,
+    FeatureBlock,
 
     SideBar,
     ProductItems,
