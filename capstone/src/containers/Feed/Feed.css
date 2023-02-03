@@ -6,6 +6,10 @@
     overflow: hidden;
 } */
 
+#Stack {
+    background: var(--color-lightgreen);
+}
+
 .feed__content-box {
     padding: 1rem;
     overflow-y: "auto";
