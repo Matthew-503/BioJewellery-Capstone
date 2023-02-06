@@ -42,7 +42,6 @@ import EditProduct from "./EditProduct/EditProduct";
 // import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
 
-
 export {
 
     Navbar,

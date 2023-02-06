@@ -1,20 +1,24 @@
-import React, { Component } from 'react'
-import welcome from '../assets/welcome.jpg';
-import logo from '../assets/logo.jpg';
+import React, { Component } from 'react';
+import { images } from '../../constants';
 
 export default class Login extends Component {
   render() {
     return (
       <form>
         <div>
-            <img src={welcome} alt="Welcome image" width={962} height={963}/>
+          {/* <img src={welcome} alt="Welcome image" width={962} height={963} /> */}
+          <img
+            className="app__gallery-images_card "
+            src={images.welcome}
+            alt="product image"
+          />
         </div>
         <div>
-            <h2>Turn your dreams into reality</h2>
-            <h5>Start for free and get attractive offers</h5>
+          <h2>Turn your dreams into reality</h2>
+          <h5>Start for free and get attractive offers</h5>
         </div>
         <div>
-        <img src={logo} alt="Logo image" width={300} height={300}/>
+          {/* <img src={logo} alt="Logo image" width={300} height={300} /> */}
         </div>
         <h3>Login</h3>
         <p>Welcome back! Please enter your details.</p>
@@ -63,8 +67,8 @@ export default class Login extends Component {
           </button>
         </div>
         <div>
-            <a href="#">Continue as guest user...</a>
-        </div>        
+          <a href="#">Continue as guest user...</a>
+        </div>
       </form>
     )
   }

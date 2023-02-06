@@ -17,7 +17,7 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
-import Video from './Video/Video';
+// import Video from './Video/Video';
 
 import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
@@ -28,12 +28,14 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 
 // import ShopCategory from './ShopCategory/ShopCategory';
 
+import Login from './Login/login';
+
 export {
   Header,
   Gallery,
   Benefits,
   Follow,
-  Video,
+  // Video,
   Footer,
 
   ShopCategory,
@@ -44,4 +46,5 @@ export {
   OrderConfirmation,
 
   // ShopCategory,
+  Login,
 };  

@@ -27,7 +27,7 @@ const App = () => (
         {/* Header causing navbar styling to fail */}
         <Header />
         <Gallery />
-        <Video />
+        {/* <Video /> */}
         <Benefits />
         <Follow />
         <Footer />
