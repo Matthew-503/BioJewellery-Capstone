@@ -35,10 +35,8 @@ class AddProduct extends Component {
                     </div>
 
                     <div className="add__product-uploader">
-                        <div classNmae="add__uploader">
                             <Uploader />
-                        </div>  
-                    </div> 
+                    </div>  
 
                     <div className="add__product-name">
                         <label>

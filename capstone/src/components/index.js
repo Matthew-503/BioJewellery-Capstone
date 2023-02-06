@@ -12,6 +12,7 @@
 
 // Notes: 
 import AddProduct from './AddProduct/AddProduct';
+import EditProduct from './EditProduct/EditProduct';
 
 import Uploader from "./Uploader/Uploader";
 import SubHeading from './SubHeading/SubHeading';
@@ -24,7 +25,7 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 // import Newsletter from './Footer/Newsletter';
 
 
-import Article from './article/Article';
+import Article from './Article/Article';
 
 // import FooterOverlay from './Footer/FooterOverlay';
 ///import MenuItem from './Menuitem/MenuItem';
@@ -39,6 +40,7 @@ export {
 
     SubHeading,
 
+    Article,
     Navbar,
     Rating,
     ReviewBlock,
@@ -46,11 +48,13 @@ export {
     CartItem,
     EmployeeMenu,
 
+    AddProduct,
+    EditProduct,
+
     // AdminMenu,
 
     // Newsletter,
     // FooterOverlay,
     // MenuItem,
     // Uploader
-    AddProduct
 };

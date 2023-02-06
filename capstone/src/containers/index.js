@@ -47,9 +47,4 @@ export {
   ShoppingCart,
   Blog,
   Follow,
-  Video,
-
-  AddProduct,
-  EditProduct,
-
 };

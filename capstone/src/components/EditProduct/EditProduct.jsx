@@ -35,9 +35,7 @@ class EditProduct extends Component {
                     </div>
 
                     <div className="edit__product-uploader">
-                        <div classNmae="edit__uploader">
-                            <Uploader />
-                        </div>  
+                            <Uploader />  
                     </div>
 
                     <div className="edit__product-name">

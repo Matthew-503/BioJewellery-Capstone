@@ -1,6 +1,6 @@
 .flex__center {
     color: #0b3435;
-    margin-left: 300px;
+    padding-left: 10rem;
 }
 
 .add__title {
@@ -9,8 +9,6 @@
 
 .add__name {
     padding-left: 6rem;
-    padding-top: 7rem;
-
 }
 
 .add__product-info {
@@ -18,6 +16,7 @@
     font-weight: bold;
     font-size: 20px;
     padding-bottom: 1rem;
+    padding-right: 775px;
 }
 
 .add__product-name {
@@ -50,20 +49,12 @@
 .add__product-uploader {
     float: right;
     background-color: #ECF1E3;
-    height: 200px;
-    width: 500px;
-    margin-top: 50px;
-    margin-right: 150px;
-    padding: 9rem 8rem;
+    height: 300px;
+    width: 450px;
+    position: static;
     justify-content: center;
     align-items: center;
     display: flex;
-}
-
-.add__uploader {
-    margin-left: 20px;
-    justify-content: center;
-    align-items: center;
 }
 
 .add_input-name {
@@ -92,12 +83,36 @@
 }
 
 .button-cancel {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
     margin-left: 20px;
     width: 350px;
     height: 40px;
 }
 
 .button-save {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
     width: 350px;
     height: 40px;
 }
