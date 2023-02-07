@@ -37,23 +37,27 @@ export {
   Header,
   Gallery,
   Benefits,
-  Follow,
+  
   // Video,
   Footer,
+
+  OrderConfirmation,
+
 
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
 
-
-
-  ShoppingCart,
-  OrderConfirmation,
-  UserNavigation,
+UserNavigation,
 
   SwitchDetail,
 
+  ShoppingCart,
 
-  // ShopCategory,
-};  
+
+  Follow,
+};
+
+ 
+

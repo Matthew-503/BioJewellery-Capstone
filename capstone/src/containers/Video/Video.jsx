@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
-import { video } from '../../constants';
+// import { video } from '../../constants';
 
 import './Video.css';
 
@@ -9,15 +9,17 @@ const Intro = () => {
     const vidRef = React.useRef();
 
     return (
+
         <div className='video'>
             <video
+
                 ref={vidRef}
                 src={video}
                 type='video/mp4'
                 loop
                 controls={false}
                 muted
-            />
+            /> 
 
             <div className='video__overlay app__flex-center'>
                 <div

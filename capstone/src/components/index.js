@@ -10,7 +10,11 @@
 // Input: 4 components
 // Output: 4 components
 
-// Notes: Updated the sequence
+
+// Notes: 
+import AddProduct from './AddProduct/AddProduct';
+import EditProduct from './EditProduct/EditProduct';
+
 
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
@@ -33,16 +37,21 @@ import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
 import CartBar from './CartBar/CartBar';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+
+// import AdminMenu from './AdminMenu/AdminMenu';
+
 import Uploader from "./Uploader/Uploader";
-import AddProduct from './AddProduct/AddProduct';
-import EditProduct from "./EditProduct/EditProduct";
+
+
 
 // import Newsletter from './Footer/Newsletter';
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
 // import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
+
 // import Newsletter from './Footer/Newsletter';
+
 
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
@@ -59,11 +68,20 @@ export {
 
     Article,
 
+ 
+    ReviewBlock,
+   
+
     CartItem,
     Rating,
-    ReviewBlock,
 
     CartBlock,
+
+
+    AddProduct,
+    EditProduct,
+
+    // AdminMenu,
 
     FeatureBlock,
 
@@ -74,9 +92,9 @@ export {
     CartBar,
 
     EmployeeMenu,
-    Uploader,
-    AddProduct,
-    EditProduct,
+    Uploader
+    
+
 
     // ShopProductIcon,
     // Newsletter,
