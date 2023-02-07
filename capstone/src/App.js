@@ -16,10 +16,13 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Footer, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
+import { Home, Header, Gallery, Benefits, Footer,Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
+
+
+
 
 const App = () => (
     <div>
@@ -71,11 +74,14 @@ const App = () => (
         {/* <Navbar />
         <Uploader />  */}
 
+
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <AddProduct />  */}
 
+
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EditProduct />  */}
+
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EmployeeMenu /> */}
