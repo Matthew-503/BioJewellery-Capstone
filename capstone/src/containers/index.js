@@ -28,7 +28,7 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 
 // import ShopCategory from './ShopCategory/ShopCategory';
 
-import Login from './Login/login';
+import Login from './Login/Login';
 
 export {
   Header,

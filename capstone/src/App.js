@@ -15,7 +15,7 @@
 
 import React from 'react';
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, ShopCategory } from './containers';
+import { Header, Gallery, Video, Follow, Benefits, Footer, Blog, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, ShopCategory, Login } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -35,6 +35,8 @@ const App = () => (
 
         <Navbar />
         <ShopCategory />
+
+        <Login />
 
         {/* <Navbar /> */}
         {/* <ShopProduct /> */}
