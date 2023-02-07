@@ -1,0 +1,29 @@
+/* .feed {
+    font-family: var(--font-base);
+} */
+
+/* body {
+    overflow: hidden;
+} */
+
+#Stack {
+    background: var(--color-lightgreen);
+}
+
+.feed__content-box {
+    padding: 1rem;
+    overflow-y: "auto";
+    height: "90vh";
+    flex: 2;
+}
+
+.feed__content-title {
+    font-weight: bold;
+    color: var(--color-darkgreen);
+    margin-bottom: 2rem;
+    font-size: 100px;
+}
+
+.feed__title {
+    font-family: var(--font-base);
+}

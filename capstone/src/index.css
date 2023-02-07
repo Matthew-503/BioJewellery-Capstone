@@ -12,8 +12,9 @@
     --color-white: #FFFFFF;
     --color-green: #07484A;
     --color-lightgreen: #ECF1E3;
-    --color-medgreen: #F2F8E7;
-    
+    --color-darkgreen: #072D2E;
+
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
 }
 
 * {
@@ -28,12 +29,12 @@ a {
     text-decoration: none;
 }
 
-.slide-bottom {
-    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.index__slide-bottom {
+    -webkit-animation: index__slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: index__slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-@-webkit-keyframes slide-bottom {
+@-webkit-keyframes index__slide-bottom {
     0% {
         -webkit-transform: translateY(-25%);
         transform: translateY(-25%);
@@ -45,7 +46,7 @@ a {
     }
 }
 
-@keyframes slide-bottom {
+@keyframes index__slide-bottom {
     0% {
         -webkit-transform: translateY(-25%);
         transform: translateY(-25%);

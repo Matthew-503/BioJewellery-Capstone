@@ -1,11 +1,11 @@
-.app__gallery {
+.gallery {
     flex-direction: row;
 
     background: var(--color-lightgreen);
     padding: 4rem 0 4rem 6rem;
 }
 
-.app__gallery-content {
+.gallery__content {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -16,11 +16,11 @@
     padding-right: 2rem;
 }
 
-.app__gallery-content button {
+.gallery__content button {
     margin-top: 1rem;
 }
 
-.app__gallery-images {
+.gallery__images {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@
     position: relative;
 }
 
-.app__gallery-images_container {
+.gallery__images-container {
     display: flex;
     /* is row by refault but will make changes for mobile devices */
     flex-direction: row;
@@ -42,18 +42,18 @@
 }
 
 /* hide the scroll bar of images */
-.app__gallery-images_container::-webkit-scrollbar {
+.gallery__images-container::-webkit-scrollbar {
     display: none;
 }
 
-.app__gallery-images_card {
+.gallery__images-card {
     position: relative;
     min-width: 301px;
     height: 447px;
     margin-right: 2rem;
 }
 
-.gallery__image-icon {
+.gallery__images-icon {
     position: absolute;
     color: #fff;
     font-size: 2rem;
@@ -63,7 +63,7 @@
 }
 
 /* image styling */
-.app__gallery-images_card img {
+.gallery__images-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -72,18 +72,18 @@
 }
 
 /* action when hovering */
-.app__gallery-images_card:hover img {
+.gallery__images-card:hover img {
     opacity: .7;
 }
 
 /* appear insta icon when hovering */
-.app__gallery-images_card:hover .gallery__image-icon {
+.gallery__images-card:hover .gallery__images-icon {
     opacity: 1;
     color: var(--color-black);
 }
 
 /* styling carosel arrow icon */
-.app__gallery-images_arrows {
+.gallery__images-arrows {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -95,7 +95,7 @@
 }
 
 /* styling carosel arrow icon */
-.gallery__arrow-icon {
+.gallery__arrows-icon {
     color: var(--color-golden);
     font-size: 2rem;
     cursor: pointer;
@@ -103,7 +103,7 @@
     border-radius: 5px;
 }
 
-.gallery__arrow-icon {
+.gallery__arrows-icon {
     color: var(--color-golden);
     font-size: 2rem;
     cursor: pointer;
@@ -112,18 +112,18 @@
 }
 
 /* hover arrow effect */
-.gallery__arrow-icon:hover {
+.gallery__arrows-icon:hover {
     color: var(--color-white);
 }
 
 /* Extra large device */
 @media screen and (min-width: 2000px) {
-    .app__gallery-content {
+    .gallery__content {
         min-width: 1000px;
         padding: 4rem;
     }
 
-    .app__gallery-images_card {
+    .gallery__images-card {
         min-width: 400px;
         height: 550px;
     }
@@ -131,11 +131,11 @@
 
 /* laptop devices */
 @media screen and (max-width: 1150px) {
-    .app__gallery {
+    .gallery__ {
         flex-direction: column;
     }
 
-    .app__gallery-images {
+    .gallery__images {
         max-width: 100%;
         margin: 5rem 0;
     }
@@ -143,23 +143,23 @@
 
 /* smaller devices */
 @media screen and (max-width: 850px) {
-    .app__gallery {
+    .gallery__ {
         padding: 4rem 0 4rem 4rem;
     }
 }
 
 /* extra small devices */
 @media screen and (max-width: 650px) {
-    .app__gallery {
+    .gallery__ {
         padding: 4rem 0 4rem 4rem;
     }
 
-    .app__gallery-content {
+    .gallery__content {
         min-width: 100%;
         padding: 4rem;
     }
 
-    .app__gallery-images_card {
+    .gallery__images-card {
         min-width: 240px;
         height: 320px;
     }

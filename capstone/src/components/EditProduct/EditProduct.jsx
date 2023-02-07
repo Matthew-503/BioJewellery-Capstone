@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
 import Uploader from '../Uploader/Uploader';
 import './EditProduct.css';
@@ -14,12 +15,15 @@ import './EditProduct.css';
 // Input: User Product Specifications 
 // Output: Page
 
+
+
 class EditProduct extends Component {
    
     render() 
     { 
         return(
             <div className="flex__center">
+
                 <form>
 
                     <div className="edit_employee-menu">
@@ -73,6 +77,7 @@ class EditProduct extends Component {
                         <button className="edit__button-cancel">Cancel</button>  
                     </div>             
                 </form>     
+
             </div>
     );
     }

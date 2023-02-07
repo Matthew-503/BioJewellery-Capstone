@@ -16,6 +16,7 @@
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
+import { NavLink, Link } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineRestaurantMenu } from 'react-icons/md';
 
 import images from '../../constants/images';
@@ -24,59 +25,66 @@ import './Navbar.css';
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = React.useState(false);
     return (
-        <nav className="app__navbar">
-            <div className="app__navbar-logo">
+        <nav className="navbar">
+            <div className="navbar-logo">
                 <img src={images.logo} alt="app__logo" />
             </div>
 
-            <ul className="app__navbar-links">
-                <li className="p__opensans-nav">
-                    <a href="#home">Home</a>
+            <ul className="navbar-links">
+                <li className="navbar-p">
+                    <NavLink to="/">Home</NavLink>
                 </li>
 
-                <li className="p__opensans-nav">
-                    <a href="#shop">Shop</a>
+                <li className="navbar-p">
+                    <NavLink to="/categories">Shop</NavLink>
                 </li>
 
-                <li className="p__opensans-nav">
-                    <a href="#about">About Us</a>
+                <li className="navbar-p">
+                    <NavLink to="/about">About Us</NavLink>
                 </li>
             </ul>
 
-            <div className="app__navbar-input">
+            <div className="navbar-input">
                 <input type='email' placeholder='' />
 
-                <a href="#login" className="app__navbar-icons">
+                <a href="#login" className="navbar-icons">
                     <MdSearch />
                 </a>
             </div>
-
-            <div className="app__navbar-login">
-                <a href="#login" className="app__navbar-icons">
+            <div className="navbar-login">
+                <a href="#login" className="navbar-icons">
                     <FaShoppingCart />
                 </a>
 
-                <a href="#login" className="app__navbar-icons">
+                <Link to="/add" className="navbar-icons">
                     <MdAccountCircle />
-                </a>
+                </Link>
             </div>
 
-            <div className="app__navbar-smallscreen">
+            <div className="navbar-smallscreen">
                 <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
                 {toggleMenu && (
-                    <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
-                        <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
-                        <ul className="app__navbar-smallscreen_links">
+                    <div className="navbar-smallscreen_overlay app__flex-center index__slide-bottom">
+                        <MdOutlineRestaurantMenu fontSize={27} className="navbar-overlay__close" onClick={() => setToggleMenu(false)} />
+                        <ul className="navbar-smallscreen_links">
                             <li>
                                 <a href="#home" onClick={() => setToggleMenu(false)}>Home</a>
                             </li>
 
                             <li>
-                                <a href="#shop" onClick={() => setToggleMenu(false)}>Shop</a>
+                                <a href="#about" onClick={() => setToggleMenu(false)}>About</a>
                             </li>
 
                             <li>
-                                <a href="#about" onClick={() => setToggleMenu(false)}>About Us</a>
+                                <a href="#menu" onClick={() => setToggleMenu(false)}>Menu</a>
+                            </li>
+
+                            <li>
+                                <a href="#awards" onClick={() => setToggleMenu(false)}>Awards</a>
+                            </li>
+
+                            <li>
+                                <a href="#contact" onClick={() => setToggleMenu(false)}>Contact</a>
                             </li>
                         </ul>
                     </div>

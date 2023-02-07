@@ -9,19 +9,21 @@ const Intro = () => {
     const vidRef = React.useRef();
 
     return (
-        <div className='app__video'>
-        {/*    <video
+
+        <div className='video'>
+            <video
+
                 ref={vidRef}
                 src={video}
                 type='video/mp4'
                 loop
                 controls={false}
                 muted
-            /> */}
+            /> 
 
-            <div className='app__video-overlay flex__center'>
+            <div className='video__overlay app__flex-center'>
                 <div
-                    className='app__video-overlay_circle flex__center'
+                    className='video__overlay-circle app__flex-center'
                     onClick={() => {
                         setPlayVideo(!playVideo);
                         if (playVideo) {
