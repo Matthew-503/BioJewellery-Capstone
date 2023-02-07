@@ -15,7 +15,7 @@
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
 
-import Article from './article/Article';
+import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
