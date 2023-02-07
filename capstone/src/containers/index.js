@@ -29,6 +29,8 @@ import Home from './Home/Home';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
+import ManageProduct from './ManageProduct/ManageProduct';
+
 export {
   Header,
   Gallery,
@@ -45,7 +47,7 @@ export {
 
   ShoppingCart,
   OrderConfirmation,
-  UserNavigation
-
+  UserNavigation,
+  ManageProduct,
   // ShopCategory,
 };  
