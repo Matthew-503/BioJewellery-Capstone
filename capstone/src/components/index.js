@@ -41,8 +41,7 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 // import AdminMenu from './AdminMenu/AdminMenu';
 
 import Uploader from "./Uploader/Uploader";
-import AddProduct from './AddProduct/AddProduct';
-import EditProduct from "./EditProduct/EditProduct";
+
 
 
 // import Newsletter from './Footer/Newsletter';
@@ -69,14 +68,12 @@ export {
 
     Article,
 
-    Navbar,
-    Rating,
+ 
     ReviewBlock,
-    ShopProductIcon,
+   
 
     CartItem,
     Rating,
-    ReviewBlock,
 
     CartBlock,
 
@@ -95,9 +92,8 @@ export {
     CartBar,
 
     EmployeeMenu,
-    Uploader,
-    AddProduct,
-    EditProduct,
+    Uploader
+    
 
 
     // ShopProductIcon,

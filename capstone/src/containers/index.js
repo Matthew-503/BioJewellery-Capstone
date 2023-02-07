@@ -37,7 +37,7 @@ export {
   Header,
   Gallery,
   Benefits,
-  Follow,
+  
   // Video,
   Footer,
 
@@ -55,7 +55,7 @@ UserNavigation,
 
   ShoppingCart,
 
-  Blog,
+
   Follow,
 };
 
