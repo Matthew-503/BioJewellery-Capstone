@@ -2,7 +2,6 @@
 // Version 1.o
 // Date: 25/1/2023
 
-
 // Description: Contains the navbar and footer, and routing 
 // Precondition: A home page with required containers and functional carousel
 // Postcondition: Home page with a scrollable carousel
@@ -23,8 +22,7 @@ import './App.css';
 
 const App = () => (
     <div>
-        
-        {/*}
+    
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} /> 
@@ -45,7 +43,10 @@ const App = () => (
             
 
             <Route path="/add" element={<AddProduct />} />      
-            <Route path="/editproduct" element={<EditProduct />} /> */}
+            <Route path="/editproduct" element={<EditProduct />} />
+
+            </Routes>
+
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
@@ -63,11 +64,7 @@ const App = () => (
             {/*Route for the not found page)
              <Route path="*" element={<NotFound />}/> 
             */}
-
-
-        <ManageProduct />
        
-
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}
         {/* <Navbar />

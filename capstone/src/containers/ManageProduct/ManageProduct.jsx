@@ -1,5 +1,5 @@
 import React from 'react';
-//import { EmployeeProduct } from '../../components';
+import { EmployeeProduct } from '../../components';
 import { EmployeeMenu } from '../../components';
 
 import { BsPlus } from "react-icons/bs";
@@ -32,7 +32,7 @@ const ManageProduct = () => {
                 </table>
 
                 <div className="employee__product">
-                    {/*<EmployeeProduct /> */}
+                    <EmployeeProduct />
                 </div>
         </div>
     )

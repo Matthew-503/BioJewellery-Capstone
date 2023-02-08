@@ -30,6 +30,7 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import Uploader from "./Uploader/Uploader";
 import AddProduct from './AddProduct/AddProduct';
 import EditProduct from "./EditProduct/EditProduct";
+import EmployeeProduct from "./EmployeeProduct/EmployeeProduct";
 
 // import Newsletter from './Footer/Newsletter';
 // import FooterOverlay from './Footer/FooterOverlay';
@@ -64,6 +65,8 @@ export {
     Uploader,
     AddProduct,
     EditProduct,
+
+    EmployeeProduct,
 
     // ShopProductIcon,
     // Newsletter,
