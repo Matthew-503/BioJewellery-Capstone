@@ -18,6 +18,7 @@
 }
 
 .left {
+    position: absolute;
     float: left;
     width: 50%;
 }
@@ -74,13 +75,18 @@
     height: auto;
 }
 
+.login__wrapper {
+    position: relative;
+}
+
 .HeaderText {
-    position: absolute;
+    position: relative;
     bottom: 0;
-    left: 20%;
+    left: 18%;
+    margin-top: 520px;
     transform: translate(-50%, -50%);
     color: #fff;
     font-size: 36px;
     text-align: center;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }

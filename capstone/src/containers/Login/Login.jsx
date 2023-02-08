@@ -65,8 +65,10 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <img src={images.login} alt="G_overlay" className='left' />
-            <h1 className='HeaderText left '>Turn your dreams into reality</h1>
+            <div className="login__wrapper">
+                <img src={images.login} alt="G_overlay" className='left' />
+                <h1 className='HeaderText left '>Turn your dreams into reality</h1>
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className='right login__form'>
                     <SubHeading title={"Login"} className='login__subheading' />
