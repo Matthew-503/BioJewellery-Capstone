@@ -1,0 +1,86 @@
+.login {
+    background: var(--color-lightgreen);
+    position: relative;
+}
+
+.login__form {
+    padding: 8vw 14vw;
+}
+
+.login img {
+    height: 101vh;
+    /* height: auto; */
+    z-index: -1;
+}
+
+.login p {
+    font-family: var(--font-alt);
+}
+
+.left {
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: left;
+    width: 50%;
+}
+
+.login__input {
+    width: 23vw;
+    margin-top: 1vw;
+    font-size: 15px;
+    font-family: var(--font-alt);
+    color: black;
+    border: none;
+    border-bottom: 2px solid darkgray;
+}
+
+.login__lower-functions {
+    text-align: center;
+    /* padding: 1vw 0; */
+}
+
+.login__button {
+    margin-top: 0.5vw;
+    width: 23vw;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login__link {
+    margin-top: 0.5vw;
+}
+
+
+
+.HeaderImageContainer {
+    position: relative;
+}
+
+.HeaderImageContainer img {
+    width: 100%;
+    height: auto;
+}
+
+.HeaderText {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
