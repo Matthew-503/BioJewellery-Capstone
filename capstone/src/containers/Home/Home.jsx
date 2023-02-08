@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login } from '../../containers';
 const Home = () => {
   return (
     <div>
@@ -9,6 +9,7 @@ const Home = () => {
       {/* <Video /> */}
       <Benefits />
       <Follow />
+      <Login />
     </div>
   )
 }

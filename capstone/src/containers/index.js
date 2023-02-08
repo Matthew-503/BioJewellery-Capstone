@@ -32,32 +32,31 @@ import UserNavigation from './UserNavigation/UserNavigation';
 
 import SwitchDetail from './SwitchDetail/SwitchDetail';
 
+import Login from './Login/Login';
+
 export {
   Home,
   Header,
   Gallery,
   Benefits,
-  
+  Follow,
   // Video,
   Footer,
 
   OrderConfirmation,
-
 
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
 
-UserNavigation,
-
   SwitchDetail,
-
   ShoppingCart,
 
+  UserNavigation,
 
-  Follow,
+  Login,
 };
 
- 
+
 
