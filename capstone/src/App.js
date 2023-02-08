@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Footer, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
+import { Home, Footer, ShopProduct, ProductDetail, ManageProduct, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -24,7 +24,7 @@ import './App.css';
 const App = () => (
     <div>
         
-        
+        {/*}
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} /> 
@@ -45,7 +45,7 @@ const App = () => (
             
 
             <Route path="/add" element={<AddProduct />} />      
-            <Route path="/editproduct" element={<EditProduct />} />
+            <Route path="/editproduct" element={<EditProduct />} /> */}
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
@@ -63,7 +63,9 @@ const App = () => (
             {/*Route for the not found page)
              <Route path="*" element={<NotFound />}/> 
             */}
-        </Routes>
+
+
+        <ManageProduct />
        
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css

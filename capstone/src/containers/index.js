@@ -27,6 +27,7 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import Home from './Home/Home';
 import UserNavigation from './UserNavigation/UserNavigation';
+import ManageProduct from './ManageProduct/ManageProduct';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 export {
@@ -45,7 +46,9 @@ export {
 
   ShoppingCart,
   OrderConfirmation,
-  UserNavigation
+  UserNavigation,
+
+  ManageProduct
 
   // ShopCategory,
 };  
