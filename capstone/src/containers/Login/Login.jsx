@@ -68,12 +68,17 @@ const Login = () => {
             <div className="login__wrapper">
                 <img src={images.login} alt="G_overlay" className='left' />
                 <h1 className='HeaderText left '>Turn your dreams into reality</h1>
+                {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
             </div>
             <form onSubmit={handleSubmit}>
                 <div className='right login__form'>
                     <SubHeading title={"Login"} className='login__subheading' />
 
                     <p>Welcome back! Please enter your details</p>
+
+                    <p className='login__error-message'>
+                        Sorry. Email or password incorrect. Please try again or create a new account. 
+                    </p>
 
                     <input
                         className='login__input'

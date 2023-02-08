@@ -4,7 +4,8 @@
 }
 
 .login__form {
-    padding: 8vw 14vw;
+    padding: 8vw 13vw;
+    height: 101vh;
 }
 
 .login img {
@@ -14,6 +15,7 @@
 }
 
 .login p {
+    font-size: 13px;
     font-family: var(--font-alt);
 }
 
@@ -62,9 +64,9 @@
 
 .login__link {
     margin-top: 0.5vw;
+    font-size: 13px;
+    font-family: var(--font-alt);
 }
-
-
 
 .HeaderImageContainer {
     position: relative;
@@ -89,4 +91,20 @@
     font-size: 36px;
     text-align: center;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login__error-message {
+    margin-top: 0.5vw;
+    width: 23vw;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 15px;
+    font-size: 13px;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
 }
