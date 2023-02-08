@@ -15,100 +15,99 @@
 import React from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaTiktok } from 'react-icons/fa';
-import { Link } from "react-router-dom"
 
 import './Footer.css';
 
 const Footer = () => (
-    <div className='footer' id='footer'>
-        <div className='footer__links'>
-            <div className='app__card-links_logo'>
-                <div className='footer__links-icons' style={{ textAlign: 'left' }}>
+    <div className='app__footer section__padding' id='login'>
+        <div className='app__footer-links'>
+            <div className='app__footer-links_logo'>
+                <div className='app__footer-links_icons' style={{ textAlign: 'left' }}>
                     <FiInstagram />
                     <FaTiktok />
                 </div>
 
-                <p className="app__p" style={{ textAlign: 'left' }}>
+                <p className="p__opensans" style={{ textAlign: 'left' }}>
                     Contact Number
                     <br />
                     +123456789
                 </p>
             </div>
 
-            <div className='app__card-links-align'>
-                <h1 className='footer-headtext'>
+            <div className='app__footer-links_work'>
+                <h1 className='app__footer-headtext'>
                     My Account
                 </h1>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Sign In
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Register
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Order Status
                 </p>
             </div>
 
-            <div className='app__card-links-align'>
-                <h1 className='footer-headtext'>
+            <div className='app__footer-links_work'>
+                <h1 className='app__footer-headtext'>
                     Help        </h1>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Shipping
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Returns
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Sizing
                 </p>
             </div>
 
-            <div className='app__card-links-align'>
-                <h1 className='footer-headtext'>
+            <div className='app__footer-links_work'>
+                <h1 className='app__footer-headtext'>
                     Shop
                 </h1>
 
-                <p className='app__p'>
-                    <Link to="/categories">Products</Link>
+                <p className='p__opensans'>
+                    Products
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Gold
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Silver
                 </p>
             </div>
 
-            <div className='app__card-links-align'>
-                <h1 className='footer-headtext'>
+            <div className='app__footer-links_work'>
+                <h1 className='app__footer-headtext'>
                     Legal
                 </h1>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Shipping & Delivery
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Terms & Condition
                 </p>
 
-                <p className='app__p'>
+                <p className='p__opensans'>
                     Privacy & Policy
                 </p>
             </div>
         </div>
 
         <div className='footer__copyright'>
-            <p className='app__p'>
+            <p className='p__opensans'>
                 Copyright @ 2023 BioJewlery All rights Reserved
             </p>
         </div>

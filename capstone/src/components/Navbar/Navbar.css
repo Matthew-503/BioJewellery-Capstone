@@ -1,34 +1,25 @@
-.navbar {
+.app__navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--color-darkgreen);
+    background: var(--color-black);
 
     padding: 0.7rem 1.5rem;
 }
-
-.navbar-logo {
+    
+.app__navbar-logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 1;
 }
 
-.navbar-logo img {
+.app__navbar-logo img {
     width: 43px;
 }
 
-.navbar-links {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    list-style: none;
-}
-
-.navbar-p {
+.p__opensans-nav {
     font-family: var(--font-alt);
     color: var(--color-white);
     font-weight: 500;
@@ -39,51 +30,67 @@
     margin: 0;
 }
 
-.navbar-links li {
+.app__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+}
+
+.app__navbar-links li {
     margin: 0 1.5rem;
     cursor: pointer;
 }
 
-.navbar-links li:hover {
+.app__navbar-links li:hover {
     color: var(--color-grey);
     border-bottom: 1px solid var(--color-golden);
 }
 
-.navbar-login,
-.navbar-input {
+.app__navbar-login,
+.app__navbar-input {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.navbar-login a {
+.app__navbar-login a {
     margin: 0 0.7rem;
     text-decoration: none;
     transition: .5s ease;
 }
 
-.navbar-login a:hover {
+.app__navbar-login a:hover {
     border-bottom: 1px solid var(--color-golden);
 }
 
-.active {
-    border-bottom: 1px solid var(--color-golden);
-}
-
-.navbar-login div {
+.app__navbar-login div {
     width: 1px;
     height: 30px;
     background: var(--color-grey);
 }
 
-.navbar-input {
+.app__navbar-icons {
+    margin-top: 0.5rem;
+}
+
+.app__navbar-icons svg {
+    color: var(--color-white);
+    margin: 0 0.5rem 0 0;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.app__navbar-input {
     flex-direction: row;
     margin-top: auto;
 }
 
-.navbar-input input {
+.app__navbar-input input {
     width: 250px;
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-golden);
     border-radius: 5px;
     font-size: 16px;
     font-family: var(--font-alt);
@@ -95,22 +102,11 @@
     background: var(--color-white);
 }
 
-.navbar-icons {
-    margin-top: 0.5rem;
-}
-
-.navbar-icons svg {
-    color: var(--color-white);
-    margin: 0 0.5rem 0 0;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-.navbar-smallscreen {
+.app__navbar-smallscreen {
     display: none;
 }
 
-.navbar-smallscreen_overlay {
+.app__navbar-smallscreen_overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -123,8 +119,7 @@
     z-index: 5;
 }
 
-.navbar-smallscreen_overlay,
-.navbar-overlay__close {
+.app__navbar-smallscreen_overlay .overlay__close {
     font-size: 27px;
     color: var(--color-golden);
     cursor: pointer;
@@ -134,11 +129,11 @@
     right: 20px;
 }
 
-.navbar-smallscreen_links {
+.app__navbar-smallscreen_links {
     list-style: none;
 }
 
-.navbar-smallscreen_links li {
+.app__navbar-smallscreen_links li {
     margin: 2rem;
     cursor: pointer;
     color: var(--color-golden);
@@ -147,40 +142,36 @@
     font-family: var(--font-base);
 }
 
-.navbar-smallscreen_links li:hover {
+.app__navbar-smallscreen_links li:hover {
     color: var(--color-white);
 }
 
-
-
-
-
 @media screen and (min-width: 2000px) {
-    .navbar-logo img {
+    .app__navbar-logo img {
         width: 210px;
     }
 }
 
 @media screen and (max-width: 1150px) {
-    .navbar-links {
+    .app__navbar-links {
         display: none;
     }
 
-    .navbar-smallscreen {
+    .app__navbar-smallscreen {
         display: flex;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .navbar {
+    .app__navbar {
         padding: 1rem;
     }
 
-    .navbar-login {
+    .app__navbar-login {
         display: none;
     }
 
-    .navbar-logo img {
+    .app__navbar-logo img {
         width: 110px;
     }
 }

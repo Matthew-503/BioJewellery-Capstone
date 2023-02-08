@@ -1,4 +1,4 @@
-/* .form
+.form
 {
     display: flex;
     flex-direction: column;
@@ -32,4 +32,4 @@ body{
 .upload-content{
     display: flex;
     align-items: center;
-} */
+}

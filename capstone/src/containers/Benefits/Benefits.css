@@ -8,11 +8,11 @@
     align-items: center;
     flex-direction: column;
 
-    background: var(--color-lightgreen);
+    background: linear-gradient(90deg, rgba(204, 228, 228, 1) 0%, rgba(255, 255, 255, 1) 100%);
     padding-top: 0;
 }
 
-/* .app__card-links {
+.app__benefits-links {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -20,53 +20,46 @@
 
     margin-top: 5rem;
     padding: 0 2rem;
-} */
+}
 
-/* .app__card-links_contact,
-.app__card-links_logo,
-.app__card-links-align {
+.app__benefits-links_contact,
+.app__benefits-links_logo,
+.app__benefits-links_work {
     flex: 1;
     margin: 1rem;
     text-align: center;
-} */
+}
 
-/* .app__card-links_logo img:first-child {
+.app__benefits-links_logo img:first-child {
     width: 210px;
     margin-bottom: 0.75rem;
-} */
+}
 
-/* .app__card-links-align p:nth-child(2n + 1) {
+/* .app__benefits-links_work p:nth-child(2n + 1) {
     margin-bottom: 1rem;
 } */
 
-/* .app__card-links_icons {
+.app__benefits-links_icons {
     margin-top: 0.5rem;
 }
 
-.app__card-links_icons svg {
+.app__benefits-links_icons svg {
     color: var(--color-black);
     margin: .5rem;
     font-size: 30px;
-} */
-
-.benefits__title {
-    font-family: var(--font-base);
-    color: var(--color-green);
-    font-size: 35px;
-    letter-spacing: 0.04em;
-    text-transform: capitalize;
 }
 
-.benefits__h1 {
+.app__benefits-headtext {
     font-family: var(--font-base);
     color: var(--color-green);
     font-size: 64px;
+    line-height: 83.2px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
-    margin-top: -5rem;
+    margin-top: 3rem;
 }
 
-.benefits__p {
+.app__benefits-paragraph {
     font-family: var(--font-alt);
     color: var(--color-green);
     font-weight: 500;
@@ -74,7 +67,7 @@
     text-transform: capitalize;
     line-height: 28px;
     font-size: 16px;
-    margin: 1.5rem 0 0 0;
+    margin: 1.5rem 0 0 0 ;
 }
 
 .benefits__copyright {
@@ -96,15 +89,15 @@
 }
 
 @media screen and (max-width:1150px) {
-    .app__card-links {
+    .app__benefits-links {
         align-items: center;
         flex-direction: column;
         padding: 0;
     }
 
-    .app__card-links_contact,
-    .app__card-links_logo,
-    .app__card-links-align {
+    .app__benefits-links_contact,
+    .app__benefits-links_logo,
+    .app__benefits-links_work {
         margin: 2rem 0;
         /* width: 100%; */
     }
@@ -117,7 +110,7 @@
 }
 
 @media screen and (max-width:350px) {
-    .app__card-links_logo img:first-child {
+    .app__benefits-links_logo img:first-child {
         width: 80%;
     }
 }

@@ -39,25 +39,25 @@ const Gallery = () => {
     }
 
     return (
-        <div className="gallery app__flex-center">
-            <div className="gallery__content">
+        <div className="app__gallery flex__center">
+            <div className="app__gallery-content">
 
                 <SubHeading title="Popular Products" />
 
-                <p className="app__p" style={{ marginTop: '2rem' }}>
+                <p className="p__opensans" style={{ marginTop: '2rem' }}>
                     Numbers don't lie, check out our most popular from our collection
                 </p>
-                <button type="button" className="app__button" style={{ marginTop: '2rem' }}>
+                <button type="button" className="custom__button" style={{ marginTop: '2rem' }}>
                     View More
                 </button>
             </div>
 
-            <div className="gallery__images">
-                <div className="gallery__images-container" ref={scrollRef}>
+            <div className="app__gallery-images">
+                <div className="app__gallery-images_container" ref={scrollRef}>
                     {/* loop images: each image includes insta icon*/}
                     {galleryImages.map((image, index) => (
                         <div
-                            className="gallery__images-card app__flex-center"
+                            className="app__gallery-images_card flex__center"
                             key={`gallery_image-${index + 1}`}
                         >
 
@@ -66,19 +66,19 @@ const Gallery = () => {
                                 alt="gallery_image"
                             />
 
-                            <BsInstagram className="gallery__images-icon" />
+                            <BsInstagram className="gallery__image-icon" />
                         </div>
                     ))}
                 </div>
 
-                <div className='gallery__images-arrows'>
+                <div className='app__gallery-images_arrows'>
                     <BsArrowLeftShort
-                        className="gallery__arrows-icon"
+                        className="gallery__arrow-icon"
                         onClick={() => scroll('left')}
                     />
 
                     <BsArrowRightShort
-                        className="gallery__arrows-icon"
+                        className="gallery__arrow-icon"
                         onClick={() => scroll('right')}
                     />
                 </div>
@@ -86,5 +86,7 @@ const Gallery = () => {
         </div>
     )
 };
+
+
 
 export default Gallery;

@@ -1,26 +1,42 @@
-.follow__context {
-    text-align: center;
-    justify-content: space-between;
+.app__laurels_awards {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    /* display:; */
-    /* justify-content: space-between; */
-    /* align-items: flex-start; */
+    flex-wrap: wrap;
+
+    margin-top: 3rem;
+}
+
+.app__laurels_awards-card {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 230px;
+
+    margin: 1rem;
 }
 
 
-.follow__h1 {
+.app__follow-headtext {
     font-family: var(--font-base);
-    color: var(--color-white);
+    color: var(--color-black);
 
     font-size: 64px;
     line-height: 83.2px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
+    margin-top: 3rem;
+
+
 }
 
-.follow__p {
+
+
+
+.app__follow-headtext-p {
     font-family: var(--font-alt);
-    color: var(--color-white);
+    color: var(--color-black);
     font-weight: 500;
     letter-spacing: 0.04em;
     text-transform: capitalize;
@@ -29,9 +45,9 @@
     margin: 0;
 }
 
-
-
-
+.app__header-section {
+    text-align: center;
+}
 
 
 @media screen and (min-width: 1900px) {
@@ -52,12 +68,12 @@
 }
 
 
-.app__card-links-icons {
+.app__follow-links_icons {
     margin-top: 0.5rem;
 }
 
-.app__card-links-icons svg {
-    color: var(--color-white);
+.app__follow-links_icons svg {
+    color: var(--color-black);
     margin: rem;
     font-size: 90px;
     font-weight: bold;

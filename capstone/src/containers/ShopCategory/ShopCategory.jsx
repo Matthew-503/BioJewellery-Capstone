@@ -1,75 +1,76 @@
-// Author: Ling Shan Matthew Ng
-// Version 0.1
-// Date: 17/1/2023
-
-// Description: This is the shop category with 4 cards
-// Precondition: A category page with required categories with title and button
-// Postcondition: Shop category page all required functions
-
-// Input: Currently no input available
-// Output: Currently no specific output
-
-// Notes: Aim to make the title text and button align centered 
-// Notes: Will implement related images
-
-
 import React from 'react';
-
-import { Article } from '../../components';
-// import { SubHeading } from '../../components';
-
-import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
-
+import { BsInstagram, BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import { SubHeading } from '../../components';
+import { images } from '../../constants';
 
 import './ShopCategory.css';
 
+const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
+
 const ShopCategory = () => {
+
+    const scrollRef = React.useRef(null);
+
+    const scroll = (direction) => {
+        const { current } = scrollRef;
+
+        if (direction === 'left') { 
+            current.scrollLeft -= 300;
+        }
+        else {
+            current.scrollLeft += 300;
+        }
+    }
+
     return (
-        <div className="category category__section-padding" id="blog">
+        <div className="app__gallery flex__center">
+            <div className="app__gallery-content">  
+                <h1 className="headtext__cormorant">
+                    Popular Products
+                </h1>
+                <p className="p__opensans" style={{ marginTop: '2rem' }}>
+                    Numbers don't lie, check out our most popular from our collection
+                </p>
+                <button type="button" className="custom__button" style={{ marginTop: '2rem' }}>
+                    View More
+                </button>
+            </div>
 
-            {/* <SubHeading title="Chef's word" /> */}
+            <div className="app__gallery-images">
+                <div className="app__gallery-images_container" ref={scrollRef}>
+                    {/* loop images: each image includes insta icon*/}
+                    {galleryImages.map((image, index) => (
+                        <div
+                            className="app__gallery-images_card flex__center"
+                            key={`gallery_image-${index + 1}`}
+                        >
 
-            <div className="category__container">
-                <div className="category__container-card">
-                    <Article
+                            <img
+                                src={image}
+                                alt="gallery_image"
+                            />
 
-                        imgUrl={gallery02}
+                            <BsInstagram className="gallery__image-icon" />
+                        </div>
+                    ))}
+                </div>
 
-                        text="Popular"
-
-                        link="/categories/popular"
+                <div className='app__gallery-images_arrows'>
+                    <BsArrowLeftShort
+                        className="gallery__arrow-icon"
+                        onClick={() => scroll('left')}
                     />
 
-                    <Article
-
-                        imgUrl={gallery03}
-
-                        text="Trending"
-
-                        link="/categories/trending"
-                    />
-
-                    <Article
-
-                        imgUrl={gallery04}
-
-                        text="Most Saved"
-
-                        link="/categories/mostsaved"
-                    />
-
-                    <Article
-
-                        imgUrl={gallery01}
-
-                        text="On Sale"
-
-                        link="/categories/onsale"
+                    <BsArrowRightShort
+                        className="gallery__arrow-icon"
+                        onClick={() => scroll('right')}
                     />
                 </div>
             </div>
         </div>
     )
-}
+};
 
-export default ShopCategory
+
+
+export default ShopCategory;

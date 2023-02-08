@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
 import Uploader from '../Uploader/Uploader';
-
 import './AddProduct.css';
 
 // Author: Buola Achor
@@ -22,7 +20,6 @@ class AddProduct extends Component {
     { 
         return(
             <div className="flex__center">
-
                 <form>
 
                     <div className="add__employee-menu">
@@ -76,7 +73,6 @@ class AddProduct extends Component {
                         <button className="button-cancel">Cancel</button>  
                     </div>
                 </form>     
-
             </div>
     );
     }
