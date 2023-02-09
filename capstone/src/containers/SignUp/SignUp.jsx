@@ -23,6 +23,7 @@ const SignUpForm = () => {
     const [progress, setProgress] = useState(0);
     const [display, setDisplay] = useState(1);
     const [clickCount, setClickCount] = useState(0);
+    const [currentInput, setCurrentInput] = useState(1);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -34,6 +35,33 @@ const SignUpForm = () => {
     };
 
     const handleClick = () => {
+        setProgress(prevProgress => (prevProgress + 1) % 3);
+        setClickCount(clickCount + 1);
+
+        if (display === 3) {
+            setDisplay(1);
+        } else {
+            setDisplay(display + 1);
+        }
+    };
+
+    const handleKeyDown = (e, event) => {
+        // event.preventDefault();
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+        console.log(name, email, password);
+
+        if (e.key === ("Enter") && { confirmPassword } !== null) {
+            setCurrentInput(currentInput + 1);
+        }
+        else {
+            setCurrentInput(currentInput);
+        }
+        console.log( currentInput);
+
+
         setProgress(prevProgress => (prevProgress + 1) % 3);
         setClickCount(clickCount + 1);
 
@@ -56,7 +84,7 @@ const SignUpForm = () => {
                     <SubHeading title={"Sign Up"} className='signup__subheading' />
 
                     <p>Join us to be part of the greater world!</p>
-                    {display === 1 ? (
+                    {currentInput === 1 && (
                         <div>
                             <div>
                                 <input
@@ -98,11 +126,12 @@ const SignUpForm = () => {
                                     id="confirmPassword"
                                     placeholder='Confirm Password'
                                     value={confirmPassword}
+                                    onKeyDown={handleKeyDown}
                                     onChange={(event) => setConfirmPassword(event.target.value)}
                                 />
                             </div>
                         </div>
-                    ) : display === 2 ? (
+                    )} {currentInput === 2 && (
                         <div>
                             <div>
                                 <input
@@ -133,11 +162,12 @@ const SignUpForm = () => {
                                     id="city"
                                     placeholder='City'
                                     value={city}
+                                    onKeyDown={handleKeyDown}
                                     onChange={(event) => setCity(event.target.value)}
                                 />
                             </div>
                         </div>
-                    ) : (
+                    )} {currentInput === 3 && (
                         <div>
                             <div>
                                 <input
@@ -177,21 +207,28 @@ const SignUpForm = () => {
                     <div className="signup__link">
                         <div className="ProgressButton">
                             <div className="ProgressBar">
-                                <button onClick={handleClick} className='signup__next-button'>
+                                {/* <button onClick={handleClick} className='signup__next-button'>
                                     <BsArrowLeft size={30} className='signup__button-icon' />
-                                </button>
+                                </button> */}
+
+                                {/* {
+                                    clickCount > 0 ? (
+                                        <button onClick={handleClick} className='signup__next-button'>
+                                            <BsArrowLeft size={30} className='signup__button-icon' />
+                                        </button>
+                                    ) : null} */}
 
                                 <div className="ProgressBar">
                                     <span className={progress === 0 ? 'Active' : ''} />
                                     <span className={progress === 1 ? 'Active' : ''} />
                                     <span className={progress === 2 ? 'Active' : ''} />
                                 </div>
-                                {
+                                {/* {
                                     clickCount < 2 ? (
                                         <button onClick={handleClick} className='signup__next-button'>
                                             <BsArrowRight size={30} className='signup__button-icon' />
                                         </button>
-                                    ) : null}
+                                    ) : null} */}
                             </div>
                         </div>
 
@@ -211,3 +248,6 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
+
+
+
