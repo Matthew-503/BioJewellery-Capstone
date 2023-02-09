@@ -1,0 +1,186 @@
+.signup {
+    background: var(--color-lightgreen);
+    position: relative;
+}
+
+.signup__form {
+    padding: 8vw 13vw;
+    height: 101vh;
+}
+
+.signup img {
+    height: 101vh;
+    /* height: auto; */
+    z-index: -1;
+}
+
+.signup p {
+    font-size: 13px;
+    font-family: var(--font-alt);
+}
+
+.left {
+    position: absolute;
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: left;
+    width: 50%;
+}
+
+.signup__input {
+    width: 23vw;
+    margin-top: 1vw;
+    font-size: 15px;
+    font-family: var(--font-alt);
+    color: black;
+    border: none;
+    border-bottom: 2px solid darkgray;
+}
+
+.signup__lower-functions {
+    text-align: center;
+    /* padding: 1vw 0; */
+}
+
+.signup__button {
+    margin-top: 1.5vw;
+    width: 23vw;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.signup__link {
+    margin-top: 0.5vw;
+    font-size: 13px;
+    font-family: var(--font-alt);
+    text-align: center;
+}
+
+.HeaderImageContainer {
+    position: relative;
+}
+
+.HeaderImageContainer img {
+    width: 100%;
+    height: auto;
+}
+
+.signup__wrapper {
+    position: relative;
+}
+
+.HeaderText {
+    position: relative;
+    bottom: 0;
+    left: 18%;
+    margin-top: 520px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.signup__error-message {
+    margin-top: 0.5vw;
+    width: 23vw;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 15px;
+    font-size: 13px;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.signup__next-botton {
+    border-radius: 25px;
+}
+
+.ProgressButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProgressButton button {
+    align-items: center;
+    justify-content: space-between;
+    /* height: 1.5vw; */
+    /* border-radius: 50px; */
+    /* border: none; */
+    /* background-color: none; */
+    /* background-color: #B0E0E6; */
+    /* padding: 0.1vw; */
+}
+
+.signup__next-button {
+    align-items: center;
+    justify-content: space-between;
+    height: 2vw;
+    border-radius: 50px;
+    border: none;
+    background-color: #B0E0E6;
+    padding: 0.1vw;
+    cursor: pointer;
+}
+
+.signup__button-icon {
+    /* width: 1.75vw; */
+    align-items: center;
+    justify-content: space-between;
+    height: 1.5vw;
+    width: 1.75vw;
+    margin-top: 1.5px;
+    /* border-radius: 50px; */
+    /* border: none; */
+    /* background-color: #B0E0E6; */
+    /* padding: 0.1vw; */
+}
+
+.signup__login {
+    margin-top: 0.5vw;
+}
+
+.Progress {
+    text-align: center;
+}
+
+.ProgressBar {
+    display: flex;
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ProgressBar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: lightgray;
+    margin: 0 5px;
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.ProgressBar .Active {
+    background-color: #B0E0E6;
+}
