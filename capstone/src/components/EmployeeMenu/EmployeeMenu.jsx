@@ -48,31 +48,31 @@ const EmployeeMenu = () => {
                         <HiPencilAlt color='#818181' size={30} />
                     </div>
                 
-                        <div className="e__edit">
+                        <div className="employee__edit">
                             <a href="#Edit">Edit Page</a>
                         </div>
 
-                    <div className="e__return-person"> 
+                    <div className="employee__return-person"> 
                         <BsPersonCheckFill color='#818181' size={30} />
                     </div>
                 
-                        <div className="e__return">
+                        <div className="employee__return">
                             <a href="#Return">Return Requests</a>
                         </div>
 
-                    <div className="e__kpi-bars"> 
+                    <div className="employee__kpi-bars"> 
                         <ImParagraphLeft color='#818181' size={30} />
                     </div>
 
-                        <div className="e__kpi">    
+                        <div className="employee__kpi">    
                             <a href="#View">View KPIs</a>
                         </div>
 
-                    <div className="e__products-grid"> 
+                    <div className="employee__products-grid"> 
                         <TbGridDots color='#818181' size={30} />
                     </div>
                     
-                        <div className="e__products">    
+                        <div className="employee__products">    
                             <a href="#Products">Manage Products</a>
                         </div>
             </div>

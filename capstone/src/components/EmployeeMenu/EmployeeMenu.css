@@ -47,40 +47,40 @@
     color: #f1f1f1;
 }
 
-.e__edit {
+.employee__edit {
     margin-bottom: 40px;
 }
 
-.e__return {
+.employee__return {
     margin-bottom: 40px;
 }
 
-.e__kpi {
+.employee__kpi {
     margin-bottom: 40px;
 }
 
-.e__products-grid {
+.employee__products-grid {
     width: 1%;
     float: left;
     margin-top: 7px;
     margin-left: 35px;
 }
 
-.e__kpi-bars {
+.employee__kpi-bars {
     width: 1%;
     float: left;
     margin-top: 5px;
     margin-left: 35px;
 }
 
-.e__return-person {
+.employee__return-person {
     width: 1%;
     float: left;
     margin-top: 5px;
     margin-left: 35px;
 }
 
-.e__photo-edit {
+.employee__photo-edit {
     width: 1%;
     float: left;
     margin-top: 5px;
