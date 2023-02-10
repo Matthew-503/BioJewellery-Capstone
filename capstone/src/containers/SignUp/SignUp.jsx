@@ -31,7 +31,7 @@ const SignUpForm = () => {
             alert('Passwords do not match');
             return;
         }
-        console.log(name, email, password);
+        console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
     };
 
     const handleClick = () => {
@@ -46,20 +46,18 @@ const SignUpForm = () => {
     };
 
     const handleKeyDown = (e, event) => {
-        // event.preventDefault();
-        if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
-        }
-        console.log(name, email, password);
 
         if (e.key === ("Enter") && { confirmPassword } !== null) {
             setCurrentInput(currentInput + 1);
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
         }
         else {
             setCurrentInput(currentInput);
         }
-        console.log( currentInput);
+        console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
 
 
         setProgress(prevProgress => (prevProgress + 1) % 3);
@@ -70,6 +68,13 @@ const SignUpForm = () => {
         } else {
             setDisplay(display + 1);
         }
+
+        // event.preventDefault();
+        // if (password !== confirmPassword) {
+        //     alert('Passwords do not match');
+        //     return;
+        // }
+        // console.log(name, email, password);
     };
 
     return (
@@ -212,7 +217,7 @@ const SignUpForm = () => {
                                 </button> */}
 
                                 {/* {
-                                    clickCount > 0 ? (
+                                    currentInput === 3 ? (
                                         <button onClick={handleClick} className='signup__next-button'>
                                             <BsArrowLeft size={30} className='signup__button-icon' />
                                         </button>
@@ -230,6 +235,12 @@ const SignUpForm = () => {
                                         </button>
                                     ) : null} */}
                             </div>
+
+                            <div >
+                                {currentInput === 3 ? (
+                                    <button type="submit" className="signup__button">Sign Up</button>
+                                ) : null}
+                            </div>
                         </div>
 
                         <p className='signup__login'>
@@ -238,9 +249,7 @@ const SignUpForm = () => {
                         </p>
                     </div>
 
-                    <div >
-                        <button type="submit" className="signup__button">Sign Up</button>
-                    </div>
+
                 </div>
             </form>
         </div>
