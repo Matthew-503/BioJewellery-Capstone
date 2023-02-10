@@ -18,7 +18,7 @@ import { Link} from "react-router-dom"
 import './ShoppingCart.css';
 
 const ShoppingCart = () => (
-    <div className="shop__cart">
+    <div className="app__container">
         
 
         <h1 className="shop__header-text">Shopping Cart</h1>
