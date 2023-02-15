@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
-import { Rating, ReviewBlock, FeatureBlock } from '../../components';
+import { Rating, ReviewBlock, FeatureBlock } from '..';
 
-import './SwitchDetail.css';
+import './SwitchProductDetail.css';
 
-const Zoom = () => {
+const SwitchProductDetail = () => {
     const detailswitch = ["Description", "Review"];
     const [myProfession, setMyProfession] = useState("Description");
 
@@ -71,15 +71,4 @@ const Zoom = () => {
     );
 };
 
-// const ProfessionImage = ({ src }) => {
-//     const props = useSpring({ opacity: 1, from: { opacity: 0 } });
-//     return (
-//         <animated.img
-//             src={src}
-//             alt=""
-//             style={{ width: "250px", height: "250px", ...props }}
-//         />
-//     );
-// };
-
-export default Zoom;
+export default SwitchProductDetail;
