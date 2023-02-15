@@ -17,7 +17,7 @@ import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import { Rating, ReviewBlock } from '../../components';
 import './ProductDetail.css';
-import Zoom from '../SwitchDetail/SwitchDetail';
+import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDetail';
 
 const productImage = images.gallery01;
 
@@ -48,7 +48,7 @@ const ProductDetail = () => {
                 </div>
 
                 <div>
-                    <Zoom />
+                    <SwitchDetail />
                 </div>
 
 
