@@ -1,19 +1,28 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const { urlencoded } = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
+const colours  = require('colors');
 const PORT = process.env.PORT || 5000;
-mongoose.set('strictQuery', true);
-mongoose.connect('mongodb+srv://capstoneAdmin:SvQg1sqyLwWSwBPv@cluster0.3dwonfx.mongodb.net/biojewerlyDB?retryWrites=true&w=majority');
+const connectDB = require('./config/db')
 
-mongoose.connection.on('error', err => {
-    logError(err);
-  });
 
 app.use(express.json());
+app.use(urlencoded({extended: false}));
+//Mongodb connections
+connectDB();
+
+
+
 
 //Connect the routes and controllers
-app.use('/api/goals', require('./routes/goalRoutes'));
+
+//For all product routes
+app.use('/api/product', require('./routes/productRoutes.js'));
+
+
+
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
 
 //To run server type: 'npm start server'
