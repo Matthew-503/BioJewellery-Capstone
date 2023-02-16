@@ -23,6 +23,8 @@ import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
 import './ShopProduct.css';
 
 const ShopProduct = () => {
+    
+
     return (
         <div className="product product__section-padding" id="blog">
 
