@@ -8,10 +8,12 @@ const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db')
 const {errorHandler} = require('./middleware/errorHandler')
 
-app.use(express.json());
-app.use(urlencoded({extended: false}));
 //Mongodb connections
 connectDB();
+
+app.use(express.json());
+app.use(urlencoded({extended: false}));
+
 
 
 
