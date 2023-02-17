@@ -58,7 +58,7 @@ const ShoppingCart = () => {
                 {/* <div className="cart__subtotal">
                     <h3 className="cart__subtotal-header">Subtotal:</h3>
 
-                    <Link to="/checkout">
+                    <Link to="/create-checkout-session">
                         <button type='button' className='custom__button-checkout'>
                             Proceed to Checkout
                         </button>

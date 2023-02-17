@@ -20,7 +20,6 @@ import { Home, Header, Gallery, Benefits, Footer,Follow, ShopProduct, ProductDet
 // components are things that are reused in multiple containers
 
 import './App.css';
-import { Payment } from '@mui/icons-material';
 
 
 
@@ -28,7 +27,7 @@ import { Payment } from '@mui/icons-material';
 const App = () => (
     <div>
 
-    {/*
+    
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -53,10 +52,7 @@ const App = () => (
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
-            </Route> 
-    */}
-
-            <Payment />
+            </Route> */}
 
             {/* Route specifications for the Login Page
                 <Route path="/login" element={<LoginTemplate />}>
@@ -70,14 +66,13 @@ const App = () => (
             {/*Route for the not found page)
              <Route path="*" element={<NotFound />}/> 
             */}
-        
+        </Routes>
 
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}
         {/* <Navbar />
         <Uploader />  */}
-
 
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
