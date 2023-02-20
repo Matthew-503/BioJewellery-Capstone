@@ -15,16 +15,17 @@ app.use(express.json());
 app.use(urlencoded({extended: false}));
 
 
-
-
-
 //Connect the routes and controllers
 
 //For all product routes
 app.use('/api/product', require('./routes/productRoutes.js'));
 
+//User routes 
+app.use('/api/account', require('./routes/accountRoutes.js'));
+
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
+
 
 //To run server type: 'npm start server'
