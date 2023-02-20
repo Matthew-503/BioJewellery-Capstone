@@ -1,5 +1,5 @@
 .navbar {
-    width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .navbar-logo img {
-    width: 43px;
+    max-width: 43px;
 }
 
 .navbar-links {
@@ -71,8 +71,8 @@
 }
 
 .navbar-login div {
-    width: 1px;
-    height: 30px;
+    max-width: 1px;
+    max-height: 30px;
     background: var(--color-grey);
 }
 
@@ -82,7 +82,7 @@
 }
 
 .navbar-input input {
-    width: 250px;
+    max-width: 250px;
     border: 1px solid var(--color-black);
     border-radius: 5px;
     font-size: 16px;
@@ -95,8 +95,14 @@
     background: var(--color-white);
 }
 
+.navbar-input-search::placeholder {
+    color: lightgray;
+}
+
 .navbar-icons {
+    font-size: 24px;
     margin-top: 0.5rem;
+    color: var(--color-golden);
 }
 
 .navbar-icons svg {
@@ -108,16 +114,17 @@
 
 .navbar-smallscreen {
     display: none;
+    /* max-width: 100%; */
 }
 
 .navbar-smallscreen_overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--color-black);
-    transition: .5s ease;
+    max-width: 100%;
+    max-height: 100vh;
+    background: var(--color-darkgreen);
+    /* transition: height 10s; */
 
     flex-direction: column;
     z-index: 5;
@@ -125,13 +132,14 @@
 
 .navbar-smallscreen_overlay,
 .navbar-overlay__close {
+    /* max-width: 100%; */
     font-size: 27px;
     color: var(--color-golden);
     cursor: pointer;
 
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0.5rem;
+    right: 0rem;
 }
 
 .navbar-smallscreen_links {
@@ -139,16 +147,16 @@
 }
 
 .navbar-smallscreen_links li {
-    margin: 2rem;
+    margin: 0.8rem;
     cursor: pointer;
     color: var(--color-golden);
-    font-size: 2rem;
+    font-size: 16px;
     text-align: center;
-    font-family: var(--font-base);
+    font-family: var(--font-alt);
 }
 
 .navbar-smallscreen_links li:hover {
-    color: var(--color-white);
+    color: var(--color-golden);
 }
 
 
@@ -171,7 +179,8 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+/* Navbar for mobile view done */
+@media screen and (max-width: 430px) {
     .navbar {
         padding: 1rem;
     }
@@ -181,6 +190,6 @@
     }
 
     .navbar-logo img {
-        width: 110px;
+        display: none;
     }
 }
