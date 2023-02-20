@@ -14,7 +14,7 @@
 import React from 'react';
 
 import { images } from '../../constants';
-import { Rating, ReviewBlock, SubHeading } from '../../components';
+import { Rating, ReviewBlock, SubHeading, PayButton } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -34,11 +34,7 @@ const CartBar = () => {
                     <tr>
                         <td>
                             <div className="cartbar__button">
-                                <Link to="/cart">
-                                    <button className="cartbar__button">
-                                        <FaShoppingCart />  Proceed to Checkout
-                                    </button>
-                                </Link>
+                                    <PayButton/>
                             </div>
                         </td>
                     </tr>

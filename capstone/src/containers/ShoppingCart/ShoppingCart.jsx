@@ -12,8 +12,7 @@
 // // Notes: Editing qty function?
 // // Notes: Background and button color fix and button placement
 
-import React from 'react';
-import { Rating, CartBlock, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
+import { Rating, CartBlock, PayButton, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
 import { Link } from "react-router-dom"
 
 import { HiOutlineShoppingBag } from 'react-icons/hi';
@@ -37,7 +36,7 @@ const ShoppingCart = () => {
             </div>
 
             <div className='detail__sidebar'>
-                <CartBar />
+                <CartBar cartItem = {ShoppingCart.cartProductName}/>
             </div>
             <div className="shop__cartbody">
                 <CartBlock
@@ -55,6 +54,7 @@ const ShoppingCart = () => {
                     cartPrice={cartProductPrice}
                     cartQuantity={cartProductQuantity}
                 />
+
                 {/* <div className="cart__subtotal">
                     <h3 className="cart__subtotal-header">Subtotal:</h3>
 
