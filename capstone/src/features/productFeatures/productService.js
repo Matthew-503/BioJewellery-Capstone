@@ -1,8 +1,8 @@
 import axios from "axios";
-const API_URL = '/api/products/'
+const API_URL = '/api/product/'
 
 
-const getAllProducts = async(token) => {
+const getAllProducts = async() => {
     
 
     const response = await axios.get(API_URL + 'all')

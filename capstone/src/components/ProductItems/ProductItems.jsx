@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ProductItems.css';
 
 const ProductItems = ({ imgUrl, product }) => {
+    
     return (
         <div className="gpt3__blog-container_article">
             <div className="gpt3__blog-container_article-image">
@@ -14,7 +15,7 @@ const ProductItems = ({ imgUrl, product }) => {
 
             <div className="gpt3__blog-container_article-content">
                 <div>
-                    <Link to={"/products"}>
+                    <Link to={"/products/" + product.name}>
                         <h3>{product.name}</h3>
                     </Link>
                     <h4>${product.price}</h4>

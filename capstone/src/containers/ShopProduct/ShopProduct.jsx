@@ -20,8 +20,8 @@ import { ProductItems } from '../../components';
 import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from '../../features/productFeatures/productSlice';
-import { useEffect } from "react";
+import { getProducts, reset  } from '../../features/productFeatures/productSlice';
+import { useEffect} from "react";
 import './ShopProduct.css';
 
 const ShopProduct = () => {
@@ -35,11 +35,13 @@ const ShopProduct = () => {
         if (isError) {
             console.log(message);
         }
+        if(products.length === 0){
+            dispatch(getProducts())
+        }
+        
+        console.log("Products: " + products);
 
-        dispatch(getProducts())
-        console.log(products);
-
-       
+      
     }, [products, isError, message, dispatch])
     return (
         <div className="product product__section-padding" id="blog">
@@ -50,7 +52,7 @@ const ShopProduct = () => {
                 <div className="product__container-card">
                     {products.length > 0 ? (
                         <div>
-                            {products.map((product) => (<ProductItems
+                            {products[0].map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
                                 imgUrl={gallery01}
