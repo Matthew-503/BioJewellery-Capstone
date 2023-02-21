@@ -8,6 +8,7 @@
 
 .app__flex-center {
     display: flex;
+    max-height: 50rem;
     justify-content: center;
     align-items: center;
 }
@@ -22,11 +23,20 @@
     z-index: -1;
 }
 
+.Header__bg {
+    background: url('./assets/headerImage2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    z-index: -2;
+}
+
 .app__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    flex: 1;
     min-height: 100vh;
 }
 
@@ -70,6 +80,7 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    position: relative;
     cursor: pointer;
 }
 
@@ -234,6 +245,10 @@
 }
 
 @media screen and (max-width: 450px) {
+    .app__section-padding {
+        padding: 2.5rem 2rem;
+    }
+
     .app__p {
         font-size: 12px;
     }
@@ -245,5 +260,40 @@
     .headtext__cormorant {
         font-size: 45px;
         line-height: 70px;
+    }
+
+    .app__wrapper-info {
+        flex: 0;
+    }
+
+    .app__button {
+        font-weight: 500;
+        /* letter-spacing: 0.04em; */
+        line-height: 16px;
+        font-size: 16px;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .app__flex-center {
+        max-height: 30rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .app__section-padding {
+        padding: 2rem 1rem;
+    }
+
+    .app__p {
+        font-size: 10px;
+    }
+
+    .app__button {
+        font-weight: 300;
+        line-height: 18px;
+        font-size: 14px;
+        padding: 0.3rem 1.0rem;
     }
 }
