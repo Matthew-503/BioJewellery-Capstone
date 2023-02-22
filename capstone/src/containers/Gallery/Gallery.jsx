@@ -42,7 +42,7 @@ const Gallery = () => {
         <div className="gallery app__flex-center">
             <div className="gallery__content">
 
-                <SubHeading title="Popular Products" />
+                <SubHeading title="Popular Products" className="gallery__subheading"/>
 
                 <p className="app__p" style={{ marginTop: '2rem' }}>
                     Numbers don't lie, check out our most popular from our collection
@@ -54,7 +54,7 @@ const Gallery = () => {
 
             <div className="gallery__images">
                 <div className="gallery__images-container" ref={scrollRef}>
-                    {/* loop images: each image includes insta icon*/}
+
                     {galleryImages.map((image, index) => (
                         <div
                             className="gallery__images-card app__flex-center"
