@@ -70,34 +70,6 @@ const Benefits = () => (
                     Our customer service are available 24/7
                 </p>
             </div>
-
-            {/* <div className='app__card-links-align'>
-                <div className='app__card-links_icons'>
-                    <FiPackage />
-                </div>
-
-                <h1 className='benefits__title'>
-                    Warranty Policy
-                </h1>
-
-                <p className='benefits__p'>
-                    You have a warrenty within 1 year of purchace
-                </p>
-            </div> */}
-
-            {/* <div className='app__card-links-align'>
-                <div className='app__card-links_icons'>
-                    <BiSupport />
-                </div>
-
-                <h1 className='benefits__title'>
-                    Customer Support
-                </h1>
-
-                <p className='benefits__p'>
-                    Our customer support is 24/7
-                </p>
-            </div> */}
         </div>
     </div>
 );
