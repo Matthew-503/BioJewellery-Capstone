@@ -13,6 +13,12 @@
     align-items: center;
 }
 
+.flex__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .app__bg {
     background: url('./assets/socialbg4.png');
@@ -155,7 +161,7 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     padding: 0 2rem;
 }
 
