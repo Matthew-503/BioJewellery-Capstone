@@ -184,7 +184,7 @@
 
 .app__card-links_icons svg {
     color: var(--color-black);
-    margin: .5rem;
+    margin: 5rem .5rem .5rem .5rem;
     font-size: 30px;
     margin-bottom: 0.5rem;
 }
