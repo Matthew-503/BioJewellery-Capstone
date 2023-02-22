@@ -189,6 +189,7 @@
     margin-bottom: 0.5rem;
 }
 
+
 @media screen and (min-width: 2000px) {
 
     .button,
@@ -285,6 +286,16 @@
         justify-content: center;
         align-items: center;
     }
+
+    .app__bg {
+        background: url('./assets/socialbg4.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        z-index: -1;
+        /* display: none; */
+    }
 }
 
 @media screen and (max-width: 330px) {
@@ -302,4 +313,6 @@
         font-size: 14px;
         padding: 0.3rem 1.0rem;
     }
+
+
 }
