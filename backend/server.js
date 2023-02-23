@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const { urlencoded } = require('express');
 const app = express();
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv')
+dotenv.config()
 const colours  = require('colors');
 const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db')
