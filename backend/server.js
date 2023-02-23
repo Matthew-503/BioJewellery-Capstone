@@ -23,8 +23,8 @@ app.use('/api/product', require('./routes/productRoutes.js'));
 //User routes 
 app.use('/api/account', require('./routes/accountRoutes.js'));
 
-//Feedback routes
-app.use('/api/feedback', require('./routes/feedbackRoutes.js'));
+//Review routes
+app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
 
 app.use(errorHandler);
 

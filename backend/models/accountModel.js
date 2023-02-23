@@ -4,20 +4,20 @@ const accountSchema = new mongoose.Schema({
     email:{
         type:String,
         unique: true,
-        require:true
+        required:true
     },
     password:{
         type:String,
-        require:true
+        required:true
     },
     active:{
         type:String,
-        require:true,
+        required:true,
         default:true
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
         ref: 'User'
     }
 });

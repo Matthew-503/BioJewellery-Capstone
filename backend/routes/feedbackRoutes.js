@@ -7,6 +7,6 @@ router.route('/all').get(getAllFeedback)
 router.route('/').get(getFeedback).post(createFeedback);
 
 
-router.route('/:id').put( updateFeedback).delete(deleteFeedback);
+router.route('/:id').put(updateFeedback).delete(deleteFeedback);
 
 module.exports = router;

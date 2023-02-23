@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
-        require:true
+        required:true
     },
     phoneNumber:{
         type:Number,
-        require:false
+        required:false
     },
     type:{
         type:String,
-        require:true,
+        required:true,
         default:"Client"
     }
 
