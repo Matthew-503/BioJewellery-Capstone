@@ -11,6 +11,7 @@ const FeatureBlock = ({ productFeatureName, productFeatureType, productFeatureCo
     return (
         <div className='review'>
             <table className='review__table'>
+                <tbody>
                 <tr>
                     <td>
                         <p>
@@ -36,6 +37,7 @@ const FeatureBlock = ({ productFeatureName, productFeatureType, productFeatureCo
                         </div> */}
                     </th>
                 </tr>
+                </tbody>
             </table>
         </div >
     );

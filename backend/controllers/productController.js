@@ -20,11 +20,11 @@ const getAllProducts = asyncHandler(async (req, res) => {
 
 const getProduct = asyncHandler(async (req, res) => {
     try {
-        if (req.body._id === null || req.body._id === '' || req.body._id === undefined) {
+        if (req.params.id === null || req.params.id === '' || req.params.id === undefined) {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
-        const product = await productModel.find({ _id: req.body._id });
+        const product = await productModel.find({ _id: req.params.id });
         res.status(200).json(product);
     } catch (error) {
         res.status(400)

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductItems.css';
-
+import {useDispatch } from "react-redux";
+import { getProduct} from '../../features/productFeatures/productSlice';
 const ProductItems = ({ imgUrl, product }) => {
-    
+
+    const dispatch = useDispatch();
+
     return (
         <div className="gpt3__blog-container_article">
             <div className="gpt3__blog-container_article-image">
@@ -15,8 +18,8 @@ const ProductItems = ({ imgUrl, product }) => {
 
             <div className="gpt3__blog-container_article-content">
                 <div>
-                    <Link to={"/products/" + product.name}>
-                        <h3>{product.name}</h3>
+                    <Link to={"/products/" + product.name} >
+                        <button onClick={() => this.state=dispatch(getProduct(product._id))}>{product.name}</button>
                     </Link>
                     <h4>${product.price}</h4>
                 </div>

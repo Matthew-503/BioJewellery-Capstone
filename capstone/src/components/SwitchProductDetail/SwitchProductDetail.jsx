@@ -46,7 +46,7 @@ const SwitchProductDetail = () => {
             </div>
 
             <div className="col text-center">
-                <p>
+                <div>
                     {myProfession === "Description" && (
                         <FeatureBlock
                             productFeatureName={productFeatureName}
@@ -65,7 +65,7 @@ const SwitchProductDetail = () => {
                         />
                     )}
 
-                </p>
+                </div>
             </div>
         </>
     );

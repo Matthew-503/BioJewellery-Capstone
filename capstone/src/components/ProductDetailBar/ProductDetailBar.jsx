@@ -37,6 +37,7 @@ const ProductDetailBar = () => {
         <div className="">
             <div>
                 <table className='detail__table'>
+                    <tbody>
                     <tr>
                         <th>Price</th>
                     </tr>
@@ -71,6 +72,7 @@ const ProductDetailBar = () => {
                             </div>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
