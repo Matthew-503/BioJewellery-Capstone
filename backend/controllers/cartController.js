@@ -16,23 +16,19 @@ const getCartItems = asyncHandler(async (req, res) => {
         throw new Error('Cart not found for the user');
         }
 
-        //Next step fetching the items in cart
-        // take each product object in products array, 
-        //extract the id and saves it in a new array of product ids, helps to retrieve the whole product info
+        //fetching the items in cart
+        //extracting productIds to find the product details
         const productIds = cart.products.map((product) => product.productId);
 
-        //finding full product info for the products in cart
         //Using $in operator to match any of the values in productIds array
         const products = await Product.find({ _id: { $in: productIds } });
 
-        //Combining the quantity and full product data into a single array of objects
-        //retrieving the product data fully and attaching it with quantity 
-        //makes it easier in front end to display additional info like desc and images for the user to identify.
+        //Combining the quantity and full product data into a single array of product objects
+        //attaching product info so, in front end to display additional info like title, desc and images for the user to identify.
         const cartItems = cart.products.map((product) => 
         {   
             const productData = products.find((p) => p._id.equals(product.productId));
-            return { product: productData,
-                quantity: product.quantity };
+            return { product: productData, quantity: product.quantity };
         });
 
         //returning cart items
@@ -52,7 +48,7 @@ const createCart = asyncHandler(async (req, res) => {
 //current user for which the cart has to be created
 const user = await User.findById(req.user._id)
 
-//Getting product and its quantity to add in cart
+//Getting product and its quantity from front end to add in cart
 const { productId, quantity } = req.body
 
 //Check if the product exists
@@ -60,7 +56,7 @@ const product = await Product.findById(productId)
 
 if(!product){
     res.status(400)
-    throw new Error('Sorry, Product not found')
+    throw new Error('Sorry, Product not found in database')
 }
 
 //Check if we have stock of the requested product
@@ -89,24 +85,23 @@ const existingProductIndexVal = cart.products.findIndex((product) =>
     product.productId.toString() === productId
 )
 
-//if the product doesn't exist in cart, the index value is -1
+//for product not found, the index value is -1
 if(existingProductIndexVal === -1){
     cart.products.push({
         productId,
         quantity
-    })
-}else{
-    //if the product already added, update just the quantity
-    cart.products[existingProductIndexVal].quantity += quantity;
-}
+    })}
+
+//if the product already added, update just the quantity
+cart.products[existingProductIndexVal].quantity += quantity;
 
 //saving cart info to DB
 await cart.save()
 
-    res.status(200).json({ message: 'Cart created' });
+res.status(200).json({ message: 'Cart created' });
 })
 
-// @desc    update items in an existing cart
+// @desc    update existing item in cart
 // @route   PATCH /api/cart/:cartId/products/:productId
 // @access  private
 const updateCartItem = asyncHandler(async (req, res) => {
@@ -114,20 +109,19 @@ const updateCartItem = asyncHandler(async (req, res) => {
     const { cartId, productId } = req.params
     
     const {quantity} = req.body
-    // Validate request body
+    // Validate quantity received
     if (quantity === undefined || quantity === null || typeof quantity !== 'number') {
         res.status(400);
         throw new Error('Invalid request body');
     }
 
-    
     //Cart that needs updation
     const cart = await Cart.findById(cartId)
 
     if(!cart)
     {
         res.status(400)
-        throw new Error('Sorry, the cart does not exist. Create a new one')
+        throw new Error('Sorry, the cart does not exist. Start a new one')
     }
 
     //Finding the product position in the cart.products array that needs updation
@@ -170,7 +164,6 @@ const deleteCartItem = asyncHandler(async (req, res) => {
     }
     
     //Else delete the product from array
-    //Using splice method to delete, the sec arg 1 specifies no. of the elts that are removed starting from that index
     cart.products.splice(deletingProductIndexVal,1);
 
     //saving the updated cart document in Database
