@@ -9,7 +9,7 @@ const User = require('../models/userModel')
 const getReview = asyncHandler(async (req, res) => {
     try {        
         //product for which the reviews are requested
-        const productSelected = await Product.findById(req.params.id)
+        const productSelected = await Product.findById(req.params.productId)
 
         //Finding reviews for the selected product
         const reviews = await Review.find({ product: productSelected._id });
@@ -28,7 +28,7 @@ const getReview = asyncHandler(async (req, res) => {
 const createReview = asyncHandler(async (req, res) => {
 
     //Product being reviewed
-    const product = await Product.findById(req.params.id)
+    const product = await Product.findById(req.params.productId)
     
     //user account writing the review
     const user = await User.findById(req.user._id)
