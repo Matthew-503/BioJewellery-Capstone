@@ -47,6 +47,11 @@ const productSchema = new mongoose.Schema({
         required:true,
         default:true
     },
+    isAvailable:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
     salePercent: {
         type:Number,
         required:false,
