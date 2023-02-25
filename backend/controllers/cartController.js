@@ -34,6 +34,8 @@ const getCartItems = asyncHandler(async (req, res) => {
             return { product: productData,
                 quantity: product.quantity };
         });
+
+        //returning cart items
         res.status(200).json(cartItems);
     } 
     catch (error) {
@@ -83,7 +85,7 @@ if(!cart){
 }
 
 //if the product is already added to the cart, just updating the quantity
-const existingProductIndexVal = await cart.products.findIndex((product) =>
+const existingProductIndexVal = cart.products.findIndex((product) =>
     product.productId.toString() === productId
 )
 
@@ -105,11 +107,22 @@ await cart.save()
 })
 
 // @desc    update items in an existing cart
-// @route   PUT /api/cart/:cartId
+// @route   PATCH /api/cart/:cartId/products/:productId
 // @access  private
-const updateCart = asyncHandler(async (req, res) => {
+const updateCartItem = asyncHandler(async (req, res) => {
+        
+    const { cartId, productId } = req.params
+    
+    const {quantity} = req.body
+    // Validate request body
+    if (quantity === undefined || quantity === null || typeof quantity !== 'number') {
+        res.status(400);
+        throw new Error('Invalid request body');
+    }
+
+    
     //Cart that needs updation
-    const cart = await Cart.findById(req.params.cartId)
+    const cart = await Cart.findById(cartId)
 
     if(!cart)
     {
@@ -117,42 +130,64 @@ const updateCart = asyncHandler(async (req, res) => {
         throw new Error('Sorry, the cart does not exist. Create a new one')
     }
 
-    //new info that needs to be updated
-    const { productId, quantity } = req.body
-    
     //Finding the product position in the cart.products array that needs updation
-    const existingProductIndexVal = await cart.products.findIndex((product) =>
+    const updatingProductIndexVal = cart.products.findIndex((product) =>
                                     product.productId.toString() === productId )
 
-    //if the product doesn't exist in cart, the index value is -1
-    if(existingProductIndexVal === -1){
-        cart.products.push({
-            productId,
-            quantity
-        })
-    }else{
-        //if the product already added, update the quantity
-        cart.products[existingProductIndexVal].quantity += quantity;
+    //if the product doesn't exist in cart, the index value will be -1
+    if(updatingProductIndexVal === -1){
+        res.status(400);
+        throw new Error('Product does not exist to update');        
     }
-
+    
+    //if the product exists, update the quantity
+    cart.products[updatingProductIndexVal].quantity += quantity;
+    
     //saving cart info to DB
     await cart.save()
-
-    res.status(200).json('Cart items Updated');
+    res.status(200).json({message:'Cart items Updated'});
 })
 
 // @desc    delete an item in cart
-// @route   DELETE /api/cart/:productId
+// @route   DELETE /api/cart/:cartId/products/:productId
 // @access  private
-const deleteCartItems = asyncHandler(async (req, res) => {
+const deleteCartItem = asyncHandler(async (req, res) => {
 
+   //reading the cartId and productId from request
+   const { cartId, productId } = req.params
    
+   //Finding the cart, which has the item to be removed
+   const cart = await Cart.findById(cartId)
 
-    res.status(200).json('Items Removed from cart');
+   //finding the product position in the cart.products array that needs to be deleted
+   const deletingProductIndexVal = cart.products.findIndex(
+    (product) => product.productId.toString() === productId )
+
+    //if the product doesn't exist in cart
+    if(deletingProductIndexVal === -1){
+        res.status(400)
+        throw new Error('The product does not exist in cart')
+    }
+    
+    //Else delete the product from array
+    //Using splice method to delete, the sec arg 1 specifies no. of the elts that are removed starting from that index
+    cart.products.splice(deletingProductIndexVal,1);
+
+    //saving the updated cart document in Database
+    await cart.save()
+
+    //if the cart has no items left
+    if (cart.products.length === 0) {
+        res.status(200).json({message: 'Your cart is empty'});
+    }
+    
+    //if the cart has the item removed and has other products in it
+    res.status(200).json({message: 'Product removed from cart successfully!'});
+        
 })
 module.exports = {
     createCart,
-    updateCart,
-    deleteCartItems,
+    updateCartItem,
+    deleteCartItem,
     getCartItems
 }
