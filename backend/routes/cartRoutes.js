@@ -5,6 +5,6 @@ const { getCartItems, createCart, updateCart, deleteCartItems } = require('../co
 
 router.route('/').get(protect, getCartItems).post(protect, createCart);
 
-router.route('/:productId').put(protect, updateCart).delete(protect, deleteCartItems);
+router.route('/:cartId').put(protect, updateCart).delete(protect, deleteCartItems);
 
 module.exports = router;

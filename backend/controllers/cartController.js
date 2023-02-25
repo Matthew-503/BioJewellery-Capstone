@@ -83,7 +83,7 @@ if(!cart){
 }
 
 //if the product is already added to the cart, just updating the quantity
-const existingProductIndexVal = await Cart.products.findIndex((product) =>
+const existingProductIndexVal = await cart.products.findIndex((product) =>
     product.productId.toString() === productId
 )
 
@@ -104,12 +104,40 @@ await cart.save()
     res.status(200).json({ message: 'Cart created' });
 })
 
-// @desc    update cart items 
-// @route   PUT /api/cart/:productId
+// @desc    update items in an existing cart
+// @route   PUT /api/cart/:cartId
 // @access  private
 const updateCart = asyncHandler(async (req, res) => {
+    //Cart that needs updation
+    const cart = await Cart.findById(req.params.cartId)
 
+    if(!cart)
+    {
+        res.status(400)
+        throw new Error('Sorry, the cart does not exist. Create a new one')
+    }
+
+    //new info that needs to be updated
+    const { productId, quantity } = req.body
     
+    //Finding the product position in the cart.products array that needs updation
+    const existingProductIndexVal = await cart.products.findIndex((product) =>
+                                    product.productId.toString() === productId )
+
+    //if the product doesn't exist in cart, the index value is -1
+    if(existingProductIndexVal === -1){
+        cart.products.push({
+            productId,
+            quantity
+        })
+    }else{
+        //if the product already added, update the quantity
+        cart.products[existingProductIndexVal].quantity += quantity;
+    }
+
+    //saving cart info to DB
+    await cart.save()
+
     res.status(200).json('Cart items Updated');
 })
 
