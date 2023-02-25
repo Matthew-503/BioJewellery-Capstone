@@ -18,15 +18,14 @@ import { SubHeading, ProductDetailBar } from '../../components';
 import { Rating, ReviewBlock } from '../../components';
 import './ProductDetail.css';
 import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDetail';
-import { useDispatch, useSelector } from "react-redux";
-import { getProduct, reset } from '../../features/productFeatures/productSlice';
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 const productImage = images.gallery01;
 
 const ProductDetail = ({ productid }) => {
 
-    const dispatch = useDispatch();
+
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
 
@@ -35,12 +34,7 @@ const ProductDetail = ({ productid }) => {
         if (isError) {
             console.log(message);
         }
-        console.log("Product id:" + selectedProduct);
-        // dispatch(getProduct(productid))
-
-        return () => {
-            dispatch(reset())
-        }
+        
 
     }, [isError, message])
     var price = null;
@@ -55,7 +49,7 @@ const ProductDetail = ({ productid }) => {
     return (
         <div className="app__gallery app__section-padding">
             <div className="detail__headtext">
-                {/* <h3>{productName == null ? "Needs product name" : productName}</h3> */}
+                
                 <SubHeading title={selectedProduct[0].name} />
                 <img
                     className="detail__image"

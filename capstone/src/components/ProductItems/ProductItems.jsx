@@ -19,7 +19,7 @@ const ProductItems = ({ imgUrl, product }) => {
             <div className="gpt3__blog-container_article-content">
                 <div>
                     <Link to={"/products/" + product.name} >
-                        <button onClick={() => this.state=dispatch(getProduct(product._id))}>{product.name}</button>
+                        <div onClick={() => this.state=dispatch(getProduct(product._id))}>{product.name}</div>
                     </Link>
                     <h4>${product.price}</h4>
                 </div>

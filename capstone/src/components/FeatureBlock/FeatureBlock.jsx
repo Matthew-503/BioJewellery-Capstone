@@ -3,11 +3,21 @@ import Rating from '../Rating/Rating';
 
 // import images from '../../constants/images';
 import './FeatureBlock.css';
-
-const FeatureBlock = ({ productFeatureName, productFeatureType, productFeatureColor, reviewStarRating }) => {
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+const FeatureBlock = () => {
 
     var stars = 3;
 
+    const { selectedProduct, isError, message } = useSelector((state) => state.products)
+
+    useEffect(() => {
+        if (isError) {
+            console.log(message);
+        }
+        
+        
+    }, [isError, message])
     return (
         <div className='review'>
             <table className='review__table'>
@@ -15,18 +25,18 @@ const FeatureBlock = ({ productFeatureName, productFeatureType, productFeatureCo
                 <tr>
                     <td>
                         <p>
-                            {productFeatureName}
+                            {selectedProduct[0].name}
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <td colSpan={2}>
-                        {productFeatureType}
+                        {selectedProduct[0].type}
                     </td>
                 </tr>
                 <tr>
                     <td colSpan={2}>
-                        {productFeatureColor}
+                        {selectedProduct[0].colour}
                     </td>
                 </tr>
                 <tr>

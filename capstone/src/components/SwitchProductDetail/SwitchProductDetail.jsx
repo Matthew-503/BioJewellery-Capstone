@@ -18,11 +18,7 @@ const SwitchProductDetail = () => {
     var customerDefaultTitle = "Default Title";
     var customerDefaultDescription = "Default Description";
 
-    //Default Variable for review block
-    var productFeatureName = "Name";
-    var productFeatureType = "Type";
-    var productFeatureColor = "Color";
-
+    
     return (
         <>
             <div className="switch">
@@ -49,10 +45,7 @@ const SwitchProductDetail = () => {
                 <div>
                     {myProfession === "Description" && (
                         <FeatureBlock
-                            productFeatureName={productFeatureName}
-                            productFeatureType={productFeatureType}
-                            productFeatureColor={productFeatureColor}
-                            reviewStarRating={stars}
+                            
                         />
                     )}
 

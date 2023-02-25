@@ -50,7 +50,7 @@ const ShopProduct = () => {
                 <div className="product__container-card">
                     {products.length > 0 ? (
                         <div>
-                            {products[0].map((product) => (<ProductItems
+                            {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
                                 imgUrl={gallery01}

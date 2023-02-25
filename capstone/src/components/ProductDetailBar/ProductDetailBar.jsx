@@ -18,12 +18,20 @@ import { Rating, ReviewBlock, SubHeading } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
-
+import { useEffect } from "react";
 import './ProductDetailBar.css';
-
+import { useSelector } from "react-redux";
 const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
+    const { selectedProduct, isError, message } = useSelector((state) => state.products);
+    useEffect(() => {
+        if (isError) {
+            console.log(message);
+        }
+        
+
+    }, [isError, message])
     var productName = null;
     var price = null;
     var description = null;
@@ -39,7 +47,7 @@ const ProductDetailBar = () => {
                 <table className='detail__table'>
                     <tbody>
                     <tr>
-                        <th>Price</th>
+                        <th>Price ${selectedProduct[0].price}</th>
                     </tr>
                     <tr>
                         <td>
@@ -50,7 +58,7 @@ const ProductDetailBar = () => {
                         </td>
                     </tr>
                     <tr>
-                        <td>Quantity: 1</td>
+                        <td>Quantity: {selectedProduct[0].quantity}</td>
                     </tr>
                     <tr>
                         <td>
