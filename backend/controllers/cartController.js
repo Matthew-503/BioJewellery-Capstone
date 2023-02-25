@@ -8,9 +8,17 @@ const User = require('../models/userModel')
 const getCartItems = asyncHandler(async (req, res) => {
     try { 
                        
-        //find items added in cart
-        const items = await Cart.find();
-        res.status(200).json(items);
+        //find the cart for the user
+        const cart = await Cart.find({client: req.user._id});
+
+        if (!cart) {
+            res.status(400)
+        throw new Error('Cart not found for the user');
+        }
+
+        //Next step fetching the items in cart
+        
+
     } 
     catch (error) {
         res.status(400)
@@ -23,43 +31,27 @@ const getCartItems = asyncHandler(async (req, res) => {
 // @access  Public
 const addToCart = asyncHandler(async (req, res) => {
 
-    if (!rating || !title || !comment ) {
-      res.status(400)
-      throw new Error('Please provide all fields!')
-    }
 
-    //Check if review already posted for the product by the user
-    const reviewExists = product.reviews.find((rev) => 
-                                rev.client.toString() === req.user._id.toString())
-    
-    if(reviewExists){
-        res.status(400)
-        throw new Error('Product already reviewed!');
-    }
-                                
-    //adding item cart
-    
-
-    res.status(200).json({ message: 'Cart Created' });
+    res.status(200).json({ message: 'Item added to cart' });
 })
 
 // @desc    update cart items 
 // @route   PUT /api/cart/:productId
-// @access  public
+// @access  private
 const updateCart = asyncHandler(async (req, res) => {
 
     
-    res.status(200).json('Cart Updated');
+    res.status(200).json('Cart items Updated');
 })
 
 // @desc    delete an item in cart
 // @route   DELETE /api/cart/:productId
-// @access  Public
+// @access  private
 const deleteCartItems = asyncHandler(async (req, res) => {
 
    
 
-    res.status(200).json('Review Removed');
+    res.status(200).json('Items Removed from cart');
 })
 module.exports = {
     addToCart,

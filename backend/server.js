@@ -28,6 +28,9 @@ app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
 //Cart routes
 app.use('/api/cart', require('./routes/cartRoutes.js'));
 
+//Order routes
+app.use('/api/order', require('./routes/orderRoutes.js'));
+
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
