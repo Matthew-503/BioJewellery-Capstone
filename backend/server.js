@@ -15,9 +15,7 @@ connectDB();
 app.use(express.json());
 app.use(urlencoded({extended: false}));
 
-
 //Connect the routes and controllers
-
 //For all product routes
 app.use('/api/product', require('./routes/productRoutes.js'));
 
@@ -27,9 +25,11 @@ app.use('/api/account', require('./routes/accountRoutes.js'));
 //Review routes
 app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
 
+//Cart routes
+app.use('/api/cart', require('./routes/cartRoutes.js'));
+
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
-
 
 //To run server type: 'npm start server'

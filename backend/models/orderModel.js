@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema({
+    client:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    },
     startDate:{
         type:Date,
-        required:true
-        
+        required:true        
     }, 
     shipDate:{
         type:Date,
@@ -22,11 +26,29 @@ const orderSchema = new mongoose.Schema({
         required:true,
         default:'P'
     },
-    client:{
+    products: [
+        {
+            productId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Product'
+            },
+            quantity: {
+                type: Number,
+                default: 1
+            }
+        }
+    ],
+    amount: {
+        type: Number,
+        required: true
+    },
+    address: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'Address'
     }
+},{
+    timestamps: true
 });
 
 module.exports = mongoose.model('Order', orderSchema);
