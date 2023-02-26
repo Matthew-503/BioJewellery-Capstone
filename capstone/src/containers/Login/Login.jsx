@@ -9,42 +9,6 @@
 // Input: Currently no input available
 // Output: Currently no specific output
 
-
-// import React from 'react';
-
-// import { SubHeading } from '../../components';
-// import { images } from '../../constants';
-// import { Link } from "react-router-dom"
-
-// import './Login.css';
-
-// const Login = () => (
-//     <div className='login ' id='home'>
-//         <div>
-//             <img src={images.login} alt="G_overlay" className='left' />
-//             <div className='right'>
-// <SubHeading title={"Login"} />
-// <p>Welcome back! Please enter your details</p>
-
-//                 <form>
-//                     <label>
-//                         <input type="text" placeholder='Username' />
-//                     </label>
-//                     <br />
-//                     <label>
-//                         <input type="text" placeholder='Password' />
-//                     </label>
-//                 </form>
-//             </div>
-//         </div>
-//     </div>
-// );
-
-// export default Login;
-
-
-
-
 import React, { useState } from 'react';
 
 import { SubHeading } from '../../components';
