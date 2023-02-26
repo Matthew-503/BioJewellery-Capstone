@@ -5,7 +5,7 @@
 
 .login__form {
     padding: 8vw 13vw;
-    height: 101vh;
+    max-height: 101vh;
 }
 
 .login img {
@@ -22,12 +22,12 @@
 .left {
     position: absolute;
     float: left;
-    width: 50%;
+    max-width: 50%;
 }
 
 .right {
     float: left;
-    width: 50%;
+    max-width: 50%;
 }
 
 .login__input {
@@ -107,4 +107,15 @@
     border-radius: 5px;
     border: none;
     outline: none;
+}
+
+@media screen and (max-width: 450px) {
+    .login__wrapper {
+        display: none;
+    }
+
+    .right {
+        float: none;
+        width: 100%;
+    }
 }

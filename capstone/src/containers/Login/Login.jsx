@@ -64,7 +64,7 @@ const Login = () => {
     };
 
     return (
-        <div className='login'>
+        <div className='login login__bg'>
             <div className="login__wrapper">
                 <img src={images.login} alt="G_overlay" className='left' />
                 <h1 className='HeaderText left '>Turn your dreams into reality</h1>
