@@ -9,3 +9,6 @@ export const setHeaders = () => {
 
   return headers;
 };
+
+export default url;
+

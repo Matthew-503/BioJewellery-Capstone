@@ -17,13 +17,12 @@ import { images } from '../../constants';
 import { Rating, ReviewBlock, SubHeading, PayButton } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill } from 'react-icons/bs';
-import { FaShoppingCart } from 'react-icons/fa';
 
 import './CartBar.css';
 
 const productImage = images.gallery01;
 
-const CartBar = () => {
+const CartBar = () => { 
     return (
         <div className="">
             <div>
