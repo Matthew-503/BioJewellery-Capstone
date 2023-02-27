@@ -31,8 +31,10 @@ const getCartItems = asyncHandler(async (req, res) => {
             return { product: productData, quantity: product.quantity };
         });
 
+        const subtotal = cart.subtotal
+
         //returning cart items
-        res.status(200).json(cartItems);
+        res.status(200).json({cartItems, subtotal});
     } 
     catch (error) {
         res.status(400)

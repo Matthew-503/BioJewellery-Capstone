@@ -1,9 +1,18 @@
 const mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema({
-    client:{
+    cart:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'Cart'
+    },
+    address: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Address'
+    },
+    amount: {
+        type: Number,
+        required: true
     },
     startDate:{
         type:Date,
@@ -25,27 +34,6 @@ const orderSchema = new mongoose.Schema({
         type:String,
         required:true,
         default:'P'
-    },
-    products: [
-        {
-            productId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product'
-            },
-            quantity: {
-                type: Number,
-                default: 1
-            }
-        }
-    ],
-    amount: {
-        type: Number,
-        required: true
-    },
-    address: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Address'
     }
 },{
     timestamps: true
