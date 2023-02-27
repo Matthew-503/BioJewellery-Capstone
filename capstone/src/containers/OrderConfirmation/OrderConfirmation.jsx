@@ -10,151 +10,83 @@
  */
 
 import React from 'react'
-import './OrderConfirmation.css';
 import productpic from '../../assets/gallery01.png'
+import { SubHeading } from '../../components';
+
+import './OrderConfirmation.css';
 
 const OrderConfirmation = () => {
   return (
-    <div>
-      <h1> Thank you for ordering</h1> {/* just to mention the name of the page, but this would be the subheading of the navbar*/}
-      
-      <br></br>
-      <form className="order_confirmation__form">
-        <div className="order_confirmation-info_box"> 
-          <h2>Shipping Details</h2>
+    <div className='confirm app__section-padding'>
+      <div className='confirm__headtext'>
+        <SubHeading title={"Thank you for ordering"} />
 
-          <label className="order_confirmation__description">
-            First Name:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__first">
-            Example
-          </label>
-          <br></br>
+        <br></br>
+        <table className='confirm__shipping-table'>
+          <tr>
+            <th rowSpan={6}>Shipping Details</th>
+          </tr>
+          <tr>
+            <td>Bob</td>
+            <td>Lee</td>
+          </tr>
+          <tr>
+            <td colSpan={2}>123 456 789</td>
+          </tr>
+          <tr>
+            <td colSpan={2}>17 Ave SW</td>
+          </tr>
+          <tr>
+            <td>Calgary</td>
+            <td>T3J 0H8</td>
+          </tr>
+          <tr>
+            <td>AB</td>
+            <td>Canada</td>
+          </tr>
+        </table>
 
-          <label className="order_confirmation__description">
-            Last Name:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__last">
-            Example
-          </label>
-          <br></br>
+        <table className='confirm__payment-table'>
+          <tr>
+            <th rowSpan={5}>Payment Details</th>
+          </tr>
+          <tr>
+            <td>123 4567 8910</td>
+          </tr>
+          <tr>
+            <td>Bob Lee</td>
+          </tr>
+          <tr>
+            <td>012</td>
+          </tr>
+          <tr>
+            <td>01/29</td>
+          </tr>
+        </table>
 
-          <label className="order_confirmation__description">
-            Phone Number:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__phone">
-            Example
-          </label>
-          <br></br>
-
-          <label className="order_confirmation__description">
-            Street:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__street">
-            Example
-          </label>
-          <br></br>
-
-          <label className="order_confirmation__description">
-            City:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__city">
-            Example
-          </label>
-          <br></br>
-
-          <label className="order_confirmation__description">
-            Province:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__province">
-            Example
-          </label>
-          <br></br>
-
-          <label className="order_confirmation__description">
-            Postal Code:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__PC">
-            Example
-          </label>
-          <br></br>
-
-          <label className="order_confirmation__description">
-            Country:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__country">
-            Example
-          </label>
-        </div>
-        
-        <div className="order_confirmation-info_box"> 
-          <h2>Payment Method</h2>
-          <label className="order_confirmation__description">
-            Number Card:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__cardno">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            CVV:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__cvv">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            Name:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__name">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            Expiry Date:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__expiry_date">
-            Example
-          </label>
-        </div>
-
-        <div className="order_confirmation-info_box"> 
-          <h2>Product Details</h2>
-          <label className="order_confirmation__description">
-            Product Name:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__product_name">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            Qty:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__qty">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            Price:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__price">
-            Example
-          </label>
-          <br></br>
-          <label className="order_confirmation__description">
-            Description:
-          </label>
-          <label className="order_confirmation__desc order_confirmation__description">
-            Example
-          </label>
-          <br></br>
-          <img src={productpic} alt="product_image"/>
-        </div>
-    
-    </form>
-      
+        <table className='confirm__product-table'>
+          <tr>
+            <th rowSpan={5}>Product Details</th>
+          </tr>
+          <tr>
+            <td>Gold leaf necklace</td>
+            <td rowSpan={5}>
+              <img src={productpic} alt="product_image" />
+            </td>
+          </tr>
+          <tr>
+            <td>1 qty</td>
+          </tr>
+          <tr>
+            <td>$1000.00</td>
+          </tr>
+          <tr>
+            <td>Warranty: 1 year from purchase</td>
+          </tr>
+        </table>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default OrderConfirmation
