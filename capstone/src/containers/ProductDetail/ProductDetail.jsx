@@ -18,9 +18,10 @@ import { SubHeading, ProductDetailBar } from '../../components';
 import { Rating, ReviewBlock } from '../../components';
 import './ProductDetail.css';
 import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDetail';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { getProductByName, reset } from '../../features/productFeatures/productSlice';
 const productImage = images.gallery01;
 
 const ProductDetail = ({ productid }) => {
@@ -29,16 +30,21 @@ const ProductDetail = ({ productid }) => {
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
 
+    let { name } = useParams();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (isError) {
             console.log(message);
         }
-        
+        dispatch(getProductByName(name))
 
-    }, [isError, message])
+        return () => {
+            dispatch(reset())
+        }
+    }, [isError, message, dispatch])
     var price = null;
-    var description = null;
+    var NameName = "test";
     var stars = 3;
 
     //Default Variable for review block
@@ -49,14 +55,13 @@ const ProductDetail = ({ productid }) => {
     return (
         <div className="app__gallery app__section-padding">
             <div className="detail__headtext">
-                
-                <SubHeading title={selectedProduct[0].name} />
+
+                <SubHeading title={selectedProduct.name} />
                 <img
                     className="detail__image"
                     src={productImage}
                     alt="product image"
                 />
-
                 <div className='detail__sidebar'>
                     <ProductDetailBar />
                 </div>

@@ -6,7 +6,8 @@ router.route('/all').get(getAllProducts)
 
 router.route('/').post(setProduct);
 
+router.route('/:name').get(getProduct);
 
-router.route('/:id').get(getProduct).put( updateProduct).delete(deleteProduct);
+router.route('/:id').put( updateProduct).delete(deleteProduct);
 
 module.exports = router;

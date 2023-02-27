@@ -25,18 +25,18 @@ const FeatureBlock = () => {
                 <tr>
                     <td>
                         <p>
-                            {selectedProduct[0].name}
+                            {selectedProduct.name}
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <td colSpan={2}>
-                        {selectedProduct[0].type}
+                        {selectedProduct.type}
                     </td>
                 </tr>
                 <tr>
                     <td colSpan={2}>
-                        {selectedProduct[0].colour}
+                        {selectedProduct.colour}
                     </td>
                 </tr>
                 <tr>

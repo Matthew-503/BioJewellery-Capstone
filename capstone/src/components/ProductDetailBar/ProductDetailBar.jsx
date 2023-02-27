@@ -32,10 +32,8 @@ const ProductDetailBar = () => {
         
 
     }, [isError, message])
-    var productName = null;
-    var price = null;
-    var description = null;
-    var stars = 3;
+    
+    let stars = 3;
 
     // //Default Variable for review block
     // var customerDefaultName = "Very Cool Name";
@@ -47,7 +45,7 @@ const ProductDetailBar = () => {
                 <table className='detail__table'>
                     <tbody>
                     <tr>
-                        <th>Price ${selectedProduct[0].price}</th>
+                        <th>Price ${selectedProduct.price}</th>
                     </tr>
                     <tr>
                         <td>
@@ -58,7 +56,7 @@ const ProductDetailBar = () => {
                         </td>
                     </tr>
                     <tr>
-                        <td>Quantity: {selectedProduct[0].quantity}</td>
+                        <td>Quantity: {selectedProduct.quantity}</td>
                     </tr>
                     <tr>
                         <td>
