@@ -22,6 +22,15 @@
     z-index: -1;
 }
 
+.login__smallscreen-bg {
+    background: url('./assets/login.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
 .app__wrapper {
     display: flex;
     justify-content: space-between;
