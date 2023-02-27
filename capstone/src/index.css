@@ -5,6 +5,7 @@
     --font-alt: 'Open Sans', sans-serif;
 
     --color-golden: #DCCA87;
+    --color-yellow: #ffe82a;
     --color-black: #0C0C0C;
     --color-gray: #545454;
     --color-crimson: #F5EFDB;
@@ -13,6 +14,8 @@
     --color-green: #07484A;
     --color-lightgreen: #ECF1E3;
     --color-darkgreen: #072D2E;
+
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
 }
 
 * {
