@@ -30,6 +30,7 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
+import ManageProduct from './ManageProduct/ManageProduct';
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
 
 import Login from './Login/Login';
@@ -53,6 +54,10 @@ export {
 
   SwitchDetail,
   ShoppingCart,
+ 
+  ManageProduct,
+  // ShopCategory,
+  
 
   UserNavigation,
 

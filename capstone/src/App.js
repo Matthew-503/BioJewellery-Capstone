@@ -27,7 +27,6 @@ import './App.css';
 const App = () => (
     <div>
 
-
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -49,6 +48,9 @@ const App = () => (
 
             <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
+        */}
+
+
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
