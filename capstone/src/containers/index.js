@@ -30,6 +30,8 @@ import UserNavigation from './UserNavigation/UserNavigation';
 import ManageProduct from './ManageProduct/ManageProduct';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
+import ManageProduct from './ManageProduct/ManageProduct';
+
 export {
   Header,
   Gallery,
@@ -47,7 +49,7 @@ export {
   ShoppingCart,
   OrderConfirmation,
   UserNavigation,
-
+  
   ManageProduct
 
   // ShopCategory,

@@ -22,8 +22,7 @@ import './App.css';
 
 const App = () => (
     <div>
-    
-        {/* <Routes>
+        
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} /> 
                 <Route path="/home" element={<Home />}/>
@@ -45,7 +44,8 @@ const App = () => (
             <Route path="/add" element={<AddProduct />} />      
             <Route path="/editproduct" element={<EditProduct />} />
 
-            </Routes> */}
+        */}
+
 
             {/* <Route path="/admin">
                 
@@ -81,8 +81,7 @@ const App = () => (
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EmployeeMenu /> */}
 
-    </div>
-    
+    </div>  
 );
 
 export default App;
