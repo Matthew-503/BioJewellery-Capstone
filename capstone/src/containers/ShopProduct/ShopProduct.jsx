@@ -35,7 +35,6 @@ const ShopProduct = () => {
                         imgUrl={gallery02}
                         text="Popular"
                         price={100}
-                        url="/products/1"
                     />
 
                     <ProductItems
@@ -43,7 +42,6 @@ const ShopProduct = () => {
                         imgUrl={gallery03}
                         text="Trending"
                         price={100}
-                        url="/products/2"
                     />
 
                     <ProductItems
@@ -51,7 +49,6 @@ const ShopProduct = () => {
                         imgUrl={gallery04}
                         text="Most Saved"
                         price={100}
-                        url="/products/3"
                     />
 
                     <ProductItems
@@ -59,7 +56,6 @@ const ShopProduct = () => {
                         imgUrl={gallery01}
                         text="On Sale"
                         price={100}
-                        url="/products/4"
                     />
 
                     <ProductItems
@@ -67,7 +63,6 @@ const ShopProduct = () => {
                         imgUrl={gallery02}
                         text="Popular"
                         price={100}
-                        url="/products/5"
                     />
 
                     <ProductItems
@@ -75,7 +70,6 @@ const ShopProduct = () => {
                         imgUrl={gallery03}
                         text="Trending"
                         price={100}
-                        url="/products/6"
                     />
 
                     <ProductItems
@@ -83,7 +77,6 @@ const ShopProduct = () => {
                         imgUrl={gallery04}
                         text="Most Saved"
                         price={100}
-                        url="/products/7"
                     />
 
                     <ProductItems
@@ -91,7 +84,6 @@ const ShopProduct = () => {
                         imgUrl={gallery01}
                         text="On Sale"
                         price={100}
-                        url="/products/8"
                     />
                 </div>
             </div>

@@ -4,6 +4,7 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
+    /* background: var(--color-darkgreen); */
 
     padding: 12rem 0.2rem 20rem 3rem;
 }
