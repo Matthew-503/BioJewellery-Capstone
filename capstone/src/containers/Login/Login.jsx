@@ -64,55 +64,114 @@ const Login = () => {
     };
 
     return (
-        <div className='login login__bg'>
-            <div className="login__wrapper">
-                <img src={images.login} alt="G_overlay" className='left' />
-                <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-                {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div className='right login__form'>
-                    <SubHeading title={"Login"} className='login__subheading' />
+        <div>
 
-                    <p>Welcome back! Please enter your details</p>
 
-                    <p className='login__error-message'>
-                        Sorry. Email or password incorrect. Please try again or create a new account. 
-                    </p>
+            <div className='login login__bg'>
+                <div className="login__wrapper">
+                    <img src={images.login} alt="G_overlay" className='left' />
+                    <h1 className='HeaderText left '>Turn your dreams into reality</h1>
+                    {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className='right login__form'>
+                        <SubHeading title={"Login"} className='login__subheading' />
 
-                    <input
-                        className='login__input'
-                        type="text"
-                        id="username"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
+                        <p>Welcome back! Please enter your details</p>
 
-                    <input
-                        className='login__input'
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+                        <p className='login__error-message'>
+                            Sorry. Email or password incorrect. Please try again or create a new account.
+                        </p>
 
-                    <div className='login__lower-functions login__forget-link'>
-                        <div className="login__link">
-                            <Link to="/">Forgot password?</Link>
+                        <input
+                            className='login__input'
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+
+                        <input
+                            className='login__input'
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+
+                        <div className='login__lower-functions login__forget-link'>
+                            <div className="login__link">
+                                <Link to="/">Forgot password?</Link>
+                            </div>
+                            <br />
+                            <button type="submit" className="login__button">Login</button>
+                            <br />
+                            <button type="submit" className="login__button">Register</button>
+                            <br />
+                            <div className="login__link">
+                                <Link to="/">Continue as guest</Link>
+                            </div>
                         </div>
+                    </div>
+                </form>
+            </div>
+
+            <div className='login__smallscreen'>
+                <div className='login__smallscreen-bg app__section-padding'>
+                    <div className='login__smallscreen-context'>
+                        <h1 className='login__smallscreen-heading'>
+                            Login
+                        </h1>
+
+                        <p className='login__smallscreen-p'>
+                            Welcome back! Please enter your details
+                        </p>
+
+                        <div className='login__smallscreen-error-message'>
+                            <p>
+                                Sorry. Email or password incorrect. Please try again or create a new account.
+                            </p>
+                        </div>
+
+                        <input
+                            className='login__smallecreen-input'
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+
                         <br />
-                        <button type="submit" className="login__button">Login</button>
-                        <br />
-                        <button type="submit" className="login__button">Register</button>
-                        <br />
-                        <div className="login__link">
-                            <Link to="/">Continue as guest</Link>
+
+                        <input
+                            className='login__smallecreen-input'
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+
+                        <div className='login__lower-functions login__forget-link'>
+                            <div className="login__smallecreen-link">
+                                <Link to="/">Forgot password?</Link>
+                            </div>
+                            <br />
+                            <button type="submit" className="login__smallecreen-button">Login</button>
+                            <br />
+                            <button type="submit" className="login__smallecreen-button">Register</button>
+                            <br />
+                            <div className="login__smallecreen-link">
+                                <Link to="/">Continue as guest</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+
         </div>
     );
 };
