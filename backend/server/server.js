@@ -12,9 +12,8 @@ appSt.use(express.static("public"));
 app.use(express.json());
 
 appSt.post("/checkout", async (req, res) => {
-  //
-
-  console.log(req.body);
+  
+  //Stripe 
   const items = req.body.items;
   let LineItems = {};
   items.foreach((item) => {
@@ -30,8 +29,8 @@ appSt.post("/checkout", async (req, res) => {
 const session = await stripe.checkout.session.create ({
   line_items: lineItems,
   mode: 'payment',
-  success_url: "http://localhost:3000/success",
-  cancel_url: "http://localhost:3000/cancel"
+  success_url: "http://localhost:3000/OrderConfirmation",
+  cancel_url: "http://localhost:3000/ShoppingCart"
 });
 
 res.send(JSON.stringify ({
@@ -39,6 +38,8 @@ res.send(JSON.stringify ({
 }));
 
 appSt.listen(4000, () => console.log("Listening on Port 4000"))
+
+//Stripe
 
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://capstoneAdmin:SvQg1sqyLwWSwBPv@cluster0.3dwonfx.mongodb.net/biojewerlyDB?retryWrites=true&w=majority');

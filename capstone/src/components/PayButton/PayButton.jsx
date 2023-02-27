@@ -26,7 +26,7 @@ const PayButton = ({cartProductName}) => {
 
     const checkout = async () => {
         await fetch ('http://localhost:4000/checkout', {
-            method: POST,
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },

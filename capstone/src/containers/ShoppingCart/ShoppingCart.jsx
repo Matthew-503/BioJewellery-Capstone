@@ -14,7 +14,6 @@
 
 import { Rating, CartBlock, PayButton, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
 import { Link } from "react-router-dom"
-
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import './ShoppingCart.css';
 
