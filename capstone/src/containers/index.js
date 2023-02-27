@@ -56,9 +56,7 @@ export {
   ShoppingCart,
  
   ManageProduct,
-  // ShopCategory,
   
-
   UserNavigation,
 
   Login,
