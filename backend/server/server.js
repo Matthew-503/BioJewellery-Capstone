@@ -1,9 +1,44 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = required('cors');
 const app = express();
 const dotenv = require('dotenv').config();
 const PORT = process.env.PORT || 5000;
-const stripe = require("./routes/Stripe")
+const stripe = require('stripe')('pk_test_51Ma07NLwi4tFJPEKesm3Mdhhy78Q4XMXPC5xKZLOTT9V3LiFAA3sisJoH8Xwll3u8D4dmgwxK4yRry6ZnA5gaObV004bmsbzLy')
+
+const appSt = express();
+appSt.use(cors());
+appSt.use(express.static("public"));
+app.use(express.json());
+
+appSt.post("/checkout", async (req, res) => {
+  //
+
+  console.log(req.body);
+  const items = req.body.items;
+  let LineItems = {};
+  items.foreach((item) => {
+    LineItems.push( 
+      {
+        price: item.id,
+        quantity: item.quantity
+      }
+    )
+  })
+});
+
+const session = await stripe.checkout.session.create ({
+  line_items: lineItems,
+  mode: 'payment',
+  success_url: "http://localhost:3000/success",
+  cancel_url: "http://localhost:3000/cancel"
+});
+
+res.send(JSON.stringify ({
+    url:  session.url
+}));
+
+appSt.listen(4000, () => console.log("Listening on Port 4000"))
 
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://capstoneAdmin:SvQg1sqyLwWSwBPv@cluster0.3dwonfx.mongodb.net/biojewerlyDB?retryWrites=true&w=majority');
