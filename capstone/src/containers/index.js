@@ -29,7 +29,10 @@ import Home from './Home/Home';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
-import ManageProduct from './ManageProduct/ManageProduct';
+import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
+
+import Login from './Login/Login';
+import SignUp from './SignUp/SignUp';
 
 export {
   Header,
@@ -46,8 +49,12 @@ export {
   Feed,
 
   ShoppingCart,
-  OrderConfirmation,
+
   UserNavigation,
-  ManageProduct,
-  // ShopCategory,
-};  
+
+  Login,
+  SignUp,
+};
+
+
+
