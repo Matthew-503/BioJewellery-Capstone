@@ -19,7 +19,7 @@ import { Link } from "react-router-dom"
 import './Header.css';
 
 const Header = () => (
-    <div className='header app__wrapper app__section-padding overlay' id='home'>
+    <div className='header  app__section-padding overlay' id='home'>
         <div className="header-overlay app__flex-center">
             <img src={images.headerImage} alt="G_overlay" className='header-overlay-image' />
         </div>
