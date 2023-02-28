@@ -296,6 +296,10 @@
         z-index: -1;
         /* display: none; */
     }
+
+    .app__card-links_icons svg {
+        margin-top: .5rem ;
+    }
 }
 
 @media screen and (max-width: 330px) {
