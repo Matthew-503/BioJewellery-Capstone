@@ -31,10 +31,10 @@ const getCartItems = asyncHandler(async (req, res) => {
             return { product: productData, quantity: product.quantity };
         });
 
-        const subtotal = cart.subtotal
+        const subTotal = cart.subTotal
 
         //returning cart items and subtotal
-        res.status(200).json({cartItems, subtotal});
+        res.status(200).json({cartItems, subTotal});
     } 
     catch (error) {
         res.status(400)
@@ -78,8 +78,7 @@ let cart = await Cart.findOne({client: user._id})
 if(!cart){
     cart = await Cart.create({
     client: user._id,
-    products: [],
-    subtotal: 0
+    products: []
     });
 }
 
@@ -96,17 +95,8 @@ if(existingProductIndexVal === -1){
         quantity
     })}
 
-//if the product already added, update the quantity and calculate subtotal
+//if the product already added, update the quantity
 cart.products[existingProductIndexVal].quantity += quantity;
-
-//Subtotal Calculation
-let discount = () => {
-    if(product.onSale){
-        return product.salePercent
-    }
-    return 0
-}
-cart.subtotal = cart.subtotal + product.price 
 
 //saving cart info to DB
 await cart.save()
