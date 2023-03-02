@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
         required: true,
         ref: 'Address'
     },
-    amount: {
+    gst:{
         type: Number,
         required: true
     },
@@ -38,5 +38,14 @@ const orderSchema = new mongoose.Schema({
 },{
     timestamps: true
 });
+
+orderSchema.virtual('total').get(function () {
+    if (!this.cart || !this.cart.subTotal || !this.gst) {
+        throw new Error('Invalid order data: missing cart, subTotal, or gst');
+    }
+    let total = 0
+    total = cart.subTotal * this.gst
+    return total
+})
 
 module.exports = mongoose.model('Order', orderSchema);

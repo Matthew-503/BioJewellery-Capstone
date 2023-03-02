@@ -125,6 +125,11 @@ const deleteReview = asyncHandler(async (req, res) => {
         throw new Error('Not authorized to delete this review')
     }
 
+    //update reviews array field of product
+    const product = Product.findById(req.params.productId)
+    product.reviews.pull(rreview._id)
+    await product.save()
+
     //Remove review from database
     await review.remove()
 
