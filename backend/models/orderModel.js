@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Global = require('./globalModel');
+
 const orderSchema = new mongoose.Schema({
     cart:{
         type: mongoose.Schema.Types.ObjectId,
@@ -9,10 +11,6 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Address'
-    },
-    gst:{
-        type: Number,
-        required: true
     },
     startDate:{
         type:Date,
@@ -40,11 +38,14 @@ const orderSchema = new mongoose.Schema({
 });
 
 orderSchema.virtual('total').get(function () {
-    if (!this.cart || !this.cart.subTotal || !this.gst) {
+    const globalObj = Global.findOne()
+    const gst = globalObj.gst
+
+    if (!this.cart || !this.cart.subTotal || !gst) {
         throw new Error('Invalid order data: missing cart, subTotal, or gst');
     }
     let total = 0
-    total = cart.subTotal * this.gst
+    total = cart.subTotal * gst
     return total
 })
 

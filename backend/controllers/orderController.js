@@ -1,6 +1,3 @@
-//Notes: Calculate total price for order
-//for creating order, it will be from cart page
-//cart has the total amount
 //order creating page: edit prepopulated address or enter new one, verify the order summary, proceed for payment
 //Order object receives products, qty, total from cart object, attaches address and proceed for payment
 
@@ -12,7 +9,7 @@ const Order = require('../models/orderModel')
 // @access  Private
 const getOrder = asyncHandler(async (req, res) => {   
     //Finding the order based on orderId
-    const order = Order.findById(req.params.orderId)
+    const order = await Order.findById(req.params.orderId)
 
     if(!order){
         res.status(400)
@@ -27,6 +24,23 @@ const getOrder = asyncHandler(async (req, res) => {
 // @access  Private
 const createOrder = asyncHandler(async (req, res) => {
     
+    //user
+    const user = await User.findById(req.user._id)
+
+    //find the cart for the order
+    const cart = Cart.findById(req.params.cartId)
+
+    //get default address value 
+    const address = user.defaultAddress
+
+    //start date will be current date
+    const startDate = new Date()
+
+    //generating tracking number
+    
+
+
+
     res.status(200).json({ message: 'Order Created' });
 })
 

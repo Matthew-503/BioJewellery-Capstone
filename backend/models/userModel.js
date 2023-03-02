@@ -18,7 +18,12 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Address'
         }
-    ]
+    ],
+    defaultAddress:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address',
+        required: true
+    }
 },{
     timestamps: true
 });
