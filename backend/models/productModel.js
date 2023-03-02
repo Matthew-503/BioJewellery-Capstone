@@ -67,4 +67,8 @@ const productSchema = new mongoose.Schema({
     }]
 });
 
+productSchema.virtual('finalPrice').get(function(){
+    return (this.price - (this.price * (this.salePercent / 100)))
+})
+
 module.exports = mongoose.model('Product', productSchema);

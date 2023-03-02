@@ -33,7 +33,7 @@ const getCartItems = asyncHandler(async (req, res) => {
 
         const subTotal = cart.subTotal
 
-        //returning cart items
+        //returning cart items and subtotal
         res.status(200).json({cartItems, subTotal});
     } 
     catch (error) {
@@ -82,19 +82,20 @@ if(!cart){
     });
 }
 
-//if the product is already added to the cart, just updating the quantity
+//if the product is already added to the cart, just updating the quantity and subtotal
+
 const existingProductIndexVal = cart.products.findIndex((product) =>
     product.productId.toString() === productId
 )
 
-//for product not found, the index value is -1
+//If the product is new to cart, just add it
 if(existingProductIndexVal === -1){
     cart.products.push({
         productId,
         quantity
     })}
 
-//if the product already added, update just the quantity
+//if the product already added, update the quantity
 cart.products[existingProductIndexVal].quantity += quantity;
 
 //saving cart info to DB
