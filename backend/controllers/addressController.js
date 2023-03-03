@@ -99,11 +99,11 @@ const updateAddress = asyncHandler(async (req, res) => {
     }
 
     //set the address fields to the new values or by default the existing value
-    address.street = street || address.street
-    address.city = city || address.city
-    address.province = province || address.province
-    address.country = country || address.country
-    address.postalCode = postalCode || address.postalCode
+    address.street = street ?? address.street
+    address.city = city ?? address.city
+    address.province = province ?? address.province
+    address.country = country ?? address.country
+    address.postalCode = postalCode ?? address.postalCode
 
     //save updated review to database
     await address.save()

@@ -3,6 +3,7 @@ const Order = require('../models/orderModel')
 const Cart = require('../models/cartModel')
 const User = require('../models/userModel')
 
+
 // @desc    Get order
 // @route   GET /api/order/:orderId
 // @access  Private
@@ -19,7 +20,7 @@ const getOrder = asyncHandler(async (req, res) => {
 })
 
 // @desc    Create an order
-// @route   POST /api/cart/:cartId/order
+// @route   POST /api/order
 // @access  Private
 const createOrder = asyncHandler(async (req, res) => {
     
@@ -27,7 +28,7 @@ const createOrder = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id)
 
     //find the cart for the order
-    const cart = Cart.findById(req.params.cartId)
+    const cart = Cart.findById(req.body.cartId)
 
     //throw error if no cart exists by that id
     if(!cart){

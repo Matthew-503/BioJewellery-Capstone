@@ -31,6 +31,9 @@ app.use('/api/cart', require('./routes/cartRoutes.js'));
 //Order routes
 app.use('/api/order', require('./routes/orderRoutes.js'));
 
+//Address routes
+app.use('/api/addresses', require('./routes/addressRoutes.js'));
+
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));

@@ -95,9 +95,9 @@ const updateReview = asyncHandler(async (req, res) => {
     }
 
     //set the review fields to the new values or by default the existing value
-    review.rating = rating || review.rating
-    review.title = title || review.title
-    review.comment = comment || review.comment
+    review.rating = rating ?? review.rating
+    review.title = title ?? review.title
+    review.comment = comment ?? review.comment
 
     //save updated review to database
     await review.save()
