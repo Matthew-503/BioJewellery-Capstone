@@ -2,12 +2,17 @@ const mongoose = require('mongoose');
 const Global = require('./globalModel');
 
 const orderSchema = new mongoose.Schema({
+    client:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    },
     cart:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Cart'
     },
-    address: {
+    shippingAddress: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Address'
@@ -31,7 +36,8 @@ const orderSchema = new mongoose.Schema({
     status:{
         type:String,
         required:true,
-        default:'P'
+        enum: ['P', 'S', 'C'], //p - pending, S - shipped, C - Complete
+        default:'P' 
     }
 },{
     timestamps: true

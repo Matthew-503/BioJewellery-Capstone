@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
+const Address = require('../models/addressModel')
 
 // @desc    Get all the addresses related to an account
 // @route   GET /api/addresses
@@ -66,7 +67,7 @@ const createAddress = asyncHandler(async (req, res) => {
     await address.save()
 
     //adding address under the related user
-    await user.addresses.push(address)
+    user.addresses.push(address)
 
     //saving the updated user object
     await user.save()

@@ -63,7 +63,7 @@ const createReview = asyncHandler(async (req, res) => {
     await review.save()
 
     //adding review under the related product
-    await product.reviews.push(review)
+    product.reviews.push(review)
 
     //saving the altered product object
     await product.save()
@@ -127,7 +127,7 @@ const deleteReview = asyncHandler(async (req, res) => {
 
     //update reviews array field of product
     const product = Product.findById(req.params.productId)
-    product.reviews.pull(rreview._id)
+    product.reviews.pull(review._id)
     await product.save()
 
     //Remove review from database
