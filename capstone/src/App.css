@@ -38,6 +38,15 @@
     z-index: -2;
 }
 
+.about__bg {
+    background: url('./assets/aboutus.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    z-index: -2;
+}
+
 .app__wrapper {
     display: flex;
     justify-content: space-between;
@@ -83,6 +92,7 @@
     line-height: 28px;
     font-size: 16px;
     padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -298,7 +308,7 @@
     }
 
     .app__card-links_icons svg {
-        margin-top: .5rem ;
+        margin-top: .5rem;
     }
 }
 
