@@ -27,7 +27,7 @@ const Feed = () => {
 
             <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
                 <div className="feed__title">
-                    <Typography variant="h3" fontWeight="bold" mb={2} sx={{ color: "black" }} align="center" >
+                    <Typography variant="h2" fontFamily="var(--font-base)" fontWeight="bold" mb={2} sx={{ color: "var(--color-darkgreen)" }} align="center" >
                         {selectedCategory}
                     </Typography>
                 </div>
