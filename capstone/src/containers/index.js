@@ -37,6 +37,8 @@ import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail'
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 
+import Error from './Error/Error';
+
 export {
   Home,
   Header,
@@ -62,6 +64,8 @@ export {
 
   Login,
   SignUp,
+
+  Error
 };
 
 
