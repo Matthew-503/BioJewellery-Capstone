@@ -5,7 +5,7 @@ const Address = require('../models/addressModel')
 // @desc    Get all the addresses related to an account
 // @route   GET /api/addresses
 // @access  Public
-const getAddress = asyncHandler(async (req, res) => {
+const getAddresses = asyncHandler(async (req, res) => {
     try {   
 
         //finidng user object and replacing address ids with address objects in addresses array
@@ -145,5 +145,5 @@ module.exports = {
     createAddress,
     updateAddress,
     deleteAddress,
-    getAddress
+    getAddresses
 }
