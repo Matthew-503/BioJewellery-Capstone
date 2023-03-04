@@ -38,6 +38,7 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 
 import Error from './Error/Error';
+import Policy from './Policy/Policy';
 
 export {
   Home,
@@ -65,7 +66,8 @@ export {
   Login,
   SignUp,
 
-  Error
+  Error,
+  Policy,
 };
 
 
