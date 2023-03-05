@@ -126,7 +126,7 @@
 }
 
 /* extra small devices */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 430px) {
     .app__gallery {
         padding: 4rem 0 4rem 4rem;
     }
@@ -139,5 +139,6 @@
     .detail__image {
         min-width: 240px;
         height: 320px;
+        padding: 0;
     }
 }
