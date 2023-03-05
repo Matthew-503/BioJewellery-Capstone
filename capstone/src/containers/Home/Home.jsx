@@ -4,16 +4,16 @@ const Home = () => {
   return (
     <div>
 
-      {/* <Header /> */}
-      {/* <Gallery /> */}
+      <Header />
+      <Gallery />
       {/* <Video /> */}
-      {/* <Benefits /> */}
-      {/* <Follow /> */}
+      <Benefits />
+      <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
       {/* <Error /> */}
-      <Policy />
+      {/* <Policy /> */}
     </div>
   )
 }
