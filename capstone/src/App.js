@@ -24,30 +24,29 @@ import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDe
 
 import './App.css';
 
-
-
-
 const App = () => (
     <div>
         <Routes>
             <Route path="/" element={<UserNavigation />}>
-                <Route index element={<Home />} />
-                <Route path="/home" element={<Home />} />
+                <Route index element={<Home />} /> 
+                <Route path="/home" element={<Home />}/>
                 <Route path="/categories">
-                    <Route index element={<ShopCategory />} />
-                    <Route path=":cat" element={<Feed />} />
+                    <Route index element={<ShopCategory />} /> 
+                    <Route path=":cat" element={<Feed />} />              
                 </Route>
                 <Route path="/products">
                     <Route index element={<ShopProduct />} />
                     <Route path=":name" element={<ProductDetail />} />
                 </Route>
-
-                <Route path="/cart" element={<ShoppingCart />} />
-                <Route path="/checkout" element={<OrderConfirmation />} />
+                
+                <Route path="/cart" element={<ShoppingCart />}/>
+                <Route path="/checkout" element={<OrderConfirmation />}/>
 
             </Route>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
+
+            </Routes>
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
@@ -65,22 +64,18 @@ const App = () => (
             {/*Route for the not found page)
              <Route path="*" element={<NotFound />}/> 
             */}
-        </Routes>
-
+       
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}
         {/* <Navbar />
         <Uploader />  */}
 
-
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <AddProduct />  */}
 
-
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EditProduct />  */}
-
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EmployeeMenu /> */}

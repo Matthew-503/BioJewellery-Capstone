@@ -1,15 +1,24 @@
+
+import { images } from '../../constants';
+import './Product.css';
+import { Rating, ReviewBlock } from '../../components';
+
+import { Link } from "react-router-dom";
+const productImage = images.gallery01;
+
+/*
 // Author: Nicholas Proc
 // Version: 0.1 
 // Date: 20/1/2023
-
+ 
 // Description: This container is for display the information of a product
 // Precondition: There must be a product that can be displayed
 // Postcondition: Displays the Product details with the relavent information
-
+ 
 // Input 
-// N/A
+N/A
 // Output
-// Product Detail Container
+Product Detail Container
 
 import React from 'react';
 
@@ -51,7 +60,6 @@ const ProductDetail = ({ productid }) => {
     var customerDefaultName = "Very Cool Name";
     var customerDefaultTitle = "Default Title";
     var customerDefaultDescription = "Default Description";
-
     return (
         <div className="app__gallery app__section-padding">
             <div className="detail__headtext">
@@ -65,14 +73,12 @@ const ProductDetail = ({ productid }) => {
                 <div className='detail__sidebar'>
                     <ProductDetailBar />
                 </div>
-
                 <div>
-                    <SwitchDetail />
+                
                 </div>
-
-
             </div>
         </div>
+
     )
 };
 
