@@ -1,3 +1,4 @@
+//createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
@@ -9,9 +10,6 @@ const initialState = {
     message: ''
 }
 //Create cart
-//ThunkAPI has a method to get any state at any part of the app
-//register and login routes are not protected, so there is no need to send the token
-//but the cart route is protected, so we send token along with the data.
 export const createCart = createAsyncThunk('cart/create', async (cartData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
@@ -49,7 +47,7 @@ async (id, thunkAPI) => {
     }
 })
 
-
+//Slice creation to manage cart state
 export const cartSlice = createSlice({
     name: 'cart',
     initialState,
