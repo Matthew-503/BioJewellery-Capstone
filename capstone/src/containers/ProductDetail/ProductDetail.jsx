@@ -38,8 +38,8 @@ const ProductDetail = () => {
                 {/* <h3>{productName == null ? "Needs product name" : productName}</h3> */}
                 <SubHeading title={"Product Name"} />
                 <img
-                    className="detail__image"
-                    src={productImage}
+                    className="detail__product-image"
+                    src={images.product1}
                     alt="product image"
                 />
 
@@ -50,8 +50,6 @@ const ProductDetail = () => {
                 <div>
                     <SwitchDetail />
                 </div>
-
-
             </div>
         </div>
     )
