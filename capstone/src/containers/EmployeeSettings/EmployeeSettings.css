@@ -28,12 +28,16 @@
 .employee__personal-information {
     padding-top: 160px;
     padding-left: 160px;
-    border-radius: 2px;
+    border-radius: 50px;
 }
 
 .employee__account-information {
     float: right;
     padding-right: 480px;
+}
+
+.input[type=text] {
+    border-radius: 40px;
 }
 
 .employee__account-header {

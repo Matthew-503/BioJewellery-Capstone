@@ -24,7 +24,7 @@ import './App.css';
 const App = () => (
     <div>
 
-        <EmployeeSettings />
+        <ManageProduct />
         
         {/*
         <Routes>
