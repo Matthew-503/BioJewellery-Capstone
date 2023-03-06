@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { BsFillPersonFill } from "react-icons/bs";
+import { EmployeeMenu } from '../../components';
+
 import './EmployeeSettings.css';
 
 const EmployeeSettings = () => {
     return (
-            <div className="flex__center">
+        <div className="flex__center">
+
+        <EmployeeMenu />
+
             <form>
-            <h1>Settings</h1>
-            <p>Personal Information</p>
+            <h1 className="employee__header">Settings</h1>
+            
+            <h2 className="employee__secondary-header">Personal Information</h2>
+
+                <div className="employee__profile-photo">
+                    <BsFillPersonFill color='#818181' size={120} />
+                </div>
 
                 <div className="employee__personal-information">
                     <label>
@@ -67,8 +78,7 @@ const EmployeeSettings = () => {
                 </div>
 
                 <div className="employee__priveleges">
-
-
+        
                 </div>
 
                     <button className="custom__button" >Save</button>          
