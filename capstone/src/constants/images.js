@@ -34,6 +34,8 @@ import socialbg from '../assets/socialbg.png'
 import headerImage from '../assets/headerImage.png';
 import login from '../assets/login.png';
 
+import product1 from '../assets/product1.png';
+
 export default {
   bg,
   gallery01,
@@ -54,4 +56,5 @@ export default {
   socialbg,
   headerImage,
   login,
+  product1,
 };
