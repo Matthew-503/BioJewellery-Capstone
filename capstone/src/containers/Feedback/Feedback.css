@@ -1,0 +1,9 @@
+.login {
+    background: var(--color-lightgreen);
+    position: relative;
+}
+
+.login__wrapper {
+    position: relative;
+}
+
