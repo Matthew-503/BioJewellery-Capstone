@@ -1,3 +1,7 @@
+/**
+ * Add TYPE of user under userModel. We will identify what kind of user it is by a middleware thats gonna check this field
+ */
+
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
