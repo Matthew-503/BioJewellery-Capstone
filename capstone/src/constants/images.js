@@ -33,7 +33,7 @@ import socialbg from '../assets/socialbg.png'
 
 import headerImage from '../assets/headerImage.png';
 import login from '../assets/login.png';
-
+import feedback from '../assets/feedback.png';
 import product1 from '../assets/product1.png';
 
 export default {
@@ -57,4 +57,5 @@ export default {
   headerImage,
   login,
   product1,
+  feedback,
 };
