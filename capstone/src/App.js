@@ -26,9 +26,7 @@ const App = () => (
 
 
 
-        <ManageProduct />
-        
-        {/*
+       
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} /> 
@@ -50,6 +48,8 @@ const App = () => (
 
             <Route path="/add" element={<AddProduct />} />      
             <Route path="/editproduct" element={<EditProduct />} />
+
+            </Routes>
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
