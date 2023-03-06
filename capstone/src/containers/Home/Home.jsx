@@ -9,12 +9,12 @@ const Home = () => {
       {/* <Video /> */}
       {/* <Benefits /> */}
       {/* <Follow /> */}
-      {/* <Login /> */}
+      <Login />
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
       {/* <Error /> */}
       {/* <Policy /> */}
-      <Feedback />
+      {/* <Feedback /> */}
     </div>
   )
 }
