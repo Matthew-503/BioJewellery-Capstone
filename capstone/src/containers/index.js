@@ -25,12 +25,11 @@ import ShopCategory from './ShopCategory/ShopCategory';
 import Feed from './Feed/Feed';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
-
+import Feedback from './Feedback/Feedback';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
-// import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
 
@@ -57,6 +56,7 @@ export {
   Feed,
   ShopProduct,
   ProductDetail,
+  Feedback,
 
   SwitchDetail,
   ShoppingCart,
