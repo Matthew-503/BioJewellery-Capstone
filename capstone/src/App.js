@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Footer, ShopProduct, ProductDetail, ManageProduct, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
+import { Home, Footer, ShopProduct, EmployeeSettings, ProductDetail, ManageProduct, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -24,7 +24,7 @@ import './App.css';
 const App = () => (
     <div>
 
-        <ManageProduct />
+        <EmployeeSettings />
         
         {/*
         <Routes>

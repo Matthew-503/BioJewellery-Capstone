@@ -18,6 +18,8 @@ import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
 
+import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
+
 import ShopCategory from './ShopCategory/ShopCategory';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
@@ -42,6 +44,8 @@ export {
   ShopCategory,
   ShopProduct,
   ProductDetail,
+
+  EmployeeSettings,
 
   Feed,
 
