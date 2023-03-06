@@ -10,6 +10,7 @@ const EmployeeSettings = () => {
 
         <EmployeeMenu />
 
+        <div className="employee__center">
             <form>
             <h1 className="employee__header">Settings</h1>
             
@@ -17,6 +18,30 @@ const EmployeeSettings = () => {
 
                 <div className="employee__profile-photo">
                     <BsFillPersonFill color='#818181' size={120} />
+                </div>
+
+                <div className="employee__account-information">
+
+                    <h2 className="employee__account-header">Account Information</h2>
+                    <label>
+                        Current Password<br/>
+                        <input name="cpass" type="text" placeholder="Enter Password"/><br/>
+                    </label>
+
+                    <label>
+                        New Password<br/>
+                        <input name="npass" type="text" placeholder="Enter Password"/><br/>
+                    </label>
+
+                    <label>
+                        Confirm Password<br/>
+                        <input name="conpass" type="text" placeholder="Enter Password"/><br/>
+                    </label>
+
+                    <label>
+                        Address<br/>
+                        <input name="address" type="text" placeholder="32 My Address"/><br/>
+                    </label>
                 </div>
 
                 <div className="employee__personal-information">
@@ -55,34 +80,16 @@ const EmployeeSettings = () => {
                     </label>
                 </div>
 
-                <div className="employee__account-information">
-                    <label>
-                        Current Password<br/>
-                        <input name="cpass" type="text" placeholder="Enter Password"/><br/>
-                    </label>
-
-                    <label>
-                        New Password<br/>
-                        <input name="npass" type="text" placeholder="Enter Password"/><br/>
-                    </label>
-
-                    <label>
-                        Confirm Password<br/>
-                        <input name="conpass" type="text" placeholder="Enter Password"/><br/>
-                    </label>
-
-                    <label>
-                        Address<br/>
-                        <input name="address" type="text" placeholder="32 My Address"/><br/>
-                    </label>
-                </div>
-
                 <div className="employee__priveleges">
         
                 </div>
 
-                    <button className="custom__button" >Save</button>          
-            </form>     
+                <div className="employee__settings-button">
+                    <button className="settings__button" >Save</button>
+                </div>
+                              
+            </form>
+        </div>     
         </div>
     );
 }
