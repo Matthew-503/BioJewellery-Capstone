@@ -17,10 +17,11 @@ const ManageProduct = () => {
             </div>
 
             <div className="employee__product">
+      
 
+            </div>
+        </div>
 
-        </div>
-        </div>
     )
 }
 export default ManageProduct;
