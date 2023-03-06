@@ -41,26 +41,30 @@ const Login = () => {
                     <p>Welcome back! Please enter your details</p>
 
                     <p className='login__error-message'>
-                        Sorry. Email or password incorrect. Please try again or create a new account. 
+                        Sorry. Email or password incorrect. Please try again or create a new account.
                     </p>
 
-                    <input
-                        className='login__input'
-                        type="text"
-                        id="username"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
+                    <div className='login__input'>
+                        <input
+                            className='login__input-search'
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
 
-                    <input
-                        className='login__input'
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+                        <input
+                            className='login__input-search'
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                    </div>
+
+
 
                     <div className='login__lower-functions login__forget-link'>
                         <div className="login__link">
