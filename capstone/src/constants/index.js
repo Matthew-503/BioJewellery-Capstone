@@ -1,7 +1,7 @@
 import images from './images';
 
 //import video from '../assets/video.mp4';
-import data from './data';
+//import data from './data';
 
 
 // import video from '../assets/video.mp4';
@@ -10,4 +10,4 @@ import fetchFromAPI from './fetchFromAPI'
 
 
 // export { images, video, categories, fetchFromAPI };
-export { images, data, categories, fetchFromAPI };
+export { images, categories, fetchFromAPI };

@@ -19,7 +19,7 @@ import EditProduct from './EditProduct/EditProduct';
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
 
-import Article from './article/Article';
+import Article from './Article/Article';
 
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
@@ -41,14 +41,12 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 // import AdminMenu from './AdminMenu/AdminMenu';
 
 import Uploader from "./Uploader/Uploader";
-import AddProduct from './AddProduct/AddProduct';
-import EditProduct from "./EditProduct/EditProduct";
 
 
 // import Newsletter from './Footer/Newsletter';
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
-// import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
+ import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
 
 // import Newsletter from './Footer/Newsletter';
@@ -69,21 +67,14 @@ export {
 
     Article,
 
-    Navbar,
     Rating,
     ReviewBlock,
     ShopProductIcon,
 
     CartItem,
-    Rating,
-    ReviewBlock,
+
 
     CartBlock,
-
-
-    AddProduct,
-    EditProduct,
-
     // AdminMenu,
 
     FeatureBlock,

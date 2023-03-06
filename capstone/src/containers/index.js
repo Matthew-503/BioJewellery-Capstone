@@ -17,6 +17,7 @@ import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
 import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
+// import Blog from './Blog/Blog';
 // import Video from './Video/Video';
 
 import ShopCategory from './ShopCategory/ShopCategory';
@@ -49,14 +50,13 @@ export {
   ShopProduct,
   ProductDetail,
 
-UserNavigation,
+  UserNavigation,
 
   SwitchDetail,
 
   ShoppingCart,
 
-  Blog,
-  Follow,
+  // Blog,
 };
 
  
