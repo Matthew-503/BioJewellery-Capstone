@@ -18,22 +18,16 @@ import { Rating, ReviewBlock, SubHeading } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useEffect } from "react";
+
 import './ProductDetailBar.css';
-import { useSelector } from "react-redux";
+
 const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
-    const { selectedProduct, isError, message } = useSelector((state) => state.products);
-    useEffect(() => {
-        if (isError) {
-            console.log(message);
-        }
-        
-
-    }, [isError, message])
-    
-    let stars = 3;
+    var productName = null;
+    var price = null;
+    var description = null;
+    var stars = 3;
 
     // //Default Variable for review block
     // var customerDefaultName = "Very Cool Name";
@@ -43,9 +37,8 @@ const ProductDetailBar = () => {
         <div className="">
             <div>
                 <table className='detail__table'>
-                    <tbody>
                     <tr>
-                        <th>Price ${selectedProduct.price}</th>
+                        <th>Price</th>
                     </tr>
                     <tr>
                         <td>
@@ -56,7 +49,7 @@ const ProductDetailBar = () => {
                         </td>
                     </tr>
                     <tr>
-                        <td>Quantity: {selectedProduct.quantity}</td>
+                        <td>Quantity: 1</td>
                     </tr>
                     <tr>
                         <td>
@@ -78,7 +71,6 @@ const ProductDetailBar = () => {
                             </div>
                         </td>
                     </tr>
-                    </tbody>
                 </table>
             </div>
         </div>
