@@ -11,7 +11,6 @@
 
 // Notes: updated the sequence
 
-import Home from './Home/Home';
 import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
 import Benefits from './Benefits/Benefits';
@@ -20,13 +19,13 @@ import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
 
 import ShopCategory from './ShopCategory/ShopCategory';
-import Feed from './Feed/Feed';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
-
+import Feed from './Feed/Feed';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
+import Home from './Home/Home';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
@@ -36,22 +35,19 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 
 export {
-  Home,
   Header,
   Gallery,
   Benefits,
   Follow,
   // Video,
   Footer,
-
-  OrderConfirmation,
-
+  Home,
   ShopCategory,
-  Feed,
   ShopProduct,
   ProductDetail,
 
-  SwitchDetail,
+  Feed,
+
   ShoppingCart,
 
   UserNavigation,

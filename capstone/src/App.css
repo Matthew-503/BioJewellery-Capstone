@@ -2,9 +2,9 @@
     padding: 4rem 6rem;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
+/* .section__margin {
+    padding: 4rem 6rem;
+} */
 
 .app__flex-center {
     display: flex;

@@ -14,7 +14,6 @@
 
 import React from 'react';
 import { images } from '../../constants';
-import { Link } from "react-router-dom"
 
 import './Header.css';
 
@@ -29,12 +28,9 @@ const Header = () => (
             <p className='app__p' style={{ margin: '2rem 0' }}>
                 Explore different categories. Find the best deals.
             </p>
-            <Link to="/categories">
-                <button type='button' className='app__button'>
-                    Shop Now 
-                </button>
-            </Link>
-            
+            <button type='button' className='app__button'>
+                Shop Now 
+            </button>
         </div>
     </div>
 );
