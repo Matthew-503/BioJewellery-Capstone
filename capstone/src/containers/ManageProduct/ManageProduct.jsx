@@ -18,9 +18,8 @@ const ManageProduct = () => {
 
             <div className="employee__product">
 
+            </div>
+        </div>
 
-        </div>
-        </div>
     )
 }
-export default ManageProduct;

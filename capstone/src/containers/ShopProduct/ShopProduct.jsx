@@ -19,10 +19,28 @@ import { ProductItems } from '../../components';
 
 import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
 
-
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts, reset } from '../../features/productFeatures/productSlice';
+import { useEffect } from "react";
 import './ShopProduct.css';
 
 const ShopProduct = () => {
+
+
+    const dispatch = useDispatch();
+
+    const { products, isError, message } = useSelector((state) => state.products)
+
+    useEffect(() => {
+        if (isError) {
+            console.log(message);
+        }
+
+        dispatch(getProducts())
+
+        
+        console.log("Products: " + products);
+    }, [isError, message, dispatch])
     return (
         <div className="product product__section-padding" id="blog">
 
@@ -30,64 +48,18 @@ const ShopProduct = () => {
 
             <div className="product__container">
                 <div className="product__container-card">
-                    <ProductItems
-
-                        imgUrl={gallery02}
-                        text="Popular"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery03}
-                        text="Trending"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery04}
-                        text="Most Saved"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery01}
-                        text="On Sale"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery02}
-                        text="Popular"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery03}
-                        text="Trending"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery04}
-                        text="Most Saved"
-                        price={100}
-                    />
-
-                    <ProductItems
-
-                        imgUrl={gallery01}
-                        text="On Sale"
-                        price={100}
-                    />
+                    {products.length > 0 ? (
+                        <div>
+                            {products.map((product) => (<ProductItems
+                                key={product._id}
+                                product={product}
+                                imgUrl={gallery01}
+                            />))}
+                        </div>
+                    ) : (<h3>You have not set any products</h3>)}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

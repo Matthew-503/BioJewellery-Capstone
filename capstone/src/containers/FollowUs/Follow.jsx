@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubHeading } from '../../components';
+import { SubHeading, Title } from '../../components';
 import { data, images } from '../../constants';
 
 
@@ -14,6 +14,7 @@ const Follow = () => (
         <div className='follow__context'>
             <h1 className="follow__h1">
                 Follow Us
+
             </h1>
 
             <p className='follow__p'>

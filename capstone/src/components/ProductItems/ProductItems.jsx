@@ -1,17 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductItems.css';
+const ProductItems = ({ imgUrl, product }) => {
 
-const ProductItems = ({ imgUrl, price, text }) => {
+    
+
     return (
         <div className="gpt3__blog-container_article">
             <div className="gpt3__blog-container_article-image">
-                <img src={imgUrl} alt="blog" />
+                <Link to={"/products"}>
+                    <img src={imgUrl} alt="blog" />
+                </Link>
+
             </div>
 
             <div className="gpt3__blog-container_article-content">
                 <div>
-                    <h3>{text}</h3>
-                    <h4>${price}</h4>
+                    <Link to={"/products/" + product.name} >
+                        {product.name}
+                    </Link>
+                    <h4>${product.price}</h4>
                 </div>
             </div>
         </div>
