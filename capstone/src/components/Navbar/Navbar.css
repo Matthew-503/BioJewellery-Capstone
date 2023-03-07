@@ -92,7 +92,7 @@
 
     margin-right: 1rem;
     padding: 0.2rem 0.4rem;
-    background: var(--color-white);
+    background: #f8f8f8;
 }
 
 .navbar-input-search::placeholder {
