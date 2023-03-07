@@ -19,62 +19,50 @@ import './Feedback.css';
 
 
 const Feedback = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [title, setTitle] = useState('');
+    const [feedback, setFeedback] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(username, password);
+        console.log(title);
+        console.log(feedback);
     };
 
     return (
         <div className='feedback'>
             <div className="feedback__wrapper">
-                <img src={images.feedback} alt="G_overlay" className='left' />
-                <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-                {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
+                <img src={images.feedback} alt="G_overlay" className='feedback__left' />
+                <h1 className='HeaderText left '></h1>
             </div>
             <form onSubmit={handleSubmit}>
-                <div className='right login__form'>
-                    <SubHeading title={"Login"} className='login__subheading' />
+                <div className='right feedback__form'>
+                    <SubHeading title={"Feedback"} />
 
-                    <p>Welcome back! Please enter your details</p>
-
-                    <p className='login__error-message'>
-                        Sorry. Email or password incorrect. Please try again or create a new account.
+                    <p className='feedback__p'>
+                        Your feedback always matters!
                     </p>
 
-                    <input
-                        className='login__input'
-                        type="text"
-                        id="username"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
+                    <div className='feedback__input'>
+                        <input
+                            className='feedback__input-search'
+                            type="text"
+                            id="title"
+                            placeholder="Title"
+                            value={title}
+                            onChange={(event) => setTitle(event.target.value)}
+                        />
 
-                    <input
-                        className='login__input'
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-
-                    <div className='login__lower-functions login__forget-link'>
-                        <div className="login__link">
-                            <Link to="/">Forgot password?</Link>
-                        </div>
-                        <br />
-                        <button type="submit" className="login__button">Login</button>
-                        <br />
-                        <button type="submit" className="login__button">Register</button>
-                        <br />
-                        <div className="login__link">
-                            <Link to="/">Continue as guest</Link>
-                        </div>
+                        <textarea
+                            className='feedback__input-search-feedback'
+                            type="text"
+                            id="feedback"
+                            placeholder="Feedback"
+                            value={feedback}
+                            onChange={(event) => setFeedback(event.target.value)}
+                        ></textarea>
                     </div>
+
+                    <button type="submit" className="feedback__button">Send</button>
                 </div>
             </form>
         </div>
