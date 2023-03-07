@@ -1,16 +1,14 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp } from '../../containers';
+import { Header, Gallery, Follow, Benefits} from '../../containers';
 const Home = () => {
   return (
     <div>
-
-      <Header />
-      <Gallery />
-      {/* <Video /> */}
-      <Benefits />
-      <Follow />
-      {/* <Login /> */}
-      <SignUp />
+      
+        <Header />
+        <Gallery />
+        {/* <Video /> */}
+        <Benefits />
+        <Follow />
     </div>
   )
 }
