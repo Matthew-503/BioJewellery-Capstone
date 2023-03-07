@@ -28,6 +28,12 @@ const Feedback = () => {
         console.log(feedback);
     };
 
+    const [rating, setRating] = useState(0);
+
+    const handleStarClick = (star) => {
+        setRating(star);
+    }
+
     return (
         <div className='feedback'>
             <div className="feedback__wrapper">
@@ -43,6 +49,17 @@ const Feedback = () => {
                     </p>
 
                     <div className='feedback__input'>
+                        {
+                            [...Array(5)].map((star, i) => {
+                                const ratingValue = i + 1;
+                                return (
+                                    <span key={i} onClick={() => handleStarClick(ratingValue)}>
+                                        {ratingValue <= rating ? "\u2605" : "\u2606"}
+                                    </span>
+                                )
+                            })
+                        }
+                        
                         <input
                             className='feedback__input-search'
                             type="text"
@@ -70,4 +87,3 @@ const Feedback = () => {
 };
 
 export default Feedback;
-

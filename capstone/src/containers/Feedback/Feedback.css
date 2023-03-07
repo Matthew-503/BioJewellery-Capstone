@@ -86,6 +86,21 @@ textarea {
     cursor: pointer;
 }
 
+span {
+    font-size: 2rem;
+    color: var(--color-golden);
+    cursor: default;
+}
+
+span:hover {
+    cursor: pointer;
+}
+
+.checked {
+    color: #f9b233;
+    cursor: default;
+}
+
 @media screen and (max-width:430px) {
     .feedback__left {
         display: none;
