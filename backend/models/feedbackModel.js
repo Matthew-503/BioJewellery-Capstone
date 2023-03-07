@@ -1,28 +1,28 @@
 const mongoose = require('mongoose');
 const feedbackSchema = new mongoose.Schema({
     description:{
-        type:String,
-        required:true
+        Type:String,
+        require:true
     },
     orderRating:{
-        type:Number,
-        required:true
+        Type:Number,
+        require:true
     },  
     paymentRating:{
-        type:Number,
-        required:true
+        Type:Number,
+        require:true
     },
     deliveryRating:{
-        type:Number,
-        required:true
+        Type:Number,
+        require:true
     },
     productRating:{
-        type:Number,
-        required:true
+        Type:Number,
+        require:true
     },
     client:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        require: true,
         ref: 'User'
     }
 });

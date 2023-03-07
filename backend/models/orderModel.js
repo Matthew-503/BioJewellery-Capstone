@@ -2,29 +2,29 @@ const mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema({
     startDate:{
         type:Date,
-        required:true
+        require:true
         
     }, 
     shipDate:{
         type:Date,
-        required:false
+        require:false
     },
     receiveDate:{
         type:Date,
-        required:false
+        require:false
     },
     trackingNumber:{
         type:String,
-        required:true
+        require:true
     },
     status:{
         type:String,
-        required:true,
+        require:true,
         default:'P'
     },
     client:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        require: true,
         ref: 'User'
     }
 });

@@ -32,6 +32,7 @@ import gericht from '../assets/gericht.png';
 import socialbg from '../assets/socialbg.png'
 
 import headerImage from '../assets/headerImage.png';
+import login from '../assets/login.png';
 
 export default {
   bg,
@@ -52,4 +53,5 @@ export default {
   gericht,
   socialbg,
   headerImage,
+  login,
 };

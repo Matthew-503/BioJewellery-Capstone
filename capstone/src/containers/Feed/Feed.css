@@ -2,8 +2,12 @@
     font-family: var(--font-base);
 } */
 
-body {
+/* body {
     overflow: hidden;
+} */
+
+#Stack {
+    background: var(--color-lightgreen);
 }
 
 .feed__content-box {
