@@ -20,6 +20,8 @@ const accountSchema = new mongoose.Schema({
         require: false,
         ref: 'User'
     }
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Account', accountSchema);

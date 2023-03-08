@@ -46,11 +46,33 @@ const productSchema = new mongoose.Schema({
         require:true,
         default:true
     },
+    isAvailable:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
+    isAvailable:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
     salePercent: {
         type:Number,
         require:false,
         default:0
-    }
+    },
+    images:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ProductImages'
+    }],
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
+    }]
 });
+
+productSchema.virtual('finalPrice').get(function(){
+    return (this.price - (this.price * (this.salePercent / 100)))
+})
 
 module.exports = mongoose.model('Product', productSchema);

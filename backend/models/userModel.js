@@ -16,8 +16,15 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true,
         default:"Client"
-    }
-
+    },
+    addresses: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Address'
+        }
+    ]
+},{
+    timestamps: true
 });
 
 module.exports = mongoose.model('User', userSchema);
