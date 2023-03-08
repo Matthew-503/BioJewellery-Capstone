@@ -56,7 +56,7 @@ const Navbar = () => {
                     <FaShoppingCart />
                 </a>
 
-                <Link to="/add" className="navbar-icons">
+                <Link to="/login" className="navbar-icons">
                     <MdAccountCircle />
                 </Link>
             </div>

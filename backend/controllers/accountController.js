@@ -52,7 +52,8 @@ const registerAccount = asyncHandler(async (req, res) => {
       email: account.email,
       token: generateToken(account._id),
       name: name,
-      user: user._id
+      user: user._id,
+      typeAccount: user.type
     })
   } else {
     res.status(400)
