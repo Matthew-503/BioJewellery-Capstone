@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const productImages = new mongoose.Schema({
     source:{
         type:Image,
-        required:true
+        require:true
     },
     product:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        require: true,
         ref: 'Product'
     }
 });

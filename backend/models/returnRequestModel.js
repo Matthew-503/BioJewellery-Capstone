@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const returnRequestSchema = new mongoose.Schema({
     reason:{
         type:String,
-        required:true
+        require:true
     },
     startDate:{
         type:Date,
-        required:true
+        require:true
     },
     status:{
         type:String,
-        required:true,
+        require:true,
         default:'P'
     }
 });

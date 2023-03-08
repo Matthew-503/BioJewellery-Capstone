@@ -15,11 +15,16 @@ connectDB();
 app.use(express.json());
 app.use(urlencoded({extended: false}));
 
+
+
+
+
 //Connect the routes and controllers
 //For all product routes
 app.use('/api/product', require('./routes/productRoutes.js'));
 
-//User routes 
+
+//User routes
 app.use('/api/account', require('./routes/accountRoutes.js'));
 
 //Review routes
