@@ -23,6 +23,12 @@ app.use(urlencoded({extended: false}));
 //For all product routes
 app.use('/api/product', require('./routes/productRoutes.js'));
 
+
+//User routes
+app.use('/api/account', require('./routes/accountRoutes.js'));
+
+//Review routes
+app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
