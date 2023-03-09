@@ -20,9 +20,10 @@ const EmployeeSettings = () => {
                     <BsFillPersonFill color='#818181' size={120} />
                 </div>
 
+                <h2 className="employee__account-header">Account Information</h2>
+
                 <div className="employee__account-information">
 
-                    <h2 className="employee__account-header">Account Information</h2>
                     <label>
                         Current Password<br/>
                         <input name="cpass" type="text" placeholder="Enter Password"/><br/>
@@ -57,27 +58,32 @@ const EmployeeSettings = () => {
                         Phone Number <br/>
                         <input name="phone" type="number" placeholder="000-000-0000"/><br/>
                     </label>
-                    
+
                     <label>
                         Address<br/>
                         <input name="address" type="text" placeholder="32 My Address"/><br/>
                     </label>
 
-                    <label>
-                        <input name="city" type="text" placeholder="Calgary"/><br/>
-                    </label>
+                    <div className="employee__info-one">
 
-                    <label>
-                        <input name="province" type="text" placeholder="AB"/><br/>
-                    </label>
-                    
-                    <label>
-                        <input name="postal" type="text" placeholder="Y7R 717"/><br/>
-                    </label>
+                        <label>
+                            <input name="city" type="text" placeholder="Calgary"/><br/>
+                        </label>
 
-                    <label>
-                        <input name="country" type="text" placeholder="Canada"/><br/>
-                    </label>
+                        <label>
+                            <input name="province" type="text" placeholder="AB"/><br/>
+                        </label>
+                    </div>    
+                        
+                    <div className="employee__info-two">   
+                        <label>
+                            <input name="postal" type="text" placeholder="Y7R 717"/><br/>
+                        </label>
+
+                        <label>
+                            <input name="country" type="text" placeholder="Canada"/><br/>
+                        </label>
+                    </div>     
                 </div>
 
                 <div className="employee__priveleges">

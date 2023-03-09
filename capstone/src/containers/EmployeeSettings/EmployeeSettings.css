@@ -16,7 +16,7 @@
 .employee__secondary-header {
     font-size: 18px;
     padding-left: 120px;
-    padding-top: 30px;
+    padding-top: 35px;
 }
 
 .employee__profile-photo {
@@ -26,7 +26,7 @@
 }
 
 .employee__personal-information {
-    padding-top: 160px;
+    padding-top: 155px;
     padding-left: 160px;
     border-radius: 50px;
 }
@@ -44,12 +44,25 @@
     font-size: 18px;
     padding-bottom: 20px;
     padding-right: 10px;
+    float: right;
+    padding-right: 480px;
 }
 
 .employee__settings-button {
-    margin-left: 30px;
+    margin-left: 550px;
     padding-top: 100px;
     
 }
+
+.employee__info-two {
+    
+    padding-top: 20px;
+}
+
+.employee__info-two {
+    float: right;
+    padding-right:800px;
+}
+
 
 
