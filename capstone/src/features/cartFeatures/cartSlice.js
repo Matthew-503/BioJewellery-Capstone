@@ -3,12 +3,23 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
 const initialState = {
-    cart: [],
+    products: [{'id':{}, 'qty':{}}],
+    itemCount:0,
     isError: false,
     isSuccess: false,
     isLoading: false,
     message: ''
 }
+
+//func to update item count value
+const updateItemCount = (products) => {
+    let count = 0;
+    products.forEach(product => {
+        count += product.qty;
+    });
+    return count;
+}
+
 //Create cart
 export const createCart = createAsyncThunk('cart/create', async (cartData, thunkAPI) => {
     try {
@@ -52,7 +63,10 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        reset: (state) => initialState            
+        reset: (state) => initialState,    
+        setItemCount: (state, action) => {
+            state.itemCount = action.payload
+        }       
     },
     extraReducers: (builder) => {
         builder
@@ -62,7 +76,8 @@ export const cartSlice = createSlice({
         .addCase(createCart.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cart.push(action.payload) //push() method adds one or more elements to the end of an array.
+            state.products.push(action.payload)
+            state.itemCount = updateItemCount(state.products)
         })
         .addCase(createCart.rejected, (state, action) => {
             state.isLoading = false
@@ -75,7 +90,8 @@ export const cartSlice = createSlice({
         .addCase(getCartItems.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cart = action.payload 
+            state.products = action.payload 
+            state.itemCount = updateItemCount(state.products)
         })
         .addCase(getCartItems.rejected, (state, action) => {
             state.isLoading = false
@@ -88,7 +104,8 @@ export const cartSlice = createSlice({
         .addCase(deleteCartItem.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true //when we make a delete request, response returns the deleted address ID
-            state.cart = state.cart.filter((cart) => cart._id !== action.payload.id)
+            state.products = state.products.filter((product) => product.id !== action.payload.id)
+            state.itemCount = updateItemCount(state.products)
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
             state.isLoading = false

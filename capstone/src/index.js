@@ -10,15 +10,12 @@ import { BrowserRouter } from "react-router-dom"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        //wrapping up app inside provider, everything in App and it's child components have access to the store
+    <React.StrictMode>        
         <Provider store={store}>
             <BrowserRouter>
                 <App />
             </ BrowserRouter>
         </Provider>
-
-
     </React.StrictMode>
 )
 

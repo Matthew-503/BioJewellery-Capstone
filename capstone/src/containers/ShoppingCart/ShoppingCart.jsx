@@ -1,16 +1,16 @@
-// // Author: Buola Achor
-// // Version 0.1
-// // Date: 18/1/2023
+// Author: Buola Achor
+// Version 0.1
+// Date: 18/1/2023
 
-// // Description: This is the shopping cart. 
-// // Precondition: A home page with required cart item containers 
-// // Postcondition: a submit button that directs to payments service
+// Description: This is the shopping cart. 
+// Precondition: A home page with required cart item containers 
+// Postcondition: a submit button that directs to payments service
 
-// // Input: Currently no input available
-// // Output: Currently no specific output
+// Input: Currently no input available
+// Output: Currently no specific output
 
-// // Notes: Editing qty function?
-// // Notes: Background and button color fix and button placement
+// Notes: Editing qty function?
+// Notes: Background and button color fix and button placement
 
 import { Rating, CartBlock, PayButton, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
 import { Link } from "react-router-dom"
