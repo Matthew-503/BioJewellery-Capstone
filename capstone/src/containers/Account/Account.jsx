@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
@@ -28,143 +29,166 @@ const Account = () => {
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
-                    <table className="account__table">
-                        <tbody>
-                            <tr>
-                                <td rowSpan="5">
-                                    Combined Cell
-                                </td>
-                                <td>
-                                    <h1 className='account__header'>
-                                        Personal Information
-                                    </h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    First Name
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="firstname"
-                                            placeholder="Enter First Name"
-                                        />
+                    <div className="account">
+                        <div className="account__table">
+                            <div className="account__table-column1">
+                                <div className="account__avatar">
+                                    <img src={images.avatar} alt="G_overlay" className="blur" />
+
+                                    <div className="account__overlay">
+                                        <ModeEditIcon className="account__icon" />
                                     </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Last Name
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="lastname"
-                                            placeholder="Enter Last Name"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="email"
-                                            placeholder="Enter Email Address"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Phone Number
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="phone"
-                                            placeholder="Enter Phone Number"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h1 className='account__header'>
-                                        Account
-                                    </h1>
-                                </td>
-                                <td>
-                                    Address
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="address"
-                                            placeholder="Enter Address"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Username
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="username"
-                                            placeholder="Enter Username"
-                                        />
-                                    </div>
-                                </td>
-                                <td>
-                                    First Name
-                                    <br />
+                                </div>
+                                <h1 className='account__header'>
+                                    Account
+                                </h1>
+
+                                <h3>Username</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="username"
+                                        placeholder="Enter Username"
+                                    />
+                                </div>
+
+                                <h3>Password</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="password"
+                                        id="password"
+                                        placeholder="Enter Password"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="account__table-column1">
+                                <h1 className='account__header'>
+                                    Personal Information
+                                </h1>
+
+                                <h3>First Name</h3>
+                                <br />
+                                <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="text"
                                         id="firstname"
                                         placeholder="Enter First Name"
                                     />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Password
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="password"
-                                            id="password"
-                                            placeholder="Enter Password"
-                                        />
-                                    </div>
-                                </td>
-                                <td colSpan={2}>
-                                    First Name
-                                    <br />
+                                </div>
+
+                                <h3>Last Name</h3>
+                                <br />
+                                <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="firstname"
-                                        placeholder="Enter First Name"
+                                        id="lastname"
+                                        placeholder="Enter Last Name"
                                     />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+
+                                <h3>Email</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="email"
+                                        placeholder="Enter Email Address"
+                                    />
+                                </div>
+
+                                <h3>Phone Number</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="phone"
+                                        placeholder="Enter Phone Number"
+                                    />
+                                </div>
+
+                                <h3>Address</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="address"
+                                        placeholder="Enter Address"
+                                    />
+                                </div>
+
+                                <div className="account__small-table">
+                                    <div className="account__table-column2">
+                                        <h3>City</h3>
+                                        <br />
+                                        <div className='account__input-short'>
+                                            <input
+                                                className='account__input'
+                                                type="text"
+                                                id="city"
+                                                placeholder="City"
+                                            />
+                                        </div>
+
+                                        <h3>Province</h3>
+                                        <br />
+                                        <div className='account__input-short'>
+                                            <input
+                                                className='account__input'
+                                                type="text"
+                                                id="province"
+                                                placeholder="Province"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="account__table-column2">
+                                        <h3>Postal Code</h3>
+                                        <br />
+                                        <div className='account__input-short'>
+                                            <input
+                                                className='account__input'
+                                                type="text"
+                                                id="postalCode"
+                                                placeholder="Postal Code"
+                                            />
+                                        </div>
+
+                                        <h3>Country</h3>
+                                        <br />
+                                        <div className='account__input-short'>
+                                            <input
+                                                className='account__input'
+                                                type="text"
+                                                id="country"
+                                                placeholder="Country"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="account__action">
+                            <button>
+                                Save
+                            </button>
+
+                            <button>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 </Box>
             </Stack>
         </div>
