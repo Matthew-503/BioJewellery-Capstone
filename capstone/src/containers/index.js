@@ -35,6 +35,7 @@ import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail'
 
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+import Account from './Account/Account';
 
 import Error from './Error/Error';
 import Policy from './Policy/Policy';
@@ -65,6 +66,7 @@ export {
 
   Login,
   SignUp,
+  Account,
 
   Error,
   Policy,
