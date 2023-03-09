@@ -32,12 +32,9 @@ const Feed = () => {
                     </Typography>
                 </div>
 
-
-                {/* <Videos videos={videos} /> */}
                 <ShopProduct />
             </Box>
         </Stack>
-        // </div>
     );
 };
 
