@@ -1,0 +1,44 @@
+.account__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.account__table td {
+    font-size: 1.8rem;
+    font-family: var(--font-base);
+    font-weight: 700;
+    text-align: left;
+    color: var(--color-darkgreen);
+    border: none;
+    padding: 0.8rem;
+
+}
+
+.account__header {
+    font-size: 3rem;
+    font-family: var(--font-base);
+    text-align: center;
+}
+
+.account__input-long input {
+    min-width: 23vw;
+    max-width: 100vw;
+    border: 1px solid var(--color-white);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--font-alt);
+
+    color: var(--color-darkgreen);
+
+    margin-right: 1rem;
+    padding: 0.2rem 0.4rem;
+    background: #f8f8f8;
+}
+
+.account__table td:first-child {
+    width: 40%;
+}
+
+.account__table td:nth-child(2) {
+    width: 60%;
+}
