@@ -30,34 +30,34 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
-import SwitchDetail from './SwitchDetail/SwitchDetail';
+import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
+
+import Login from './Login/Login';
+import SignUp from './SignUp/SignUp';
 
 export {
   Home,
   Header,
   Gallery,
   Benefits,
-  
+  Follow,
   // Video,
   Footer,
 
   OrderConfirmation,
-
 
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
 
-UserNavigation,
-
   SwitchDetail,
-
   ShoppingCart,
 
+  UserNavigation,
 
-  Follow,
+  Login,
+  SignUp,
 };
 
- 
 
