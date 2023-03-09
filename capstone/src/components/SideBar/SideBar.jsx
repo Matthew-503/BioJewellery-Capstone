@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@mui/material";
 
-import { categories } from '../../constants';
+import { sortCategory } from '../../constants';
 import './SideBar.css'
 
 const SideBar = ({ selectedCategory, setSelectedCategory }) => (
@@ -16,7 +16,7 @@ const SideBar = ({ selectedCategory, setSelectedCategory }) => (
                     alignItems: 'right',
                 }}
             >
-                {categories.map((category) => (
+                {sortCategory.map((category) => (
                     <button
                         className="category-btn grid-item"
                         onClick={() => setSelectedCategory(category.name)}
