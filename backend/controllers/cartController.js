@@ -1,3 +1,5 @@
+// Author: Sri Guru
+// Version 0.1
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 const User = require('../models/userModel')
@@ -32,9 +34,10 @@ const getCartItems = asyncHandler(async (req, res) => {
         });
 
         const subTotal = cart.subTotal
+        const orderTotal = cart.orderTotal
 
         //returning cart items and subtotal
-        res.status(200).json({cartItems, subTotal});
+        res.status(200).json({cartItems, subTotal, orderTotal});
     } 
     catch (error) {
         res.status(400)

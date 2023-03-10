@@ -1,39 +1,30 @@
-// Author: Nicholas Proc
-// Version: 0.1 
-// Date: 20/1/2023
+// Author: Nicholas Proc, Sri Guru
+// Version: 1.0
+// Date: 09/03/2023
 
-// Description: This container is for display the information of a product
-// Precondition: There must be a product that can be displayed
-// Postcondition: Displays the Product details with the relavent information
-
-// Input 
-// N/A
-// Output
-// Product Detail Container
+// Description: This component displays the "subtotal" and renders "PayButton" for "proceed to checkout" button
 
 import React from 'react';
-
-import { images } from '../../constants';
-import { Rating, ReviewBlock, SubHeading, PayButton } from '../../components';
-import { Link } from "react-router-dom";
-import { BsCheckCircleFill } from 'react-icons/bs';
-
 import './CartBar.css';
 
-const productImage = images.gallery01;
+import { PayButton } from '../../components';
+import { useSelector } from "react-redux";
 
 const CartBar = () => { 
+    const subTotal = useSelector((state) => state.cart.subTotal);
+    
     return (
         <div className="">
             <div>
                 <table className='cartbar__table'>
                     <tr>
                         <th>Subtotal</th>
+                        <th>{subTotal}</th>
                     </tr>
                     <tr>
                         <td>
                             <div className="cartbar__button">
-                                    <PayButton/>
+                                <PayButton/>
                             </div>
                         </td>
                     </tr>
@@ -42,6 +33,5 @@ const CartBar = () => {
         </div>
     )
 };
-
 
 export default CartBar;

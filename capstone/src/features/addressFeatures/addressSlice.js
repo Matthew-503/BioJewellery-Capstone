@@ -3,15 +3,13 @@ import addressService from './addressService'
 
 const initialState = {
     addresses: [],
+    shippingAddress:'',
     isError: false,
     isSuccess: false,
     isLoading: false,
     message: ''
 }
-//Create and save an address
-//ThunkAPI has a method to get any state at any part of the app
-//register and login routes are not protected, so there is no need to send the token
-//but the address route is protected, so we send token along with the data.
+
 export const createAddress = createAsyncThunk('addresses/create', async (addressData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
@@ -64,7 +62,7 @@ export const addressSlice = createSlice({
         .addCase(createAddress.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.addresses.push(action.payload) //push() method adds one or more elements to the end of an array.
+            state.addresses.push(action.payload) 
         })
         .addCase(createAddress.rejected, (state, action) => {
             state.isLoading = false
@@ -77,7 +75,7 @@ export const addressSlice = createSlice({
         .addCase(getAddresses.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.goals = action.payload 
+            state.addresses = action.payload 
         })
         .addCase(getAddresses.rejected, (state, action) => {
             state.isLoading = false
@@ -89,7 +87,7 @@ export const addressSlice = createSlice({
         })
         .addCase(deleteAddress.fulfilled, (state, action) => {
             state.isLoading = false
-            state.isSuccess = true //when we make a delete request, response returns the deleted address ID
+            state.isSuccess = true 
             state.addresses = state.addresses.filter((address) => address._id !== action.payload.id)
         })
         .addCase(deleteAddress.rejected, (state, action) => {

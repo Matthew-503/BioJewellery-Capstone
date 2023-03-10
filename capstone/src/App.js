@@ -20,6 +20,8 @@ import { Home, Header, Gallery, Benefits, Footer,Follow, ShopProduct, ProductDet
 // components are things that are reused in multiple containers
 
 import './App.css';
+import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
+import Order from './containers/Order/Order';
 
 
 
@@ -27,7 +29,6 @@ import './App.css';
 const App = () => (
     <div>
 
-    
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -43,7 +44,8 @@ const App = () => (
 
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/checkout" element={<OrderConfirmation />} />
-
+                <Route path="/paymentcancel" element={<PaymentCancellation />} />
+                <Route path="/order" element={<Order />} />
             </Route>
 
 
@@ -67,7 +69,6 @@ const App = () => (
              <Route path="*" element={<NotFound />}/> 
             */}
         </Routes>
-
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}

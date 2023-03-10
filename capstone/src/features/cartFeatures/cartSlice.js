@@ -3,8 +3,10 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
 const initialState = {
-    products: [{'id':{}, 'qty':{}}],
+    cartProducts: [{'id':{}, 'qty':{}}],
     itemCount:0,
+    subTotal: 0,
+    orderTotal:0,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -12,9 +14,9 @@ const initialState = {
 }
 
 //func to update item count value
-const updateItemCount = (products) => {
+const updateItemCount = (cartProducts) => {
     let count = 0;
-    products.forEach(product => {
+    cartProducts.forEach(product => {
         count += product.qty;
     });
     return count;
@@ -63,10 +65,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        reset: (state) => initialState,    
-        setItemCount: (state, action) => {
-            state.itemCount = action.payload
-        }       
+        reset: (state) => initialState
     },
     extraReducers: (builder) => {
         builder
@@ -76,8 +75,8 @@ export const cartSlice = createSlice({
         .addCase(createCart.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.products.push(action.payload)
-            state.itemCount = updateItemCount(state.products)
+            state.cartProducts.push(action.payload)
+            state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(createCart.rejected, (state, action) => {
             state.isLoading = false
@@ -90,8 +89,10 @@ export const cartSlice = createSlice({
         .addCase(getCartItems.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.products = action.payload 
-            state.itemCount = updateItemCount(state.products)
+            state.cartProducts = action.payload.cartItems
+            state.subTotal = action.payload.subTotal
+            state.orderTotal = action.payload.orderTotal
+            state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(getCartItems.rejected, (state, action) => {
             state.isLoading = false
@@ -103,9 +104,9 @@ export const cartSlice = createSlice({
         })
         .addCase(deleteCartItem.fulfilled, (state, action) => {
             state.isLoading = false
-            state.isSuccess = true //when we make a delete request, response returns the deleted address ID
-            state.products = state.products.filter((product) => product.id !== action.payload.id)
-            state.itemCount = updateItemCount(state.products)
+            state.isSuccess = true 
+            state.cartProducts = state.cartProducts.filter((product) => product.id !== action.payload.id)
+            state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
             state.isLoading = false

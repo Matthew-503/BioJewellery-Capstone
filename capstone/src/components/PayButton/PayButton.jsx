@@ -1,6 +1,14 @@
+// Author: Buola, Sri
+// Version: 
+// Date: 
+
+// Description: This component is for "proceed to checkout" button
+
 import React from 'react';
 import axios from "axios";
-import {useSelector} from "react-redux";
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import {url} from "../../containers";
 
 import { FaShoppingCart } from 'react-icons/fa';
@@ -24,20 +32,24 @@ const PayButton = ({cartProductName}) => {
                 .catch((err) => console.log(err.message));
     }; */}
 
-    const checkout = async () => {
-        await fetch ('http://localhost:4000/checkout', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({items:cartProductName})
-        }).then ((response) => {
-            return response.json();
-        }).then ((response) => {
-            if(response.url) {
-                window.location.assign(response.url);
-            }
-        })
+    // const checkout = async () => {
+    //     await fetch ('http://localhost:4000/checkout', {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({items:cartProductName})
+    //     }).then ((response) => {
+    //         return response.json();
+    //     }).then ((response) => {
+    //         if(response.url) {
+    //             window.location.assign(response.url);
+    //         }
+    //     })
+    // }
+
+    const checkout = () => {
+
     }
 
     return (

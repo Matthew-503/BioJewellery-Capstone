@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
             ref: 'Address'
         }
     ],
-    defaultAddress:{
+    shippingAddress:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
         required: true

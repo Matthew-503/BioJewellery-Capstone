@@ -1,6 +1,6 @@
-// Author: Buola Achor
-// Version 0.1
-// Date: 18/1/2023
+// Author: Buola Achor, Sri
+// Version 1.0
+// Date: 09/03/2023
 
 // Description: This is the shopping cart. 
 // Precondition: A home page with required cart item containers 
@@ -16,8 +16,16 @@ import { Rating, CartBlock, PayButton, ReviewBlock, ProductDetailBar, CartBar } 
 import { Link } from "react-router-dom"
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import './ShoppingCart.css';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 
 const ShoppingCart = () => {
+
+    const navigate = useNavigate();
+
+    const cartItems = useSelector((state) => state.cart)
 
     //Default Variable for review block
     var cartProductName = "Gold Leaf Necklace";
