@@ -14,7 +14,7 @@ const AccountHistory = () => {
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
     const price = 100;
-    const order_no = 'a790seoiw039iq30w8vo';
+    const order_no = '23ru90h349v832v4';
 
     useEffect(() => {
         // setVideos(null);
@@ -33,23 +33,119 @@ const AccountHistory = () => {
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
                     <div className="accountHistory">
                         <div className="accountHistory__product">
-                            <img src={images.avatar} alt="G_overlay" />
+                            <div className="accountHistory__image">
+                                <img src={images.avatar} alt="G_overlay" />
+                            </div>
+
+                            <div className="accountHistory__detail">
+                                <h3>
+                                    Order Number: {order_no}
+                                </h3>
+
+                                <p className="accountHistory__price">
+                                    Total Price: ${price}
+                                </p>
+
+                                <div className="accountHistory__button">
+                                    <button>
+                                        Review
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="accountHistory__detail">
-                            <h3>
-                                Order Number: {order_no}
-                            </h3>
+                        <div className="accountHistory__product">
+                            <div className="accountHistory__image">
+                                <img src={images.avatar} alt="G_overlay" />
+                            </div>
 
-                            <p className="accountHistory__price">
-                                Price: ${price}
-                            </p>
+                            <div className="accountHistory__detail">
+                                <h3>
+                                    Order Number: {order_no}
+                                </h3>
 
-                            <ul className="accountHistory__list">
-                                <li>Coffee Bracelet</li>
-                                <li>Earring Cerrado</li>
-                                <li>Coffee Bracelet</li>
-                            </ul>
+                                <p className="accountHistory__price">
+                                    Total Price: ${price}
+                                </p>
+
+                                <div className="accountHistory__button">
+                                    <button>
+                                        Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="accountHistory__product">
+                            <div className="accountHistory__image">
+                                <img src={images.avatar} alt="G_overlay" />
+                            </div>
+
+                            <div className="accountHistory__detail">
+                                <h3>
+                                    Order Number: {order_no}
+                                </h3>
+
+                                <p className="accountHistory__price">
+                                    Total Price: ${price}
+                                </p>
+
+                                <div className="accountHistory__button">
+                                    <button>
+                                        Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="accountHistory__product">
+                            <div className="accountHistory__image">
+                                <img src={images.avatar} alt="G_overlay" />
+                            </div>
+
+                            <div className="accountHistory__detail">
+                                <h3>
+                                    Order Number: {order_no}
+                                </h3>
+
+                                <p className="accountHistory__price">
+                                    Total Price: ${price}
+                                </p>
+
+                                <div className="accountHistory__button">
+                                    <button>
+                                        Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="accountHistory__product">
+                            <div className="accountHistory__image">
+                                <img src={images.avatar} alt="G_overlay" />
+                            </div>
+
+                            <div className="accountHistory__detail">
+                                <h3>
+                                    Order Number: {order_no}
+                                </h3>
+
+                                <p className="accountHistory__price">
+                                    Total Price: ${price}
+                                </p>
+
+                                <div className="accountHistory__button">
+                                    <button>
+                                        Review
+                                    </button>
+                                </div>
+
+                                {/* <ul className="accountHistory__list">
+                                    <li>Coffee Bracelet</li>
+                                    <li>Earring Cerrado</li>
+                                    <li>Coffee Bracelet</li>
+                                </ul> */}
+                            </div>
                         </div>
                     </div>
                 </Box>
