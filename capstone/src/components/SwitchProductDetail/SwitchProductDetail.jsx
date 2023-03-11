@@ -45,9 +45,9 @@ const SwitchProductDetail = () => {
                 <p>
                     {myProfession === "Description" && (
                         <FeatureBlock
-                            productFeatureName={productFeatureName}
-                            productFeatureType={productFeatureType}
-                            productFeatureColor={productFeatureColor}
+                            productFeatureName="Name"
+                            productFeatureType="Type"
+                            productFeatureColor="Type"
                             reviewStarRating={stars}
                         />
                     )}

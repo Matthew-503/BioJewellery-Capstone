@@ -31,7 +31,8 @@
     "mongoose": "^6.9.1",
     "react-bootstrap": "^2.7.0",
     "react-scroll-parallax": "^3.3.2",
-    "stripe": "^11.11.0"
+    "stripe": "^11.11.0",
+    "wrap-ansi": "^8.1.0"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
