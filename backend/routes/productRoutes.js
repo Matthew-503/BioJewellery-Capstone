@@ -4,8 +4,9 @@ const { getAllProducts, getProduct, setProduct, updateProduct, deleteProduct } =
 
 router.route('/all').get(getAllProducts)
 
-router.route('/').get(getProduct).post(setProduct);
+router.route('/').post(setProduct);
 
+router.route('/:name').get(getProduct);
 
 router.route('/:id').put( updateProduct).delete(deleteProduct);
 

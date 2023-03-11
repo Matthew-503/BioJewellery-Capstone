@@ -3,8 +3,8 @@ const accountSchema = new mongoose.Schema({
 
     email:{
         type:String,
-        unique: true,
-        require:true
+        require:true,
+        unique:true
     },
     password:{
         type:String,
@@ -17,9 +17,11 @@ const accountSchema = new mongoose.Schema({
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        require: false,
         ref: 'User'
     }
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Account', accountSchema);
