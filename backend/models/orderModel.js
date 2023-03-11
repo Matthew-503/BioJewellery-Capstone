@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Global = require('./globalModel');
 
 const orderSchema = new mongoose.Schema({
     client:{
@@ -42,5 +43,16 @@ const orderSchema = new mongoose.Schema({
     timestamps: true
 });
 
+orderSchema.virtual('total').get(function () {
+    const globalObj = Global.findOne()
+    const gst = globalObj.gst
+
+    if (!this.cart || !this.cart.subTotal || !gst) {
+        throw new Error('Invalid order data: missing cart, subTotal, or gst');
+    }
+    let total = 0
+    total = cart.subTotal * gst
+    return total
+})
 
 module.exports = mongoose.model('Order', orderSchema);

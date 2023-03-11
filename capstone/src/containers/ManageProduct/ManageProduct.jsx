@@ -16,9 +16,10 @@ const ManageProduct = () => {
 
             </div>
 
-            <div className="employee__product"
+            <div className="employee__product">
 
-
+            </div>
         </div>
+
     )
 }

@@ -58,7 +58,7 @@ const Navbar = () => {
                     <Button>0 items</Button>
                 </a>
 
-                <Link to="/add" className="navbar-icons">
+                <Link to="/login" className="navbar-icons">
                     <MdAccountCircle />
                 </Link>
             </div>
