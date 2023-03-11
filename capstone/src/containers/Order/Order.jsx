@@ -46,15 +46,15 @@ const Order = () => {
         <>
             //Display default shipping address from DB
             <div>
-                <h3>Shipping Address</h3>
+              <h3>Shipping Address</h3>
                 <div>
-                    <p>{shippingAddress.street}</p>
+                  <p>{shippingAddress.street}</p>
                     <p>{shippingAddress.city}</p>
                     <p>{shippingAddress.province}</p>
                     <p>{shippingAddress.country}</p>
                     <p>{shippingAddress.postalCode}</p>
                 </div>
-                <button onClick={handleShowModal}>Change</button>
+              <button onClick={handleShowModal}>Change</button>
             </div>
 
             //Pop up window for new shipping address on clicking change button
@@ -119,7 +119,9 @@ const Order = () => {
                         Close
                     </Button>                    
                 </Modal.Footer>
-            </Modal>  
+            </Modal> 
+
+
         </>
     );
 };

@@ -7,7 +7,7 @@ TODO LIST
 * update quantity in cart
 * delete item in cart
 * proceed for order page
-* Order page: address info, total amount and product info
+* Order page: address info, total amount with gst
 * go to Stripe
 * Stripe success
 * Stripe cancel
