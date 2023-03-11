@@ -18,8 +18,7 @@ import { Button } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
 import { NavLink, Link } from "react-router-dom"
-import { MdSearch, MdAccountCircle, MdOutlineRestaurantMenu } from 'react-icons/md';
-
+import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
 
@@ -46,10 +45,10 @@ const Navbar = () => {
             </ul>
 
             <div className="navbar-input">
-                <input type='email' placeholder='' />
+                <input className='navbar-input-search' placeholder='Search BioJewellery' />
 
-                <a href="#login" className="navbar-icons">
-                    <MdSearch />
+                <a href="#login">
+                    <MdSearch className="navbar-icons" />
                 </a>
             </div>
             <div className="navbar-login">
@@ -58,35 +57,36 @@ const Navbar = () => {
                     <Button>0 items</Button>
                 </a>
 
-                <Link to="/login" className="navbar-icons">
-                    <MdAccountCircle />
+                <Link to="/add">
+                    <MdAccountCircle className="navbar-icons"/>
                 </Link>
             </div>
 
+            {/* for mobile view display */}
             <div className="navbar-smallscreen">
-                <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
+                <GiHamburgerMenu color='var(--color-golden)' fontSize={27} onClick={() => setToggleMenu(true)} />
                 {toggleMenu && (
                     <div className="navbar-smallscreen_overlay app__flex-center index__slide-bottom">
-                        <MdOutlineRestaurantMenu fontSize={27} className="navbar-overlay__close" onClick={() => setToggleMenu(false)} />
+                        <MdOutlineClose fontSize={18} className="navbar-overlay__close" onClick={() => setToggleMenu(false)} />
                         <ul className="navbar-smallscreen_links">
                             <li>
                                 <a href="#home" onClick={() => setToggleMenu(false)}>Home</a>
                             </li>
 
                             <li>
-                                <a href="#about" onClick={() => setToggleMenu(false)}>About</a>
+                                <a href="#shop" onClick={() => setToggleMenu(false)}>Shop</a>
                             </li>
 
                             <li>
-                                <a href="#menu" onClick={() => setToggleMenu(false)}>Menu</a>
+                                <a href="#about" onClick={() => setToggleMenu(false)}>About Us</a>
                             </li>
 
                             <li>
-                                <a href="#awards" onClick={() => setToggleMenu(false)}>Awards</a>
+                                <a href="#awards" onClick={() => setToggleMenu(false)}>Cart</a>
                             </li>
 
                             <li>
-                                <a href="#contact" onClick={() => setToggleMenu(false)}>Contact</a>
+                                <a href="#contact" onClick={() => setToggleMenu(false)}>Account</a>
                             </li>
                         </ul>
                     </div>
