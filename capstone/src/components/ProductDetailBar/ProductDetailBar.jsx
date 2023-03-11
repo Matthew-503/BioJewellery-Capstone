@@ -57,7 +57,7 @@ const ProductDetailBar = () => {
                     </tr>
                     <tr>
                         <td>
-                            {productName}
+                            {selectedProduct.name}
                         </td>
                     </tr>
                     <tr>

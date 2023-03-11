@@ -103,10 +103,10 @@ function Login() {
                     <input
                         className='login__input'
                         type="text"
-                        id="username"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
+                        id="email"
+                        placeholder="email"
+                        value={email}
+                        onChange={(event) => onChange(event.target.value)}
                     />
 
                     <input
@@ -115,7 +115,7 @@ function Login() {
                         id="password"
                         placeholder="Password"
                         value={password}
-                        onChange={(event) => setPassword(event.target.value)}
+                        onChange={(event) => onChange(event.target.value)}
                     />
 
                         <div className='login__lower-functions login__forget-link'>
