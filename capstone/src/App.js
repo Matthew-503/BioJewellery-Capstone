@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
+import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login } from './containers';
 
 
 
@@ -48,6 +48,7 @@ const App = () => (
             </Route>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
+            <Route path="/login" element={<Login />} />
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              

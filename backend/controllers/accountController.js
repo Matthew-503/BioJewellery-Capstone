@@ -1,3 +1,7 @@
+/**
+ * Add TYPE of user under userModel. We will identify what kind of user it is by a middleware thats gonna check this field
+ */
+
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
@@ -48,7 +52,8 @@ const registerAccount = asyncHandler(async (req, res) => {
       email: account.email,
       token: generateToken(account._id),
       name: name,
-      user: user._id
+      user: user._id,
+      typeAccount: user.type
     })
   } else {
     res.status(400)
