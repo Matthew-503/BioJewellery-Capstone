@@ -58,8 +58,8 @@ const ProductDetail = ({ productid }) => {
 
                 <SubHeading title={selectedProduct.name} />
                 <img
-                    className="detail__image"
-                    src={productImage}
+                    className="detail__product-image"
+                    src={images.product1}
                     alt="product image"
                 />
                 <div className='detail__sidebar'>
@@ -69,8 +69,6 @@ const ProductDetail = ({ productid }) => {
                 <div>
                     <SwitchDetail />
                 </div>
-
-
             </div>
         </div>
     )

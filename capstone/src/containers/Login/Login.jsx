@@ -9,42 +9,6 @@
 // Input: Currently no input available
 // Output: Currently no specific output
 
-
-// import React from 'react';
-
-// import { SubHeading } from '../../components';
-// import { images } from '../../constants';
-// import { Link } from "react-router-dom"
-
-// import './Login.css';
-
-// const Login = () => (
-//     <div className='login ' id='home'>
-//         <div>
-//             <img src={images.login} alt="G_overlay" className='left' />
-//             <div className='right'>
-// <SubHeading title={"Login"} />
-// <p>Welcome back! Please enter your details</p>
-
-//                 <form>
-//                     <label>
-//                         <input type="text" placeholder='Username' />
-//                     </label>
-//                     <br />
-//                     <label>
-//                         <input type="text" placeholder='Password' />
-//                     </label>
-//                 </form>
-//             </div>
-//         </div>
-//     </div>
-// );
-
-// export default Login;
-
-
-
-
 import React from 'react';
 import { useState } from 'react';
 
@@ -136,25 +100,23 @@ function Login() {
                         {isError ? <p className='login__error-message'>{errorMessage}</p> : null }
                         
 
-                        <input
-                            className='login__input'
-                            type="email"
-                            id="email"
-                            name='email'
-                            placeholder="Email"
-                            value={email}
-                            onChange={onChange}
-                        />
+                    <input
+                        className='login__input'
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
 
-                        <input
-                            className='login__input'
-                            type="password"
-                            id="password"
-                            name='password'
-                            placeholder="Password"
-                            value={password}
-                            onChange={onChange}
-                        />
+                    <input
+                        className='login__input'
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
 
                         <div className='login__lower-functions login__forget-link'>
                             <div className="login__link">

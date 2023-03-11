@@ -40,7 +40,7 @@ const ProductDetailBar = () => {
     // var customerDefaultTitle = "Default Title";
     // var customerDefaultDescription = "Default Description";
     return (
-        <div className="">
+        <div className="detail__bar">
             <div>
                 <table className='detail__table'>
                     <tbody>
@@ -49,10 +49,15 @@ const ProductDetailBar = () => {
                     </tr>
                     <tr>
                         <td>
-                            <div className="detail__stock">
+                            <div className="detail__bar-stock">
                                 In stock
-                                <BsCheckCircleFill className='detail__icons' />
+                                <BsCheckCircleFill className='detail__bar-icons' />
                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {productName}
                         </td>
                     </tr>
                     <tr>
@@ -60,21 +65,30 @@ const ProductDetailBar = () => {
                     </tr>
                     <tr>
                         <td>
-                            <div className="detail__button">
+                            <div className="detail__bar-add-button">
                                 <Link to="/cart">
-                                    <button className="detail__button">
+                                    <button className="detail__bar-add-button">
                                         <FaShoppingCart />  Add to Cart
                                     </button>
                                 </Link>
                             </div>
-
                         </td>
                     </tr>
                     <tr>
                         <td >
-                            <div className="detail__star">
-                                <Rating starRating={stars} className="detail__rating" />
-                                Write a review
+                            <div className="detail__bar-star">
+                                <Rating starRating={stars} className="detail__bar-rating" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className="detail__bar-review-button">
+                                <Link to="/cart">
+                                    <button className="detail__bar-review-button">
+                                        Write a review
+                                    </button>
+                                </Link>
                             </div>
                         </td>
                     </tr>
@@ -84,6 +98,5 @@ const ProductDetailBar = () => {
         </div>
     )
 };
-
 
 export default ProductDetailBar;

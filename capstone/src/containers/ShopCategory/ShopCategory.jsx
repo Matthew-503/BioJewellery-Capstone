@@ -26,9 +26,6 @@ import './ShopCategory.css';
 const ShopCategory = () => {
     return (
         <div className="category category__section-padding" id="blog">
-
-            {/* <SubHeading title="Chef's word" /> */}
-
             <div className="category__container">
                 <div className="category__container-card">
                     <Article

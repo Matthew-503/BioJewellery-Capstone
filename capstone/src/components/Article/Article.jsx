@@ -3,37 +3,25 @@ import './Article.css';
 import { Link, useParams } from "react-router-dom"
 
 const Article = ({ imgUrl, text, link }) => {
-    const {id} = useParams()
+    const { id } = useParams()
     return (
         <>
-            <div className="card__blog-container_article">
-                <div className="card__blog-container_article-image">
+            <div className="category__card">
+                <div className="category__card-image">
                     <img src={imgUrl} alt="blog" />
 
-                    <div class='card__blog-container_article-content'>
+                    <div class='category__card-content'>
                         <h3 >
                             {text}
                         </h3>
+
+                        <button class='click__button'>
+                            <Link to={link}>Click</Link>
+                        </button>
                     </div>
-
-                    <button class='click__button'>
-                        <Link to={link}>Click</Link>
-                    </button>
-
                 </div>
             </div>
-
-            {/* <div className="head-text">
-                <div className="head-image">
-                    <img src={imgUrl} alt="blog" />
-                </div>
-                <div class='text-on-image'>
-                    <h3> Welcome to my Blog </h3>
-                    <p> FREEEEDOM </p>
-                </div>
-            </div> */}
         </>
-
     )
 }
 

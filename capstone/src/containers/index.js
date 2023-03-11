@@ -19,21 +19,27 @@ import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
 
+import AboutUs from './AboutUs/AboutUs';
+
 import ShopCategory from './ShopCategory/ShopCategory';
 import Feed from './Feed/Feed';
 import ShopProduct from './ShopProduct/ShopProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
-
+import Feedback from './Feedback/Feedback';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
-// import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
 
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+import Account from './Account/Account';
+import AccountHistory from './Account/AccountHistory';
+
+import Error from './Error/Error';
+import Policy from './Policy/Policy';
 
 export {
   Home,
@@ -44,12 +50,15 @@ export {
   // Video,
   Footer,
 
+  AboutUs,
+
   OrderConfirmation,
 
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
+  Feedback,
 
   SwitchDetail,
   ShoppingCart,
@@ -58,6 +67,11 @@ export {
 
   Login,
   SignUp,
+  Account,
+  AccountHistory,
+
+  Error,
+  Policy,
 };
 
 
