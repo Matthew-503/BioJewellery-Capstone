@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const productModel = require('../models/productModel');
 
+string = "test"
+
 
 const getAllProducts = asyncHandler(async (req, res) => {
     try {
@@ -18,11 +20,11 @@ const getAllProducts = asyncHandler(async (req, res) => {
 
 const getProduct = asyncHandler(async (req, res) => {
     try {
-        if (req.body._id === null || req.body._id === '' || req.body._id === undefined) {
+        if (req.params.name === null || req.params.name === '' || req.params.name === undefined) {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
-        const product = await productModel.find({ _id: req.body._id });
+        const product = await productModel.find({ name: req.params.name });
         res.status(200).json(product);
     } catch (error) {
         res.status(400)

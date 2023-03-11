@@ -20,7 +20,7 @@ import { ProductItems } from '../../components';
 import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from '../../features/productFeatures/productSlice';
+import { getProducts, reset } from '../../features/productFeatures/productSlice';
 import { useEffect } from "react";
 import './ShopProduct.css';
 
@@ -37,10 +37,10 @@ const ShopProduct = () => {
         }
 
         dispatch(getProducts())
-        console.log(products);
 
-       
-    }, [products, isError, message, dispatch])
+        
+        console.log("Products: " + products);
+    }, [isError, message, dispatch])
     return (
         <div className="product product__section-padding" id="blog">
 

@@ -3,21 +3,21 @@ const accountSchema = new mongoose.Schema({
 
     email:{
         type:String,
-        unique: true,
-        required:true
+        require:true,
+        unique:true
     },
     password:{
         type:String,
-        required:true
+        require:true
     },
     active:{
         type:String,
-        required:true,
+        require:true,
         default:true
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        require: false,
         ref: 'User'
     }
 }, {
