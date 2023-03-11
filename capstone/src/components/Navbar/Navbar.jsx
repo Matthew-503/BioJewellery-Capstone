@@ -1,5 +1,5 @@
-// Author: Ling Shan Matthew Ng
-// Version 0.1
+// Author: Ling Shan Matthew Ng, Sri
+// Version 0.2
 // Date: 18/1/2023
 
 // Description: Navbar for reuse
@@ -14,6 +14,7 @@
 
 
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
 import { NavLink, Link } from "react-router-dom"
@@ -51,8 +52,9 @@ const Navbar = () => {
                 </a>
             </div>
             <div className="navbar-login">
-                <a href="#login">
-                    <FaShoppingCart className="navbar-icons"/>
+                <a href="#login" className="navbar-icons">
+                    <FaShoppingCart />
+                    <Button>0 items</Button>
                 </a>
 
                 <Link to="/add">

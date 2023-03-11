@@ -19,20 +19,19 @@ const orderSchema = new mongoose.Schema({
     },
     startDate:{
         type:Date,
-        require:true
-        
+        required:true        
     }, 
     shipDate:{
         type:Date,
-        require:false
+        required:false
     },
     receiveDate:{
         type:Date,
-        require:false
+        required:false
     },
     trackingNumber:{
         type:String,
-        require:true
+        required:true
     },
     status:{
         type:String,

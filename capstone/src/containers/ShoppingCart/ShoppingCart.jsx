@@ -1,25 +1,31 @@
-// // Author: Buola Achor
-// // Version 0.1
-// // Date: 18/1/2023
+// Author: Buola Achor, Sri
+// Version 1.0
+// Date: 09/03/2023
 
-// // Description: This is the shopping cart. 
-// // Precondition: A home page with required cart item containers 
-// // Postcondition: a submit button that directs to payments service
+// Description: This is the shopping cart. 
+// Precondition: A home page with required cart item containers 
+// Postcondition: a submit button that directs to payments service
 
-// // Input: Currently no input available
-// // Output: Currently no specific output
+// Input: Currently no input available
+// Output: Currently no specific output
 
-// // Notes: Editing qty function?
-// // Notes: Background and button color fix and button placement
+// Notes: Editing qty function?
+// Notes: Background and button color fix and button placement
 
-import React from 'react';
-import { Rating, CartBlock, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
+import { Rating, CartBlock, PayButton, ReviewBlock, ProductDetailBar, CartBar } from '../../components';
 import { Link } from "react-router-dom"
-
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import './ShoppingCart.css';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 
 const ShoppingCart = () => {
+
+    const navigate = useNavigate();
+
+    const cartItems = useSelector((state) => state.cart)
 
     //Default Variable for review block
     var cartProductName = "Gold Leaf Necklace";
@@ -37,7 +43,7 @@ const ShoppingCart = () => {
             </div>
 
             <div className='detail__sidebar'>
-                <CartBar />
+                <CartBar cartItem = {ShoppingCart.cartProductName}/>
             </div>
             <div className="shop__cartbody">
                 <CartBlock
@@ -55,10 +61,11 @@ const ShoppingCart = () => {
                     cartPrice={cartProductPrice}
                     cartQuantity={cartProductQuantity}
                 />
+
                 {/* <div className="cart__subtotal">
                     <h3 className="cart__subtotal-header">Subtotal:</h3>
 
-                    <Link to="/checkout">
+                    <Link to="/create-checkout-session">
                         <button type='button' className='custom__button-checkout'>
                             Proceed to Checkout
                         </button>

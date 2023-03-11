@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Naomy Tung
+    // Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 1.o
 // Date: 25/1/2023
 
@@ -23,6 +23,8 @@ import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDe
 // components are things that are reused in multiple containers
 
 import './App.css';
+import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
+import Order from './containers/Order/Order';
 
 
 
@@ -44,7 +46,8 @@ const App = () => (
 
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/checkout" element={<OrderConfirmation />} />
-
+                <Route path="/paymentcancel" element={<PaymentCancellation />} />
+                <Route path="/order" element={<Order />} />
             </Route>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
@@ -67,7 +70,6 @@ const App = () => (
              <Route path="*" element={<NotFound />}/> 
             */}
         </Routes>
-
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}

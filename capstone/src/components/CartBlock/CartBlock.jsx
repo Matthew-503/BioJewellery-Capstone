@@ -1,7 +1,10 @@
-import React from 'react';
-import Rating from '../Rating/Rating';
+// Author: 
+// Version:
+// Date: 
 
-// import images from '../../constants/images';
+// Description: This component displays the items with quantity in cart
+
+import React from 'react';
 import './CartBlock.css';
 
 const CartBlock = ({ cartName, cartColor, cartPrice, cartQuantity, cartSize }) => {

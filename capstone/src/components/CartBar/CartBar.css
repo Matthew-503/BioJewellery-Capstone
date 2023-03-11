@@ -27,21 +27,6 @@
     border-bottom: 1px solid black;
 } */
 
-.cartbar__button {
-    background-color: var(--color-green);
-    color: var(--color-white);
-    font-family: var(--font-alt);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 28px;
-    font-size: 16px;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
 .cartbar__stock {
     font-size: 18px;
     color: lightgreen;
@@ -116,12 +101,7 @@
     display: none;
 }
 
-.cartbar__image {
-    position: relative;
-    min-width: 301px;
-    height: 30vw;
-    margin-left: 5rem;
-}
+
 
 .gallery__image-icon {
     position: absolute;

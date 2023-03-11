@@ -42,10 +42,13 @@ const SwitchProductDetail = () => {
             </div>
 
             <div className="col text-center">
-                <div>
+                <p>
                     {myProfession === "Description" && (
                         <FeatureBlock
-                            
+                            productFeatureName={productFeatureName}
+                            productFeatureType={productFeatureType}
+                            productFeatureColor={productFeatureColor}
+                            reviewStarRating={stars}
                         />
                     )}
 
@@ -58,7 +61,7 @@ const SwitchProductDetail = () => {
                         />
                     )}
 
-                </div>
+                </p>
             </div>
         </>
     );

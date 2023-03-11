@@ -1,0 +1,13 @@
+TODO LIST
+* upload and store image for products in DB
+* Retrive the product info with Image to show in the website
+* show cart item count
+* Save cart info for logged in user only
+* add product to cart
+* update quantity in cart
+* delete item in cart
+* proceed for order page
+* Order page: address info, total amount with gst
+* go to Stripe
+* Stripe success
+* Stripe cancel

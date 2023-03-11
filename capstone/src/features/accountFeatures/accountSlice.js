@@ -1,3 +1,6 @@
+// Author: Naomy, Sri
+// Version 1.0
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import authService from './accountService'
 

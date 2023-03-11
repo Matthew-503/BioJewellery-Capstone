@@ -28,6 +28,8 @@ import CartBlock from './CartBlock/CartBlock'
 import FeatureBlock from './FeatureBlock/FeatureBlock';
 import CartItem from './CartItem/CartItem';
 
+import PayButton from './PayButton/PayButton';
+
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
@@ -72,6 +74,7 @@ export {
     Rating,
 
     CartBlock,
+    PayButton,
 
     AddProduct,
     EditProduct,
