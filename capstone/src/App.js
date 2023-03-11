@@ -16,7 +16,10 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Header, Gallery, Benefits, Footer,Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed } from './containers';
+import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login } from './containers';
+
+
+
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -26,8 +29,6 @@ import './App.css';
 
 const App = () => (
     <div>
-
-
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -38,17 +39,16 @@ const App = () => (
                 </Route>
                 <Route path="/products">
                     <Route index element={<ShopProduct />} />
-                    <Route path=":product" element={<ProductDetail />} />
+                    <Route path=":name" element={<ProductDetail />} />
                 </Route>
 
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/checkout" element={<OrderConfirmation />} />
 
             </Route>
-
-
             <Route path="/add" element={<AddProduct />} />
             <Route path="/editproduct" element={<EditProduct />} />
+            <Route path="/login" element={<Login />} />
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
@@ -85,9 +85,7 @@ const App = () => (
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
         {/* <EmployeeMenu /> */}
-
     </div>
-
 );
 
 export default App;
