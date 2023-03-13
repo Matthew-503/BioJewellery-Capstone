@@ -22,6 +22,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getProductByName, reset } from '../../features/productFeatures/productSlice';
+
 const productImage = images.gallery01;
 
 const ProductDetail = ({ productid }) => {

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const productModel = require('../models/productModel');
 
-string = "test"
+
 
 
 const getAllProducts = asyncHandler(async (req, res) => {

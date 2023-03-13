@@ -3,6 +3,7 @@
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 const User = require('../models/userModel')
+const Cart = require('../models/cartModel')
 
 // @desc    Get all the products added in a cart
 // @route   GET /api/cart

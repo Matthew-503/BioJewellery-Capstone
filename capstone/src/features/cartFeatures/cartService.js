@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const API_URL = '/api/cart'
+const API_URL_PART_2 = '/products/'
 
 //create new cart
 const createCart = async (cartData, token) => {
@@ -27,21 +28,36 @@ const getCartItems = async (token) => {
 }
 
 //Delete cart item
-const deleteCartItem = async (cartId, token) => {
+const deleteCartItem = async (cartId,productId, token)  => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
 
-    const response = await axios.delete(API_URL + cartId, config)
+  
+    const response = await axios.put(API_URL + cartId + API_URL_PART_2 + productId, config)
+    return response.data
+    
+}
+
+//Delete cart item
+const updateCartItem = async (cartId,productId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.put(API_URL + cartId + API_URL_PART_2 + productId, config)
     return response.data
 }
 
 const cartService = {
     createCart,
     getCartItems,
-    deleteCartItem
+    deleteCartItem,
+    updateCartItem
 }
 
 export default cartService

@@ -125,7 +125,7 @@ function Login() {
                             <br />
                             <button type="submit" className="login__button">Login</button>
                             <br />
-                            <button type="submit" className="login__button">Register</button>
+                            <Link to="/register"><button type="submit" className="login__button">Register</button></Link>
                             <br />
                             <div className="login__link">
                                 <Link to="/">Continue as guest</Link>
