@@ -5,9 +5,6 @@ import { EmployeeMenu } from '../../components';
 import { BsPlus } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import Form from 'react-bootstrap/Form';
-//import { EmployeeProduct } from '../../components';
-import { EmployeeMenu } from '../../components';
-import { AiOutlinePlus } from "react-icons/ai";
 
 import './ManageProduct.css';
 

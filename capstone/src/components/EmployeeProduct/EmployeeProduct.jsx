@@ -14,6 +14,7 @@ const EmployeeProduct = () => {
 
                 <div className="employeee__product-title">
                     <h1 className="employee__product-name">Product Name: xxxx</h1>
+                    <h1 className="employee__product-price">Price: 100.00</h1>
                     <h1 className="employee__product-price">Price:100.00</h1>
                 </div>
 

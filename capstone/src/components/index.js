@@ -12,9 +12,6 @@
 
 
 // Notes: 
-import AddProduct from './AddProduct/AddProduct';
-import EditProduct from './EditProduct/EditProduct';
-
 
 import Navbar from './Navbar/Navbar';
 import SubHeading from './SubHeading/SubHeading';
@@ -73,9 +70,6 @@ export {
     Rating,
 
     CartBlock,
-
-    AddProduct,
-    EditProduct,
 
     // AdminMenu,
 

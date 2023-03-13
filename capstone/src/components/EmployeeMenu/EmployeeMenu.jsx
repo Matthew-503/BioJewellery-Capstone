@@ -44,7 +44,7 @@ const EmployeeMenu = () => {
                             <a href="#Settings">Hailey Johnson</a>
                         </div>
 
-                    <div className="e__photo-edit"> 
+                    <div className="employee__photo-edit"> 
                         <HiPencilAlt color='#818181' size={30} />
                     </div>
                 

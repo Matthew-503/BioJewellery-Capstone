@@ -2,8 +2,10 @@
     position: absolute;
     bottom: 80px;
     left: 500px;
-    background-color: rgb(228, 225, 225);
-    height: 150px;
+    background-color: rgb(199, 195, 195);
+    font-size: 16px;
+    width: 200px;
+    height: 180px;
     width: 910px;
     border-radius: 4px;
 }
@@ -21,6 +23,11 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.employee__product-title {
+    position: absolute;
+    left: 330px;
 }
 
 .employee__product-name {

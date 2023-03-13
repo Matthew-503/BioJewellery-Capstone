@@ -28,7 +28,6 @@ import ProductDetail from './ProductDetail/ProductDetail';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
-import ManageProduct from './ManageProduct/ManageProduct';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 import ManageProduct from './ManageProduct/ManageProduct';
@@ -43,6 +42,7 @@ export {
   Gallery,
   Benefits,
   Follow,
+  SignUp,
   // Video,
   Footer,
 
@@ -55,7 +55,6 @@ export {
 
   SwitchDetail,
   ShoppingCart,
-  OrderConfirmation,
   UserNavigation,
   
   ManageProduct
