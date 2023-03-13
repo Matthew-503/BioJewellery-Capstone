@@ -94,8 +94,14 @@ function Login() {
         }
     
         if (isSuccess && user) { //change to isSuccess || user later)
-          dispatch(reset())
+            // if (user.type = 'Client') {
+            //     navigate('/')
+            //   }
+            //   else if (user.type = 'Client') {
+                 
+            //   }
           navigate('/')
+          dispatch(reset())
         }
     
        
