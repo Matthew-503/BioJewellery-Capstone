@@ -28,6 +28,7 @@ import ProductDetail from './ProductDetail/ProductDetail';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
+import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
@@ -50,6 +51,7 @@ export {
   Feed,
   ShopProduct,
   ProductDetail,
+  EmployeeReturn,
 
   SwitchDetail,
   ShoppingCart,
