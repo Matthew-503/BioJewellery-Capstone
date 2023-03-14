@@ -1,0 +1,114 @@
+/**
+* Author: Buola Achor, Ling Shan Matthew Ng, Nicholas Proc, Naomy Tung, Srineethi Gurumurthi Girahhalskhmi 
+* Version 0.1
+* Date: 19/1/2023
+*
+* Description: Thank you for ordering css
+*
+ */
+ .confirm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-lightgreen);
+}
+
+.confirm__headtext {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-lightgreen);
+}
+
+.confirm__shipping-table {
+    /* border: 2px solid forestgreen; */
+    width: 70vw;
+    height: 25vw;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
+}
+
+.confirm__shipping-table th {
+    font-size: 26px;
+    text-align: center;
+    width: 20vw;
+    /* border: 1px solid black; */
+}
+
+.confirm__shipping-table td {
+    text-align: left;
+    font-size: 24px;
+    width: 30vw;
+    /* border: 1px solid black; */
+}
+
+
+.confirm__payment-table {
+    /* border: 2px solid forestgreen; */
+    width: 70vw;
+    height: 25vw;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
+}
+
+.confirm__payment-table th {
+    font-size: 26px;
+    text-align: center;
+    width: 20vw;
+    /* border: 1px solid black; */
+}
+
+.confirm__payment-table td {
+    text-align: left;
+    font-size: 24px;
+    width: 60vw;
+    /* border: 1px solid black; */
+}
+
+
+.confirm__product-table {
+    /* border: 2px solid forestgreen; */
+    width: 70vw;
+    height: 25vw;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
+}
+
+.confirm__product-table th {
+    font-size: 26px;
+    text-align: center;
+    width: 20vw;
+    /* border: 1px solid black; */
+}
+
+.confirm__product-table td {
+    text-align: left;
+    font-size: 24px;
+    width: 30vw;
+    /* border: 1px solid black; */
+}
+
+.confirm__product-table img {
+    height: 25vw;
+    width: 30vw;
+}
+
+.order_confirmation-info_box {
+    background-color: var(--color-medgreen);
+    width: 80%;
+    margin: auto;
+    padding: 1rem 6rem;
+    margin-bottom: 1rem;
+}
+
+.order_confirmation__desc {
+    line-break: anywhere;
+}
