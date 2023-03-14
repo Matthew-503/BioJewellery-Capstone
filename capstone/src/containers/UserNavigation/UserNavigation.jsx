@@ -9,7 +9,7 @@ const UserNavigation = () => {
     <div>
         <Navbar />
         <Outlet />
-        {/* <Footer /> */}
+        <Footer />
     </div>
   )
 }
