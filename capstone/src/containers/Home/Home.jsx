@@ -16,8 +16,8 @@ const Home = () => {
       {/* <Feedback /> */}
       {/* <Account /> */}
       {/* <AccountHistory /> */}
-      <OrderConfirmation />
-      {/* <Shipping /> */}
+      {/* <OrderConfirmation /> */}
+      <Shipping />
     </div>
   )
 }
