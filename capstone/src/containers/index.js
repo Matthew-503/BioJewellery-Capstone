@@ -28,6 +28,7 @@ import ProductDetail from './ProductDetail/ProductDetail';
 import Feedback from './Feedback/Feedback';
 
 import ShoppingCart from './ShoppingCart/ShoppingCart';
+import Shipping from './Shipping/Shipping';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
 
@@ -52,6 +53,7 @@ export {
 
   AboutUs,
 
+  Shipping,
   OrderConfirmation,
 
   ShopCategory,
