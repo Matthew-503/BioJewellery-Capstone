@@ -3,11 +3,11 @@ import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutU
 const Home = () => {
   return (
     <div>
-      {/* <Header /> */}
-      {/* <Gallery /> */}
+      <Header />
+      <Gallery />
       {/* <Video /> */}
-      {/* <Benefits /> */}
-      {/* <Follow /> */}
+      <Benefits />
+      <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -17,7 +17,7 @@ const Home = () => {
       {/* <Account /> */}
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
-      <Shipping />
+      {/* <Shipping /> */}
     </div>
   )
 }
