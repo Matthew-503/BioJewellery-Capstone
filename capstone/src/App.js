@@ -23,6 +23,9 @@ import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
 import Order from './containers/Order/Order';
 
+//testing address component - need to be removed
+import Address from './components/Address/Address';
+
 
 
 
@@ -46,6 +49,7 @@ const App = () => (
                 <Route path="/checkout" element={<OrderConfirmation />} />
                 <Route path="/paymentcancel" element={<PaymentCancellation />} />
                 <Route path="/order" element={<Order />} />
+                <Route path="/address" element={<Address />} />
             </Route>
 
 
