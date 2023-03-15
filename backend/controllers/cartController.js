@@ -113,7 +113,7 @@ res.status(200).json({ message: 'Cart created' });
 // @access  private
 const updateCartItem = asyncHandler(async (req, res) => {
         
-    const { cartId, productId } = req.params
+    const productId = req.params.productId
     
     const {quantity} = req.body
     // Validate quantity received

@@ -1,4 +1,5 @@
 const express = require('express'); 
+
 const router = express.Router();
 const { protect } = require('../middleware/authMiddleware')
 const { getAddresses, createAddress, updateAddress, deleteAddress } = require('../controllers/addressController');

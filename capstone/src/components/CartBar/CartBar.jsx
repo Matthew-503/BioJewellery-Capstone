@@ -20,6 +20,7 @@ const CartBar = () => {
                     <tr>
                         <th>Subtotal</th>
                         <th>{subTotal}</th>
+                        
                     </tr>
                     <tr>
                         <td>

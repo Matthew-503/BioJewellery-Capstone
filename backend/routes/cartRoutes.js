@@ -5,6 +5,6 @@ const { getCartItems, createCart, updateCartItem, deleteCartItem } = require('..
 
 router.route('/').get(protect, getCartItems).post(protect, createCart);
 
-router.route('/:cartId/products/:productId').patch(protect, updateCartItem).delete(protect, deleteCartItem);
+router.route(':productId').patch(protect, updateCartItem).delete(protect, deleteCartItem);
 
 module.exports = router;
