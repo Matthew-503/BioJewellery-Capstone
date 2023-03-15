@@ -1,3 +1,7 @@
+// Author: Sri
+// Version 1.0
+// Date: 15/03/2023
+ 
 //createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
@@ -6,7 +10,6 @@ const initialState = {
     cartProducts: [{'id':{}, 'qty':{}}],
     itemCount:0,
     subTotal: 0,
-    orderTotal:0,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -91,7 +94,6 @@ export const cartSlice = createSlice({
             state.isSuccess = true
             state.cartProducts = action.payload.cartItems
             state.subTotal = action.payload.subTotal
-            state.orderTotal = action.payload.orderTotal
             state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(getCartItems.rejected, (state, action) => {

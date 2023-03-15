@@ -82,7 +82,7 @@ const Address = () => {
 
     return (
         <>
-           <div>
+           {shippingAddress && <div>
                 <p>Shipping Address</p>
                 <div>
                     <p>Street</p>
@@ -104,22 +104,25 @@ const Address = () => {
                     <p>Postal Code</p>
                     {shippingAddress.postalCode}
                 </div>
-           </div>           
-           <p>Your addresses</p>
-           <div>{addresses.map(address => (
-                <div key={address._id}>
-                    <label>
-                        <input
-                            type="radio"
-                            name="address"
-                            value={address._id}
-                            onChange={() => onAddressSelect(address._id)}
-                        />
-                        {address.street}, {address.city}, {address.province}, {address.country}, {address.postalCode}
-                    </label>
-                </div>))
-            }</div>
-            
+           </div> }    
+                 
+           {addresses && <div>
+                <p>Your addresses</p>
+                <div>{addresses.map(address => (
+                    <div key={address._id}>
+                        <label>
+                            <input
+                                type="radio"
+                                name="address"
+                                value={address._id}
+                                onChange={() => onAddressSelect(address._id)}
+                            />
+                            {address.street}, {address.city}, {address.province}, {address.country}, {address.postalCode}
+                        </label>
+                    </div>))
+                }</div>
+            </div>}
+
             <div>
             <button onClick={handleShowModal}>Add Address</button>
             <Modal show={showModal} onHide={handleCloseModal}>

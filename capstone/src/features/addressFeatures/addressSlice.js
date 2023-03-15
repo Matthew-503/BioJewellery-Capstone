@@ -105,6 +105,8 @@ export const addressSlice = createSlice({
         .addCase(getAddresses.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
+            state.addresses = null
+            state.shippingAddress = null
             state.message = action.payload 
         })
         .addCase(deleteAddress.pending, (state) => {
