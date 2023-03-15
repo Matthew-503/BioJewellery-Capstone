@@ -41,7 +41,7 @@ const Warranty = 'Available 1 year from purchase';
 const OrderConfirmation = () => {
   return (
     <div className='order app__section-padding'>
-      <SubHeading title={'Thank you for ordering'}/>
+      <SubHeading title={'Thank you for ordering'} />
       <div className='order__pt1'>
         <div className='order__category'>
           <p className='order__detail-category'>
@@ -78,33 +78,31 @@ const OrderConfirmation = () => {
             </div>
           </div>
 
-          <div className='order__detail-long'>
-            <div className='order__detail-short'>
-              <div>
-                <p className='order__detail'>
-                  {City}
-                </p>
-              </div>
-
-              <div>
-                <p className='order__detail'>
-                  {Postal}
-                </p>
-              </div>
+          <div className='order__detail-short'>
+            <div>
+              <p className='order__detail'>
+                {City}
+              </p>
             </div>
 
-            <div className='order__detail-short'>
-              <div>
-                <p className='order__detail'>
-                  {Province}
-                </p>
-              </div>
+            <div>
+              <p className='order__detail'>
+                {Postal}
+              </p>
+            </div>
+          </div>
 
-              <div>
-                <p className='order__detail'>
-                  {Country}
-                </p>
-              </div>
+          <div className='order__detail-short'>
+            <div>
+              <p className='order__detail'>
+                {Province}
+              </p>
+            </div>
+
+            <div>
+              <p className='order__detail'>
+                {Country}
+              </p>
             </div>
           </div>
         </div>

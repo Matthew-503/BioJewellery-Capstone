@@ -80,3 +80,21 @@
     line-height: 2.2rem;
     color: var(--color-darkgreen);
 }
+
+@media screen and (max-width: 430px) {
+    .order__pt1 {
+        flex-direction: column;
+    }
+
+    .order__detail-long {
+        padding: 1.5rem;
+    }
+
+    .order__pt2 {
+        flex-direction: column;
+    }
+
+    .order__pt3 {
+        flex-direction: column;
+    }
+}
