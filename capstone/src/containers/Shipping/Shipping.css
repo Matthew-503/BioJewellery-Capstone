@@ -61,9 +61,47 @@
     gap: 2rem;
 }
 
+.order__detail-short input {
+    font-size: 1.5rem;
+    font-family: var(--font-base);
+    font-weight: 600;
+    line-height: 2.2rem;
+    color: var(--color-darkgreen);
+}
+
+.order__detail-short input:disabled {
+    background-color: #f4f9ed;
+    border: none;
+}
+
+.order__detail-short input:enabled {
+    background-color: #f4f9ed;
+    border: bottom;
+}
+
 .order__detail-long {
     display: flex;
     flex-direction: column;
+}
+
+.order__detail-long input {
+    font-size: 1.5rem;
+    font-family: var(--font-base);
+    font-weight: 600;
+    line-height: 2.2rem;
+    color: var(--color-darkgreen);
+    margin: 0.2rem 0;
+}
+
+.order__detail-long input:disabled {
+    background-color: #f4f9ed;
+    border: none;
+}
+
+.order__detail-long input:enabled {
+    background-color: #fefefe;
+    border: 2px solid var(--color-grey);
+    border-radius: 5px;
 }
 
 .order__detail-category {
@@ -79,4 +117,85 @@
     font-weight: 600;
     line-height: 2.2rem;
     color: var(--color-darkgreen);
+}
+
+.order__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order__button-action {
+    margin-top: 0.5vw;
+    min-width: 10vw;
+    background-color: var(--color-green);
+    color: #f8f8f8;
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.order__button-submit {
+    margin-top: 0.5vw;
+    min-width: 25vw;
+    background-color: var(--color-green);
+    color: #f8f8f8;
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 430px) {
+    .order__pt1 {
+        flex-direction: column;
+        gap: none;
+    }
+
+    .order__detail-long {
+        padding: 1.5rem;
+    }
+
+    .order__pt2 {
+        flex-direction: column;
+        gap: none;
+    }
+
+    .order__pt3 {
+        flex-direction: column;
+        gap: none;
+    }
+
+    .order__detail-long input {
+        font-size: 1.2rem;
+        max-width: 30vw;
+        max-height: 5vh;
+    }
+
+    .order__detail-short input {
+        font-size: 1.2rem;
+        max-width: 30vw;
+        max-height: 5vh;
+    }
+
+    .order__detail {
+        font-size: 1rem;
+    }
+
+    .order__button-action {
+        margin-bottom: 1.2rem;
+    }
 }
