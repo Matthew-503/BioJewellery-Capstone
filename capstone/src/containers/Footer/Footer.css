@@ -36,7 +36,7 @@
 }
 
 .footer__links-icons svg {
-    color: var(--color-black);
+    color: var(--color-darkgreen);
     margin: .5rem;
     font-size: 24px;
     cursor: pointer;
@@ -48,7 +48,7 @@
 
 .footer-headtext {
     font-family: var(--font-base);
-    color: var(--color-black);
+    color: var(--color-darkgreen);
     font-size: 32px;
     font-weight: 400;
     letter-spacing: .04em;
@@ -92,12 +92,25 @@
 
 @media screen and (max-width:650px) {
     .footer {
-        padding: 0 0 2rem 0;
+        padding: 0;
     }
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width:430px) {
     .footer__links-logo img:first-child {
         width: 80%;
+    }
+
+    .footer__links {
+        margin: 0;
+    }
+
+    .footer__links-icons {
+        margin: 0;
+        text-align: center;
+    }
+
+    .footer__links-icons svg {
+        text-align: center;
     }
 }

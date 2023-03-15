@@ -25,10 +25,7 @@ import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
 import CartBlock from './CartBlock/CartBlock'
-
 import FeatureBlock from './FeatureBlock/FeatureBlock';
-
-
 import CartItem from './CartItem/CartItem';
 
 import PayButton from './PayButton/PayButton';
@@ -37,6 +34,7 @@ import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
 import CartBar from './CartBar/CartBar';
+import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 
@@ -70,16 +68,13 @@ export {
 
     Article,
 
- 
     ReviewBlock,
-   
 
     CartItem,
     Rating,
 
     CartBlock,
     PayButton,
-
 
     AddProduct,
     EditProduct,
@@ -88,16 +83,15 @@ export {
 
     FeatureBlock,
 
-
     SideBar,
     ProductItems,
     ProductDetailBar,
     CartBar,
 
     EmployeeMenu,
-    Uploader
-    
+    Uploader,
 
+    SwitchProductDetail,
 
     // ShopProductIcon,
     // Newsletter,

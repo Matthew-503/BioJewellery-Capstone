@@ -18,64 +18,85 @@ import { Rating, ReviewBlock, SubHeading } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
-
+import { useEffect } from "react";
 import './ProductDetailBar.css';
-
+import { useSelector } from "react-redux";
 const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
-    var productName = null;
-    var price = null;
-    var description = null;
-    var stars = 3;
+    const { selectedProduct, isError, message } = useSelector((state) => state.products);
+    useEffect(() => {
+        if (isError) {
+            console.log(message);
+        }
+        
+
+    }, [isError, message])
+    
+    let stars = 3;
 
     // //Default Variable for review block
     // var customerDefaultName = "Very Cool Name";
     // var customerDefaultTitle = "Default Title";
     // var customerDefaultDescription = "Default Description";
     return (
-        <div className="">
+        <div className="detail__bar">
             <div>
                 <table className='detail__table'>
+                    <tbody>
                     <tr>
-                        <th>Price</th>
+                        <th>Price ${selectedProduct.price}</th>
                     </tr>
                     <tr>
                         <td>
-                            <div className="detail__stock">
+                            <div className="detail__bar-stock">
                                 In stock
-                                <BsCheckCircleFill className='detail__icons' />
+                                <BsCheckCircleFill className='detail__bar-icons' />
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Quantity: 1</td>
+                        <td>
+                            {selectedProduct.name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity: {selectedProduct.quantity}</td>
                     </tr>
                     <tr>
                         <td>
-                            <div className="detail__button">
+                            <div className="detail__bar-add-button">
                                 <Link to="/cart">
-                                    <button className="detail__button">
+                                    <button className="detail__bar-add-button">
                                         <FaShoppingCart />  Add to Cart
                                     </button>
                                 </Link>
                             </div>
-
                         </td>
                     </tr>
                     <tr>
                         <td >
-                            <div className="detail__star">
-                                <Rating starRating={stars} className="detail__rating" />
-                                Write a review
+                            <div className="detail__bar-star">
+                                <Rating starRating={stars} className="detail__bar-rating" />
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <div className="detail__bar-review-button">
+                                <Link to="/cart">
+                                    <button className="detail__bar-review-button">
+                                        Write a review
+                                    </button>
+                                </Link>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
     )
 };
-
 
 export default ProductDetailBar;

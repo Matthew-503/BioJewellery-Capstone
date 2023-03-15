@@ -1,5 +1,5 @@
 .app__benefits {
-    width: 100%;
+    max-width: 100%;
     position: relative;
     z-index: 1;
 
@@ -63,7 +63,7 @@
     font-size: 64px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
-    margin-top: -5rem;
+    /* margin-top: -5rem; */
 }
 
 .benefits__p {
@@ -110,9 +110,26 @@
     }
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width:430px) {
     .app__benefits {
         padding: 0 0 2rem 0;
+    }
+
+    .benefits__h1 {
+        font-size: 39px;
+        text-align: center;
+    }
+
+    .benefits__title {
+        font-size: 30px;
+    }
+
+    .benefits__p {
+        font-size: 14px;
+    }
+
+    .app__card-links {
+        margin: 0;
     }
 }
 
