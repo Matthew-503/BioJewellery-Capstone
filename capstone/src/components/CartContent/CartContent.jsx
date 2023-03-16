@@ -8,7 +8,8 @@
 import React from 'react';
 import './CartContent.css';
 
-const CartContent = ({ cartName, cartPrice, cartQuantity }) => {
+const CartContent = () => {
+    const { cartProducts, itemCount }= useSelector((state) => state.cart);
 
     return (
         <div className='cart'>
@@ -19,9 +20,9 @@ const CartContent = ({ cartName, cartPrice, cartQuantity }) => {
                     <th>Quantity</th>
                 </tr>
                 <tr>
-                    <td>{cartName}</td>
-                    <td>${cartPrice}</td>
-                    <td>{cartQuantity}</td>
+                    <td>{}</td>
+                    <td>${}</td>
+                    <td>{}</td>
                 </tr>
             </table>
         </div >

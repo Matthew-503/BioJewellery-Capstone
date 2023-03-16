@@ -45,10 +45,10 @@ const getCartItems = asyncHandler(async (req, res) => {
     }
 })
 
-// @desc    Create cart
+// @desc    Add Item to cart
 // @route   POST /api/cart
 // @access  Private
-const createCart = asyncHandler(async (req, res) => {
+const addItemToCart = asyncHandler(async (req, res) => {
     
 //current user for which the cart has to be created
 const user = await User.findById(req.user._id)
@@ -185,7 +185,7 @@ const deleteCartItem = asyncHandler(async (req, res) => {
         
 })
 module.exports = {
-    createCart,
+    addItemToCart,
     updateCartItem,
     deleteCartItem,
     getCartItems
