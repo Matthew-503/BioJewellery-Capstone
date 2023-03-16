@@ -108,26 +108,27 @@ res.status(200).json({ message: 'Cart created' });
 })
 
 // @desc    update existing item in cart
-// @route   PATCH /api/cart/:cartId/products/:productId
+// @route   PATCH /api/cart/:productId
 // @access  private
-const updateCartItem = asyncHandler(async (req, res) => {
+const updateCartItemQuantity = asyncHandler(async (req, res) => {
         
-    const { cartId, productId } = req.params
+    const { productId } = req.params
     
     const {quantity} = req.body
+
     // Validate quantity received
     if (quantity === undefined || quantity === null || typeof quantity !== 'number') {
         res.status(400);
         throw new Error('Invalid request body');
     }
 
-    //Cart that needs updation
-    const cart = await Cart.findById(cartId)
+    //Cart for the current user that needs updation
+    const cart = await Cart.findById({client:req.user._id})
 
     if(!cart)
     {
         res.status(400)
-        throw new Error('Sorry, the cart does not exist. Start a new one')
+        throw new Error('Sorry, the cart for the user does not exist. Start a new one')
     }
 
     //Finding the product position in the cart.products array that needs updation
@@ -145,7 +146,7 @@ const updateCartItem = asyncHandler(async (req, res) => {
     
     //saving cart info to DB
     await cart.save()
-    res.status(200).json({message:'Cart items Updated'});
+    res.status(200).json({});//TODO: return array of item objects that has product and quantity field
 })
 
 // @desc    delete an item in cart
@@ -186,7 +187,7 @@ const deleteCartItem = asyncHandler(async (req, res) => {
 })
 module.exports = {
     addItemToCart,
-    updateCartItem,
+    updateCartItemQuantity,
     deleteCartItem,
     getCartItems
 }

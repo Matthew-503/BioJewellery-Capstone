@@ -106,7 +106,7 @@ const Address = () => {
                 </div>
            </div> }    
                  
-           {addresses && <div>
+           {addresses && (<div>
                 <p>Your addresses</p>
                 <div>{addresses.map(address => (
                     <div key={address._id}>
@@ -121,7 +121,7 @@ const Address = () => {
                         </label>
                     </div>))
                 }</div>
-            </div>}
+            </div>)}
 
             <div>
             <button onClick={handleShowModal}>Add Address</button>

@@ -12,20 +12,28 @@ const CartContent = () => {
     const { cartProducts, itemCount }= useSelector((state) => state.cart);
 
     return (
-        <div className='cart'>
-            <table className='cart__table'>
-                <tr>
-                    <th>Product</th>
-                    <th>Price per unit</th>
-                    <th>Quantity</th>
-                </tr>
-                <tr>
-                    <td>{}</td>
-                    <td>${}</td>
-                    <td>{}</td>
-                </tr>
-            </table>
-        </div >
+        <>        
+            {cartProducts && (<div className='cart'>
+                <table className='cart__table'>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price per unit</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cartProducts.map((item) => (
+                            <tr key={item.product._id}>
+                                <td>{item.product.name}</td>
+                                <td>${item.product.price.toFixed(2)}</td>
+                                <td>{item.quantity}</td>
+                            </tr>
+                        ))}  
+                    </tbody>                    
+                </table>
+            </div>)}
+        </>
     );
 };
 

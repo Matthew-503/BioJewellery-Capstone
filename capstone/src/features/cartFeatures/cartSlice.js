@@ -19,8 +19,8 @@ const initialState = {
 //func to update item count value
 const updateItemCount = (cartProducts) => {
     let count = 0;
-    cartProducts.forEach(product => {
-        count += product.qty;
+    cartProducts.forEach(item => {
+        count += item.qty;
     });
     return count;
 }
@@ -46,6 +46,23 @@ export const getCartItems = createAsyncThunk('cart/getAll', async (_, thunkAPI) 
         return thunkAPI.rejectWithValue(message) 
     }
 })
+
+//Update cart Item qunatity
+export const updateCartItemQuantity = createAsyncThunk('cart/update', 
+async (id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await cartService.updateCartItemQuantity(id, token)
+    } catch (error) {
+        const message = (error.response && 
+            error.response.data && 
+            error.response.data.message) 
+            || error.message || error.toString()
+            
+        return thunkAPI.rejectWithValue(message) 
+    }
+})
+
 
 //Delete cart Item
 export const deleteCartItem = createAsyncThunk('cart/delete', 
@@ -97,6 +114,20 @@ export const cartSlice = createSlice({
             state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(getCartItems.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload 
+        })
+        .addCase(updateCartItemQuantity.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(updateCartItemQuantity.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.cartProducts.push(action.payload)
+            state.itemCount = updateItemCount(state.cartProducts)
+        })
+        .addCase(updateCartItemQuantity.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload 
