@@ -18,8 +18,6 @@ import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
 import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login } from './containers';
 
-
-
 // components are things that are reused in multiple containers
 
 import './App.css';
@@ -28,9 +26,6 @@ import Order from './containers/Order/Order';
 
 //testing address component - need to be removed
 import Address from './components/Address/Address';
-
-
-
 
 const App = () => (
     <div>
@@ -48,8 +43,8 @@ const App = () => (
                 </Route>
 
                 <Route path="/cart" element={<ShoppingCart />} />
-                <Route path="/checkout" element={<OrderConfirmation />} />
-                <Route path="/paymentcancel" element={<PaymentCancellation />} />
+                <Route path="/success" element={<OrderConfirmation />} />
+                <Route path="/cancel" element={<PaymentCancellation />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/addresses" element={<Address />} />
             </Route>

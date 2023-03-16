@@ -1,16 +1,16 @@
 // Author: Nicholas Proc, Sri Guru
-// Version: 1.0
-// Date: 09/03/2023
+// Version: 1.1
+// Date: 15/03/2023
 
 // Description: This component displays the "subtotal" and renders "PayButton" for "proceed to checkout" button
 
 import React from 'react';
-import './CartBar.css';
+import './CartSummary.css';
 
-import { PayButton } from '../../components';
+import { PayButton } from '..';
 import { useSelector } from "react-redux";
 
-const CartBar = () => { 
+const CartSummary = () => { 
     const subTotal = useSelector((state) => state.cart.subTotal);
     
     return (
@@ -34,4 +34,4 @@ const CartBar = () => {
     )
 };
 
-export default CartBar;
+export default CartSummary;

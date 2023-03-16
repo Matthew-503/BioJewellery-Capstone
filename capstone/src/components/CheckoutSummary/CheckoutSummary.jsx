@@ -14,11 +14,19 @@ function CheckoutSummary() {
     const subTotal = useSelector((state) => state.cart.subTotal);
     const gstPercent = useSelector((state) => state.gst);
 
+    function calculateTax() {
+      return (subTotal * (gstPercent/100));
+    }
+
+    function calculateTotal() {
+      return (subTotal + (subTotal * (gstPercent/100)));
+    }
+
     return (
     <div>
       <div>Subtotal: ${subTotal}</div>
-      <div>Tax: ${}</div>
-      <div>Order Total: ${}</div>
+      <div>Tax: ${calculateTax()}</div>
+      <div>Order Total: ${calculateTotal()}</div>
       <button>Proceed to Pay</button>
     </div>
   )

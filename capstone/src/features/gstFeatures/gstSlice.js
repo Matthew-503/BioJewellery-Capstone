@@ -45,7 +45,7 @@ export const gstSlice = createSlice({
         .addCase(getGst.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.shippingAddress = action.payload
+            state.gst = action.payload
         })
         .addCase(getGst.rejected, (state, action) => {
             state.isLoading = false
@@ -58,7 +58,7 @@ export const gstSlice = createSlice({
         .addCase(updateGst.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.shippingAddress = action.payload
+            state.gst = action.payload
         })
         .addCase(updateGst.rejected, (state, action) => {
             state.isLoading = false

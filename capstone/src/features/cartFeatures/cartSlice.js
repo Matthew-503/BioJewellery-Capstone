@@ -7,7 +7,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
 const initialState = {
-    cartProducts: [{'id':{}, 'qty':{}}],
+    cartProducts: [{'product':{}, 'quantity':{}}],
     itemCount:0,
     subTotal: 0,
     isError: false,
