@@ -101,6 +101,7 @@ const loginAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       user:{
         _id: user._id,
+        type: user.type,
         shippingAddress
       }      
     })
