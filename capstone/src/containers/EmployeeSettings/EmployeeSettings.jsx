@@ -24,49 +24,44 @@ const EmployeeSettings = () => {
 
                 <div className="employee__account-information">
 
-                    <label>
-                        Current Password<br/>
+                    Current Password<br/>
+                    <label className="employee__current-pass">
                         <input name="cpass" type="text" placeholder="Enter Password"/><br/>
                     </label>
 
-                    <label>
-                        New Password<br/>
+                    New Password<br/>
+                    <label className="employee__new-pass">
                         <input name="npass" type="text" placeholder="Enter Password"/><br/>
                     </label>
 
-                    <label>
-                        Confirm Password<br/>
+                    Confirm Password<br/>
+                    <label className="employee__confirm-pass">
                         <input name="conpass" type="text" placeholder="Enter Password"/><br/>
-                    </label>
-
-                    <label>
-                        Address<br/>
-                        <input name="address" type="text" placeholder="32 My Address"/><br/>
                     </label>
                 </div>
 
                 <div className="employee__personal-information">
-                    <label>
+                    <label className="employee__first-name">
                         <input name="fname" type="text" placeholder="Hailey"/><br/>
                     </label>
                     
-                    <label>
+                    <label className="employee__last-name">
                         <input name="lname" type="text" placeholder="Johnson"/><br/>
                     </label>
                     
-                    <label>
-                        Phone Number <br/>
-                        <input name="phone" type="number" placeholder="000-000-0000"/><br/>
+                    Phone Number <br/>
+                    <label className="employee__phone-number">
+                        <input name="phone" type="text" placeholder="000-000-0000"/><br/>
                     </label>
 
-                    <label>
-                        Address<br/>
+                    Address<br/>
+                    <label className="employee__address">
                         <input name="address" type="text" placeholder="32 My Address"/><br/>
                     </label>
 
                     <div className="employee__info-one">
 
-                        <label>
+                        <label >
                             <input name="city" type="text" placeholder="Calgary"/><br/>
                         </label>
 
@@ -91,7 +86,8 @@ const EmployeeSettings = () => {
                 </div>
 
                 <div className="employee__settings-button">
-                    <button className="settings__button" >Save</button>
+                    <button className="settings__button-save" >Save</button>
+                    <button className="settings__button-cancel" >cancel</button>
                 </div>
                               
             </form>
