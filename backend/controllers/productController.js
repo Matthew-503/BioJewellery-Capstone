@@ -34,9 +34,23 @@ const getProduct = asyncHandler(async (req, res) => {
 })
 
 
-const setProduct = asyncHandler(async (req, res) => {
-    
-    res.status(200).json({ message: 'Created product' });
+const setProduct = asyncHandler(async (req, res, next) => {
+
+    if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
+        res.status(400)
+        throw new Error('Please provide all fields!')
+    }
+
+    const product = await productModel.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+    })
+    req.body.productId = product._id
+    product.save();
+    //For uploading images
+    next();
 })
 
 
