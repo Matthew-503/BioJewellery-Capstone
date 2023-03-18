@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db')
 const {errorHandler} = require('./middleware/errorHandler')
 
+
 //Mongodb connections
 connectDB();
 
@@ -33,9 +34,6 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 
 //Address routes
 app.use('/api/addresses', require('./routes/addressRoutes.js'));
-
-//GST routes
-app.use('/api/gst', require('./routes/gstRoutes.js'));
 
 app.use(errorHandler);
 
