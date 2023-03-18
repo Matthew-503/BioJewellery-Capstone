@@ -17,7 +17,7 @@ const initialState = {
 }
 
 //func to update item count value
-const updateItemCount = (cartProducts) => {
+export const updateItemCount = (cartProducts) => {
     let count = 0;
     cartProducts.forEach(item => {
         count += item.qty;
@@ -185,7 +185,7 @@ export const cartSlice = createSlice({
         .addCase(deleteCartItem.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true 
-            state.cartProducts = state.cartProducts.filter((product) => product.id !== action.payload.id)
+            state.cartProducts = action.payload
             state.itemCount = updateItemCount(state.cartProducts)
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
@@ -194,7 +194,6 @@ export const cartSlice = createSlice({
             state.message = action.payload 
         })
     }
-
 })
 
 export const {reset} = cartSlice.actions

@@ -6,14 +6,14 @@
 //Displays Address component, orderTotal and checkout button
 //POSTCONDITION: navigate to Stripe payment gateway
 
-import './Order.css';
+import './OrderPreview.css';
 import React from "react";
 import Address from '../../components/Address/Address'
 import CheckoutSummary from '../../components/CheckoutSummary/CheckoutSummary'
 
 import { useSelector } from "react-redux";
 
-const Order = () => {
+const OrderPreview = () => {
     
     const orderTotal = useSelector((state) => state.cart.orderTotal);
     return (
@@ -24,4 +24,4 @@ const Order = () => {
     );
 };
 
-export default Order
+export default OrderPreview

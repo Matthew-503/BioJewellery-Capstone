@@ -8,14 +8,20 @@
 import React from 'react';
 import './CartContent.css';
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from 'react';
 
 const CartContent = () => {
-    const { cartProducts, increaseItemQuantity, decreaseItemQuantity, deleteCartItem }= useSelector((state) => state.cart);
+    const { cartProducts, itemCount, updateItemCount, increaseItemQuantity, decreaseItemQuantity, deleteCartItem }= useSelector((state) => state.cart);
     const dispatch = useDispatch();
+
+    useEffect(()=> {
+        dispatch(updateItemCount())
+    }, [itemCount]);
 
     return (
         <>        
-            {cartProducts && (<div className='cart'>
+            {itemCount > 0 ?
+             <div className='cart'>
                 <table className='cart__table'>
                     <thead>
                         <tr>
@@ -29,7 +35,7 @@ const CartContent = () => {
                         {cartProducts.map((item) => (
                             <tr key={item.product._id}>
                                 <td>{item.product.name}</td>
-                                <td>${item.product.price.toFixed(2)}</td>
+                                <td>CA${item.product.price.toFixed(2)}</td>
                                 <td>
                                     <button onClick={() => {increaseItemQuantity(item.product._id)}}>+</button>
 
@@ -44,7 +50,12 @@ const CartContent = () => {
                         ))}  
                     </tbody>                    
                 </table>
-            </div>)}
+                </div>
+                :
+                <>
+                    <h1>Cart is empty!</h1>
+                </>
+            }
         </>
     );
 };

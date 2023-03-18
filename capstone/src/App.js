@@ -22,7 +22,7 @@ import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDe
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
-import Order from './containers/Order/Order';
+import OrderPreview from './containers/OrderPreview/OrderPreview';
 
 //testing address component - need to be removed
 import Address from './components/Address/Address';
@@ -45,7 +45,7 @@ const App = () => (
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
-                <Route path="/order" element={<Order />} />
+                <Route path="/orderpreview" element={<OrderPreview />} />
                 <Route path="/addresses" element={<Address />} />
             </Route>
             <Route path="/add" element={<AddProduct />} />
