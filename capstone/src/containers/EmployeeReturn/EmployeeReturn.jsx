@@ -1,5 +1,6 @@
 import React from 'react';
 import { EmployeeMenu } from '../../components';
+import { ReturnBlock }  from '../../components';
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -15,12 +16,17 @@ const EmployeeReturn = () => {
                     
                 <div className="employee_return-icon">  
                     <MdKeyboardArrowDown size={30}/>
+                </div>
+
+                <div className="employee__return-block">
+                    <ReturnBlock />
                 </div>  
 
                 <div className="employee__date">
 
                 </div>    
             </div>
+
 
             <ul className="employee__button-block">
                 <li className="employee__open-button">
@@ -39,7 +45,6 @@ const EmployeeReturn = () => {
                     <h2>All</h2>
                 </li>
             </ul>
-
 
             {/* <div className="employee__reviews">
 

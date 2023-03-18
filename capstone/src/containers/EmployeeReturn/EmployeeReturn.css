@@ -53,6 +53,12 @@
 }
 
 .employee_return-icon {
+    position: relative;
+    margin-top: -30px;
     float: right;
     padding-left: 200px;
+}
+
+.employee__return-block {
+    padding-top: 20px;
 }
