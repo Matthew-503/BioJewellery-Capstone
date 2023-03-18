@@ -17,17 +17,19 @@ const CartSummary = () => {
         <div className="">
             <div>
                 <table className='cartbar__table'>
-                    <tr>
-                        <th>Subtotal</th>
-                        <th>{subTotal}</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div className="cartbar__button">
-                                <PayButton/>
-                            </div>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>Subtotal</th>
+                            <th>{subTotal}</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div className="cartbar__button">
+                                    <PayButton/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>                    
                 </table>
             </div>
         </div>

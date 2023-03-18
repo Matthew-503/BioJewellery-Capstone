@@ -12,6 +12,12 @@ TODO LIST
 * Stripe success
 * Stripe cancel
 
+Cart controller:
+we need this to achieve:
+*send product data fully for the items in cart
+*update quantity of items in cart based on the actual stock of product
+*addtocart button, cart page, order page will communicate with cart slice
+
 Cart page
 *Display items in cart for the logged in user
 *Retrieve items from cart based on client ID

@@ -1,15 +1,17 @@
 // Author: Matthew, Sri
-// Version: 1.0
-// Date: 15.03.2023
+// Version: 1.1
+// Date: 17.03.2023
 
 // Description: This component displays items in cart with price and qunatity. 
 // Options for Update quantity and delete item
 
 import React from 'react';
 import './CartContent.css';
+import { useSelector, useDispatch } from "react-redux";
 
 const CartContent = () => {
-    const { cartProducts, itemCount }= useSelector((state) => state.cart);
+    const { cartProducts, increaseItemQuantity, decreaseItemQuantity, deleteCartItem }= useSelector((state) => state.cart);
+    const dispatch = useDispatch();
 
     return (
         <>        
@@ -20,6 +22,7 @@ const CartContent = () => {
                             <th>Product</th>
                             <th>Price per unit</th>
                             <th>Quantity</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +30,16 @@ const CartContent = () => {
                             <tr key={item.product._id}>
                                 <td>{item.product.name}</td>
                                 <td>${item.product.price.toFixed(2)}</td>
-                                <td>{item.quantity}</td>
+                                <td>
+                                    <button onClick={() => {increaseItemQuantity(item.product._id)}}>+</button>
+
+                                    {item.quantity}
+
+                                    <button onClick={() => {decreaseItemQuantity(item.product._id)}}>-</button>
+                                </td>
+                                <td>
+                                    <button onClick={() => {dispatch(deleteCartItem(item.product._id))}}>Remove from cart</button>
+                                </td>
                             </tr>
                         ))}  
                     </tbody>                    

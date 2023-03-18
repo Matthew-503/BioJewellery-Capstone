@@ -47,12 +47,12 @@ export const getCartItems = createAsyncThunk('cart/getAll', async (_, thunkAPI) 
     }
 })
 
-//Update cart Item qunatity
-export const updateCartItemQuantity = createAsyncThunk('cart/update', 
+//Increase and update item quantity by 1
+export const increaseItemQuantity = createAsyncThunk('cart/increase', 
 async (id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await cartService.updateCartItemQuantity(id, token)
+        return await cartService.increaseItemQuantity(id, token)
     } catch (error) {
         const message = (error.response && 
             error.response.data && 
@@ -62,6 +62,39 @@ async (id, thunkAPI) => {
         return thunkAPI.rejectWithValue(message) 
     }
 })
+
+//Decrease and update item quantity by 1
+export const decreaseItemQuantity = createAsyncThunk('cart/decrease', 
+async (id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await cartService.decreaseItemQuantity(id, token)
+    } catch (error) {
+        const message = (error.response && 
+            error.response.data && 
+            error.response.data.message) 
+            || error.message || error.toString()
+            
+        return thunkAPI.rejectWithValue(message) 
+    }
+})
+
+
+// //Update cart Item qunatity
+// export const updateCartItemQuantity = createAsyncThunk('cart/update', 
+// async (id, thunkAPI) => {
+//     try {
+//         const token = thunkAPI.getState().auth.user.token
+//         return await cartService.updateCartItemQuantity(id, token)
+//     } catch (error) {
+//         const message = (error.response && 
+//             error.response.data && 
+//             error.response.data.message) 
+//             || error.message || error.toString()
+            
+//         return thunkAPI.rejectWithValue(message) 
+//     }
+// })
 
 
 //Delete cart Item
@@ -118,16 +151,30 @@ export const cartSlice = createSlice({
             state.isError = true
             state.message = action.payload 
         })
-        .addCase(updateCartItemQuantity.pending, (state) => {
+        .addCase(increaseItemQuantity.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(updateCartItemQuantity.fulfilled, (state, action) => {
+        .addCase(increaseItemQuantity.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
             state.cartProducts.push(action.payload)
             state.itemCount = updateItemCount(state.cartProducts)
         })
-        .addCase(updateCartItemQuantity.rejected, (state, action) => {
+        .addCase(increaseItemQuantity.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload 
+        })
+        .addCase(decreaseItemQuantity.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(decreaseItemQuantity.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.cartProducts.push(action.payload)
+            state.itemCount = updateItemCount(state.cartProducts)
+        })
+        .addCase(decreaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload 

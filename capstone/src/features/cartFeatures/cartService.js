@@ -26,8 +26,8 @@ const getCartItems = async (token) => {
     return response.data
 }
 
-//Update cart item
-const updateCartItemQuantity = async (productId, token) => {
+//Increase and update item quantity by 1 
+const increaseItemQuantity = async (productId, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -36,6 +36,29 @@ const updateCartItemQuantity = async (productId, token) => {
     const response = await axios.patch(API_URL + productId, config)
     return response.data
 }
+
+//Decrease and update item quantity by 1 
+const decreaseItemQuantity = async (productId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.patch(API_URL + productId, config)
+    return response.data
+}
+
+
+// //Update cart item
+// const updateCartItemQuantity = async (productId, token) => {
+//     const config = {
+//         headers: {
+//             Authorization: `Bearer ${token}`
+//         }
+//     }
+//     const response = await axios.patch(API_URL + productId, config)
+//     return response.data
+// }
 
 
 //Delete cart item
@@ -53,7 +76,8 @@ const deleteCartItem = async (cartId, token) => {
 const cartService = {
     addItemToCart,
     getCartItems,
-    updateCartItemQuantity,
+    increaseItemQuantity,
+    decreaseItemQuantity,
     deleteCartItem
 }
 
