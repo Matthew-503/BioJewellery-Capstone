@@ -78,7 +78,6 @@
 
 .navbar-input {
     flex-direction: row;
-    margin-top: auto;
 }
 
 .navbar-input input {
@@ -101,15 +100,25 @@
 
 .navbar-icons {
     font-size: 24px;
-    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--color-golden);
 }
 
 .navbar-icons svg {
-    color: var(--color-white);
-    margin: 0 0.5rem 0 0;
     font-size: 26px;
+    color: var(--color-golden);
+    margin: 0 0.5rem 0 0;
     cursor: pointer;
+}
+
+.navbar-cart-count {
+    font-size: 1rem;
+    font-family: var(--font-alt);
+    color: var(--color-golden);
+    border: none;
+    background-color: var(--color-darkgreen);
 }
 
 .navbar-smallscreen {

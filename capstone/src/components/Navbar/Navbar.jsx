@@ -53,12 +53,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-login">
                 <a href="#login" className="navbar-icons">
-                    <FaShoppingCart />
-                    <Button>0 items</Button>
+                    <FaShoppingCart className="navbar-icons" />
+                    <Button className='navbar-cart-count'>0 items</Button>
                 </a>
 
                 <Link to="/login">
-                    <MdAccountCircle className="navbar-icons"/>
+                    <MdAccountCircle className="navbar-icons" />
                 </Link>
             </div>
 
