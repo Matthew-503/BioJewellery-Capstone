@@ -5,18 +5,28 @@
 
 .signup__form {
     padding: 8vw 13vw;
-    height: 101vh;
+    max-height: 101vh;
+}
+
+.signup__form h1 {
+    font-size: 4.5rem;
+    font-family: var(--font-base);
+    color: var(--color-darkgreen);
+    margin: 2rem 0rem;
+    text-align: center;
 }
 
 .signup img {
-    height: 101vh;
+    height: 100vh;
     /* height: auto; */
     z-index: -1;
 }
 
 .signup p {
-    font-size: 13px;
+    font-size: 1.1rem;
     font-family: var(--font-alt);
+    color: var(--color-darkgreen);
+    text-align: center;
 }
 
 .left {
@@ -28,15 +38,24 @@
 .right {
     float: left;
     width: 50%;
+    height: 100vh;
+    background: var(--color-lightgreen);
+}
+
+.signup__details {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .signup__input {
-    width: 23vw;
-    margin-top: 1vw;
-    font-size: 15px;
+    max-width: 50vw;
+    margin-top: 1.5vw;
+    font-size: 1.5rem;
     font-family: var(--font-alt);
     color: black;
+    background-color: #ffffffd5;
     border: none;
+    border-radius: 4px;
     border-bottom: 2px solid darkgray;
 }
 
@@ -85,10 +104,11 @@
 .HeaderText {
     position: relative;
     bottom: 0;
-    left: 18%;
-    margin-top: 520px;
+    /* left: 13%; */
+    margin-top: 90vh;
+    margin-left: -1rem;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: var(--color-golden);
     font-size: 36px;
     text-align: center;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
@@ -184,4 +204,82 @@
 
 .ProgressBar .Active {
     background-color: #B0E0E6;
+}
+
+.signup__smallscreen {
+    display: none;
+}
+
+@media screen and (max-width: 430px) {
+
+    .signup__wrapper,
+    .signup {
+        display: none;
+    }
+
+    .signup__overall {
+        background: url('../../assets/login.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        z-index: -1;
+        height: 100vh;
+    }
+
+    .signup__overlay {
+        background: linear-gradient(90deg, rgba(204, 228, 228, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+        ;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        z-index: -2;
+        height: 100vh;
+    }
+
+    .signup__smallscreen {
+        display: contents;
+        max-width: 100%;
+        background-color: #B0E0E6;
+        /* align-items: center; */
+    }
+
+    .signup__header {
+        text-align: center;
+        font-family: var(--font-alt);
+        color: var(--color-golden);
+        margin-bottom: 2rem;
+    }
+
+    .signup__header h1 {
+        font-size: 4rem;
+        font-family: var(--font-base);
+        margin: 2rem 0rem;
+    }
+
+    .signup__details {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .signup__input {
+        max-width: 15rem;
+        max-height: 1.8rem;
+        font-size: medium;
+        margin-top: 1.5rem;
+        border-radius: 2px;
+        background-color: #ffffffa9;
+    }
+
+    .ProgressButton {
+        margin-bottom: 1rem;
+    }
+
+    .signup__login {
+        font-family: var(--font-alt);
+        font-size: 0.8rem;
+        color: var(--color-golden);
+    }
+
 }

@@ -12,4 +12,3 @@ router.post('/login', loginAccount)
 router.get('/me', protect, getAccount)
 
 module.exports = router
-

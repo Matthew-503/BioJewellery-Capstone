@@ -21,7 +21,7 @@ const SwitchProductDetail = () => {
     
     return (
         <>
-            <div className="switch">
+            {/* <div className="switch">
                 <br />
                 <div
                     className="switch_tab"
@@ -42,10 +42,13 @@ const SwitchProductDetail = () => {
             </div>
 
             <div className="col text-center">
-                <div>
+                <p>
                     {myProfession === "Description" && (
                         <FeatureBlock
-                            
+                            productFeatureName="Name"
+                            productFeatureType="Type"
+                            productFeatureColor="Type"
+                            reviewStarRating={stars}
                         />
                     )}
 
@@ -58,8 +61,8 @@ const SwitchProductDetail = () => {
                         />
                     )}
 
-                </div>
-            </div>
+                </p>
+            </div> */}
         </>
     );
 };

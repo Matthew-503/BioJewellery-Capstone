@@ -1,3 +1,5 @@
+// Author: Sri Guru
+// Version 0.1
 const asyncHandler = require('express-async-handler')
 const Review = require('../models/reviewModel')
 const Product = require('../models/productModel')
@@ -63,7 +65,7 @@ const createReview = asyncHandler(async (req, res) => {
     await review.save()
 
     //adding review under the related product
-    await product.reviews.push(review)
+    product.reviews.push(review)
 
     //saving the altered product object
     await product.save()
@@ -95,9 +97,9 @@ const updateReview = asyncHandler(async (req, res) => {
     }
 
     //set the review fields to the new values or by default the existing value
-    review.rating = rating || review.rating
-    review.title = title || review.title
-    review.comment = comment || review.comment
+    review.rating = rating ?? review.rating
+    review.title = title ?? review.title
+    review.comment = comment ?? review.comment
 
     //save updated review to database
     await review.save()
@@ -124,6 +126,11 @@ const deleteReview = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Not authorized to delete this review')
     }
+
+    //update reviews array field of product
+    const product = Product.findById(req.params.productId)
+    product.reviews.pull(review._id)
+    await product.save()
 
     //Remove review from database
     await review.remove()
