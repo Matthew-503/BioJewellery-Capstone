@@ -1,3 +1,14 @@
+@use postcss-color-function;
+@use postcss-nested;
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+
+/* Base styling */
+
+body {
+    width: 430px;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+}
 .app__center {
     padding: 7rem 30rem;
 }

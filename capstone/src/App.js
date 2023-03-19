@@ -29,6 +29,10 @@ import Address from './components/Address/Address';
 
 const App = () => (
     <div>
+
+        <EmployeeSettings />
+        
+        {/*
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -68,7 +72,7 @@ const App = () => (
             {/*Route for the not found page)
              <Route path="*" element={<NotFound />}/> 
             */}
-        </Routes>
+        {/* </Routes> */}
 
         {/* The uploader is causing the spacing issues, have to comment out everything inside css
             Side note: Avoid using a <main> tag.*/}

@@ -19,6 +19,7 @@ import Footer from './Footer/Footer';
 import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
 
+import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
 import AboutUs from './AboutUs/AboutUs';
 
 import ShopCategory from './ShopCategory/ShopCategory';
@@ -59,6 +60,10 @@ export {
   ShopProduct,
   ProductDetail,
   Feedback,
+
+  EmployeeSettings,
+
+  Feed,
 
   SwitchDetail,
   ShoppingCart,
