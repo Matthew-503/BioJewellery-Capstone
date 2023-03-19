@@ -65,7 +65,7 @@ function Login() {
           }
           //otherwise it will go to the admin view (protected route)
           else {
-            navigate('/editproduct')
+            navigate('/edit')
           }
           
         }
