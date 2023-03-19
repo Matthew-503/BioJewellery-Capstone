@@ -67,11 +67,11 @@ const Navbar = () => {
             <div className="navbar-login">
                 <a href="#login" className="navbar-icons">
                     <FaShoppingCart />
-                    <p>{itemCount}</p>
+                    <p className='navbar-cart-count'>{itemCount}</p>
                 </a>
 
-                <Link to="/add">
-                    <MdAccountCircle className="navbar-icons"/>
+                <Link to="/login">
+                    <MdAccountCircle className="navbar-icons" />
                 </Link>
             </div>
 

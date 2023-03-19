@@ -4,10 +4,10 @@ const Home = () => {
   return (
     <div>
 
-       <Header /> 
-      <Gallery /> 
+      <Header />
+      <Gallery />
       {/* <Video /> */}
-       <Benefits /> 
+      <Benefits />
       <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
