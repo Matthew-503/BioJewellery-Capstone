@@ -9,8 +9,8 @@ const addItemToCart = async (cartData, token) => {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.post(API_URL, cartData, config)
+    //cartData has full product json data
+    const response = await axios.get(API_URL +'/checkproduct', cartData, config)
     return response.data
 }
 

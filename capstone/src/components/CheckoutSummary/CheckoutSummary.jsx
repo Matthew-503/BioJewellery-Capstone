@@ -2,9 +2,7 @@
 // Version 0.1
 // Date: 15/03/2023
 
-//Description: This is checkout Summary component. 
-//Displays subtotal, tax, total and proceed to pay button
-//POSTCONDITION: navigate to Stripe payment gateway
+//Description: This component displays the subTotal, tax, total and proceeds to Stripe payment. 
 
 import React from 'react'
 import './CheckoutSummary.css';
@@ -46,7 +44,7 @@ function CheckoutSummary() {
       <div>Subtotal: CA${subTotal}</div>
       <div>Tax: CA${calculateTax()}</div>
       <div>Order Total: CA${calculateTotal()}</div>
-      <button onClick={checkout()}>Proceed to Pay</button>
+      <button onClick={() => {checkout()}}>Proceed to Pay</button>
     </div>
   )
 }

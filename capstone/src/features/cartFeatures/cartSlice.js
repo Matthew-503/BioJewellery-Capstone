@@ -5,10 +5,10 @@
 //createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
-
+// const cartItem = {'product':{}, 'quantity':{}}
 const initialState = {
-    cartProducts: [{'product':{}, 'quantity':{}}],
-    itemCount:0,
+    cartProducts: [], //product object
+    itemCount: 0,
     subTotal: 0,
     isError: false,
     isSuccess: false,
@@ -16,20 +16,12 @@ const initialState = {
     message: ''
 }
 
-//func to update item count value
-export const updateItemCount = (cartProducts) => {
-    let count = 0;
-    cartProducts.forEach(item => {
-        count += item.qty;
-    });
-    return count;
-}
-
 //Add item to cart
 export const addItemToCart = createAsyncThunk('cart/create', async (cartData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
         return await cartService.addItemToCart(cartData, token)
+        
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -79,24 +71,6 @@ async (id, thunkAPI) => {
     }
 })
 
-
-// //Update cart Item qunatity
-// export const updateCartItemQuantity = createAsyncThunk('cart/update', 
-// async (id, thunkAPI) => {
-//     try {
-//         const token = thunkAPI.getState().auth.user.token
-//         return await cartService.updateCartItemQuantity(id, token)
-//     } catch (error) {
-//         const message = (error.response && 
-//             error.response.data && 
-//             error.response.data.message) 
-//             || error.message || error.toString()
-            
-//         return thunkAPI.rejectWithValue(message) 
-//     }
-// })
-
-
 //Delete cart Item
 export const deleteCartItem = createAsyncThunk('cart/delete', 
 async (id, thunkAPI) => {
@@ -118,18 +92,32 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        reset: (state) => initialState
+        reset: (state) => initialState,
+
+        updateItemCount: (state) => {
+
+            const count = state.cartProducts.reduce((acc, curr) => acc + curr.quantity, 0);
+            state.itemCount = count;
+
+            // let count = 0;
+            // state.cartProducts.forEach(item => {
+            //     count += item.quantity;
+            // });
+
+            // state.itemCount = count; 
+        }
     },
+    
     extraReducers: (builder) => {
         builder
         .addCase(addItemToCart.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(addItemToCart.fulfilled, (state, action) => {
+        .addCase(addItemToCart.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
             state.cartProducts.push(action.payload)
-            state.itemCount = updateItemCount(state.cartProducts)
+            state.itemCount = state.cartProducts.length
         })
         .addCase(addItemToCart.rejected, (state, action) => {
             state.isLoading = false
@@ -139,12 +127,12 @@ export const cartSlice = createSlice({
         .addCase(getCartItems.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(getCartItems.fulfilled, (state, action) => {
+        .addCase(getCartItems.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
             state.cartProducts = action.payload.cartItems
             state.subTotal = action.payload.subTotal
-            state.itemCount = updateItemCount(state.cartProducts)
+            thunkAPI.dispatch(updateItemCount())
         })
         .addCase(getCartItems.rejected, (state, action) => {
             state.isLoading = false
@@ -154,11 +142,11 @@ export const cartSlice = createSlice({
         .addCase(increaseItemQuantity.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(increaseItemQuantity.fulfilled, (state, action) => {
+        .addCase(increaseItemQuantity.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cartProducts.push(action.payload)
-            state.itemCount = updateItemCount(state.cartProducts)
+            state.cartProducts = action.payload
+            thunkAPI.dispatch(updateItemCount())
         })
         .addCase(increaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
@@ -168,11 +156,11 @@ export const cartSlice = createSlice({
         .addCase(decreaseItemQuantity.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(decreaseItemQuantity.fulfilled, (state, action) => {
+        .addCase(decreaseItemQuantity.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cartProducts.push(action.payload)
-            state.itemCount = updateItemCount(state.cartProducts)
+            state.cartProducts = action.payload
+            thunkAPI.dispatch(updateItemCount())
         })
         .addCase(decreaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
@@ -182,11 +170,11 @@ export const cartSlice = createSlice({
         .addCase(deleteCartItem.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(deleteCartItem.fulfilled, (state, action) => {
+        .addCase(deleteCartItem.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true 
             state.cartProducts = action.payload
-            state.itemCount = updateItemCount(state.cartProducts)
+            thunkAPI.dispatch(updateItemCount())
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
             state.isLoading = false
@@ -196,5 +184,5 @@ export const cartSlice = createSlice({
     }
 })
 
-export const {reset} = cartSlice.actions
+export const {reset, updateItemCount} = cartSlice.actions
 export default cartSlice.reducer

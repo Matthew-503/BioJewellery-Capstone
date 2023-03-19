@@ -14,27 +14,27 @@
 
 
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
 import { NavLink, Link } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
-
+import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react'
 
 const Navbar = () => {
 
-    const { itemCount, updateItemCount }= useSelector((state) => state.cart);
+    const  {cartProducts, itemCount} = useSelector((state) => state.cart);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
 
         dispatch(updateItemCount());
-
-    }, [itemCount]);
+        
+    }, [dispatch, itemCount]);
 
     const [toggleMenu, setToggleMenu] = React.useState(false);
     return (
@@ -67,7 +67,7 @@ const Navbar = () => {
             <div className="navbar-login">
                 <a href="#login" className="navbar-icons">
                     <FaShoppingCart />
-                    <Button>{itemCount} items</Button>
+                    <p>{itemCount}</p>
                 </a>
 
                 <Link to="/add">

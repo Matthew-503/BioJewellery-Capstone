@@ -9,18 +9,19 @@ import React from 'react';
 import './CartContent.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
+import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 
 const CartContent = () => {
-    const { cartProducts, itemCount, updateItemCount, increaseItemQuantity, decreaseItemQuantity, deleteCartItem }= useSelector((state) => state.cart);
+    const { cartProducts, increaseItemQuantity, decreaseItemQuantity, deleteCartItem }= useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     useEffect(()=> {
         dispatch(updateItemCount())
-    }, [itemCount]);
+    }, [dispatch, cartProducts]);
 
     return (
         <>        
-            {itemCount > 0 ?
+            {cartProducts.itemCount > 0 ?
              <div className='cart'>
                 <table className='cart__table'>
                     <thead>

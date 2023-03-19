@@ -25,7 +25,7 @@ const getProduct = asyncHandler(async (req, res) => {
             throw new Error('No way to determine product being searched for');
         }
         const product = await productModel.find({ name: req.params.name });
-        res.status(200).json(product);
+        res.status(200).json({product});
     } catch (error) {
         res.status(400)
         throw new Error('Unable to get the products');

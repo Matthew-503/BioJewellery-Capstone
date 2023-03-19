@@ -18,7 +18,6 @@ var cors = require('cors');
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')('sk_test_51MmsESGqyagVRxA1BIBc0xVLZMDOG4GfABDTRgr0NT3lXCGOAAGIZbZg26QCacl0dQOx7IRLe4nlx2t1fUzL9vYN005qEnNnXX');
 
-
 //Mongodb connections
 connectDB();
 

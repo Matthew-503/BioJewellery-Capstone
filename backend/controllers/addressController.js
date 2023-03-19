@@ -42,7 +42,7 @@ const getAddresses = asyncHandler(async (req, res) => {
         res.status(200).json({addresses, shippingAddress});
 
     } catch (error) {
-        res.status(400)
+        res.status(401)
         throw new Error('Unable to get the saved addresses for this account');
     }
 

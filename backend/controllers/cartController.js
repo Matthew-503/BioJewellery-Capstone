@@ -54,7 +54,8 @@ const addItemToCart = asyncHandler(async (req, res) => {
 const user = await User.findById(req.user._id)
 
 //Getting product from front end to add in cart
-const { productId } = req.body
+const { productId } = req.body.product._id
+
 
 //Check if the product exists
 const product = await Product.findById(productId)
