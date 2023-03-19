@@ -63,8 +63,6 @@ export {
 
   EmployeeSettings,
 
-  Feed,
-
   SwitchDetail,
   ShoppingCart,
 

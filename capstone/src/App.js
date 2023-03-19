@@ -16,9 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login } from './containers';
-
-// components are things that are reused in multiple containers
+import { Home, Header, Gallery, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings } from './containers';
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
@@ -29,10 +27,7 @@ import Address from './components/Address/Address';
 
 const App = () => (
     <div>
-
-        <EmployeeSettings />
         
-        {/*
         <Routes>
             <Route path="/" element={<UserNavigation />}>
                 <Route index element={<Home />} />
@@ -45,7 +40,6 @@ const App = () => (
                     <Route index element={<ShopProduct />} />
                     <Route path=":name" element={<ProductDetail />} />
                 </Route>
-
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
@@ -59,7 +53,7 @@ const App = () => (
                 
                  <Route index element={<HomeAdmin />} />              
             </Route> */}
-
+            </Routes>
             {/* Route specifications for the Login Page
                 <Route path="/login" element={<LoginTemplate />}>
                 <Route index element={<Blog />} /> 
@@ -67,17 +61,11 @@ const App = () => (
                 //dont forget to add <Outlet context(){varname: "whatever"}/> in the Login Template     
                 //in the other page to use the context const obj = useOutletContext();   
                 //use the replace in the Link so it will go back 2 pages   
-            </Route> */}
+            </Route>  */}
 
-            {/*Route for the not found page)
-             <Route path="*" element={<NotFound />}/> 
-            */}
-        {/* </Routes> */}
-
-        {/* The uploader is causing the spacing issues, have to comment out everything inside css
-            Side note: Avoid using a <main> tag.*/}
-        {/* <Navbar />
-        <Uploader />  */}
+             {/* <Route path="*" element={<NotFound />}
+        <Navbar />
+        <Uploader />   */}
 
 
         {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}

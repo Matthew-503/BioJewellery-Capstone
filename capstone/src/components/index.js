@@ -43,7 +43,6 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import Uploader from "./Uploader/Uploader";
 
 
-
 // import Newsletter from './Footer/Newsletter';
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
