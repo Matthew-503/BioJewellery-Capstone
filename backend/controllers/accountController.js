@@ -52,6 +52,9 @@ const registerAccount = asyncHandler(async (req, res) => {
     shippingAddress: shippingAddress._id
   })
 
+  //push into address list as well
+  user.addresses.push(shippingAddress)
+
   // Create account
   const account = await Account.create({
     email: emailLowerCase,
@@ -66,8 +69,7 @@ const registerAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       name: name,
       user: {
-        _id: user._id,
-        shippingAddress
+        _id: user._id
       }
     })
   } 
@@ -90,9 +92,6 @@ const loginAccount = asyncHandler(async (req, res) => {
 
   //user object
   const user = await User.findById(account.user)
-
-  //Shipping Address
-  const shippingAddress = await Address.findById(user.shippingAddress)
 
   if (account && (await bcrypt.compare(password, account.password))) {
     res.json({

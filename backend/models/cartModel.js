@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Global = require('./globalModel');
 
 const cartSchema = new mongoose.Schema({
     client:{
@@ -31,16 +30,5 @@ cartSchema.virtual('subTotal').get(function(){
     return sum
 })
 
-cartSchema.virtual('orderTotal').get(function () {
-    const globalObj = Global.findOne()
-    const gst = globalObj.gst
-
-    if (!gst) {
-        throw new Error('Missing gst');
-    }
-    let total = 0
-    total = cart.subTotal * gst
-    return total
-})
 
 module.exports = mongoose.model('Cart', cartSchema);
