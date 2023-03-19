@@ -58,7 +58,7 @@ const Navbar = () => {
             </ul>
 
             <div className="navbar-input">
-                <input className='navbar-input-search' placeholder='Search BioJewellery' />
+                <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
 
                 <a href="#login">
                     <MdSearch className="navbar-icons" />

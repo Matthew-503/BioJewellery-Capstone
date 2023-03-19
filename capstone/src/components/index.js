@@ -24,6 +24,8 @@ import Article from './Article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
+import ReturnBlock from './ReturnBlock/ReturnBlock';
+import CartBlock from './CartBlock/CartBlock';
 import CartContent from './CartContent/CartContent'
 import FeatureBlock from './FeatureBlock/FeatureBlock';
 import CartItem from './CartItem/CartItem';
@@ -77,9 +79,11 @@ export {
 
     AddProduct,
     EditProduct,
+    
 
     // AdminMenu,
 
+    ReturnBlock,
     FeatureBlock,
 
     SideBar,

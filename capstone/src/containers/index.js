@@ -31,6 +31,8 @@ import Feedback from './Feedback/Feedback';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import UserNavigation from './UserNavigation/UserNavigation';
+import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
+// import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
 
@@ -50,29 +52,22 @@ export {
   Follow,
   // Video,
   Footer,
-
   AboutUs,
-
   OrderConfirmation,
-
   ShopCategory,
   Feed,
   ShopProduct,
   ProductDetail,
+  EmployeeReturn,
   Feedback,
-
   EmployeeSettings,
-
   SwitchDetail,
   ShoppingCart,
-
   UserNavigation,
-
   Login,
   SignUp,
   Account,
   AccountHistory,
-
   Error,
   Policy,
 };
