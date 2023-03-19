@@ -3,8 +3,8 @@
 * Version 0.1
 * Date: 19/1/2023
 *
-* Description: Thank you for ordering page. 
-* Precondition: User purchased a product and confirmed the order
+* Description: Thank you for purchase page. 
+* Precondition: User purchased a product and payment is successfull
 * Postcondition: Thank you page is displayed with correct information about product and user
 *
  */

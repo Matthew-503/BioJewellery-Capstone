@@ -14,7 +14,20 @@ const createAddress = async (addressData, token) => {
     return response.data
 }
 
-//Get user addresses
+//Get address object based on ID
+const getAddress = async (addressId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.get(API_URL+ addressId, config)
+    return response.data
+}
+
+
+//Get user addresses list and shipping address
 const getAddresses = async (token) => {
     const config = {
         headers: {
@@ -40,6 +53,7 @@ const deleteAddress = async (addressId, token) => {
 
 const addressService = {
     createAddress,
+    getAddress,
     getAddresses,
     deleteAddress
 }

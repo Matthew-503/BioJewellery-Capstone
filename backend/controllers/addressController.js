@@ -1,9 +1,29 @@
-// Author: Sri Guru
-// Version 0.1
+// Author: Sri
+// Description: controller logic
+// Version 1.0
+// Date: 14/03/2023
 
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 const Address = require('../models/addressModel')
+
+// @desc    Get the address based on address id
+// @route   GET /api/addresses/:addressId
+// @access  Private
+const getAddress = asyncHandler(async (req, res) => {
+    try {   
+
+        //finiding address object
+        const address = await Address.findById(req.params.addressId)
+
+        res.status(200).json({address});
+
+    } catch (error) {
+        res.status(400)
+        throw new Error('Unable to get the address');
+    }
+
+})
 
 // @desc    Get all the addresses related to an account
 // @route   GET /api/addresses
@@ -17,10 +37,12 @@ const getAddresses = asyncHandler(async (req, res) => {
         //Finding addresses for the selected user
         const addresses =  user.addresses
 
-        res.status(200).json(addresses);
+        const shippingAddress = user.shippingAddress
+
+        res.status(200).json({addresses, shippingAddress});
 
     } catch (error) {
-        res.status(400)
+        res.status(401)
         throw new Error('Unable to get the saved addresses for this account');
     }
 
@@ -75,7 +97,7 @@ const createAddress = asyncHandler(async (req, res) => {
     //saving the updated user object
     await user.save()
     
-    res.status(200).json({ message: 'Address Added' });
+    res.status(200).json({address});
 })
 
 // @desc    update a posted review 
@@ -134,17 +156,23 @@ const deleteAddress = asyncHandler(async (req, res) => {
         throw new Error('Not authorized to delete this address')
     }
 
-    //Updating addresses field of user object
+    //Updating addresses and shippingAddress fields of user object
     const user = await User.findById(req.user._id)
     user.addresses.pull(address._id)
+
+    if(user.shippingAddress.toString() === address._id.toString()){
+        user.shippingAddress.remove()
+    }
+
     await user.save()
 
     //Remove address from database
     await address.remove()
 
-    res.status(200).json('Address Removed');
+    res.status(200).json({id: req.params.addressId});
 })
 module.exports = {
+    getAddress,
     createAddress,
     updateAddress,
     deleteAddress,

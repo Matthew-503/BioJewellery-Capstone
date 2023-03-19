@@ -5,18 +5,10 @@
 // Description: This component is for "proceed to checkout" button
 
 import React from 'react';
-import axios from "axios";
-import { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {url} from "../../containers";
-
+import './PayButton.css';
 import { FaShoppingCart } from 'react-icons/fa';
 
-import './PayButton.css';
-
-const PayButton = ({cartProductName}) => {
-
+const PayButton = () => {
 
     {/* const handleCheckout = () => {
         console.log(cartProductName)
@@ -51,7 +43,7 @@ const PayButton = ({cartProductName}) => {
     const checkout = () => {
 
     }
-
+    
     return (
         <>
                 <button className="cartbar__button" onClick={() => checkout ()}> <FaShoppingCart />  Proceed to Checkout</button>

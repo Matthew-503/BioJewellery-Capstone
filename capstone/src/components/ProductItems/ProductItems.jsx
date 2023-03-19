@@ -19,7 +19,7 @@ const ProductItems = ({ imgUrl, product }) => {
                     <Link to={"/products/" + product.name} >
                         {product.name}
                     </Link>
-                    <h4>${product.price}</h4>
+                    <h4>${product.price.$numberDecimal}</h4>
                 </div>
             </div>
         </div>
