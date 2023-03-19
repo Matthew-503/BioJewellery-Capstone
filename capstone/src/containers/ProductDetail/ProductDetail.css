@@ -1,0 +1,126 @@
+.detail__sidebar {
+    float: right;
+}
+
+/* .detail__bar-table {
+    width: 18vw;
+    height: 25vw;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
+    overflow-y: auto;
+}
+
+.detail__bar-table th {
+    font-size: 26px;
+    text-align: left;
+}
+
+.detail__bar-table td {
+    text-align: left;
+    font-size: 24px;
+} */
+
+.detail__button {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.detail__stock {
+    font-size: 18px;
+    color: lightgreen;
+}
+
+.detail__button {
+    text-align: center;
+}
+
+.detail__star {
+    font-size: 18px;
+    text-align: center;
+}
+
+.detail__icons {
+    justify-content: space-between;
+    margin: 0 0 0 1vw;
+}
+
+.detail__headtext h3 {
+    font-family: var(--font-alt);
+    font-size: 24px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.detail__product-image {
+    position: relative;
+    max-width: 80vw;
+    max-height: 30vw;
+}
+
+.app__gallery {
+    flex-direction: row;
+
+    background: var(--color-lightgreen);
+    padding: 3rem 4rem 3rem 6rem;
+}
+
+/* Extra large device */
+@media screen and (min-width: 2000px) {
+    .app__gallery-content {
+        min-width: 1000px;
+        padding: 4rem;
+    }
+
+    .detail__image {
+        min-width: 400px;
+        height: 550px;
+    }
+}
+
+/* laptop devices */
+@media screen and (max-width: 1150px) {
+    .app__gallery {
+        flex-direction: column;
+    }
+
+    .app__gallery-images {
+        max-width: 100%;
+        margin: 5rem 0;
+    }
+}
+
+/* smaller devices */
+@media screen and (max-width: 850px) {
+    .app__gallery {
+        padding: 4rem 0 4rem 4rem;
+    }
+}
+
+/* extra small devices */
+@media screen and (max-width: 430px) {
+    .app__gallery {
+        padding: 4rem 0 4rem 4rem;
+    }
+
+    .app__gallery-content {
+        min-width: 100%;
+        padding: 4rem;
+    }
+
+    .detail__image {
+        min-width: 240px;
+        height: 320px;
+        padding: 0;
+    }
+}

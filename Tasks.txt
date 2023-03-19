@@ -1,0 +1,52 @@
+TODO LIST
+* upload and store image for products in DB
+* Retrive the product info with Image to show in the website
+* show cart item count
+* Save cart info for logged in user only
+* add product to cart
+* update quantity in cart
+* Remove item in cart
+* proceed for order page
+* Order page: address info, total amount with gst
+* go to Stripe
+* Stripe success
+* Stripe cancel
+
+Cart controller:
+we need this to achieve:
+*send product data fully for the items in cart
+*update quantity of items in cart based on the actual stock of product
+*addtocart button, cart page, order page will communicate with cart slice
+
+Cart page
+*Display items in cart for the logged in user
+*Retrieve items from cart based on client ID
+*item name and quantity displayed
+*update quantity button (do not let them add more when stock is not available)
+(just check if it is atleast 1 qty value before proceeding)
+(if the stock is just 1, then do not allow the item to display)
+*Remove item button
+*if user isn't logged in then it should just display the products in the cart or if it's empty
+*when the user clicks the checkout button then the products in their cart state should be filtered for any discrepcys in the backend in the getCartItems you check by sending request to products backend
+* as well as checking if the user is logged in. If not then redirect the user to the login page. Other wise proceed to checkout
+*display subtotal and proceed checkout button
+*When they click proceed checkout button, check the user logged in, if not prompt to log in
+
+Order page
+*Display default shipping address 
+* button change to display a radio button lists of other added addresses along with a new address button
+*On clicking new address button, it will pop up a window for address form
+*Display subtotal, tax, total
+*Proceed to Pay
+
+Stripe Payment
+*Set up Stripe account
+*Adding the payments made through app to employer
+*Payment success (button to redirect to shopping page)
+*Payment Decline (display alert and a button to redirect them to try payment again)
+
+
+Resources to refer:
+*Net Ninja
+*CodingTheSmartWay
+*Traversy Media

@@ -67,7 +67,7 @@ const Benefits = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    Our customer support is 24/7
+                    Our customer service are available 24/7
                 </p>
             </div>
         </div>

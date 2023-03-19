@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubHeading } from '../../components';
+import { SubHeading, Title } from '../../components';
 import { data, images } from '../../constants';
 
 
@@ -14,6 +14,7 @@ const Follow = () => (
         <div className='follow__context'>
             <h1 className="follow__h1">
                 Follow Us
+
             </h1>
 
             <p className='follow__p'>
@@ -21,19 +22,20 @@ const Follow = () => (
             </p>
         </div>
 
-        <div className='app__card-links'>
-            <div className='app__card-links-align'>
-                <div className='app__card-links-icons'>
-                    <FiInstagram />
+        <div className='follow__card'>
+            <div className='follow__card-links'>
+                <div className='follow__card-align'>
+                    <div className='follow__icons'>
+                        <FiInstagram />
+                    </div>
+                </div>
+
+                <div className='follow__card-align'>
+                    <div className='follow__icons'>
+                        <FaTiktok />
+                    </div>
                 </div>
             </div>
-
-            <div className='app__card-links-align'>
-                <div className='app__card-links-icons'>
-                    <FaTiktok />
-                </div>
-            </div>
-
         </div>
     </div>
 )

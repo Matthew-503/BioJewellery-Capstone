@@ -20,24 +20,21 @@ const Feed = () => {
     }, [selectedCategory]);
 
     return (
-        <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+        <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
             <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
                 <SideBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             </Box>
 
             <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
                 <div className="feed__title">
-                    <Typography variant="h3" fontWeight="bold" mb={2} sx={{ color: "black" }} align="center" >
+                    <Typography variant="h2" fontFamily="var(--font-base)" fontWeight="bold" mb={2} sx={{ color: "var(--color-darkgreen)" }} align="center" >
                         {selectedCategory}
                     </Typography>
                 </div>
 
-
-                {/* <Videos videos={videos} /> */}
                 <ShopProduct />
             </Box>
         </Stack>
-        // </div>
     );
 };
 

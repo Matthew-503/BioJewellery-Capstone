@@ -10,7 +10,10 @@
 // Input: 4 components
 // Output: 4 components
 
-// Notes: Updated the sequence
+
+// Notes: 
+import AddProduct from './AddProduct/AddProduct';
+import EditProduct from './EditProduct/EditProduct';
 
 
 import Navbar from './Navbar/Navbar';
@@ -21,22 +24,34 @@ import Article from './Article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
+import CartContent from './CartContent/CartContent'
+import FeatureBlock from './FeatureBlock/FeatureBlock';
 import CartItem from './CartItem/CartItem';
+
+import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
+import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
+import CartSummary from './CartSummary/CartSummary';
+import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+
+// import AdminMenu from './AdminMenu/AdminMenu';
+
 import Uploader from "./Uploader/Uploader";
-import AddProduct from './AddProduct/AddProduct';
-import EditProduct from "./EditProduct/EditProduct";
+
+
 
 // import Newsletter from './Footer/Newsletter';
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
 // import ShopProductIcon from './ShopProductIcon/ShopProductIcon';
 
+
 // import Newsletter from './Footer/Newsletter';
+
 
 // import FooterOverlay from './Footer/FooterOverlay';
 // import MenuItem from './Menuitem/MenuItem';
@@ -53,17 +68,30 @@ export {
 
     Article,
 
+    ReviewBlock,
+
     CartItem,
     Rating,
-    ReviewBlock,
+
+    CartContent,
+    PayButton,
+
+    AddProduct,
+    EditProduct,
+
+    // AdminMenu,
+
+    FeatureBlock,
 
     SideBar,
     ProductItems,
+    ProductDetailBar,
+    CartSummary,
 
     EmployeeMenu,
     Uploader,
-    AddProduct,
-    EditProduct,
+
+    SwitchProductDetail,
 
     // ShopProductIcon,
     // Newsletter,

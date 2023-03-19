@@ -1,43 +1,36 @@
-// Author: Buola Achor
-// Version 0.1
-// Date: 18/1/2023
+// Author: Buola Achor, Matthew, Sri
+// Version 1.1
+// Date: 15/03/2023
 
-// Description: This is the shopping cart. 
-// Precondition: A home page with required cart item containers 
-// Postcondition: a submit button that directs to payments service
+// Description: This is Shopping cart page. 
+// Precondition: A home page and product page for users to add items in cart 
+// Postcondition: Proceed to check out button that directs to order summary page
 
-// Input: Currently no input available
-// Output: Currently no specific output
-
-// Notes: Editing qty function?
-// Notes: Background and button color fix and button placement
-
-import React from 'react';
-import { CartItem } from '../../components';
-import { Link} from "react-router-dom"
 import './ShoppingCart.css';
+import { CartContent, CartSummary } from '../../components';
+import { HiOutlineShoppingBag } from 'react-icons/hi';
 
-const ShoppingCart = () => (
-    <div className="shop__cart">
-        
+const ShoppingCart = () => {
 
-        <h1 className="shop__header-text">Shopping Cart</h1>
+    return (
+        <div className="cart app__section-padding">
+            <div className='cart__headtext'>
+                <h1>
+                    ShoppingCart <HiOutlineShoppingBag className='cart__icons' />
+                </h1>
 
-        <div className="shop__subtotal">
-            <h3 className="shop__subtotal-text">Subtotal:</h3>
+            </div>
 
-            <Link to="/checkout">
-                <button type='button' className='custom__button-checkout'>
-                    Proceed to Checkout
-                </button>
-            </Link>
-            
+            <div className='detail__sidebar'>
+                <CartSummary />
+            </div>
+
+            <div className="shop__cartbody">
+                <CartContent />
+            </div>
         </div>
 
-        <div className="shop__cartbody">
-            <CartItem />
-        </div>
-    </div>
-);
+    );
+};
 
-export default ShoppingCart;
+export default ShoppingCart
