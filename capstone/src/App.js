@@ -24,6 +24,7 @@ import OrderPreview from './containers/OrderPreview/OrderPreview';
 
 //testing address component - need to be removed
 import Address from './components/Address/Address';
+import ProtectedRoute from './features/ProtectedRoute';
 
 const App = () => (
     <div>
@@ -46,8 +47,11 @@ const App = () => (
                 <Route path="/orderpreview" element={<OrderPreview />} />
                 <Route path="/addresses" element={<Address />} />
             </Route>
-            <Route path="/add" element={<AddProduct />} />
-            <Route path="/editproduct" element={<EditProduct />} />
+            <Route element={<ProtectedRoute />}>
+                <Route path="/add" element={<AddProduct />} />
+                <Route path="/editproduct" element={<EditProduct />} />
+            </Route>
+            
             <Route path="/login" element={<Login />} />
             {/* <Route path="/admin">
                 
