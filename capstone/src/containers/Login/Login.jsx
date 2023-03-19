@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Naomy Tung (connection backend)
+// Author: Ling Shan Matthew Ng, Naomy Tung 
 // Version 0.2
 // Date: 7/2/2023
 
@@ -57,9 +57,17 @@ function Login() {
           setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
         }
     
-        if (isSuccess && user) { //change to isSuccess || user later)
+        if (isSuccess && user) { 
           dispatch(reset())
-          navigate('/')
+          //if its a regular client it redirect to the logged home page (protected route)
+          if (user.user.type === "Client") {
+            navigate('/')
+          }
+          //otherwise it will go to the admin view (protected route)
+          else {
+            navigate('/editproduct')
+          }
+          
         }
     
        

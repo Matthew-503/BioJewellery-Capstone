@@ -99,7 +99,9 @@ const loginAccount = asyncHandler(async (req, res) => {
       email: account.email,
       token: generateToken(account._id),
       user:{
-        _id: user._id
+        _id: user._id,
+        type: user.type,
+        shippingAddress
       }      
     })
   } else {
