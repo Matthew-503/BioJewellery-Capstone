@@ -26,7 +26,7 @@ const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
-
+  
     const dispatch = useDispatch();
     useEffect(() => {
         if (isError) {
@@ -49,7 +49,7 @@ const ProductDetailBar = () => {
                 <table className='detail__table'>
                     <tbody>
                     <tr>
-                        <th>Price ${225}</th>
+                        <th>Price ${299}</th>
                     </tr>
                     <tr>
                         <td>

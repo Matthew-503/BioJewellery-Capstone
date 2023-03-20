@@ -19,7 +19,7 @@ const initialState = {
 //Add item to cart
 export const addItemToCart = createAsyncThunk('cart/create', async (productData, thunkAPI) => {
     try {
-        //const token = thunkAPI.getState().auth.user.token
+        const token = thunkAPI.getState().auth.user.token
         return await productData
         
     } catch (error) {
