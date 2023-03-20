@@ -1,16 +1,21 @@
-.cartbar__button {
-    background-color: var(--color-green);
-    color: var(--color-white);
+.cartbar__button button {
+    max-width: 100vw;
+    min-width: 15vw;
+    font-size: 1rem;
     font-family: var(--font-alt);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 28px;
-    font-size: 16px;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
+    font-weight: 500;
+    line-height: 2rem;
+    color: var(--color-darkgreen);
+    background-color: var(--color-lightgreen);
+    padding: 0.5rem;
     border: none;
-    outline: none;
-    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.cartbar__icon {
+    justify-content: space-between;
+
 }
 
 .cartbar__image {
