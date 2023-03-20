@@ -59,7 +59,7 @@ const ProductDetail = ({ productid }) => {
                 <SubHeading title={selectedProduct.name} />
                 <img
                     className="detail__product-image"
-                    src={images.product1}
+                    src={images.cerrado}
                     alt="product image"
                 />
                 <div className='detail__sidebar'>
