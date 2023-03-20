@@ -10,27 +10,43 @@ import './CartSummary.css';
 import { PayButton } from '..';
 import { useSelector } from "react-redux";
 
-const CartSummary = () => { 
+const CartSummary = () => {
     const subTotal = useSelector((state) => state.cart.subTotal);
-    
+
     return (
-        <div className="">
-            <div>
-                <table className='cartbar__table'>
-                    <tbody>
-                        <tr>
-                            <th>Subtotal</th>
-                            <th>CA${299.99}</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="cartbar__button">
-                                    <PayButton/>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>                    
-                </table>
+        // <div className="">
+        //     <div>
+        //         <table className='cartbar__table'>
+        //             <tbody>
+        //                 <tr>
+        //                     <th>Subtotal</th>
+        //                     <th>CA${299.99}</th>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="cartbar__button">
+        //                             <PayButton/>
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //             </tbody>                    
+        //         </table>
+        //     </div>
+        // </div>
+
+        <div className='cart__summary'>
+            <div className='cart__summary-header'>
+                <h1>
+                    Subtotal
+                </h1>
+
+                <h1>
+                    CA${299.99}
+                </h1>
+            </div>
+
+            <div className='cart__summary-action'>
+                <PayButton />
             </div>
         </div>
     )

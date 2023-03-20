@@ -1,3 +1,21 @@
+.cart__summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__summary-header {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.cart__summary-action button{
+    
+}
+
+
+
+
 .cartbar__table {
     /* border: 2px solid forestgreen; */
     width: 20vw;
