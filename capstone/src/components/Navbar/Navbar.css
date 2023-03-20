@@ -99,7 +99,26 @@
     color: lightgray;
 }
 
-input[type=text] {
+.navbar-input input {
+    width: 10.8vw;
+    box-sizing: border-box;
+    border: 1px solid var(--color-white);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--font-alt);
+    background: #f8f8f8;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 0.2rem 0.4rem;
+    margin-right: 1rem;
+    transition: width 0.4s ease-in-out;
+}
+
+.navbar-input-search :focus {
+    width: 40vw;
+}
+
+/* input[type=text] {
     width: 10.8vw;
     box-sizing: border-box;
     border: 1px solid var(--color-white);
@@ -120,7 +139,7 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 40vw;
-}
+} */
 
 .navbar-icons {
     font-size: 24px;
