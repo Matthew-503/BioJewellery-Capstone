@@ -83,23 +83,19 @@ const Navbar = () => {
                         <MdOutlineClose fontSize={18} className="navbar-overlay__close" onClick={() => setToggleMenu(false)} />
                         <ul className="navbar-smallscreen_links">
                             <li>
-                                <a href="#home" onClick={() => setToggleMenu(false)}>Home</a>
+                                <a href="/" onClick={() => setToggleMenu(false)}>Home</a>
                             </li>
 
                             <li>
-                                <a href="#shop" onClick={() => setToggleMenu(false)}>Shop</a>
+                                <a href="/categories" onClick={() => setToggleMenu(false)}>Shop</a>
                             </li>
 
                             <li>
-                                <a href="#about" onClick={() => setToggleMenu(false)}>About Us</a>
+                                <a href="/aboutus" onClick={() => setToggleMenu(false)}>About Us</a>
                             </li>
 
                             <li>
-                                <a href="#awards" onClick={() => setToggleMenu(false)}>Cart</a>
-                            </li>
-
-                            <li>
-                                <a href="#contact" onClick={() => setToggleMenu(false)}>Account</a>
+                                <a href="/login" onClick={() => setToggleMenu(false)}>Login</a>
                             </li>
                         </ul>
                     </div>
