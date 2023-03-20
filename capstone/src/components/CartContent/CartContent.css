@@ -23,7 +23,8 @@
 .cart__content {
     display: flex;
     flex-direction: row;
-    gap: 10rem
+    gap: 10rem;
+    
 }
 
 .cart__content h1 {
@@ -37,6 +38,7 @@
 .cart__content-card {
     display: flex;
     flex-direction: column;
+    
 }
 
 .cart__content-card p {
@@ -47,6 +49,7 @@
     font-family: var(--font-alt);
     font-weight: 500;
     color: var(--color-darkgreen);
+    margin-bottom: 1.5rem;
 }
 
 .cart__content-header {
@@ -76,6 +79,7 @@
     padding: 0.5rem;
     border: none;
     border-radius: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .cart__content-action p {
