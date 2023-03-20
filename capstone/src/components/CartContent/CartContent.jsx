@@ -16,12 +16,13 @@ const CartContent = () => {
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        dispatch(updateItemCount())
+        //dispatch(updateItemCount())
+        
     }, [dispatch, cartProducts]);
 
     return (
         <>        
-            {cartProducts.itemCount > 0 ?
+            {cartProducts.length > 0 ?
              <div className='cart'>
                 <table className='cart__table'>
                     <thead>
@@ -34,17 +35,16 @@ const CartContent = () => {
                     </thead>
                     <tbody>
                         {cartProducts.map((item) => (
-                            <tr key={item.product._id}>
-                                <td>{item.product.name}</td>
-                                <td>CA${item.product.price.toFixed(2)}</td>
+                            <tr key={item._id}>
+                                <td>{item.name}</td>
+                                <td>CA${200}</td>
                                 <td>
                                     <button onClick={() => {increaseItemQuantity(item.product._id)}}>+</button>
 
                                     {item.quantity}
 
                                     <button onClick={() => {decreaseItemQuantity(item.product._id)}}>-</button>
-                                </td>
-                                <td>
+                               
                                     <button onClick={() => {dispatch(deleteCartItem(item.product._id))}}>Remove from cart</button>
                                 </td>
                             </tr>

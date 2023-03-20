@@ -38,7 +38,7 @@ const ProductDetail = ({ productid }) => {
             console.log(message);
         }
         dispatch(getProductByName(name))
-
+      
         return () => {
             dispatch(reset())
         }
