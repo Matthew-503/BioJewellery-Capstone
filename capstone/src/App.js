@@ -34,7 +34,7 @@ const App = () => (
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/categories">
-                    <Route index element={<ShopCategory />} />
+                    <Route index element={<Feed />} />
                     <Route path=":cat" element={<Feed />} />
                 </Route>
                 <Route path="/products">

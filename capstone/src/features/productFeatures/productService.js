@@ -17,6 +17,7 @@ const getProductByName= async(name) => {
     const response = await axios.get(API_URL + name)
 
     return response.data
+   
 }
 const productService =  {
     getAllProducts,

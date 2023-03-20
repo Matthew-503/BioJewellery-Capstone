@@ -17,10 +17,10 @@ const initialState = {
 }
 
 //Add item to cart
-export const addItemToCart = createAsyncThunk('cart/create', async (cartData, thunkAPI) => {
+export const addItemToCart = createAsyncThunk('cart/create', async (productData, thunkAPI) => {
     try {
-        const token = thunkAPI.getState().auth.user.token
-        return await cartService.addItemToCart(cartData, token)
+        //const token = thunkAPI.getState().auth.user.token
+        return await productData
         
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -132,7 +132,7 @@ export const cartSlice = createSlice({
             state.isSuccess = true
             state.cartProducts = action.payload.cartItems
             state.subTotal = action.payload.subTotal
-            thunkAPI.dispatch(updateItemCount())
+           // thunkAPI.dispatch(updateItemCount())
         })
         .addCase(getCartItems.rejected, (state, action) => {
             state.isLoading = false

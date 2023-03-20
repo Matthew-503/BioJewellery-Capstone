@@ -20,11 +20,14 @@ import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useEffect } from "react";
 import './ProductDetailBar.css';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {addItemToCart} from '../../features/cartFeatures/cartSlice';
 const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
+
+    const dispatch = useDispatch();
     useEffect(() => {
         if (isError) {
             console.log(message);
@@ -35,6 +38,7 @@ const ProductDetailBar = () => {
     
     let stars = 3;
 
+ 
     // //Default Variable for review block
     // var customerDefaultName = "Very Cool Name";
     // var customerDefaultTitle = "Default Title";
@@ -45,7 +49,7 @@ const ProductDetailBar = () => {
                 <table className='detail__table'>
                     <tbody>
                     <tr>
-                        <th>Price ${selectedProduct.price}</th>
+                        <th>Price ${225}</th>
                     </tr>
                     <tr>
                         <td>
@@ -67,7 +71,7 @@ const ProductDetailBar = () => {
                         <td>
                             <div className="detail__bar-add-button">
                                 <Link to="/cart">
-                                    <button className="detail__bar-add-button">
+                                    <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
                                         <FaShoppingCart />  Add to Cart
                                     </button>
                                 </Link>
