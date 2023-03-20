@@ -8,6 +8,8 @@ const ProductItems = ({ imgUrl, product }) => {
             <div className="gpt3__blog-container_article-image">
                 <Link to={"/products"}>
                     <img src={imgUrl} alt={product.name} />
+                <Link to={"/products/" + product.name}>
+                    <img src={imgUrl} alt="blog" />
                 </Link>
             </div>
 
