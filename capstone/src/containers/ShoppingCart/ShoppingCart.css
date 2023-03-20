@@ -1,6 +1,6 @@
-/* .shop__cart {
-    background-color: white;;
-} */
+.cart {
+    min-height: 80vh;
+}
 
 .cart__headtext {
     font-family: var(--font-base);
