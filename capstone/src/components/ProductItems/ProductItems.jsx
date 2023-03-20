@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 import './ProductItems.css';
 const ProductItems = ({ imgUrl, product }) => {
 
-    
-
     return (
         <div className="gpt3__blog-container_article">
             <div className="gpt3__blog-container_article-image">
                 <Link to={"/products"}>
-                    <img src={imgUrl} alt="blog" />
+                    <img src={imgUrl} alt={product.name} />
                 </Link>
-
             </div>
 
             <div className="gpt3__blog-container_article-content">

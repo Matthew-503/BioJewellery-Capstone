@@ -26,8 +26,6 @@ const productImage = images.cerrado;
 
 const ProductDetail = ({ productid }) => {
 
-
-
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
 
     let { name } = useParams();
@@ -38,7 +36,7 @@ const ProductDetail = ({ productid }) => {
             console.log(message);
         }
         dispatch(getProductByName(name))
-      
+
         return () => {
             dispatch(reset())
         }
