@@ -26,7 +26,6 @@ import './ShopProduct.css';
 
 const ShopProduct = () => {
 
-
     const dispatch = useDispatch();
 
     const { products, isError, message } = useSelector((state) => state.products)
@@ -38,18 +37,15 @@ const ShopProduct = () => {
 
         dispatch(getProducts())
 
-        
         console.log("Products: " + products);
     }, [isError, message, dispatch])
+
     return (
         <div className="product product__section-padding" id="blog">
-
-            {/* <SubHeading title="Chef's word" /> */}
-
             <div className="product__container">
-                <div className="product__container-card">
+                <div>
                     {products.length > 0 ? (
-                        <div>
+                        <div className="product__container-card">
                             {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
