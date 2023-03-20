@@ -17,7 +17,7 @@ import React from 'react';
 import { ProductItems } from '../../components';
 // import { SubHeading } from '../../components';
 
-import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
+import { cerrado } from './import.js';
 
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts, reset } from '../../features/productFeatures/productSlice';
@@ -53,7 +53,7 @@ const ShopProduct = () => {
                             {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
-                                imgUrl={gallery01}
+                                imgUrl={cerrado}
                             />))}
                         </div>
                     ) : (<h3>You have not set any products</h3>)}

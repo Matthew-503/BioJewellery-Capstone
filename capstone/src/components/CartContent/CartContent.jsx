@@ -37,7 +37,7 @@ const CartContent = () => {
                         {cartProducts.map((item) => (
                             <tr key={item._id}>
                                 <td>{item.name}</td>
-                                <td>CA${200}</td>
+                                <td>CA${299.99}</td>
                                 <td>
                                     <button onClick={() => {increaseItemQuantity(item.product._id)}}>+</button>
 
