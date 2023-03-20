@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
-import { Rating, ReviewBlock, FeatureBlock } from '..';
+import { Rating, ReviewBlock, DescriptionBlock } from '..';
 
 import './SwitchProductDetail.css';
 
@@ -16,7 +16,7 @@ const SwitchProductDetail = () => {
     //Default Variable for review block
     var customerDefaultName = "Very Cool Name";
     var customerDefaultTitle = "Default Title";
-    var customerDefaultDescription = "Default Description";
+    var customerDefaultDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 
     
     return (
@@ -44,7 +44,7 @@ const SwitchProductDetail = () => {
             <div className="col text-center">
                 <p>
                     {myProfession === "Description" && (
-                        <FeatureBlock
+                        <DescriptionBlock
                             productFeatureName="Name"
                             productFeatureType="Type"
                             productFeatureColor="Type"
