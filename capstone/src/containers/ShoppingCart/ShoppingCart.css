@@ -3,14 +3,15 @@
 }
 
 .cart__headtext {
+    font-size: 1.8rem;
     font-family: var(--font-base);
+    line-height: 3rem;
     color: var(--color-darkgreen);
     /* text-align: center; */
 }
 
 .cart__icons {
     justify-content: space-between;
-    align-items: center;
 }
 
 .cart__subtotal {
