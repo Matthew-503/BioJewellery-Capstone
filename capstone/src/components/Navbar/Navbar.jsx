@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Sri
+// Author: Ling Shan Matthew Ng, Sri, Naomy
 // Version 1.0
 // Date: 17/03/2023
 
@@ -23,6 +23,7 @@ import './Navbar.css';
 import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react'
+import { DropdownMenu } from '../../components';
 
 const Navbar = () => {
 
@@ -69,11 +70,13 @@ const Navbar = () => {
                     <FaShoppingCart />
                     <p className='navbar-cart-count'>{itemCount}</p>
                 </a>
-
                 <Link to="/login">
                     <MdAccountCircle className="navbar-icons" />
+                    
                 </Link>
+               
             </div>
+            <DropdownMenu/>
 
             {/* for mobile view display */}
             <div className="navbar-smallscreen">
