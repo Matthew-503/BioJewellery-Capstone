@@ -86,7 +86,17 @@ textarea {
     cursor: pointer;
 }
 
-span {
+.feedback__input span {
+    font-size: 2rem;
+    color: var(--color-golden);
+    cursor: default;
+}
+
+.feedback__input span:hover {
+    cursor: pointer;
+}
+
+/* span {
     font-size: 2rem;
     color: var(--color-golden);
     cursor: default;
@@ -94,7 +104,7 @@ span {
 
 span:hover {
     cursor: pointer;
-}
+} */
 
 .checked {
     color: #f9b233;
