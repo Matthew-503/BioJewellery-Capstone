@@ -59,7 +59,7 @@ function Login() {
           setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
         }
     
-        if (isSuccess || user) { 
+        if (isSuccess && user) { 
           dispatch(reset())
           //if its a regular client it redirect to the logged home page (protected route)
           if (user.user.type === "Client") {
