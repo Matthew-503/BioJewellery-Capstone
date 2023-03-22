@@ -156,6 +156,10 @@ input[type=text]:focus {
     cursor: pointer;
 }
 
+.navbar-icons :hover {
+    color: var(--color-white);
+}
+
 .navbar-icons-cart {
     font-size: 1.8rem;
     display: flex;
@@ -169,6 +173,10 @@ input[type=text]:focus {
     color: var(--color-golden);
     margin: 0 0.5rem;
     cursor: pointer;
+}
+
+.navbar-icons-cart :hover {
+    color: var(--color-white);
 }
 
 .navbar-cart-count {

@@ -90,7 +90,7 @@ const Navbar = () => {
                 </a>
             </div>
 
-            <div className="navbar-input">
+            <div className="navbar-input ">
                 <a className="navbar-icons">
                     <MdAccountCircle className="navbar-icons" onClick={onPerfilClick}/>
                 </a>
