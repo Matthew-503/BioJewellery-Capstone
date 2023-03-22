@@ -45,7 +45,7 @@ const ProductDetailBar = () => {
 
     };
 
-    const [isTrue, setIsTrue] = useState(false);
+    const [isTrue, setIsTrue] = useState(true);
 
     const textColorStyle = {
         color: isTrue ? 'rgb(75, 172, 75)' : 'rgb(195, 40, 40)'
