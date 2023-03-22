@@ -42,6 +42,8 @@ import AccountHistory from './Account/AccountHistory';
 import Error from './Error/Error';
 import Policy from './Policy/Policy';
 
+import EmpAccount from './EmpAccount/EmpAccount';
+
 export {
   Home,
   Header,
@@ -63,8 +65,6 @@ export {
 
   EmployeeSettings,
 
-  Feed,
-
   SwitchDetail,
   ShoppingCart,
 
@@ -77,6 +77,8 @@ export {
 
   Error,
   Policy,
+
+  EmpAccount,
 };
 
 
