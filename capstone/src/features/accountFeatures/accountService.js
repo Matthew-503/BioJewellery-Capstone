@@ -1,4 +1,4 @@
-// Author: Naomy
+// Author: Naomy Tung
 // Version 0.1
 
 import axios from 'axios'

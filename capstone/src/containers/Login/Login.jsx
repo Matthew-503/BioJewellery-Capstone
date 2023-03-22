@@ -19,6 +19,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/accountFeatures/accountSlice'
+import { Navbar } from '../../components';
+
 
 import './Login.css';
 
@@ -69,7 +71,7 @@ function Login() {
           }
           
         }
-    
+        
        
       }, [user, isError, isSuccess, message, navigate, dispatch])
 
@@ -93,6 +95,7 @@ function Login() {
 
     return (
         <>
+            <Navbar />
             <div className='login'>
                 <div className="login__wrapper">
                     <img src={images.login} alt="G_overlay" className='left' />

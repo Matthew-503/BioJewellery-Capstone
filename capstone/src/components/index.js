@@ -1,5 +1,5 @@
 
-// Author: Ling Shan Matthew Ng
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 0.2
 // Date: 18/1/2023
 
@@ -28,7 +28,8 @@ import ReturnBlock from './ReturnBlock/ReturnBlock';
 import CartContent from './CartContent/CartContent'
 import FeatureBlock from './FeatureBlock/FeatureBlock';
 import CartItem from './CartItem/CartItem';
-
+import DropdownItem from './DropdownItem/DropdownItem';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
@@ -79,6 +80,8 @@ export {
     AddProduct,
     EditProduct,
     
+    DropdownItem,
+    DropdownMenu,
 
     // AdminMenu,
 
