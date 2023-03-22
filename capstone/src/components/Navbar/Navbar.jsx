@@ -26,6 +26,7 @@ import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
 import { useAuth } from '../../features/ProtectedRouteUser';
 import { Navigate, Outlet } from "react-router-dom";
+import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
     const navigate = useNavigate()
