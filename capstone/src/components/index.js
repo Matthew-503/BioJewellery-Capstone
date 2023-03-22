@@ -26,7 +26,7 @@ import ReviewBlock from './ReviewBlock/ReviewBlock';
 
 import ReturnBlock from './ReturnBlock/ReturnBlock';
 import CartContent from './CartContent/CartContent'
-import FeatureBlock from './FeatureBlock/FeatureBlock';
+import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
 import CartItem from './CartItem/CartItem';
 import DropdownItem from './DropdownItem/DropdownItem';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
@@ -86,7 +86,7 @@ export {
     // AdminMenu,
 
     ReturnBlock,
-    FeatureBlock,
+    DescriptionBlock,
 
     SideBar,
     ProductItems,
