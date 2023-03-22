@@ -41,6 +41,22 @@ export const getProductByName = createAsyncThunk('products/get', async (name, th
     }
 });
 
+export const sortProducts= createAsyncThunk('products/get', async (sortType, thunkAPI) => {
+    try {
+        
+        return await productService.getProductByName(sortType);
+    } catch (error) {
+        const message = (
+            error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString();
+        return thunkAPI.rejectWithValue(message)
+
+    }
+});
+
 
 export const productSlice = createSlice({
     name: 'products',
