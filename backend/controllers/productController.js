@@ -59,12 +59,30 @@ const setProduct = asyncHandler(async (req, res, next) => {
 
 const updateProduct = asyncHandler(async (req, res) => {
 
+          //finding the address that needs to be removed
+          const product = await productModel.findById(req.params.id)
+
+          
+
     res.status(200).json('Updated product');
 })
 
 
 const deleteProduct = asyncHandler(async (req, res) => {
 
+      //finding the address that needs to be removed
+      const product = await productModel.findById(req.params.id)
+
+      //throw error if no address exists by that id
+      if(!product){
+          res.status(400)
+          throw new Error('No product found')
+      }
+  
+      //Remove address from database
+      await product.remove()
+  
+    
     res.status(200).json('Product deleted');
 })
 module.exports = {

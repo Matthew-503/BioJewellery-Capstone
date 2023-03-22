@@ -5,7 +5,7 @@
 //createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
-// const cartItem = {'product':{}, 'quantity':{}}
+const cartItem = {'product':{}, 'quantity':{}}
 const initialState = {
     cartProducts: [], //product object
     itemCount: 0,
