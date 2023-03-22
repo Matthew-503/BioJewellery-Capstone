@@ -11,12 +11,12 @@
 // Output
 // Product Detail Container
 
-import React from 'react';
+import React, { useState } from "react";
 
 import { images } from '../../constants';
 import { Rating, ReviewBlock, SubHeading } from '../../components';
 import { Link } from "react-router-dom";
-import { BsCheckCircleFill } from 'react-icons/bs';
+import { BsCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useEffect } from "react";
 import './ProductDetailBar.css';
@@ -38,66 +38,130 @@ const ProductDetailBar = () => {
 
     let stars = 3;
 
+    const [selectedValue, setSelectedValue] = useState("");
+
+    const handleChange = (e) => {
+        setSelectedValue(e.target.value);
+
+    };
+
+    const [isTrue, setIsTrue] = useState(true);
+
+    const textColorStyle = {
+        color: isTrue ? 'rgb(75, 172, 75)' : 'rgb(195, 40, 40)'
+    };
+
+    const icon = isTrue ? <BsCheckCircleFill /> : <BsFillXCircleFill />;
+
     // //Default Variable for review block
     // var customerDefaultName = "Very Cool Name";
     // var customerDefaultTitle = "Default Title";
     // var customerDefaultDescription = "Default Description";
     return (
+        // <div className="detail__bar">
+        //     <div>
+        //         <table className='detail__table'>
+        //             <tbody>
+        //                 <tr>
+        //                     <th>Price ${299}</th>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-stock">
+        //                             In stock
+        //                             <BsCheckCircleFill className='detail__bar-icons' />
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         {selectedProduct.name}
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>Quantity: {selectedProduct.quantity}</td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-add-button">
+        //                             <Link to="/cart">
+        //                                 <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
+        //                                     <FaShoppingCart />  Add to Cart
+        //                                 </button>
+        //                             </Link>
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td >
+        //                         <div className="detail__bar-star">
+        //                             <Rating starRating={stars} className="detail__bar-rating" />
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-review-button">
+        //                             <Link to="/cart">
+        //                                 <button className="detail__bar-review-button">
+        //                                     Write a review
+        //                                 </button>
+        //                             </Link>
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //             </tbody>
+        //         </table>
+        //     </div>
+        // </div>
+
+
         <div className="detail__bar">
-            <div>
-                <table className='detail__table'>
-                    <tbody>
-                        <tr>
-                            <th>Price ${299}</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="detail__bar-stock">
-                                    In stock
-                                    <BsCheckCircleFill className='detail__bar-icons' />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {selectedProduct.name}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Quantity: {selectedProduct.quantity}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="detail__bar-add-button">
-                                    <Link to="/cart">
-                                        <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
-                                            <FaShoppingCart />  Add to Cart
-                                        </button>
-                                    </Link>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td >
-                                <div className="detail__bar-star">
-                                    <Rating starRating={stars} className="detail__bar-rating" />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="detail__bar-review-button">
-                                    <Link to="/cart">
-                                        <button className="detail__bar-review-button">
-                                            Write a review
-                                        </button>
-                                    </Link>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h1>
+                {selectedProduct.name}
+            </h1>
+
+            <p>
+                Price ${299}
+            </p>
+
+            <div className="detail__bar-status">
+                <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
+                    {isTrue ? 'In Stock' : 'Out of Stock'}
+                </p>
+
+                <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
+                    {icon}
+                </div>
             </div>
+
+
+            <div className="detail__bar-dropdown">
+                <select value={selectedValue} onChange={handleChange}>
+                    <option value="">Select a quantity</option>
+                    {[...Array(11).keys()].map((num) => (
+                        <option key={num} value={num}>
+                            {num}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <Link to="/cart">
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))}>
+                    <FaShoppingCart />  Add to Cart
+                </button>
+            </Link>
+
+            <div className="detail__bar-rating">
+                <Rating starRating={stars} />
+            </div>
+
+            <Link to="/cart">
+                <button className="detail__bar-button">
+                    Write a review
+                </button>
+            </Link>
         </div>
     )
 };
