@@ -1,4 +1,4 @@
-// Author: Buola Achor
+// Author: Buola Achor, Naomy Tung
 // Version 0.2
 // Date: 16/1/2023
 
@@ -23,9 +23,37 @@ import { BsPersonCheckFill } from "react-icons/bs";
 import { HiPencilAlt } from "react-icons/hi"; 
 
 import './EmployeeMenu.css';
+import { Link, useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { logout, reset } from '../../features/accountFeatures/accountSlice'
+import { useState } from 'react';
 
 
 const EmployeeMenu = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user, isSuccess } = useSelector(
+        (state) => state.auth
+    )
+
+    useEffect(() => {
+  
+        if (isSuccess) { 
+          dispatch(reset())
+          navigate('/')
+          //make the page reload
+          window.location.reload(false);
+        }
+    
+       
+      }, [isSuccess, navigate, dispatch])
+
+    const logoutClick = () => {
+        dispatch(logout(user))
+    }
 
     return (
         <div className="employee__menu" class="employee">
@@ -74,6 +102,11 @@ const EmployeeMenu = () => {
                     
                         <div className="e__products">    
                             <a href="#Products">Manage Products</a>
+                        </div>
+
+                        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /><br /> <br /> <br /> <br /><br /> 
+                        <div className="e__products">    
+                            <a onClick={logoutClick}>Logout</a>
                         </div>
             </div>
         </div>  
