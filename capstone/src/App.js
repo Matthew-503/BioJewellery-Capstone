@@ -25,7 +25,7 @@ import OrderPreview from './containers/OrderPreview/OrderPreview';
 //testing address component - need to be removed
 import Address from './components/Address/Address';
 import ProtectedRoute from './features/ProtectedRoute';
-import ProtectedRouteUser from './features/ProtectedRouteUser';
+import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
 const App = () => (
     <div>

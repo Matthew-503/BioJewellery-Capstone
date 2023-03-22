@@ -31,4 +31,7 @@ const ProtectedRouteUser = () => {
   );
 };
 
-export default ProtectedRouteUser;
+export {
+  ProtectedRouteUser,
+  useAuth,
+}

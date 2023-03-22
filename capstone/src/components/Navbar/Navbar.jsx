@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Sri, Naomy
+// Author: Ling Shan Matthew Ng, Sri, Naomy Tung
 // Version 1.0
 // Date: 17/03/2023
 
@@ -16,18 +16,22 @@
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useNavigate } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
 import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
+import { useAuth } from '../../features/ProtectedRouteUser';
+import { Navigate, Outlet } from "react-router-dom";
 
 const Navbar = () => {
-
+    const navigate = useNavigate()
+    const isAuth = useAuth();
     const  {cartProducts, itemCount} = useSelector((state) => state.cart);
+    
 
     const dispatch = useDispatch();
 
@@ -38,6 +42,18 @@ const Navbar = () => {
     }, [dispatch, itemCount]);
 
     const [toggleMenu, setToggleMenu] = React.useState(false);
+
+    const [openDropdownMenu, setopenDropdownMenu] = useState(false);
+
+    const onPerfilClick = () => {
+        if (isAuth) {
+            setopenDropdownMenu(!openDropdownMenu);
+        }
+        else {
+            navigate('/login');
+        }
+    }
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">
@@ -66,17 +82,19 @@ const Navbar = () => {
                 </a>
             </div>
             <div className="navbar-login">
-                <a href="#login" className="navbar-icons">
+                <a href="/cart" className="navbar-icons">
                     <FaShoppingCart />
                     <p className='navbar-cart-count'>{itemCount}</p>
                 </a>
-                <Link to="/login">
+                <a className="navbar-icons" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
-                    
-                </Link>
+                </a>
                
             </div>
-            <DropdownMenu/>
+            {
+                openDropdownMenu && <DropdownMenu />
+            }
+            
 
             {/* for mobile view display */}
             <div className="navbar-smallscreen">
