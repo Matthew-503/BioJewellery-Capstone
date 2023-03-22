@@ -1,14 +1,14 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmployeeSettings, EmpAccount } from '../../containers';
 const Home = () => {
   return (
     <div>
 
-      <Header />
-      <Gallery />
+      {/* <Header /> */}
+      {/* <Gallery /> */}
       {/* <Video /> */}
-      <Benefits />
-      <Follow />
+      {/* <Benefits /> */}
+      {/* <Follow /> */}
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -18,6 +18,8 @@ const Home = () => {
       {/* <Account /> */}
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
+      {/* <EmployeeSettings /> */}
+      <EmpAccount />
     </div>
   )
 }
