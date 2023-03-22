@@ -1,9 +1,11 @@
 li {
-    list-style: none;
-    color: var(--color-darkgreen);
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    font-family: var(--font-base);
+    font-weight: 600;
+    color: var(--color-golden);
+    line-height: 3rem;
 }
 
 li:hover {
-    color: var(--color-golden);
+    color: var(--color-white);
 }
