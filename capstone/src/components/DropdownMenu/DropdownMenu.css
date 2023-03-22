@@ -9,6 +9,19 @@
     background-color: var(--color-white);
 }
 
+.dropdownMenu::before {
+    content: '';
+    position: absolute;
+    top: -0.7rem;
+    right: 0.7rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: var(--color-white);
+    border-left: 1px solid var(--color-gray);
+    border-top: 1px solid var(--color-gray);
+}
+
 .gap-4 {
     margin: 0;
     padding: 0;

@@ -3,3 +3,7 @@ li {
     color: var(--color-darkgreen);
     margin-bottom: 5px;
 }
+
+li:hover {
+    color: var(--color-golden);
+}

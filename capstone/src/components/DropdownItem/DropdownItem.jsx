@@ -7,7 +7,7 @@ import './DropdownItem.css';
 const DropdownItem = (props) => {
     return (
         <li className='dropdownItem'>
-            <a> {props.text} </a>
+            <a href={props.link}> {props.text} </a>
         </li>
     )
 }

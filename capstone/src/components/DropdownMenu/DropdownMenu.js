@@ -9,9 +9,9 @@ const DropdownMenu = () => {
     return (
         <div className="flex flex-col dropdownMenu">
             <ul className='flex flex-col gap-4'>
-                <DropdownItem text = {"Profile"} />
-                <DropdownItem text = {"History"} />
-                <DropdownItem text = {"Logout"} />
+                <DropdownItem text = {"Profile"} link={'/account'}/>
+                <DropdownItem text = {"History"} link={'/history'}/>
+                <DropdownItem text = {"Logout"} link={'/'}/>
             </ul>
         </div>
     )
