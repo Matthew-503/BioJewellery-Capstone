@@ -142,7 +142,7 @@ input[type=text]:focus {
 } */
 
 .navbar-icons {
-    font-size: 24px;
+    font-size: 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,14 +150,29 @@ input[type=text]:focus {
 }
 
 .navbar-icons svg {
-    font-size: 26px;
+    font-size: 1.8rem;
     color: var(--color-golden);
-    margin: 0 0.5rem 0 0;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.navbar-icons-cart {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-golden);
+}
+
+.navbar-icons-cart svg {
+    font-size: 1.8rem;
+    color: var(--color-golden);
+    margin: 0 0.5rem;
     cursor: pointer;
 }
 
 .navbar-cart-count {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: var(--font-alt);
     color: var(--color-golden);
     border: none;
