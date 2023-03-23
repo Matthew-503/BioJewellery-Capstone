@@ -5,11 +5,11 @@ const Home = () => {
   return (
     <div>
 
-      {/* <Header /> */}
-      {/* <Gallery /> */}
+      <Header />
+      <Gallery />
       {/* <Video /> */}
-      {/* <Benefits /> */}
-      {/* <Follow /> */}
+      <Benefits />
+      <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -19,7 +19,7 @@ const Home = () => {
       {/* <Account /> */}
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
-      <AddProduct />
+      {/* <AddProduct /> */}
     </div>
   )
 }
