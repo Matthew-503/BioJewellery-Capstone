@@ -34,6 +34,7 @@ import PayButton from './PayButton/PayButton';
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
+import ProductSideBar from './ProductSideBar/ProductSideBar';
 import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
@@ -69,7 +70,7 @@ export {
     Article,
 
     ReviewBlock,
-
+    ProductSideBar,
     CartItem,
     Rating,
 
