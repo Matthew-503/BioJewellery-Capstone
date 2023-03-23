@@ -13,7 +13,7 @@ const OrderPreview = () => {
         
     return (
         <>
-           <Address/> 
+           {/* <Address/>  */}
            <CheckoutSummary />
         </>
     );

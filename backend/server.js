@@ -1,22 +1,20 @@
-//sk_test_51MmsESGqyagVRxA1BIBc0xVLZMDOG4GfABDTRgr0NT3lXCGOAAGIZbZg26QCacl0dQOx7IRLe4nlx2t1fUzL9vYN005qEnNnXX
-//Cerradoleafearring TestMode ApiData: price_1MmsiHGqyagVRxA1Oce48my1
-
 const mongoose = require('mongoose');
 const express = require('express');
-const { urlencoded } = require('express');
 const app = express();
+const { urlencoded } = require('express');
 const dotenv = require('dotenv')
 dotenv.config()
 const colours  = require('colors');
 const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db')
 const {errorHandler} = require('./middleware/errorHandler')
+
 //allows any ip address to access our express server
 var cors = require('cors');
 //to uniquely identify the resources and prevent conflict or data loss
 const uuid = require('uuid')
 //Initializing stripe client for our account using secret key
-const stripe = require('stripe')('sk_test_51MmsESGqyagVRxA1BIBc0xVLZMDOG4GfABDTRgr0NT3lXCGOAAGIZbZg26QCacl0dQOx7IRLe4nlx2t1fUzL9vYN005qEnNnXX');
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 //Mongodb connections
 connectDB();
@@ -51,37 +49,10 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 //Address routes
 app.use('/api/addresses', require('./routes/addressRoutes.js'));
 
+//Stripe routes
+app.use('/checkout', require('./routes/stripeRoutes.js'));
+
 app.use(errorHandler);
-
-//Stripe request
-app.post("/checkout", async(req, res) => {
-
-    const items = req.body.cartItems;
-
-    //data formatting for stripe
-    let lineItems = [];
-
-    items.forEach((item) => {
-        lineItems.push({
-            price: item.product.priceApiId,
-            quantity: item.quantity
-        })
-    });
-
-    //initializing Stripe session
-    const session = await stripe.checkout.sessions.create({
-        line_items : lineItems,
-        mode: 'payment',
-        success_url: "http://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel"
-    });
-
-    //sending response to front end
-    res.send(JSON.stringify({
-        url: session.url
-    }));
-})
-
 
 //Listen
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));

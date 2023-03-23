@@ -14,26 +14,7 @@ const CartSummary = () => {
     const subTotal = useSelector((state) => state.cart.subTotal);
 
     return (
-        // <div className="">
-        //     <div>
-        //         <table className='cartbar__table'>
-        //             <tbody>
-        //                 <tr>
-        //                     <th>Subtotal</th>
-        //                     <th>CA${299.99}</th>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         <div className="cartbar__button">
-        //                             <PayButton/>
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //             </tbody>                    
-        //         </table>
-        //     </div>
-        // </div>
-
+        
         <div className='cart__summary'>
             <div className='cart__summary-header'>
                 <h1>

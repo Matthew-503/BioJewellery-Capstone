@@ -10,8 +10,12 @@ import { useSelector } from "react-redux";
 
 function CheckoutSummary() {
   
-    const {subTotal, cartProducts} = useSelector((state) => state.cart);
+    const { subTotal } = useSelector((state) => state.cart);
     const gstPercent = useSelector((state) => state.gst);
+
+    const cartItems = [
+      { name: "Cerrado Leaf Earring", quantity: 1}
+    ]
 
     function calculateTax() {
       return (subTotal * (gstPercent/100));
@@ -22,21 +26,30 @@ function CheckoutSummary() {
     }
 
     const checkout = async () => {
+      try {
+
       //a fetch request to backend
-      await fetch('http://localhost:8001/checkout', {
+      const response = await fetch("http://localhost:8001/checkout",{
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({cartItems: cartProducts})
-      }).then((response) => {
-        //converts response to JSON format and returns
-        return response.json();
-      }).then((response) => {
-        if(response.url){
-          window.location.assign(response.url);
-        }
+        body: JSON.stringify({cartItems})
       })
+      
+      if(!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      //converts response to JSON format and returns
+      const data = await response.json();
+      if (data.url) {
+        window.location.assign(data.url);
+      }
+                
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
 
     return (

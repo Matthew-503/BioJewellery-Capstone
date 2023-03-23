@@ -45,7 +45,7 @@ const App = () => (
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
-                {/* <Route path="/orderpreview" element={<OrderPreview />} /> */}
+                <Route path="/orderpreview" element={<OrderPreview />} />
                 <Route path="/addresses" element={<Address />} />
             </Route>
             <Route element={<ProtectedRoute />}>
