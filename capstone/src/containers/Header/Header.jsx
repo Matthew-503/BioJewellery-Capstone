@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 0.2
 // Date: 18/1/2023
 

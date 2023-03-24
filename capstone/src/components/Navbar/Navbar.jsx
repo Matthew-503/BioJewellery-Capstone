@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Sri
+// Author: Ling Shan Matthew Ng, Sri, Naomy Tung
 // Version 1.0
 // Date: 17/03/2023
 
@@ -16,17 +16,23 @@
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useNavigate } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
 import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { DropdownMenu } from '../../components';
+import { useAuth } from '../../features/ProtectedRouteUser';
+import { Navigate, Outlet } from "react-router-dom";
+import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
-
+    const navigate = useNavigate()
+    const isAuth = useAuth();
     const  {cartProducts, itemCount} = useSelector((state) => state.cart);
+    
 
     const dispatch = useDispatch();
 
@@ -37,6 +43,18 @@ const Navbar = () => {
     }, [dispatch, itemCount]);
 
     const [toggleMenu, setToggleMenu] = React.useState(false);
+
+    const [openDropdownMenu, setopenDropdownMenu] = useState(false);
+
+    const onPerfilClick = () => {
+        if (isAuth) {
+            setopenDropdownMenu(!openDropdownMenu);
+        }
+        else {
+            navigate('/login');
+        }
+    }
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">
@@ -53,27 +71,31 @@ const Navbar = () => {
                 </li>
 
                 <li className="navbar-p">
-                    <NavLink to="/about">About Us</NavLink>
+                    <NavLink to="/aboutus">About Us</NavLink>
                 </li>
             </ul>
 
             <div className="navbar-input">
-                <input className='navbar-input-search' placeholder='Search BioJewellery' />
+                <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
 
                 <a href="#login">
                     <MdSearch className="navbar-icons" />
                 </a>
             </div>
             <div className="navbar-login">
-                <a href="#login" className="navbar-icons">
+                <a href="/cart" className="navbar-icons">
                     <FaShoppingCart />
                     <p className='navbar-cart-count'>{itemCount}</p>
                 </a>
-
-                <Link to="/login">
+                <a className="navbar-icons" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
-                </Link>
+                </a>
+               
             </div>
+            {
+                openDropdownMenu && <DropdownMenu />
+            }
+            
 
             {/* for mobile view display */}
             <div className="navbar-smallscreen">
@@ -83,23 +105,19 @@ const Navbar = () => {
                         <MdOutlineClose fontSize={18} className="navbar-overlay__close" onClick={() => setToggleMenu(false)} />
                         <ul className="navbar-smallscreen_links">
                             <li>
-                                <a href="#home" onClick={() => setToggleMenu(false)}>Home</a>
+                                <a href="/" onClick={() => setToggleMenu(false)}>Home</a>
                             </li>
 
                             <li>
-                                <a href="#shop" onClick={() => setToggleMenu(false)}>Shop</a>
+                                <a href="/categories" onClick={() => setToggleMenu(false)}>Shop</a>
                             </li>
 
                             <li>
-                                <a href="#about" onClick={() => setToggleMenu(false)}>About Us</a>
+                                <a href="/aboutus" onClick={() => setToggleMenu(false)}>About Us</a>
                             </li>
 
                             <li>
-                                <a href="#awards" onClick={() => setToggleMenu(false)}>Cart</a>
-                            </li>
-
-                            <li>
-                                <a href="#contact" onClick={() => setToggleMenu(false)}>Account</a>
+                                <a href="/login" onClick={() => setToggleMenu(false)}>Login</a>
                             </li>
                         </ul>
                     </div>

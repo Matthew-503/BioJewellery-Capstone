@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Naomy Tung (connection backend)
+// Author: Ling Shan Matthew Ng, Naomy Tung 
 // Version 0.2
 // Date: 7/2/2023
 
@@ -19,6 +19,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/accountFeatures/accountSlice'
+import { Navbar } from '../../components';
+
 
 import './Login.css';
 
@@ -57,11 +59,19 @@ function Login() {
           setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
         }
     
-        if (isSuccess && user) { //change to isSuccess || user later)
+        if (isSuccess && user) { 
           dispatch(reset())
-          navigate('/')
+          //if its a regular client it redirect to the logged home page (protected route)
+          if (user.user.type === "Client") {
+            navigate('/')
+          }
+          //otherwise it will go to the admin view (protected route)
+          else {
+            navigate('/editproduct')
+          }
+          
         }
-    
+        
        
       }, [user, isError, isSuccess, message, navigate, dispatch])
 
@@ -85,6 +95,7 @@ function Login() {
 
     return (
         <>
+            <Navbar />
             <div className='login'>
                 <div className="login__wrapper">
                     <img src={images.login} alt="G_overlay" className='left' />

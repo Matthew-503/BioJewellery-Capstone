@@ -20,7 +20,7 @@ const CartSummary = () => {
                     <tbody>
                         <tr>
                             <th>Subtotal</th>
-                            <th>{subTotal}</th>
+                            <th>CA${299.99}</th>
                         </tr>
                         <tr>
                             <td>

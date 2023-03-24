@@ -1,4 +1,4 @@
-// Author: Naomy, Sri
+// Author: Naomy Tung, Sri
 // Version 1.0
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
@@ -93,6 +93,7 @@ export const authSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null
+        state.isSuccess = true
       })
   },
 })
