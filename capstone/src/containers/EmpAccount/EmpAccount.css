@@ -94,6 +94,11 @@
     min-width: 10vw;
 }
 
+.emp-account__table-column3 {
+    min-width: 35vw;
+    margin-bottom: 2rem;
+}
+
 .emp-account__table-column1 h3 {
     font-size: 1.8rem;
     font-family: var(--font-base);
