@@ -71,7 +71,7 @@ const ProductDetailBar = () => {
                         <td>
                             <div className="detail__bar-add-button">
                                 <Link to="/cart">
-                                    <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
+                                    <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct, quantity))} >
                                         <FaShoppingCart />  Add to Cart
                                     </button>
                                 </Link>

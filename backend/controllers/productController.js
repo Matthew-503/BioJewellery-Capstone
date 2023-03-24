@@ -56,6 +56,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
 
 const updateProduct = asyncHandler(async (req, res) => {
 
+        
     res.status(200).json('Updated product');
 })
 
