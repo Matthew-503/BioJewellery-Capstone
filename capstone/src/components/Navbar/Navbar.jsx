@@ -95,15 +95,6 @@ const Navbar = () => {
                     <MdAccountCircle className="navbar-icons" />
                 </a>
             </div>
-            {/* <div className="navbar-login">
-                <a href="/cart" className="navbar-icons">
-                    <FaShoppingCart />
-                    <p className='navbar-cart-count'>{itemCount}</p>
-                </a>
-                <a className="navbar-icons" onClick={onPerfilClick}>
-                    <MdAccountCircle className="navbar-icons" />
-                </a>
-            </div> */}
             {
                 openDropdownMenu && <DropdownMenu />
             }
