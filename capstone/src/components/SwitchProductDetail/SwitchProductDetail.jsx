@@ -21,7 +21,7 @@ const SwitchProductDetail = () => {
     
     return (
         <>
-            {/* <div className="switch">
+             <div className="switch">
                 <br />
                 <div
                     className="switch_tab"
@@ -62,7 +62,7 @@ const SwitchProductDetail = () => {
                     )}
 
                 </p>
-            </div> */}
+            </div> 
         </>
     );
 };

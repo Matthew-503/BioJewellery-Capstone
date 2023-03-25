@@ -1,5 +1,5 @@
 
-// Author: Ling Shan Matthew Ng
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 0.2
 // Date: 18/1/2023
 
@@ -24,10 +24,12 @@ import Article from './Article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
+import ReturnBlock from './ReturnBlock/ReturnBlock';
 import CartContent from './CartContent/CartContent'
 import FeatureBlock from './FeatureBlock/FeatureBlock';
 import CartItem from './CartItem/CartItem';
-
+import DropdownItem from './DropdownItem/DropdownItem';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
@@ -41,7 +43,6 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 // import AdminMenu from './AdminMenu/AdminMenu';
 
 import Uploader from "./Uploader/Uploader";
-
 
 
 // import Newsletter from './Footer/Newsletter';
@@ -78,9 +79,13 @@ export {
 
     AddProduct,
     EditProduct,
+    
+    DropdownItem,
+    DropdownMenu,
 
     // AdminMenu,
 
+    ReturnBlock,
     FeatureBlock,
 
     SideBar,

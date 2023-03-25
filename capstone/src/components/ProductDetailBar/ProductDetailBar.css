@@ -1,4 +1,4 @@
-.detail__bar-table {
+.detail__bar {
     min-width: 18vw;
     max-width: 25vw;
     max-height: 30vw;
@@ -8,7 +8,7 @@
     overflow-y: auto;
 }
 
-.detail__bar-table th {
+.detail__bar th {
     font-size: 2.5rem;
     font-family: var(--font-alt);
     color: var(--color-darkgreen);
@@ -16,7 +16,7 @@
     padding: 0 0 1.5rem 0;
 }
 
-.detail__bar-table td {
+.detail__bar td {
     font-size: 24px;
     font-family: var(--font-alt);
     color: var(--color-darkgreen);
