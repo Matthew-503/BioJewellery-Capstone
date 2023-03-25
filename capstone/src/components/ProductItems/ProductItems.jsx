@@ -4,15 +4,15 @@ import './ProductItems.css';
 const ProductItems = ({ imgUrl, product }) => {
 
     return (
-        <div className="gpt3__blog-container_article">
-            <div className="gpt3__blog-container_article-image">
+        <div className="product__item">
+            <div className="product__item-image">
                 <Link to={"/products/" + product.name}>
-                    <img src={imgUrl} alt="blog" />
+                    <img src={imgUrl} alt={product.name} />
                 </Link>
             </div>
 
-            <div className="gpt3__blog-container_article-content">
-                <div>
+            <div className="product__item-content">
+                <div className='product__item-name'>
                     <Link to={"/products/" + product.name} >
                         {product.name}
                     </Link>
