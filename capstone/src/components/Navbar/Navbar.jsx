@@ -84,14 +84,14 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-input">
-                <a href="#login">
+                <a href="/cart">
                     <FaShoppingCart className="navbar-icons" />
                 </a>
                 <p className='navbar-cart-count'>{itemCount}</p>
             </div>
 
             <div className="navbar-input">
-                <a href="#login">
+                <a href="#login" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
                 </a>
             </div>
