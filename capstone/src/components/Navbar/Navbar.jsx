@@ -31,15 +31,15 @@ import { logout, reset } from '../../features/accountFeatures/accountSlice'
 const Navbar = () => {
     const navigate = useNavigate()
     const isAuth = useAuth();
-    const  {cartProducts, itemCount} = useSelector((state) => state.cart);
-    
+    const { cartProducts, itemCount } = useSelector((state) => state.cart);
+
 
     const dispatch = useDispatch();
 
     useEffect(() => {
 
         dispatch(updateItemCount());
-        
+
     }, [dispatch, itemCount]);
 
     const [toggleMenu, setToggleMenu] = React.useState(false);
@@ -82,7 +82,20 @@ const Navbar = () => {
                     <MdSearch className="navbar-icons" />
                 </a>
             </div>
-            <div className="navbar-login">
+
+            <div className="navbar-input">
+                <a href="#login">
+                    <FaShoppingCart className="navbar-icons" />
+                </a>
+                <p className='navbar-cart-count'>{itemCount}</p>
+            </div>
+
+            <div className="navbar-input">
+                <a href="#login">
+                    <MdAccountCircle className="navbar-icons" />
+                </a>
+            </div>
+            {/* <div className="navbar-login">
                 <a href="/cart" className="navbar-icons">
                     <FaShoppingCart />
                     <p className='navbar-cart-count'>{itemCount}</p>
@@ -90,12 +103,11 @@ const Navbar = () => {
                 <a className="navbar-icons" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
                 </a>
-               
-            </div>
+            </div> */}
             {
                 openDropdownMenu && <DropdownMenu />
             }
-            
+
 
             {/* for mobile view display */}
             <div className="navbar-smallscreen">
