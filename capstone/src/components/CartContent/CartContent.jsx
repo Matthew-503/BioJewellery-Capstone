@@ -8,7 +8,7 @@
 import React from 'react';
 import './CartContent.css';
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 
 const CartContent = () => {
@@ -19,6 +19,18 @@ const CartContent = () => {
         //dispatch(updateItemCount())
 
     }, [dispatch, cartProducts]);
+
+    const [number, setNumber] = useState(0);
+
+    function handleIncrement() {
+        setNumber(number + 1);
+    }
+
+    function handleDecrement() {
+        if (number > 0) {
+            setNumber(number - 1);
+        }
+    }
 
     return (
         <>
@@ -84,15 +96,18 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <div className='cart__content-action'>
-                                <button onClick={() => { increaseItemQuantity(item.product._id) }}>
-                                    -1
-                                </button>
+                                {/* <button onClick={() => { increaseItemQuantity(item.product._id) }}>
+                                    -
+                                </button> */}
+                                <button onClick={handleIncrement}>+</button>
                                 <p>
-                                    {item.quantity}
+                                    {/* {item.quantity} */}
+                                    {number}
                                 </p>
-                                <button onClick={() => { decreaseItemQuantity(item.product._id) }}>
-                                    +1
-                                </button>
+                                {/* <button onClick={() => { decreaseItemQuantity(item.product._id) }}>
+                                    +
+                                </button> */}
+                                <button onClick={handleDecrement}>-</button>
                                 <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>
                                     Remove
                                 </button>
