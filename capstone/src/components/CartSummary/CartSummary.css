@@ -1,3 +1,24 @@
+.cart__summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__summary-header {
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    font-family: var(--font-base);
+    color: var(--color-darkgreen);
+    gap: 5rem;
+}
+
+/* .cart__summary-action button{
+    
+} */
+
+
+
+
 .cartbar__table {
     /* border: 2px solid forestgreen; */
     width: 20vw;
@@ -35,6 +56,7 @@
 
 .cartbar__button {
     text-align: center;
+    margin-top: 1rem;
 }
 
 .cartbar__star {
