@@ -1,14 +1,13 @@
 import React from 'react'
-import { AddProduct } from '../../components';
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmpAddProduct } from '../../containers';
 const Home = () => {
   return (
     <div>
 
-      <Header /> 
-      <Gallery />
+      {/* <Header />  */}
+      {/* <Gallery /> */}
       {/* <Video /> */}
-       <Benefits /> 
+      {/* <Benefits />  */}
       {/* <Follow /> */}
       {/* <Login /> */}
       {/* <SignUp /> */}
@@ -19,7 +18,7 @@ const Home = () => {
       {/* <Account /> */}
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
-      {/* <AddProduct /> */}
+      <EmpAddProduct />
     </div>
   )
 }
