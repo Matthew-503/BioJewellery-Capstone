@@ -1,16 +1,17 @@
-/* .shop__cart {
-    background-color: white;;
-} */
+.cart {
+    min-height: 80vh;
+}
 
 .cart__headtext {
+    font-size: 1.8rem;
     font-family: var(--font-base);
+    line-height: 3rem;
     color: var(--color-darkgreen);
-    /* text-align: center; */
+    margin-bottom: 2rem;
 }
 
 .cart__icons {
     justify-content: space-between;
-    align-items: center;
 }
 
 .cart__subtotal {
