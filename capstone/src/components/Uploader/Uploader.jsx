@@ -36,16 +36,16 @@ function Uploader() {
 
                             <p>Browse Files to Upload</p>
 
-                            <h4>
+                            {/* <h4>
                                 {fileName}
 
-                                {/* <MdDelete
+                                <MdDelete
                                     onClick={() => {
                                         setFileName("No Selected Files")
                                         setImage(null)
                                     }}
-                                /> */}
-                            </h4>
+                                />
+                            </h4> */}
                         </>
                     }
 
