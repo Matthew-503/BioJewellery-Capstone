@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmpAddProduct } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmpAddProduct, EmployeeSettings, EmpAccount } from '../../containers';
 const Home = () => {
   return (
     <div>
@@ -19,6 +19,7 @@ const Home = () => {
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
       {/* <EmpAddProduct /> */}
+      {/* <EmpAccount /> */}
     </div>
   )
 }
