@@ -28,127 +28,127 @@ import './Login.css';
 
 
 function Login() {
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log(username, password);
-    // };
+  // const handleSubmit = (event) => {
+  //     event.preventDefault();
+  //     console.log(username, password);
+  // };
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    })
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
 
-    const { email, password } = formData
+  const { email, password } = formData
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-    const { user, isError, isSuccess, message } = useSelector(
-        (state) => state.auth
-    )
+  const { user, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
 
-    const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
 
-    useEffect(() => {
-        if (isError) {
-          toast.error(message)
-          setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
-        }
-    
-        if (isSuccess && user) { 
-          dispatch(reset())
-          //if its a regular client it redirect to the logged home page (protected route)
-          if (user.user.type === "Client") {
-            navigate('/')
-          }
-          //otherwise it will go to the admin view (protected route)
-          else {
-            navigate('/editproduct')
-          }
-          
-        }
-        
-       
-      }, [user, isError, isSuccess, message, navigate, dispatch])
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+      setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
+    }
 
-      const onChange = (e) => {
-        setFormData((prevState) => ({
-          ...prevState,
-          [e.target.name]: e.target.value,
-        }))
+    if (isSuccess && user) {
+      dispatch(reset())
+      //if its a regular client it redirect to the logged home page (protected route)
+      if (user.user.type === "Client") {
+        navigate('/')
+      }
+      //otherwise it will go to the admin view (protected route)
+      else {
+        navigate('/editproduct')
       }
 
-      const onSubmit = (e) => {
-        e.preventDefault()
-    
-        const userData = {
-          email,
-          password,
-        }
-    
-        dispatch(login(userData))
-      }
+    }
 
-    return (
-        <>
-            <Navbar />
-            <div className='login'>
-                <div className="login__wrapper">
-                    <img src={images.login} alt="G_overlay" className='left' />
-                    <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-                    {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
-                </div>
-                <form onSubmit={onSubmit}>
-                    <div className='right login__form'>
-                        <SubHeading title={"Login"} className='login__subheading' />
 
-                        <p>Welcome back! Please enter your details</p>
-                        
-                        {isError ? <p className='login__error-message'>{errorMessage}</p> : null }
-                        
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
-                    <input
-                        className='login__input'
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="email"
-                        value={email}
-                        onChange={onChange}
-                    />
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
-                    <input
-                        className='login__input'
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={onChange}
-                    />
+  const onSubmit = (e) => {
+    e.preventDefault()
 
-                        <div className='login__lower-functions login__forget-link'>
-                            <div className="login__link">
-                                <Link to="/">Forgot password?</Link>
-                            </div>
-                            <br />
-                            <button type="submit" className="login__button">Login</button>
-                            <br />
-                            <button type="submit" className="login__button">Register</button>
-                            <br />
-                            <div className="login__link">
-                                <Link to="/">Continue as guest</Link>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+    const userData = {
+      email,
+      password,
+    }
+
+    dispatch(login(userData))
+  }
+
+  return (
+    <>
+      <Navbar />
+      <div className='login'>
+        <div className="login__wrapper">
+          <img src={images.login} alt="G_overlay" className='left' />
+          <h1 className='HeaderText left '>Turn your dreams into reality</h1>
+          {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
+        </div>
+        <form onSubmit={onSubmit}>
+          <div className='right login__form'>
+            <SubHeading title={"Login"} className='login__subheading' />
+
+            <p>Welcome back! Please enter your details</p>
+
+            {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
+
+
+            <input
+              className='login__input'
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={onChange}
+            />
+
+            <input
+              className='login__input'
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={onChange}
+            />
+
+            <div className='login__lower-functions login__forget-link'>
+              <div className="login__link">
+                <Link to="/">Forgot password?</Link>
+              </div>
+              <br />
+              <button type="submit" className="login__button">Login</button>
+              <br />
+              <button type="submit" className="login__button">Register</button>
+              <br />
+              <div className="login__link">
+                <Link to="/">Continue as guest</Link>
+              </div>
             </div>
-        </>
-    );
+          </div>
+        </form>
+      </div>
+    </>
+  );
 };
 
 export default Login;
