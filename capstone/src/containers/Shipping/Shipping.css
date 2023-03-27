@@ -125,6 +125,23 @@
     align-items: center;
 }
 
+.order__button-submit {
+    margin-top: 0.5vw;
+    min-width: 25vw;
+    background-color: var(--color-green);
+    color: #f8f8f8;
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .order__button-action {
     margin-top: 0.5vw;
     min-width: 10vw;
@@ -142,22 +159,7 @@
     cursor: pointer;
 }
 
-.order__button-submit {
-    margin-top: 0.5vw;
-    min-width: 25vw;
-    background-color: var(--color-green);
-    color: #f8f8f8;
-    font-family: var(--font-alt);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 28px;
-    font-size: 16px;
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
+
 
 @media screen and (max-width: 430px) {
     .order__pt1 {

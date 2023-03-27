@@ -7,6 +7,7 @@
 import React from 'react'
 import './CheckoutSummary.css';
 import { useSelector } from "react-redux";
+import { FaShoppingCart } from 'react-icons/fa';
 
 function CheckoutSummary() {
   
@@ -53,11 +54,23 @@ function CheckoutSummary() {
     }
 
     return (
-    <div>
-      <div>Subtotal: CA${subTotal}</div>
-      <div>Tax: CA${calculateTax()}</div>
-      <div>Order Total: CA${calculateTotal()}</div>
-      <button onClick={() => {checkout()}}>Proceed to Pay</button>
+    <div className='checkout__summary'>
+      <div className='checkout__summary-header'>
+        <div>Subtotal: CA${subTotal}</div>
+        <div>Tax: CA${calculateTax()}</div>
+        <div>Order Total: CA${calculateTotal()}</div>
+      </div>
+      
+
+      <div className='order__button'>
+        <button
+            className='order__button-submit'
+            onClick={ () => {checkout()}}
+        >
+            Proceed to pay <FaShoppingCart className='order__button-icon' />
+        </button>
+      </div>
+
     </div>
   )
 }
