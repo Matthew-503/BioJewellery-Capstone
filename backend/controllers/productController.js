@@ -28,7 +28,7 @@ const getProduct = asyncHandler(async (req, res) => {
             throw new Error('No way to determine product being searched for');
         }
         const product = await productModel.find({ name: req.params.name });
-        res.status(200).json({product});
+        res.status(200).json({ product });
     } catch (error) {
         res.status(400)
         throw new Error('Unable to get the products');
@@ -59,6 +59,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
 
 const updateProduct = asyncHandler(async (req, res) => {
 
+        
     res.status(200).json('Updated product');
 })
 
@@ -67,7 +68,103 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
     res.status(200).json('Product deleted');
 })
+
+const sortProducts = asyncHandler(async (req, res) => {
+    let products;
+    const sortChoice = req.params.sortType
+
+    if (req.params.sortType === ' ') {
+        throw new Error('Cant sort products by ' + sortChoice)
+    }
+    switch (sortChoice) {
+        case 'Ascd':
+            products = await productModel.find();
+            products = sortByAsc(products);
+
+            break;
+        case 'Dscd':
+            products = await productModel.find();
+            products = sortByDscd(products);
+            break;
+        case 'On Sale':
+            products = await productModel.find({ onSale: true });
+            
+            break;
+        case 'Trending':
+            products = await productModel.find({ Trending: true });
+            
+            break;
+        case 'Popular':
+            products = await productModel.find({ isPopular: true });
+            break;
+        default:
+            throw new Error('Cant sort products by ' + sortChoice)
+    }
+
+    res.status(200).json(products);
+
+})
+
+
+
+function sortByAsc(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+
+    return mergeAsc(sortByAsc(left), sortByAsc(right));
+
+    function mergeAsc(left, right) {
+        const result = [];
+
+        while (left.length && right.length) {
+            if (left[0].name <= right[0].name) {
+                result.push(left.shift());
+            } else {
+                result.push(right.shift());
+            }
+        }
+
+        return result.concat(left, right);
+    }
+}
+
+
+
+
+function sortByDscd(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+
+    return mergeDsc(sortByDscd(left), sortByDscd(right));
+}
+
+function mergeDsc(left, right) {
+    const result = [];
+
+    while (left.length && right.length) {
+        if (left[0].name >= right[0].name) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    return result.concat(left, right);
+}
+
+
 module.exports = {
+    sortProducts,
     setProduct,
     updateProduct,
     deleteProduct,

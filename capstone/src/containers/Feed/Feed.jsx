@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
 import { fetchFromAPI } from '../../constants';
-import { SideBar } from '../../components';
+import { ProductSideBar } from '../../components';
 import ShopProduct from "../ShopProduct/ShopProduct";
 
 import './Feed.css';
@@ -22,7 +22,7 @@ const Feed = () => {
     return (
         <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
             <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
-                <SideBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                <ProductSideBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             </Box>
 
             <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>

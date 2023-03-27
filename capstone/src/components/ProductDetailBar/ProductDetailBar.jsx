@@ -145,6 +145,7 @@ const ProductDetailBar = () => {
                         </option>
                     ))}
                 </select>
+
             </div>
 
             <Link to="/cart">
