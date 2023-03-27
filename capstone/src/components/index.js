@@ -12,7 +12,7 @@
 
 
 // Notes: 
-import AddProduct from '../containers/EmpAccount/EmpAddProduct';
+import AddProduct from './AddProduct/AddProduct';
 import EditProduct from './EditProduct/EditProduct';
 
 
