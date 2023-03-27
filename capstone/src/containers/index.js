@@ -20,6 +20,7 @@ import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
 
 import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
+import ManageUser from './ManageUser/ManageUser';
 import AboutUs from './AboutUs/AboutUs';
 
 import ShopCategory from './ShopCategory/ShopCategory';
@@ -61,6 +62,7 @@ export {
   EmployeeReturn,
   Feedback,
   EmployeeSettings,
+  ManageUser,
   SwitchDetail,
   ShoppingCart,
   UserNavigation,

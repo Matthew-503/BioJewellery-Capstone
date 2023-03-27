@@ -24,6 +24,7 @@ import Article from './Article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
+import UserBlock from './UserBlock/UserBlock';
 import ReturnBlock from './ReturnBlock/ReturnBlock';
 import CartContent from './CartContent/CartContent'
 import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
@@ -88,6 +89,7 @@ export {
 
     // AdminMenu,
 
+    UserBlock,
     ReturnBlock,
     DescriptionBlock,
 
