@@ -1,3 +1,6 @@
+// Author: Naomy
+// Date: 14/03/2023
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');

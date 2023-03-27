@@ -1,3 +1,6 @@
+// @author: Naomy Tung 
+// @version: 1.0
+
 // Author: Naomy Tung
 // Version 1
 // Date: 18/3/2023
@@ -12,14 +15,14 @@ const useAuth = () => {
         (state) => state.auth
     )
 
-	if (user && user.user.type==="Admin") {
+	if (user && user.user.type==="Client") {
 		return true;	
 	} else {
 		return false;
 	}
 }
 
-const ProtectedRoute = () => {
+const ProtectedRouteUser = () => {
   const isAuth = useAuth();
   return isAuth ? 
     <Outlet />
@@ -28,4 +31,7 @@ const ProtectedRoute = () => {
   );
 };
 
-export default ProtectedRoute;
+export {
+  ProtectedRouteUser,
+  useAuth,
+}

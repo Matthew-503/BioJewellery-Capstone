@@ -16,7 +16,8 @@ const ShoppingCart = () => {
         <div className="cart app__section-padding">
             <div className='cart__headtext'>
                 <h1>
-                    ShoppingCart <HiOutlineShoppingBag className='cart__icons' />
+                    ShoppingCart
+                    {/* <HiOutlineShoppingBag className='cart__icons' /> */}
                 </h1>
 
             </div>

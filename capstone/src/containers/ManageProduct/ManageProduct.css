@@ -2,7 +2,6 @@
 @use postcss-nested;
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
 
-/* Base styling */
 
 body {
     width: 430px;

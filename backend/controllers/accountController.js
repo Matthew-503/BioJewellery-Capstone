@@ -93,6 +93,7 @@ const loginAccount = asyncHandler(async (req, res) => {
   //user object
   const user = await User.findById(account.user)
 
+  
   if (account && (await bcrypt.compare(password, account.password))) {
     res.json({
       _id: account.id,
@@ -100,8 +101,7 @@ const loginAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       user:{
         _id: user._id,
-        type: user.type,
-        shippingAddress
+        type: user.type
       }      
     })
   } else {

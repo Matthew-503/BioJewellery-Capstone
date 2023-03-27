@@ -17,7 +17,7 @@ import React from 'react';
 import { ProductItems } from '../../components';
 // import { SubHeading } from '../../components';
 
-import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
+import { cerrado } from './import.js';
 
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts, reset } from '../../features/productFeatures/productSlice';
@@ -25,7 +25,6 @@ import { useEffect } from "react";
 import './ShopProduct.css';
 
 const ShopProduct = () => {
-
 
     const dispatch = useDispatch();
 
@@ -38,22 +37,19 @@ const ShopProduct = () => {
 
         dispatch(getProducts())
 
-        
         console.log("Products: " + products);
     }, [isError, message, dispatch])
+
     return (
         <div className="product product__section-padding" id="blog">
-
-            {/* <SubHeading title="Chef's word" /> */}
-
             <div className="product__container">
-                <div className="product__container-card">
+                <div>
                     {products.length > 0 ? (
-                        <div>
+                        <div className="product__container-card">
                             {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
-                                imgUrl={gallery01}
+                                imgUrl={cerrado}
                             />))}
                         </div>
                     ) : (<h3>You have not set any products</h3>)}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
-import { Rating, ReviewBlock, FeatureBlock } from '..';
+import { Rating, ReviewBlock, DescriptionBlock } from '..';
 
 import './SwitchProductDetail.css';
 
@@ -18,10 +18,10 @@ const SwitchProductDetail = () => {
     var customerDefaultTitle = "Default Title";
     var customerDefaultDescription = "Default Description";
 
-    
+
     return (
         <>
-             <div className="switch">
+            <div className="switch">
                 <br />
                 <div
                     className="switch_tab"
@@ -44,7 +44,7 @@ const SwitchProductDetail = () => {
             <div className="col text-center">
                 <p>
                     {myProfession === "Description" && (
-                        <FeatureBlock
+                        <DescriptionBlock
                             productFeatureName="Name"
                             productFeatureType="Type"
                             productFeatureColor="Type"
@@ -62,7 +62,7 @@ const SwitchProductDetail = () => {
                     )}
 
                 </p>
-            </div> 
+            </div>
         </>
     );
 };

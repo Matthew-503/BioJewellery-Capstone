@@ -11,23 +11,26 @@ const colours  = require('colors');
 const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db')
 const {errorHandler} = require('./middleware/errorHandler')
-
 //allows any ip address to access our express server
 var cors = require('cors');
-
+//to uniquely identify the resources and prevent conflict or data loss
+const uuid = require('uuid')
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')('sk_test_51MmsESGqyagVRxA1BIBc0xVLZMDOG4GfABDTRgr0NT3lXCGOAAGIZbZg26QCacl0dQOx7IRLe4nlx2t1fUzL9vYN005qEnNnXX');
 
 //Mongodb connections
 connectDB();
-
 app.use(express.json());
 app.use(urlencoded({extended: false}));
-
 app.use(cors());
-
 //allows to serve static files from public directory to client, recommended by stripe doc.
 app.use(express.static('public'));
+
+//Routes
+//Just to test server is running
+app.get("/", (req, res) => {
+    res.send("Whoohoo I am working!");
+});
 
 //Connect the routes and controllers
 //For all product routes
@@ -79,6 +82,8 @@ app.post("/checkout", async(req, res) => {
     }));
 })
 
+
+//Listen
 app.listen(PORT, () => console.log(`Server runs on Port ${PORT}`));
 
 //To run server type: 'npm start server'
