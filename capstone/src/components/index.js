@@ -39,6 +39,8 @@ import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
+import EmpProductItem from './EmpProductItem/EmpProductItem';
 
 // import AdminMenu from './AdminMenu/AdminMenu';
 
@@ -94,7 +96,9 @@ export {
     CartSummary,
 
     EmployeeMenu,
+    EmployeeProduct,
     Uploader,
+    EmpProductItem,
 
     SwitchProductDetail,
 
