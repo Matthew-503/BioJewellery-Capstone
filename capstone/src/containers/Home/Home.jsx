@@ -18,8 +18,8 @@ const Home = () => {
       {/* <Account /> */}
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
-      <EmpAddProduct />
-      {/* <EmpAccount /> */}
+      {/* <EmpAddProduct /> */}
+      <EmpAccount />
       {/* <ManageProduct /> */}
       {/*<ManageProduct /> */}
     </div >
