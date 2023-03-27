@@ -53,10 +53,12 @@ function Login() {
 
     useEffect(() => {
         if (isError) {
-          toast.error(message)
-          setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
+            toast.error(message)
+            setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
         }
-    
+
+          
+        //change to isSuccess || user later)
         if (isSuccess && user) { 
           dispatch(reset())
           //if its a regular client it redirect to the logged home page (protected route)
@@ -69,27 +71,27 @@ function Login() {
           }
           
         }
-    
-       
-      }, [user, isError, isSuccess, message, navigate, dispatch])
 
-      const onChange = (e) => {
+
+    }, [user, isError, isSuccess, message, navigate, dispatch])
+
+    const onChange = (e) => {
         setFormData((prevState) => ({
-          ...prevState,
-          [e.target.name]: e.target.value,
+            ...prevState,
+            [e.target.name]: e.target.value,
         }))
-      }
+    }
 
-      const onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault()
-    
+
         const userData = {
-          email,
-          password,
+            email,
+            password,
         }
-    
+
         dispatch(login(userData))
-      }
+    }
 
     return (
         <>
@@ -104,29 +106,29 @@ function Login() {
                         <SubHeading title={"Login"} className='login__subheading' />
 
                         <p>Welcome back! Please enter your details</p>
-                        
-                        {isError ? <p className='login__error-message'>{errorMessage}</p> : null }
-                        
 
-                    <input
-                        className='login__input'
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="email"
-                        value={email}
-                        onChange={onChange}
-                    />
+                        {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
 
-                    <input
-                        className='login__input'
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={onChange}
-                    />
+
+                        <input
+                            className='login__input'
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="email"
+                            value={email}
+                            onChange={onChange}
+                        />
+
+                        <input
+                            className='login__input'
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={onChange}
+                        />
 
                         <div className='login__lower-functions login__forget-link'>
                             <div className="login__link">
