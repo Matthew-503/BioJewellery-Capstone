@@ -46,6 +46,8 @@ import Policy from './Policy/Policy';
 
 import EmpAccount from './EmpAccount/EmpAccount';
 import EmpAddProduct from './EmpAccount/EmpAddProduct';
+import ManageProduct from './ManageProduct/ManageProduct';
+
 
 export {
   Home,
@@ -76,6 +78,7 @@ export {
 
   EmpAccount,
   EmpAddProduct,
+  ManageProduct,
 };
 
 
