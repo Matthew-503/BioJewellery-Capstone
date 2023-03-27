@@ -4,11 +4,11 @@ const Home = () => {
   return (
     <div>
 
-      {/* <Header />  */}
-      {/* <Gallery /> */}
+      <Header /> 
+      <Gallery />
       {/* <Video /> */}
-      {/* <Benefits />  */}
-      {/* <Follow /> */}
+      <Benefits /> 
+      <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -20,7 +20,7 @@ const Home = () => {
       {/* <OrderConfirmation /> */}
       {/* <EmpAddProduct /> */}
       {/* <EmpAccount /> */}
-      <ManageProduct />
+      {/* <ManageProduct /> */}
     </div>
   )
 }
