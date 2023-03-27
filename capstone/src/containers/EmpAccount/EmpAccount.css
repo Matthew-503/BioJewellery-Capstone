@@ -20,14 +20,6 @@
     text-align: left;
 }
 
-.emp-account__subheader {
-    font-size: 1.8rem;
-    font-family: var(--font-base);
-    color: var(--color-darkgreen);
-    text-align: left;
-    margin-top: 2rem;
-}
-
 .emp-account__header-privillages {
     font-size: 3rem;
     font-family: var(--font-base);

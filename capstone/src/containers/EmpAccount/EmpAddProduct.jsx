@@ -86,7 +86,6 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
-import SideBarAccount from "./EmpSidebarAccount";
 
 import './EmpAddProduct.css';
 import EmpSidebarAccount from "./EmpSidebarAccount";
@@ -123,9 +122,9 @@ const EmpAddProduct = (props) => {
                                     Add Products
                                 </h1>
 
-                                {/* <h1 className='emp-account__subheader'>
+                                <h1 className='emp-account__header'>
                                     Product Information
-                                </h1> */}
+                                </h1>
 
                                 <h3>Product Name</h3>
                                 <br />
