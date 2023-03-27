@@ -44,6 +44,9 @@ import AccountHistory from './Account/AccountHistory';
 import Error from './Error/Error';
 import Policy from './Policy/Policy';
 
+import EmpAddProduct from './EmpAccount/EmpAddProduct';
+import EmpSidebarAccount from './EmpAccount/EmpSidebarAccount';
+
 export {
   Home,
   Header,
@@ -70,6 +73,9 @@ export {
   AccountHistory,
   Error,
   Policy,
+
+  EmpAddProduct,
+  EmpSidebarAccount,
 };
 
 
