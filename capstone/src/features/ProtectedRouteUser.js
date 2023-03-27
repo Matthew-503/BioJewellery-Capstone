@@ -15,8 +15,8 @@ const useAuth = () => {
         (state) => state.auth
     )
 
-	if (user && user.user.type==="Client") {
-		return true;	
+	if (user && user.type==="Client") {
+    return true;	
 	} else {
 		return false;
 	}

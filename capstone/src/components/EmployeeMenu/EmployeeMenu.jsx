@@ -56,21 +56,19 @@ const EmployeeMenu = () => {
     }
 
     return (
-        <div className="employee__menu" class="employee">
+        // <div className="employee__menu" class="employee">
+        <div className="employee">
 
             <div className="employee__text">
 
-                    <div className="employee__photo">
-                        <CgProfile color='#818181' size={120} />
-                    </div>
                     
-                    <div className="employee__photo-arrow"> 
+                    {/* <div className="employee__photo-arrow"> 
                         <IoIosArrowDown color='#818181' size={20} />
-                    </div>
+                    </div> */}
 
-                        <div className="employee__name">
-                            <a href="#Settings">Hailey Johnson</a>
-                        </div>
+                    <div className="employee__name">
+                        <a href="#Settings">{user.user.name}</a>
+                    </div>
 
                     <div className="e__photo-edit"> 
                         <HiPencilAlt color='#818181' size={30} />
@@ -104,7 +102,7 @@ const EmployeeMenu = () => {
                             <a href="#Products">Manage Products</a>
                         </div>
 
-                        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /><br /> <br /> <br /> <br /><br /> 
+                        <br /> <br /> <br /> <br /> <br />
                         <div className="e__products">    
                             <a onClick={logoutClick}>Logout</a>
                         </div>
