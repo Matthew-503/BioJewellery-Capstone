@@ -123,9 +123,9 @@ const EmpAddProduct = (props) => {
                                     Add Products
                                 </h1>
 
-                                {/* <h1 className='emp-account__subheader'>
+                                <h1 className='emp-account__header'>
                                     Product Information
-                                </h1> */}
+                                </h1>
 
                                 <h3>Product Name</h3>
                                 <br />
