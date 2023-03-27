@@ -86,7 +86,6 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
-import SideBarAccount from "./EmpSidebarAccount";
 
 import './EmpAddProduct.css';
 import EmpSidebarAccount from "./EmpSidebarAccount";
