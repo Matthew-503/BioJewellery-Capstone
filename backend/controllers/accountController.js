@@ -38,7 +38,6 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   //Create Shipping Address
   const shippingAddress = await Address.create({
-    client: user._id,
     street,
     city,
     province,
