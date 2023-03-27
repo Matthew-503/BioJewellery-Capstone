@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const productImages = new mongoose.Schema({
     source:{
-        type:Image,
-        required:true
+        data: Buffer,
+        contentType: String
     },
     product:{
         type: mongoose.Schema.Types.ObjectId,

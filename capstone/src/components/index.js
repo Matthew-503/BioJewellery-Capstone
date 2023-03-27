@@ -24,8 +24,9 @@ import Article from './Article/Article';
 import Rating from './Rating/Rating';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 
-import CartBlock from './CartBlock/CartBlock'
-import FeatureBlock from './FeatureBlock/FeatureBlock';
+import ReturnBlock from './ReturnBlock/ReturnBlock';
+import CartContent from './CartContent/CartContent'
+import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
 import CartItem from './CartItem/CartItem';
 
 import PayButton from './PayButton/PayButton';
@@ -33,7 +34,7 @@ import PayButton from './PayButton/PayButton';
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
-import CartBar from './CartBar/CartBar';
+import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
@@ -41,7 +42,6 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 // import AdminMenu from './AdminMenu/AdminMenu';
 
 import Uploader from "./Uploader/Uploader";
-
 
 
 // import Newsletter from './Footer/Newsletter';
@@ -69,24 +69,26 @@ export {
     Article,
 
     ReviewBlock,
+    DescriptionBlock,
 
     CartItem,
     Rating,
 
-    CartBlock,
+    CartContent,
     PayButton,
 
     AddProduct,
     EditProduct,
+    
 
     // AdminMenu,
 
-    FeatureBlock,
+    ReturnBlock,
 
     SideBar,
     ProductItems,
     ProductDetailBar,
-    CartBar,
+    CartSummary,
 
     EmployeeMenu,
     Uploader,

@@ -13,9 +13,13 @@ const productSchema = new mongoose.Schema({
         default:"Enter a new description"
     },
     price: {
-        type:Number,
+        type:mongoose.Types.Decimal128,
         required:false,
         default:0
+    },
+    priceApiId:{
+        type: String,
+        required:true
     },
     quantity: {
         type:Number,

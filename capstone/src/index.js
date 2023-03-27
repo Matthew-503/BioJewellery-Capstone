@@ -5,8 +5,10 @@ import { store } from './app/store';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom"
+import { createRoot } from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// npm run dev to run the program
+const root = createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
 

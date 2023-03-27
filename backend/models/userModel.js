@@ -13,12 +13,6 @@ const userSchema = new mongoose.Schema({
         required:true,
         default:"Client"
     },
-    addresses: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Address'
-        }
-    ],
     shippingAddress:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',

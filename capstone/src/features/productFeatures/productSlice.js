@@ -27,7 +27,7 @@ export const getProducts = createAsyncThunk('products/getall', async (_, thunkAP
 
 export const getProductByName = createAsyncThunk('products/get', async (name, thunkAPI) => {
     try {
-       
+        
         return await productService.getProductByName(name);
     } catch (error) {
         const message = (
@@ -69,8 +69,8 @@ export const productSlice = createSlice({
         .addCase(getProductByName.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.selectedProduct = action.payload[0]
-           
+            state.selectedProduct = action.payload.product[0]
+        
         })
         .addCase(getProductByName.rejected, (state, action) => {
             state.isLoading = false

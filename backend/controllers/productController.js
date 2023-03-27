@@ -25,7 +25,7 @@ const getProduct = asyncHandler(async (req, res) => {
             throw new Error('No way to determine product being searched for');
         }
         const product = await productModel.find({ name: req.params.name });
-        res.status(200).json(product);
+        res.status(200).json({product});
     } catch (error) {
         res.status(400)
         throw new Error('Unable to get the products');
@@ -34,9 +34,23 @@ const getProduct = asyncHandler(async (req, res) => {
 })
 
 
-const setProduct = asyncHandler(async (req, res) => {
-    
-    res.status(200).json({ message: 'Created product' });
+const setProduct = asyncHandler(async (req, res, next) => {
+
+    if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
+        res.status(400)
+        throw new Error('Please provide all fields!')
+    }
+
+    const product = await productModel.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+    })
+    req.body.productId = product._id
+    product.save();
+    //For uploading images
+    next();
 })
 
 
