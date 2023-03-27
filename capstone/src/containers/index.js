@@ -44,14 +44,6 @@ import AccountHistory from './Account/AccountHistory';
 import Error from './Error/Error';
 import Policy from './Policy/Policy';
 
-<<<<<<< HEAD
-import EmpAccount from './EmpAccount/EmpAccount';
-import EmpAddProduct from './EmpAccount/EmpAddProduct';
-import ManageProduct from './ManageProduct/ManageProduct';
-
-
-=======
->>>>>>> parent of 5e22c57d (Merge pull request #40 from Matthew-503/Employee-Settings)
 export {
   Home,
   Header,
@@ -78,13 +70,6 @@ export {
   AccountHistory,
   Error,
   Policy,
-<<<<<<< HEAD
-
-  EmpAccount,
-  EmpAddProduct,
-  ManageProduct,
-=======
->>>>>>> parent of 5e22c57d (Merge pull request #40 from Matthew-503/Employee-Settings)
 };
 
 
