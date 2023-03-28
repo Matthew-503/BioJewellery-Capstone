@@ -24,7 +24,7 @@ import OrderPreview from './containers/OrderPreview/OrderPreview';
 
 //testing address component - need to be removed
 import Address from './components/Address/Address';
-import ProtectedRoute from './features/ProtectedRoute';
+import { ProtectedRoute } from './features/ProtectedRoute';
 import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
 const App = () => (
@@ -54,7 +54,7 @@ const App = () => (
                 <Route path="/history" element={<AccountHistory />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-                <Route path="/add" element={<AddProduct />} />
+                <Route path="/add" element={<EmpAccount />} />
                 <Route path="/editproduct" element={<EmpAccount />} />
             </Route>
 

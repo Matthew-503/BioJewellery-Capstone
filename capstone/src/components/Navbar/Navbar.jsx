@@ -24,13 +24,15 @@ import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
-import { useAuth } from '../../features/ProtectedRouteUser';
+import { useAuthU } from '../../features/ProtectedRouteUser';
+import { useAuth } from '../../features/ProtectedRoute';
 import { Navigate, Outlet } from "react-router-dom";
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const isAuth = useAuth();
+    const isAuthU = useAuthU();
+    const isAuthA = useAuth();
     const { cartProducts, itemCount } = useSelector((state) => state.cart);
 
 
@@ -47,8 +49,11 @@ const Navbar = () => {
     const [openDropdownMenu, setopenDropdownMenu] = useState(false);
 
     const onPerfilClick = () => {
-        if (isAuth) {
+        if (isAuthU) {
             setopenDropdownMenu(!openDropdownMenu);
+        }
+        else if(isAuthA) {
+            navigate('/editproduct');
         }
         else {
             navigate('/login');
