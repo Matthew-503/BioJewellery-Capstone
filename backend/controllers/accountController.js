@@ -25,11 +25,11 @@ const registerAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check if account exists
-  const accountExists = await Account.findOne({ emailLowerCase })
+  const accountExists = await Account.findOne({ 'email': emailLowerCase })
 
   if (accountExists) {
     res.status(400)
-    throw new Error('Account already exists')
+    throw new Error('Account already exists' + accountExists)
   }
 
   // Hash password
@@ -38,7 +38,7 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   //Create Shipping Address
   const shippingAddress = await Address.create({
-    client: user._id,
+  
     street,
     city,
     province,
@@ -51,9 +51,6 @@ const registerAccount = asyncHandler(async (req, res) => {
     name: name,
     shippingAddress: shippingAddress._id
   })
-
-  //push into address list as well
-  user.addresses.push(shippingAddress)
 
   // Create account
   const account = await Account.create({
@@ -88,11 +85,15 @@ const loginAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check for user email
-  const account = await Account.findOne({ emailLowerCase })
+  const account = await Account.findOne({ 'email': emailLowerCase })
 
   //user object
   const user = await User.findById(account.user)
 
+  if (!user){
+    res.status(400)
+    throw new Error('Account not found.')
+  }
   
   if (account && (await bcrypt.compare(password, account.password))) {
     res.json({

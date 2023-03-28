@@ -34,13 +34,7 @@ const Navbar = () => {
     const { cartProducts, itemCount } = useSelector((state) => state.cart);
 
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-
-        dispatch(updateItemCount());
-
-    }, [dispatch, itemCount]);
+ 
 
     const [toggleMenu, setToggleMenu] = React.useState(false);
 

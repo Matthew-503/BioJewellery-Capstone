@@ -35,35 +35,7 @@ const CartContent = () => {
     return (
         <>
             {cartProducts.length > 0 ?
-                // <div className='cart'>
-                //     <table className='cart__table'>
-                //         <thead>
-                //             <tr>
-                //                 <th>Product</th>
-                //                 <th>Price per unit</th>
-                //                 <th>Quantity</th>
-                //                 <th></th>
-                //             </tr>
-                //         </thead>
-                //         <tbody>
-                //             {cartProducts.map((item) => (
-                //                 <tr key={item._id}>
-                //                     <td>{item.name}</td>
-                //                     <td>CA${299.99}</td>
-                //                     <td>
-                //                         <button onClick={() => { increaseItemQuantity(item.product._id) }}>+</button>
-
-                //                         {item.quantity}
-
-                //                         <button onClick={() => { decreaseItemQuantity(item.product._id) }}>-</button>
-
-                //                         <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>Remove from cart</button>
-                //                     </td>
-                //                 </tr>
-                //             ))}
-                //         </tbody>
-                //     </table>
-                // </div>
+           
                 <div className='cart__content'>
                     <div className='cart__content-card'>
                         <h1>
@@ -72,9 +44,10 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <p>
-                                {item.name}
+                                {item.product.name}
                             </p>
-                        ))}
+                         
+                         ))}
                     </div>
 
                     <div className='cart__content-card'>
@@ -99,22 +72,24 @@ const CartContent = () => {
                                 {/* <button onClick={() => { increaseItemQuantity(item.product._id) }}>
                                     -
                                 </button> */}
-                                <button onClick={handleIncrement}>+</button>
+                                <button onClick={() => {dispatch(increaseItemQuantity(item))}}>+</button>
                                 <p>
-                                    {/* {item.quantity} */}
-                                    {number}
+                                    {item.quantity}
+                                    
                                 </p>
                                 {/* <button onClick={() => { decreaseItemQuantity(item.product._id) }}>
                                     +
                                 </button> */}
-                                <button onClick={handleDecrement}>-</button>
+                                <button onClick={() => {dispatch(decreaseItemQuantity(item))}}>-</button>
                                 <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>
                                     Remove
                                 </button>
                             </div>
                         ))}
                     </div>
+                   
                 </div>
+                
                 :
                 <>
                     <h1>Cart is empty!</h1>

@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const addressSchema = new mongoose.Schema({  
-    client:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
+    
     street:{
         type:String,
         required:true

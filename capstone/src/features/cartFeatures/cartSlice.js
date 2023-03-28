@@ -5,7 +5,7 @@
 //createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
-const cartItem = {'product':{}, 'quantity':{}}
+
 
 const initialState = {
     cartProducts: [], //product object
@@ -18,10 +18,12 @@ const initialState = {
 }
 
 //Add item to cart
-export const addItemToCart = createAsyncThunk('cart/create', async (productData, quantity, thunkAPI) => {
+export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkAPI) => {
     try {
+    
+        console.log(item);
         const token = thunkAPI.getState().auth.user.token
-        return await productData
+        return await item
         
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -95,18 +97,7 @@ export const cartSlice = createSlice({
     reducers: {
         reset: (state) => initialState,
 
-        updateItemCount: (state) => {
-
-            const count = state.cartProducts.reduce((acc, curr) => acc + curr.quantity, 0);
-            state.itemCount = count;
-
-            // let count = 0;
-            // state.cartProducts.forEach(item => {
-            //     count += item.quantity;
-            // });
-
-            // state.itemCount = count; 
-        }
+        
     },
     
     extraReducers: (builder) => {
