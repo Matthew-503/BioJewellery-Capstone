@@ -25,7 +25,7 @@ const registerAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check if account exists
-  const accountExists = await Account.findOne({ emailLowerCase })
+  const accountExists = await Account.findOne({ 'email': emailLowerCase })
 
   if (accountExists) {
     res.status(400)
@@ -88,7 +88,7 @@ const loginAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check for user email
-  const account = await Account.findOne({ emailLowerCase })
+  const account = await Account.findOne({ 'email': emailLowerCase })
 
   //user object
   const user = await User.findById(account.user)
@@ -101,7 +101,8 @@ const loginAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       user:{
         _id: user._id,
-        type: user.type
+        type: user.type,
+        name: user.name
       }      
     })
   } else {

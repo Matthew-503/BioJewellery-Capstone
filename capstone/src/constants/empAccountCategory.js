@@ -8,4 +8,6 @@ export default [
     { name: 'Return Request', icon: <QuestionAnswerIcon />, },
     { name: 'View KPIs', icon: <BarChartIcon />, },
     { name: 'Manage Products', icon: <AppsIcon />, },
+    { name: 'Logout' },
+    { name: 'Return Home',  route: '/'},
 ];
