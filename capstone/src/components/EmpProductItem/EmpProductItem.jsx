@@ -154,45 +154,77 @@ const EmpProductItem = () => {
         toggle ? setToggle(false) : setToggle(true);
     }
 
+    const [isDisabled, setIsDisabled] = useState(true);
+
+    const handleToggle = () => {
+        setIsDisabled((prevIsDisabled) => !prevIsDisabled);
+    };
+
     return (
-        <div>
-            <div>
+        <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
+            <div className='emp__product-item-img'>
                 <h1>
                     Product slot
                 </h1>
             </div>
 
-            <div>
-                <h1>
-                    Name
-                </h1>
-
-                <h1>
-                    Price
-                </h1>
-
-                <h1>
-                    Description
-                </h1>
-
-                <h1>
-                    Stock
-                </h1>
-
-                <div>
-                    <Switch onClick={toggler} />
-                    {toggle ?
-                        <span>
-                            true
-                        </span>
-                        :
-                        <span>
-                            false
-                        </span>}
+            <div className='emp__product-item-detail'>
+                <div className='emp__product-item-category'>
+                    <h1>
+                        Name
+                    </h1>
 
                     <h1>
-                        Edit
+                        Price
                     </h1>
+
+                    <h1>
+                        Description
+                    </h1>
+
+                    <h1>
+                        Stock
+                    </h1>
+                </div>
+
+                <div className='emp__product-item-description'>
+                    <h1>
+                        Golden Leaf Necklace
+                    </h1>
+
+                    <h1>
+                        $ 299.99
+                    </h1>
+
+                    <h1>
+                        A nice looking golden leaf shaped necklace
+                    </h1>
+
+                    <h1>
+                        200
+                    </h1>
+
+                    <div className='emp__product-item-action'>
+                        <div className='emp__product-item-toggle'>
+                            <Switch onClick={handleToggle} />
+                            {/* {toggle ?
+                                <span>
+                                    true
+                                </span>
+                                :
+                                <span>
+                                    false
+                                </span>} */}
+
+                            {/* {isDisabled ? "Disable" : "Enable" } */}
+
+                            <button className='emp__product-item-button'>
+                                Edit
+                            </button>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
