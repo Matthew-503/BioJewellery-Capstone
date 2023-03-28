@@ -14,7 +14,7 @@ const PayButton = () => {
   return (
     
     <div className="cartbar__button" >
-      <Link to="/orderpreview">
+      <Link to="/shipping">
         <button>
           <FaShoppingCart className='cartbar__icon'/>
             Proceed to Checkout
