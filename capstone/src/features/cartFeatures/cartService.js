@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/cart'
+const API_URL = '/api/cart/'
 
 //Add item to cart
 const addItemToCart = async (cartData, token) => {
@@ -27,24 +27,34 @@ const getCartItems = async (token) => {
 }
 
 //Increase and update item quantity by 1 
-const increaseItemQuantity = async (productId, token) => {
+const increaseItemQuantity = async (item, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.patch(API_URL + productId, config)
+
+    const productName = item.productName
+    const quantity = item.quantity + 1;
+   
+    const response = await axios.get(API_URL + productName + "/quantity/" + quantity, config)
     return response.data
 }
 
 //Decrease and update item quantity by 1 
-const decreaseItemQuantity = async (productId, token) => {
+const decreaseItemQuantity = async (item, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.patch(API_URL + productId, config)
+    const productName = item.productName
+    const quantity = item.quantity - 1;
+    if (quantity <= 0){
+        return new Error('Cannot make a negative quantity');
+    }
+    
+    const response = await axios.get(API_URL + quantity + "/name/" + productName, config)
     return response.data
 }
 

@@ -9,14 +9,13 @@ import React from 'react';
 import './CartContent.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
-import { updateItemCount } from '../../features/cartFeatures/cartSlice';
-
+import { increaseItemQuantity, decreaseItemQuantity, deleteCartItem} from '../../features/cartFeatures/cartSlice';
 const CartContent = () => {
-    const { cartProducts, increaseItemQuantity, decreaseItemQuantity, deleteCartItem } = useSelector((state) => state.cart);
+    const { cartProducts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        //dispatch(updateItemCount())
+        
 
     }, [dispatch, cartProducts]);
 
@@ -44,7 +43,7 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <p>
-                                {item.product.name}
+                                {item.productName}
                             </p>
                          
                          ))}
@@ -57,7 +56,7 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <p>
-                                CA${299.99}
+                                CA${item.productPrice}
                             </p>
                         ))}
                     </div>
@@ -72,7 +71,7 @@ const CartContent = () => {
                                 {/* <button onClick={() => { increaseItemQuantity(item.product._id) }}>
                                     -
                                 </button> */}
-                                <button onClick={() => {dispatch(increaseItemQuantity(item))}}>+</button>
+                                <button onClick={() => dispatch(increaseItemQuantity(item))}>+</button>
                                 <p>
                                     {item.quantity}
                                     
@@ -80,14 +79,13 @@ const CartContent = () => {
                                 {/* <button onClick={() => { decreaseItemQuantity(item.product._id) }}>
                                     +
                                 </button> */}
-                                <button onClick={() => {dispatch(decreaseItemQuantity(item))}}>-</button>
-                                <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>
+                                <button onClick={() => dispatch(decreaseItemQuantity(item))}>-</button>
+                                <button onClick={() => dispatch(deleteCartItem(item.product._id))}>
                                     Remove
                                 </button>
                             </div>
                         ))}
                     </div>
-                   
                 </div>
                 
                 :

@@ -149,7 +149,7 @@ const ProductDetailBar = () => {
             </div>
 
             <Link to="/cart">
-                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({'product':selectedProduct, 'quantity': Number.parseInt(selectedValue)}))}>
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({'productName':selectedProduct.name, 'productPrice':selectedProduct.price, 'quantity': Number.parseInt(selectedValue)}))}>
                     <FaShoppingCart />  Add to Cart
                 </button>
             </Link>

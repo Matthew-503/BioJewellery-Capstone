@@ -44,10 +44,11 @@ export const getCartItems = createAsyncThunk('cart/getAll', async (_, thunkAPI) 
 
 //Increase and update item quantity by 1
 export const increaseItemQuantity = createAsyncThunk('cart/increase', 
-async (id, thunkAPI) => {
+async (item, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await cartService.increaseItemQuantity(id, token)
+    
+        return await cartService.increaseItemQuantity(item, token)
     } catch (error) {
         const message = (error.response && 
             error.response.data && 
@@ -60,10 +61,11 @@ async (id, thunkAPI) => {
 
 //Decrease and update item quantity by 1
 export const decreaseItemQuantity = createAsyncThunk('cart/decrease', 
-async (id, thunkAPI) => {
+async (item, thunkAPI) => {
     try {
+        
         const token = thunkAPI.getState().auth.user.token
-        return await cartService.decreaseItemQuantity(id, token)
+        return await cartService.decreaseItemQuantity(item, token)
     } catch (error) {
         const message = (error.response && 
             error.response.data && 
@@ -124,7 +126,7 @@ export const cartSlice = createSlice({
             state.isSuccess = true
             state.cartProducts = action.payload.cartItems
             state.subTotal = action.payload.subTotal
-           // thunkAPI.dispatch(updateItemCount())
+           
         })
         .addCase(getCartItems.rejected, (state, action) => {
             state.isLoading = false
@@ -137,13 +139,19 @@ export const cartSlice = createSlice({
         .addCase(increaseItemQuantity.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cartProducts = action.payload
-            thunkAPI.dispatch(updateItemCount())
+            for(let i = 0; i < state.cartProducts.length; i++){
+                if(state.cartProducts[i].productName === action.payload.productName){
+                    console.log(action.payload.quantity)
+                    state.cartProducts[i].quantity = action.payload.quantity;
+                }
+            }
+            
         })
         .addCase(increaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload 
+            
         })
         .addCase(decreaseItemQuantity.pending, (state) => {
             state.isLoading = true
@@ -151,8 +159,12 @@ export const cartSlice = createSlice({
         .addCase(decreaseItemQuantity.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
-            state.cartProducts = action.payload
-            thunkAPI.dispatch(updateItemCount())
+            for(let i = 0; i < state.cartProducts.length; i++){
+                if(state.cartProducts[i].productName === action.payload.productName){
+                    console.log(action.payload)
+                    state.cartProducts[i].quantity = action.payload.quantity;
+                }
+            }
         })
         .addCase(decreaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
@@ -166,7 +178,7 @@ export const cartSlice = createSlice({
             state.isLoading = false
             state.isSuccess = true 
             state.cartProducts = action.payload
-            thunkAPI.dispatch(updateItemCount())
+           
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
             state.isLoading = false
@@ -176,5 +188,5 @@ export const cartSlice = createSlice({
     }
 })
 
-export const {reset, updateItemCount} = cartSlice.actions
+export const {reset} = cartSlice.actions
 export default cartSlice.reducer
