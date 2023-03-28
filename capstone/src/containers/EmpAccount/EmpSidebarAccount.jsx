@@ -60,7 +60,12 @@ const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
                         <Link to={category.route}>
                             <button
                                 className="category-btn empaccount__grid-item"
-                                onClick={() => setSelectedCategory(category.name)}
+                                onClick={() => {
+                                    if(category.name === 'Logout') {
+                                        logoutClick();
+                                    }
+                                    setSelectedCategory(category.name); 
+                                    }}
                                 style={{
                                     background: category.name === selectedCategory && "#bcf6b1",
                                     color: "#000000",
