@@ -80,13 +80,13 @@ const Navbar = () => {
                 </li>
             </ul>
 
-            <div className="navbar-input">
+            {/* <div className="navbar-input">
                 <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
 
                 <a href="#login">
                     <MdSearch className="navbar-icons" />
                 </a>
-            </div>
+            </div> */}
 
             <div className="navbar-input">
                 <a href="/cart">
