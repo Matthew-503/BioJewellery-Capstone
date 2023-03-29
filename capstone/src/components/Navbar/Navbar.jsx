@@ -117,7 +117,7 @@ const Navbar = () => {
                     <MdAccountCircle className="navbar-icons" />
                 </a>
             </div>
-            {/* fix if there is no account it just give a bug */}
+            
             {
                 openDropdownMenu && <DropdownMenu />
             }

@@ -89,14 +89,6 @@ const loginAccount = asyncHandler(async (req, res) => {
 
   // Check for user email
   const account = await Account.findOne({ 'email': emailLowerCase })
-
-  //user object
-  // if (account !== null) {
-  //   const user = await User.findById({ '_id': account.user})
-  // }
-  
-  
-
   
   if (account && (await bcrypt.compare(password, account.password))) {
     const user = await User.findById({ '_id': account.user})
