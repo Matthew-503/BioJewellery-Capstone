@@ -11,76 +11,96 @@
 
 // Notes: updated the sequence
 
+import UserNavigation from './UserNavigation/UserNavigation';
+
+
 import Home from './Home/Home';
 import Header from './Header/Header';
 import Gallery from './Gallery/Gallery';
-import Benefits from './Benefits/Benefits';
-import Footer from './Footer/Footer';
-import Follow from './FollowUs/Follow';
 // import Video from './Video/Video';
-
-import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
+import Benefits from './Benefits/Benefits';
+import Follow from './FollowUs/Follow';
+import Footer from './Footer/Footer';
 import AboutUs from './AboutUs/AboutUs';
+
+
+import Error from './Error/Error';
+import Policy from './Policy/Policy';
+
 
 import ShopCategory from './ShopCategory/ShopCategory';
 import Feed from './Feed/Feed';
 import ShopProduct from './ShopProduct/ShopProduct';
+
+
 import ProductDetail from './ProductDetail/ProductDetail';
-import Feedback from './Feedback/Feedback';
-
-import ShoppingCart from './ShoppingCart/ShoppingCart';
-import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-import UserNavigation from './UserNavigation/UserNavigation';
-import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
-// import ShopCategory from './ShopCategory/ShopCategory';
-
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
+
 
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Account from './Account/Account';
 import AccountHistory from './Account/AccountHistory';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
+import Feedback from './Feedback/Feedback';
+import Return from './Return/Return';
 
-import Error from './Error/Error';
-import Policy from './Policy/Policy';
 
 import EmpAccount from './EmpAccount/EmpAccount';
-import EmpAddProduct from './EmpAccount/EmpAddProduct';
 import EmpSidebarAccount from './EmpAccount/EmpSidebarAccount';
+import EmpAddProduct from './EmpAccount/EmpAddProduct';
 import EmpManageProduct from './EmpAccount/EmpManageProduct';
 
+
+import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
+import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
+
 export {
+  UserNavigation,
+
+
   Home,
   Header,
   Gallery,
+  // Video,
   Benefits,
   Follow,
-  // Video,
   Footer,
   AboutUs,
-  OrderConfirmation,
+
+
+  Error,
+  Policy,
+
+
   ShopCategory,
   Feed,
   ShopProduct,
+
+
   ProductDetail,
-  EmployeeReturn,
-  Feedback,
-  EmployeeSettings,
   SwitchDetail,
-  ShoppingCart,
-  UserNavigation,
+
+
   Login,
   SignUp,
   Account,
   AccountHistory,
-  Error,
-  Policy,
+  ShoppingCart,
+  OrderConfirmation,
+  Feedback,
+  Return,
+
 
   EmpAccount,
-  EmpAddProduct,
   EmpSidebarAccount,
+  EmpAddProduct,
   EmpManageProduct,
-  
+
+
+  EmployeeSettings,
+  EmployeeReturn,
 };
 
 
