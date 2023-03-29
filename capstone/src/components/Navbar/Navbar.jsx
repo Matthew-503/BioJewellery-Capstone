@@ -35,19 +35,23 @@ const Navbar = () => {
     const {isAuthU, setAuthU}  = useState(false);	
     const {isAuthA, setAuthA}  = useState(false);
 
-    const useAuth = () => {
-        const { user } = useSelector(
-            (state) => state.auth
-        )
+    const { user } = useSelector(
+        (state) => state.auth
+    )
+
+    // const useAuth = () => {
+    //     const { user } = useSelector(
+    //         (state) => state.auth
+    //     )
     
-        if (user && user.user.type==="Client") {
-            setAuthU(true);	
-        } 
-        if (user && user.user.type==="Admin") {
-            setAuthA(true);	
-        }
+    //     if (user && user.type==="Client") {
+    //         setAuthU(true);	
+    //     } 
+    //     if (user && user.user.type==="Admin") {
+    //         setAuthA(true);	
+    //     }
        
-    }
+    // }
 
     const dispatch = useDispatch();
 
@@ -62,10 +66,10 @@ const Navbar = () => {
     const [openDropdownMenu, setopenDropdownMenu] = useState(false);
 
     const onPerfilClick = () => {
-        if (isAuthU) {
+        if (user && user.user.type==="Client") {
             setopenDropdownMenu(!openDropdownMenu);
         }
-        else if(isAuthA) {
+        else if(user && user.user.type==="Admin") {
             navigate('/editproduct');
         }
         else {
@@ -109,10 +113,11 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-input">
-                <a href="#login" onClick={onPerfilClick}>
+                <a href="#" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
                 </a>
             </div>
+            {/* fix if there is no account it just give a bug */}
             {
                 openDropdownMenu && <DropdownMenu />
             }

@@ -91,10 +91,15 @@ const loginAccount = asyncHandler(async (req, res) => {
   const account = await Account.findOne({ 'email': emailLowerCase })
 
   //user object
-  const user = await User.findById(account.user)
+  // if (account !== null) {
+  //   const user = await User.findById({ '_id': account.user})
+  // }
+  
+  
 
   
   if (account && (await bcrypt.compare(password, account.password))) {
+    const user = await User.findById({ '_id': account.user})
     res.json({
       _id: account.id,
       email: account.email,

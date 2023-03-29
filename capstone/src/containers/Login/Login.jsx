@@ -119,6 +119,7 @@ function Login() {
               placeholder="Email"
               value={email}
               onChange={onChange}
+              required
             />
 
             <input
@@ -129,6 +130,7 @@ function Login() {
               placeholder="Password"
               value={password}
               onChange={onChange}
+              required
             />
 
             <div className='login__lower-functions login__forget-link'>
