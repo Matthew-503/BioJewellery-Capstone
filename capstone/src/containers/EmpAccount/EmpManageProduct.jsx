@@ -121,9 +121,9 @@ const EmpManageProduct = (props) => {
                             Manange Products
                         </h1>
 
-                        <div className='emp__manage-add'>
+                        <button className='emp__manage-add'>
                             <AddIcon className='emp__manage-icon '/>
-                        </div>
+                        </button>
 
                         <div className='emp__manage-search'>
                             <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
