@@ -15,7 +15,7 @@ const User = require('../models/userModel')
 // @route   POST /api/account
 // @access  Public
 const registerAccount = asyncHandler(async (req, res) => {
-  const { name, email, password, street, city, province, country, postalCode } = req.body
+  const { name, email, password, street, city, province, country, postalCode, complement} = req.body
 
   if (!name || !email || !password ||!street || !city || !province|| !country|| !postalCode) {
     res.status(400)
@@ -38,12 +38,12 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   //Create Shipping Address
   const shippingAddress = await Address.create({
-    client: user._id,
     street,
     city,
     province,
     country,
-    postalCode
+    postalCode, 
+    complement
   })
 
   //Create User 
@@ -53,7 +53,7 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   //push into address list as well
-  user.addresses.push(shippingAddress)
+  // user.addresses.push(shippingAddress)
 
   // Create account
   const account = await Account.create({
@@ -63,14 +63,15 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   if (account) {
-    res.status(201).json({
+    res.json({
       _id: account.id,
       email: account.email,
       token: generateToken(account._id),
-      name: name,
-      user: {
-        _id: user._id
-      }
+      user:{
+        _id: user._id,
+        type: user.type,
+        name: user.name
+      }      
     })
   } 
   else {

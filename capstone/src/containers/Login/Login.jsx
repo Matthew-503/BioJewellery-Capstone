@@ -60,7 +60,7 @@ function Login() {
     }
 
     if (isSuccess && user) {
-      dispatch(reset())
+      
       //if its a regular client it redirect to the logged home page (protected route)
       if (user.user.type === "Client") {
         navigate('/')
@@ -140,7 +140,9 @@ function Login() {
               <br />
               <button type="submit" className="login__button">Login</button>
               <br />
-              <button type="submit" className="login__button">Register</button>
+              <Link to='/signup'>
+                <button className="login__button">Register</button>
+              </Link>
               <br />
               <div className="login__link">
                 <Link to="/">Continue as guest</Link>

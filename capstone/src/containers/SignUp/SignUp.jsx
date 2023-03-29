@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SubHeading } from '../../components';
+import { Navbar, SubHeading } from '../../components';
 import { SwitchDetail } from '../../containers';
 import { images } from '../../constants';
 import { Link } from "react-router-dom"
@@ -78,6 +78,8 @@ const SignUpForm = () => {
     };
 
     return (
+    <>
+        <Navbar />
         <div className='signup__overall'>
             <div className='signup'>
                 <div className="signup__wrapper">
@@ -144,7 +146,7 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="apartment"
-                                        placeholder='Apartment name'
+                                        placeholder='Address Complement'
                                         value={apartment}
                                         onChange={(event) => setApartment(event.target.value)}
                                     />
@@ -244,10 +246,12 @@ const SignUpForm = () => {
                                 </div>
                             </div>
 
-                            <p className='signup__login'>
-                                Already have an account?
-                                <Link to="/"> Log in</Link>
-                            </p>
+                            <Link to="/login"> 
+                                <p className='signup__login'>
+                                    Already have an account?
+                                    Log in
+                                </p>
+                            </Link>
                         </div>
 
 
@@ -431,6 +435,7 @@ const SignUpForm = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
 

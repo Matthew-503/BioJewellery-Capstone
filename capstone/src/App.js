@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount } from './containers';
+import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
@@ -61,11 +61,13 @@ const App = () => (
    
             
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             {/* <Route path="/admin">
                 
                  <Route index element={<HomeAdmin />} />              
             </Route> */}
             </Routes>
+
             {/* Route specifications for the Login Page
                 <Route path="/login" element={<LoginTemplate />}>
                 <Route index element={<Blog />} /> 
