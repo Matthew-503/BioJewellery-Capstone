@@ -81,17 +81,18 @@ import Uploader from '../../components/Uploader/Uploader';
 
 import { useEffect, useState } from "react";
 import { images } from '../../constants';
-import { SubHeading, ProductDetailBar, Navbar } from '../../components';
+import { SubHeading, ProductDetailBar, Navbar, EmpProductItem } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
-import './EmpAddProduct.css';
+import './EmpManageProduct.css';
 import EmpSidebarAccount from "./EmpSidebarAccount";
 
 
-const EmpAddProduct = (props) => {
+const EmpManageProduct = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
@@ -115,82 +116,21 @@ const EmpAddProduct = (props) => {
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
-                    <div className="emp-account">
-                        <div className="emp-account__table">
-                            <div className="emp-account__table-column1">
-                                <h1 className='emp-account__header'>
-                                    Add Products
-                                </h1>
+                    <div className='emp__manage'>
+                        <h1 className='emp__manage-header'>
+                            Manange Products
+                        </h1>
 
-                                <h1 className='emp-account__header'>
-                                    Product Information
-                                </h1>
+                        <button className='emp__manage-add'>
+                            <AddIcon className='emp__manage-icon '/>
+                        </button>
 
-                                <h3>Product Name</h3>
-                                <br />
-                                <div className='emp-account__input-long'>
-                                    <input
-                                        className='emp-account__input'
-                                        type="text"
-                                        id="productname"
-                                        placeholder="Product Name"
-                                    />
-                                </div>
-
-                                <h3>Product Description</h3>
-                                <br />
-                                <div className='emp-account__input-long'>
-                                    <input
-                                        className='emp-account__input'
-                                        type="text"
-                                        id="productdescription"
-                                        placeholder="Product Description"
-                                    />
-                                </div>
-
-                                <div className="emp-account__small-table">
-                                    <div className="emp-account__table-column2">
-                                        <h3>Price</h3>
-                                        <br />
-                                        <div className='emp-account__input-short'>
-                                            <input
-                                                className='emp-account__input'
-                                                type="text"
-                                                id="productprice"
-                                                placeholder="Enter Price"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="emp-account__table-column2">
-                                        <h3>In-Stock</h3>
-                                        <br />
-                                        <div className='emp-account__input-short'>
-                                            <input
-                                                className='emp-account__input'
-                                                type="number"
-                                                id="productstock"
-                                                placeholder="Enter Stock Number"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="emp-account__table-column3">
-                                <Uploader />
-                            </div>
+                        <div className='emp__manage-search'>
+                            <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
                         </div>
 
-
-                        <div className="emp-account__action">
-                            <button>
-                                Save
-                            </button>
-
-                            <button>
-                                Cancel
-                            </button>
+                        <div className='emp__manage-product'>
+                            <EmpProductItem />
                         </div>
                     </div>
                 </Box>
@@ -198,4 +138,4 @@ const EmpAddProduct = (props) => {
         </div>
     )
 }
-export default EmpAddProduct;
+export default EmpManageProduct;
