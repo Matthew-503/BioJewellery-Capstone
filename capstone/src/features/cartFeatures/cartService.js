@@ -35,7 +35,7 @@ const increaseItemQuantity = async (item, token) => {
     }
 
     const productName = item.productName
-    const quantity = item.quantity + 1;
+    const quantity = 1 + parseInt(item.quantity);
    
     const response = await axios.get(API_URL + productName + "/quantity/" + quantity, config)
     return response.data
@@ -49,7 +49,7 @@ const decreaseItemQuantity = async (item, token) => {
         }
     }
     const productName = item.productName
-    const quantity = item.quantity - 1;
+    const quantity = parseInt(item.quantity) - 1;
     if (quantity <= 0){
         return new Error('Cannot make a negative quantity');
     }
@@ -71,24 +71,14 @@ const decreaseItemQuantity = async (item, token) => {
 // }
 
 
-//Delete cart item
-const deleteCartItem = async (cartId, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
 
-    const response = await axios.delete(API_URL + cartId, config)
-    return response.data
-}
 
 const cartService = {
     addItemToCart,
     getCartItems,
     increaseItemQuantity,
     decreaseItemQuantity,
-    deleteCartItem
+    
 }
 
 export default cartService

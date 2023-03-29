@@ -78,10 +78,10 @@ async (item, thunkAPI) => {
 
 //Delete cart Item
 export const deleteCartItem = createAsyncThunk('cart/delete', 
-async (id, thunkAPI) => {
+async (productName, thunkAPI) => {
     try {
-        const token = thunkAPI.getState().auth.user.token
-        return await cartService.deleteCartItem(id, token)
+        
+        return productName
     } catch (error) {
         const message = (error.response && 
             error.response.data && 
@@ -141,8 +141,8 @@ export const cartSlice = createSlice({
             state.isSuccess = true
             for(let i = 0; i < state.cartProducts.length; i++){
                 if(state.cartProducts[i].productName === action.payload.productName){
-                    console.log(action.payload.quantity)
-                    state.cartProducts[i].quantity = action.payload.quantity;
+                    console.log(action.payload)
+                    state.cartProducts[i].quantity = action.payload.newQuantity;
                 }
             }
             
@@ -161,8 +161,8 @@ export const cartSlice = createSlice({
             state.isSuccess = true
             for(let i = 0; i < state.cartProducts.length; i++){
                 if(state.cartProducts[i].productName === action.payload.productName){
-                    console.log(action.payload)
-                    state.cartProducts[i].quantity = action.payload.quantity;
+                
+                    state.cartProducts[i].quantity = action.payload.newQuantity;
                 }
             }
         })
@@ -177,8 +177,16 @@ export const cartSlice = createSlice({
         .addCase(deleteCartItem.fulfilled, (state, action, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true 
-            state.cartProducts = action.payload
            
+            for(let i = 0; i < state.cartProducts.length; i++){
+                
+                if(state.cartProducts[i].productName === action.payload){
+                    
+                    state.cartProducts.splice(i,1)
+                    
+                }
+            }
+            state.itemCount = state.cartProducts.length
         })
         .addCase(deleteCartItem.rejected, (state, action) => {
             state.isLoading = false

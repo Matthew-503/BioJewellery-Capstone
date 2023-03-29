@@ -80,7 +80,7 @@ const CartContent = () => {
                                     +
                                 </button> */}
                                 <button onClick={() => dispatch(decreaseItemQuantity(item))}>-</button>
-                                <button onClick={() => dispatch(deleteCartItem(item.product._id))}>
+                                <button onClick={() => dispatch(deleteCartItem(item.productName))}>
                                     Remove
                                 </button>
                             </div>
