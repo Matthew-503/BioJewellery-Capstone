@@ -15,7 +15,7 @@ const User = require('../models/userModel')
 // @route   POST /api/account
 // @access  Public
 const registerAccount = asyncHandler(async (req, res) => {
-  const { name, email, password, street, city, province, country, postalCode } = req.body
+  const { name, email, password, street, city, province, country, postalCode, apartment} = req.body
 
   if (!name || !email || !password ||!street || !city || !province|| !country|| !postalCode) {
     res.status(400)
@@ -42,7 +42,8 @@ const registerAccount = asyncHandler(async (req, res) => {
     city,
     province,
     country,
-    postalCode
+    postalCode, 
+    apartment
   })
 
   //Create User 
@@ -50,6 +51,9 @@ const registerAccount = asyncHandler(async (req, res) => {
     name: name,
     shippingAddress: shippingAddress._id
   })
+
+  //push into address list as well
+  // user.addresses.push(shippingAddress)
 
   // Create account
   const account = await Account.create({
@@ -59,14 +63,15 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   if (account) {
-    res.status(201).json({
+    res.json({
       _id: account.id,
       email: account.email,
       token: generateToken(account._id),
-      name: name,
-      user: {
-        _id: user._id
-      }
+      user:{
+        _id: user._id,
+        type: user.type,
+        name: user.name
+      }      
     })
   } 
   else {
@@ -85,23 +90,17 @@ const loginAccount = asyncHandler(async (req, res) => {
 
   // Check for user email
   const account = await Account.findOne({ 'email': emailLowerCase })
-
-  //user object
-  const user = await User.findById(account.user)
-
-  if (!user){
-    res.status(400)
-    throw new Error('Account not found.')
-  }
   
   if (account && (await bcrypt.compare(password, account.password))) {
+    const user = await User.findById({ '_id': account.user})
     res.json({
       _id: account.id,
       email: account.email,
       token: generateToken(account._id),
       user:{
         _id: user._id,
-        type: user.type
+        type: user.type,
+        name: user.name
       }      
     })
   } else {
