@@ -15,7 +15,7 @@ const User = require('../models/userModel')
 // @route   POST /api/account
 // @access  Public
 const registerAccount = asyncHandler(async (req, res) => {
-  const { name, email, password, street, city, province, country, postalCode, complement} = req.body
+  const { name, email, password, street, city, province, country, postalCode, apartment} = req.body
 
   if (!name || !email || !password ||!street || !city || !province|| !country|| !postalCode) {
     res.status(400)
@@ -43,7 +43,7 @@ const registerAccount = asyncHandler(async (req, res) => {
     province,
     country,
     postalCode, 
-    complement
+    apartment
   })
 
   //Create User 
