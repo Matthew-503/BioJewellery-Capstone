@@ -1,11 +1,12 @@
 .account__sidebar {
     max-width: 19vw;
-    max-height: 100vh;
+    min-height: 100vh;
     display: flex;
     position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 8rem 0.8rem 3rem 0.8rem;
+    overflow-y: auto;
 }
 
 .account__sidebar-img {
