@@ -89,7 +89,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 
 import './EmpManage.css';
-import EmpSidebarAccount from "./EmpSidebarAccount";
+import EmpSidebar from "./EmpSidebar";
 
 
 const EmpManage = (props) => {
@@ -112,7 +112,7 @@ const EmpManage = (props) => {
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh" }}>
-                    <EmpSidebarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <EmpSidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
