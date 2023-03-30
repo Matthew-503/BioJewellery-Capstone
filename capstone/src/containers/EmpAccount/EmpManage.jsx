@@ -107,7 +107,7 @@ const EmpManage = (props) => {
     const { checked, onChange } = props;
 
     return (
-        <div>EmpManage
+        <div>
             <Navbar />
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
@@ -126,7 +126,7 @@ const EmpManage = (props) => {
                         </button>
 
                         <div className='emp__manage-search'>
-                            <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
+                            <input className='navbar-input-search' type='text' placeholder='Search BioJewellery Products' />
                         </div>
 
                         <div className='emp__manage-product'>
