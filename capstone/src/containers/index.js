@@ -39,8 +39,6 @@ import Feedback from './Feedback/Feedback';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import Shipping from './Shipping/Shipping';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-import UserNavigation from './UserNavigation/UserNavigation';
-import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
@@ -50,9 +48,6 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Account from './Account/Account';
 import AccountHistory from './Account/AccountHistory';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
-import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-import Feedback from './Feedback/Feedback';
 import Return from './Return/Return';
 
 
@@ -84,7 +79,6 @@ export {
 
 
   Shipping,
-  OrderConfirmation,
   ShopCategory,
   Feed,
   ShopProduct,

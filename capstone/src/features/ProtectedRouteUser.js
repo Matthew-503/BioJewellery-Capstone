@@ -10,7 +10,6 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const useAuth = () => {
 	
-
 	const { user } = useSelector(
         (state) => state.auth
     )

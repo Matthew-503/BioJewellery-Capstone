@@ -33,9 +33,6 @@ const Navbar = () => {
     const isAuth = useAuth();
     const { cartProducts, itemCount } = useSelector((state) => state.cart);
 
-
- 
-
     const [toggleMenu, setToggleMenu] = React.useState(false);
 
     const [openDropdownMenu, setopenDropdownMenu] = useState(false);
