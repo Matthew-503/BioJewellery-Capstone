@@ -42,6 +42,7 @@ import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
 import EmpProductItem from './EmpProductItem/EmpProductItem';
+import EmpUserItem from './EmpUserItem/EmpUserItem';
 
 import ToggleButton from './ToggleButton/ToggleButton';
 
@@ -102,6 +103,7 @@ export {
     EmployeeProduct,
     Uploader,
     EmpProductItem,
+    EmpUserItem,
 
     SwitchProductDetail,
 
