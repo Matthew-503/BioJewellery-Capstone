@@ -9,14 +9,13 @@ import React from 'react';
 import './CartContent.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
-import { updateItemCount } from '../../features/cartFeatures/cartSlice';
-
+import { increaseItemQuantity, decreaseItemQuantity, deleteCartItem} from '../../features/cartFeatures/cartSlice';
 const CartContent = () => {
-    const { cartProducts, increaseItemQuantity, decreaseItemQuantity, deleteCartItem } = useSelector((state) => state.cart);
+    const { cartProducts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        //dispatch(updateItemCount())
+        
 
     }, [dispatch, cartProducts]);
 
@@ -35,35 +34,7 @@ const CartContent = () => {
     return (
         <>
             {cartProducts.length > 0 ?
-                // <div className='cart'>
-                //     <table className='cart__table'>
-                //         <thead>
-                //             <tr>
-                //                 <th>Product</th>
-                //                 <th>Price per unit</th>
-                //                 <th>Quantity</th>
-                //                 <th></th>
-                //             </tr>
-                //         </thead>
-                //         <tbody>
-                //             {cartProducts.map((item) => (
-                //                 <tr key={item._id}>
-                //                     <td>{item.name}</td>
-                //                     <td>CA${299.99}</td>
-                //                     <td>
-                //                         <button onClick={() => { increaseItemQuantity(item.product._id) }}>+</button>
-
-                //                         {item.quantity}
-
-                //                         <button onClick={() => { decreaseItemQuantity(item.product._id) }}>-</button>
-
-                //                         <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>Remove from cart</button>
-                //                     </td>
-                //                 </tr>
-                //             ))}
-                //         </tbody>
-                //     </table>
-                // </div>
+           
                 <div className='cart__content'>
                     <div className='cart__content-card'>
                         <h1>
@@ -72,9 +43,10 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <p>
-                                {item.name}
+                                {item.productName}
                             </p>
-                        ))}
+                         
+                         ))}
                     </div>
 
                     <div className='cart__content-card'>
@@ -84,7 +56,7 @@ const CartContent = () => {
 
                         {cartProducts.map((item) => (
                             <p>
-                                CA${299.99}
+                                CA${item.productPrice}
                             </p>
                         ))}
                     </div>
@@ -99,22 +71,23 @@ const CartContent = () => {
                                 {/* <button onClick={() => { increaseItemQuantity(item.product._id) }}>
                                     -
                                 </button> */}
-                                <button onClick={handleIncrement}>+</button>
+                                <button onClick={() => dispatch(increaseItemQuantity(item))}>+</button>
                                 <p>
-                                    {/* {item.quantity} */}
-                                    {number}
+                                    {item.quantity}
+                                    
                                 </p>
                                 {/* <button onClick={() => { decreaseItemQuantity(item.product._id) }}>
                                     +
                                 </button> */}
-                                <button onClick={handleDecrement}>-</button>
-                                <button onClick={() => { dispatch(deleteCartItem(item.product._id)) }}>
+                                <button onClick={() => dispatch(decreaseItemQuantity(item))}>-</button>
+                                <button onClick={() => dispatch(deleteCartItem(item.productName))}>
                                     Remove
                                 </button>
                             </div>
                         ))}
                     </div>
                 </div>
+                
                 :
                 <>
                     <h1>Cart is empty!</h1>

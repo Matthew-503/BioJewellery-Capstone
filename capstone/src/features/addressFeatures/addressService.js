@@ -1,61 +1,32 @@
 import axios from 'axios'
 
-const API_URL = '/api/addresses'
+const API_URL = '/api/address'
 
-//create new address
-const createAddress = async (addressData, token) => {
+//Get address
+const getAddress = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.post(API_URL, addressData, config)
-    return response.data
-}
-
-//Get address object based on ID
-const getAddress = async (addressId, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-
-    const response = await axios.get(API_URL+ addressId, config)
-    return response.data
-}
-
-
-//Get user addresses list and shipping address
-const getAddresses = async (token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-
     const response = await axios.get(API_URL, config)
     return response.data
 }
 
-//Delete user address
-const deleteAddress = async (addressId, token) => {
+//Update address 
+const updateAddress = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.delete(API_URL + addressId, config)
+    const response = await axios.get(API_URL, config)
     return response.data
 }
 
-const addressService = {
-    createAddress,
+const addressService = {    
     getAddress,
-    getAddresses,
-    deleteAddress
+    updateAddress
 }
 
 export default addressService

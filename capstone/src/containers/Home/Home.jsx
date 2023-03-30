@@ -1,9 +1,8 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmpAddProduct, EmployeeSettings, EmpAccount, ManageProduct } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpManageProduct, Return } from '../../containers';
 const Home = () => {
   return (
     <div>
-
       <Header />
       <Gallery />
       {/* <Video /> */}
@@ -20,8 +19,9 @@ const Home = () => {
       {/* <OrderConfirmation /> */}
       {/* <EmpAddProduct /> */}
       {/* <EmpAccount /> */}
-      {/* <ManageProduct /> */}
-      {/*<ManageProduct /> */}
+      {/* <EmpManageProduct /> */}
+      {/* <Shipping /> */}
+      <Return />
     </div >
   )
 }
