@@ -6,7 +6,6 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
-
 const initialState = {
     cartProducts: [], //product object
     itemCount: 0,
@@ -107,7 +106,7 @@ export const cartSlice = createSlice({
         .addCase(addItemToCart.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(addItemToCart.fulfilled, (state, action, thunkAPI) => {
+        .addCase(addItemToCart.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
             state.cartProducts.push(action.payload)
@@ -121,7 +120,7 @@ export const cartSlice = createSlice({
         .addCase(getCartItems.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(getCartItems.fulfilled, (state, action, thunkAPI) => {
+        .addCase(getCartItems.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
             state.cartProducts = action.payload.cartItems

@@ -34,6 +34,15 @@ import ShopProduct from './ShopProduct/ShopProduct';
 
 
 import ProductDetail from './ProductDetail/ProductDetail';
+import Feedback from './Feedback/Feedback';
+
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import Shipping from './Shipping/Shipping';
+import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
+import UserNavigation from './UserNavigation/UserNavigation';
+import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
+// import ShopCategory from './ShopCategory/ShopCategory';
+
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
 
 
@@ -74,6 +83,8 @@ export {
   Policy,
 
 
+  Shipping,
+  OrderConfirmation,
   ShopCategory,
   Feed,
   ShopProduct,

@@ -1,193 +1,165 @@
 // Author: Sri Guru
-// Version: 0.1
+// Version: 1.0
 // Date: 14/03/2023
 
-// Description: This component displays the saved addresses and option to add new shipping address
+// Description: This component displays the shipping address with edit option
 
 import './Address.css';
-import Spinner from '../Spinner/Spinner'
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {useNavigate} from 'react-router-dom'
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { getAddress, getAddresses, createAddress } from '../../features/addressFeatures/addressSlice'
-import { user } from '../../features/accountFeatures/accountSlice'
+import React, { useState } from "react";
+
+const FirstName = 'First Name';
+const LastName = 'Last Name';
+const Phone = '123 456 789';
+const Street = '17 Ave SW';
+const City = 'Calgary';
+const Postal = 'A3B 0DE';
+const Province = 'AB';
+const Country = 'Canada';
 
 const Address = () => { 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+   
+    const [isDisabled, setIsDisabled] = useState(true);
 
-    const {user} = useSelector((state) => state.auth)
-    const {addresses, shippingAddress, isError, isSuccess, isLoading, message}= useSelector((state) => state.address);
-    const [showModal, setShowModal] = useState(false);
-
-    const [address, setAddress] = useState({
-        street: '',
-        city: '',
-        province: '',
-        country:'',
-        postalCode: '',
-    });
-
-    useEffect(() => {
-        if(isError){
-          console.log(message)
-        }
-        if(!user){
-          navigate('/login')
-        } 
-
-        dispatch(getAddresses())
-
-    }, [user, navigate, isError, message, dispatch])
-    
-    if(isLoading){
-        return <Spinner />
+    const toggleDisabled = () => {
+        setIsDisabled(!isDisabled);
     }
 
-    //the selected addressId will be passed to get address obj and saved in shippingAddress state
-    function onAddressSelect(event, addressId){
-        event.preventDefault();
-        dispatch(getAddress({addressId}))
+    const [formData, setFormData] = useState({
+        firstname: 'YA',
+        lastname: 'BOI',
+        phone: '123 456 7890',
+        street: 'yaboi Ave SW',
+        city: 'Calgary',
+        postal: 'A3B 0DE',
+        province: 'AB',
+        country: 'Canada',
+
+        product: 'Golden Leaf Earring',
+        qty: 100,
+        totalprice: 100,
+        warranty: 'Available 1 year from purchase',
+    })
+
+    const { firstname, lastname, phone, street, city, postal, province, country } = formData
+
+    const changeHandler = (e) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
     }
-    
-    const handleCloseModal = () => setShowModal(false);
-
-    const handleShowModal = () => setShowModal(true);
-    
-    const handleInputChange = (event) => {
-        setAddress({
-          ...address,
-          [event.target.name]: event.target.value,
-        });
-
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
-        //Todo: save the shipping address in the database
-        //func call to create address object and save in DB
-        //after func call req fulfilled, it added to addresses array
-        //new address displayed in address radio list, when user selects it, automatically set as shipping address
-        dispatch(createAddress({address})).then(() => {
-            handleCloseModal();
-        })
-        .catch(() => {
-            alert('Error in creating and saving address!')
-        })
-    };
-
     return (
         <>
-           {shippingAddress && <div>
-                <p>Shipping Address</p>
-                <div>
-                    <p>Street</p>
-                    {shippingAddress.street}
+          <div className='order__category'>
+                    <p className='order__detail-category'>
+                        Shipping address
+                    </p>
                 </div>
-                <div>
-                    <p>City</p>
-                    {shippingAddress.city}
-                </div>
-                <div>
-                    <p>Province</p>
-                    {shippingAddress.province}
-                </div>
-                <div>
-                    <p>Country</p>
-                    {shippingAddress.country}
-                </div>
-                <div>
-                    <p>Postal Code</p>
-                    {shippingAddress.postalCode}
-                </div>
-           </div> }    
-                 
-           {addresses && (<div>
-                <p>Your addresses</p>
-                <div>{addresses.map(address => (
-                    <div key={address._id}>
-                        <label>
+
+                <div className='order__detail-long'>
+                    <div className='order__detail-short'>
+                        <div>
                             <input
-                                type="radio"
-                                name="address"
-                                value={address._id}
-                                onChange={() => onAddressSelect(address._id)}
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                value={firstname}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
                             />
-                            {address.street}, {address.city}, {address.province}, {address.country}, {address.postalCode}
-                        </label>
-                    </div>))
-                }</div>
-            </div>)}
+                        </div>
 
-            <div>
-            <button onClick={handleShowModal}>Add Address</button>
-            <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                        <Modal.Title>Enter a new address</Modal.Title>
-                </Modal.Header>
+                        <div>
+                            <input
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                value={lastname}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
+                    </div>
 
-                <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    
-                    <Form.Group controlId="formStreet">
-                        <Form.Label>Street</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="street"
-                            value={address.street}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </Form.Group>
+                    <div>
+                        <div>
+                            <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                value={phone}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
 
-                    <Form.Group controlId="formCity">
-                        <Form.Label>City</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="city"
-                            value={address.city}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </Form.Group>
+                        <div>
+                            <input
+                                type="text"
+                                id="street"
+                                name="street"
+                                value={street}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
+                    </div>
 
-                    <Form.Group controlId="formProvince">
-                        <Form.Label>Province</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="province"
-                            value={address.province}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </Form.Group>
+                    <div className='order__detail-short'>
+                        <div>
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                value={city}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
 
-                    <Form.Group controlId="formPostalCode">
-                        <Form.Label>Postal Code</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="postalCode"
-                            value={address.postalCode}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </Form.Group>
-                   
-                    <Button type="submit">Save address</Button>
-                    </Form>
-                </Modal.Body>
+                        <div>
+                            <input
+                                type="text"
+                                id="postal"
+                                name="postal"
+                                value={postal}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
+                    </div>
 
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>
-                        Close
-                    </Button>                    
-                </Modal.Footer>
-            </Modal> 
-            </div>
+                    <div className='order__detail-short'>
+                        <div>
+                            <input
+                                type="text"
+                                id="province"
+                                name="province"
+                                value={province}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
+
+                        <div>
+                            <input
+                                type="text"
+                                id="country"
+                                name="country"
+                                value={country}
+                                disabled={isDisabled}
+                                onChange={changeHandler}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className='order__button'>
+                    <button
+                        className='order__button-action'
+                        onClick={toggleDisabled}>
+                        {isDisabled ? 'Manage Address' : 'Confirm'}
+                    </button>
+                </div>
         </>
     )
 };
