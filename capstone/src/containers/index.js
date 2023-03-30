@@ -52,6 +52,7 @@ import EmpSidebar from './EmpAccount/EmpSidebar';
 import EmpAdd from './EmpAccount/EmpAdd';
 import EmpEdit from './EmpAccount/EmpEdit';
 import EmpManage from './EmpAccount/EmpManage';
+import EmpUser from './EmpAccount/EmpUser';
 
 
 import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
@@ -99,6 +100,7 @@ export {
   EmpAdd,
   EmpEdit,
   EmpManage,
+  EmpUser,
 
 
   EmployeeSettings,
