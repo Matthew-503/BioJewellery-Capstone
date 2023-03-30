@@ -5,6 +5,7 @@ import { store } from './app/store';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom"
+// import 'antd/dist/antd.css'
 import { createRoot } from 'react-dom/client';
 
 // npm run dev to run the program

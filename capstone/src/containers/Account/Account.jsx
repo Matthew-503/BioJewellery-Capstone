@@ -6,6 +6,8 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
+import { Footer } from '../../containers';
+import { Navbar } from '../../components';
 
 import './Account.css';
 
@@ -23,6 +25,7 @@ const Account = () => {
 
     return (
         <div>
+            <Navbar />
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
                     <SideBarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
@@ -191,6 +194,7 @@ const Account = () => {
                     </div>
                 </Box>
             </Stack>
+            <Footer />
         </div>
     );
 };

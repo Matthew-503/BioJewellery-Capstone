@@ -18,6 +18,7 @@ import { ProductItems } from '../../components';
 // import { SubHeading } from '../../components';
 
 import { cerrado } from './import.js';
+import { images } from '../../constants';
 
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts, reset } from '../../features/productFeatures/productSlice';
@@ -49,7 +50,7 @@ const ShopProduct = () => {
                             {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
-                                imgUrl={cerrado}
+                                imgUrl={images.cerrado}
                             />))}
                         </div>
                     ) : (<h3>You have not set any products</h3>)}

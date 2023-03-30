@@ -1,6 +1,6 @@
-.sidebar {
-    max-width: 17vw;
-    max-height: 100vh;
+.empaccount__sidebar {
+    max-width: 19vw;
+    min-height: 100vh;
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -8,26 +8,42 @@
     padding: 8rem 0.8rem 3rem 0.8rem;
 }
 
-.sidebar button {
+.empaccount__sidebar-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    flex-direction: column;
+}
+
+.empaccount__sidebar-img h1 {
+    font-size: 2rem;
+    font-family: var(--font-base);
+    color: var(--color-darkgreen);
+    text-align: center;
+}
+
+.empaccount__sidebar-img img {
+    max-width: 25vw;
+    max-height: 25vh;
+    border-radius: 100%;
+}
+
+.empaccount__sidebar button {
     background: var(--color-white);
     border: none;
-    color: var(--color-golden);
-    background-color: var(--color-darkgreen);
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
     font-family: var(--font-base);
     /* border: 1px solid green; */
     border-radius: 15px;
 
     cursor: pointer;
     transition-duration: 0.4s;
-}
-
-.category-btn {
-    background-color: var(--color-darkgreen);
 }
 
 .category-btn:hover {
@@ -40,26 +56,25 @@
     justify-content: space-between;
 }
 
-.grid-item {
+.empaccount__grid-item {
     margin-top: 20px;
-    font-size: 30px;
-    color: var(--color-golden);
+    font-size: 1.5rem;
 }
 
-.sidebar__content {
+.empsidebar__content {
     margin-left: 0.5rem;
 }
 
 @media screen and (max-width: 430px) {
-    .sidebar {
+    .empaccount__sidebar {
         max-height: 30px;
         max-width: 100%;
         justify-content: space-between;
         align-items: center;
-        /* display: none; */
+        display: none;
     }
 
-    .sidebar button {
+    .empaccount__sidebar button {
         padding: 1rem 1rem;
         margin: 0 1rem;
         align-items: center;
@@ -68,7 +83,7 @@
         /* display: none; */
     }
 
-    .sidebar__content {
+    .empsidebar__content {
         display: none;
     }
 }
