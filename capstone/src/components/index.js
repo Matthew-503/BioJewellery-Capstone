@@ -1,5 +1,5 @@
 
-// Author: Ling Shan Matthew Ng
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 0.2
 // Date: 18/1/2023
 
@@ -28,16 +28,22 @@ import ReturnBlock from './ReturnBlock/ReturnBlock';
 import CartContent from './CartContent/CartContent'
 import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
 import CartItem from './CartItem/CartItem';
-
+import DropdownItem from './DropdownItem/DropdownItem';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
+import ProductSideBar from './ProductSideBar/ProductSideBar';
 import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
+import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
+import EmpProductItem from './EmpProductItem/EmpProductItem';
+
+import ToggleButton from './ToggleButton/ToggleButton';
 
 // import AdminMenu from './AdminMenu/AdminMenu';
 
@@ -69,8 +75,7 @@ export {
     Article,
 
     ReviewBlock,
-    DescriptionBlock,
-
+    ProductSideBar,
     CartItem,
     Rating,
 
@@ -79,11 +84,14 @@ export {
 
     AddProduct,
     EditProduct,
-    
+
+    DropdownItem,
+    DropdownMenu,
 
     // AdminMenu,
 
     ReturnBlock,
+    DescriptionBlock,
 
     SideBar,
     ProductItems,
@@ -91,9 +99,13 @@ export {
     CartSummary,
 
     EmployeeMenu,
+    EmployeeProduct,
     Uploader,
+    EmpProductItem,
 
     SwitchProductDetail,
+
+    ToggleButton,
 
     // ShopProductIcon,
     // Newsletter,

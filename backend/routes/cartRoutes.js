@@ -5,6 +5,13 @@ const { getCartItems, addItemToCart, increaseItemQuantity, decreaseItemQuantity,
 
 router.route('/').get(protect, getCartItems).post(protect, addItemToCart);
 
-router.route('/:productId').patch(protect, increaseItemQuantity).put(protect, decreaseItemQuantity).delete(protect, deleteCartItem);
+
+router.route('/:productName/quantity/:quantity').get(protect, increaseItemQuantity);
+
+
+router.route('/:quantity/name/:productName').get(protect, decreaseItemQuantity);
+
+
+router.route('/:productId').delete(protect, deleteCartItem);
 
 module.exports = router;

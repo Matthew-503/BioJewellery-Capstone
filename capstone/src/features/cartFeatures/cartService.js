@@ -27,58 +27,42 @@ const getCartItems = async (token) => {
 }
 
 //Increase and update item quantity by 1 
-const increaseItemQuantity = async (productId, token) => {
+const increaseItemQuantity = async (item, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.patch(API_URL + productId, config)
+    const productName = item.productName
+    const quantity = 1 + parseInt(item.quantity);
+
+    const response = await axios.patch(API_URL + productName + "/quantity/" + quantity, config)
     return response.data
 }
 
 //Decrease and update item quantity by 1 
-const decreaseItemQuantity = async (productId, token) => {
+const decreaseItemQuantity = async (item, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.patch(API_URL + productId, config)
-    return response.data
-}
-
-
-// //Update cart item
-// const updateCartItemQuantity = async (productId, token) => {
-//     const config = {
-//         headers: {
-//             Authorization: `Bearer ${token}`
-//         }
-//     }
-//     const response = await axios.patch(API_URL + productId, config)
-//     return response.data
-// }
-
-
-//Delete cart item
-const deleteCartItem = async (cartId, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+    const productName = item.productName
+    const quantity = parseInt(item.quantity) - 1;
+    if (quantity <= 0){
+        return new Error('Cannot make a negative quantity');
     }
-
-    const response = await axios.delete(API_URL + cartId, config)
+    
+    const response = await axios.patch(API_URL + quantity + "/name/" + productName, config)
     return response.data
 }
+
 
 const cartService = {
     addItemToCart,
     getCartItems,
     increaseItemQuantity,
-    decreaseItemQuantity,
-    deleteCartItem
+    decreaseItemQuantity
 }
 
 export default cartService
