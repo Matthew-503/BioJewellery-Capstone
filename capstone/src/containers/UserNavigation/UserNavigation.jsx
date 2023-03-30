@@ -11,9 +11,9 @@ import { Navbar } from '../../components';
 const UserNavigation = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
