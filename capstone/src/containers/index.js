@@ -48,7 +48,7 @@ import Return from './Return/Return';
 
 
 import EmpAccount from './EmpAccount/EmpAccount';
-import EmpSidebarAccount from './EmpAccount/EmpSidebarAccount';
+import EmpSidebar from './EmpAccount/EmpSidebar';
 import EmpAdd from './EmpAccount/EmpAdd';
 import EmpEdit from './EmpAccount/EmpEdit';
 import EmpManage from './EmpAccount/EmpManage';
@@ -95,7 +95,7 @@ export {
 
 
   EmpAccount,
-  EmpSidebarAccount,
+  EmpSidebar,
   EmpAdd,
   EmpEdit,
   EmpManage,
