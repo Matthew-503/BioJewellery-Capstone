@@ -21,7 +21,7 @@ const Shipping = () => {
             <SubHeading title={'Order Details'} />
 
             <div className='order__pt1'>
-                <Address />
+                {/* <Address /> */}
             </div>
 
             <CheckoutSummary />

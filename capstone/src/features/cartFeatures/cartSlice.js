@@ -15,7 +15,7 @@ const initialState = {
     isLoading: false,
     message: ''
 }
-
+ 
 //Add item to cart
 export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkAPI) => {
     try {
