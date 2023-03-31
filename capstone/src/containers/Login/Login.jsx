@@ -14,11 +14,11 @@ import { useState } from 'react';
 
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
-import { Link, useNavigate } from "react-router-dom"
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { toast } from 'react-toastify'
-import { login, reset } from '../../features/accountFeatures/accountSlice'
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { login, reset } from '../../features/accountFeatures/accountSlice';
 import { Navbar } from '../../components';
 
 
