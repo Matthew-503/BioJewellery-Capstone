@@ -1,0 +1,17 @@
+.user__center {
+    max-height: 100%;
+    height: auto;
+}
+
+.user__header-text {
+    padding: 5px 4px;
+    color: #072D2E;
+}
+
+.search__user {
+    height: 30px;
+    width: 865px;
+    padding: 0rem 1rem;
+    border-radius: 3px;
+    font-size: 18;
+}

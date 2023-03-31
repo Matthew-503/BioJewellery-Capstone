@@ -5,7 +5,7 @@ import './ManageUser.css';
 
 const ManageUser = () => {
     return(
-        <div>
+        <div className="user__center">
             <div className="user__header-text">
                 <h1>
                     Manage Users
@@ -14,9 +14,10 @@ const ManageUser = () => {
 
             <div className="user__search-bar">
                 <input 
-                    type="text"
-                    placeholder='Search Users'
-                />
+                    type="text" 
+                    className="search__user" 
+                    placeholder="Search User">
+                </input>
             </div> 
 
             <div>
