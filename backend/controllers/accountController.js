@@ -29,7 +29,7 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   if (accountExists) {
     res.status(400)
-    throw new Error('Account already exists')
+    throw new Error('Account already exists' + accountExists)
   }
 
   // Hash password

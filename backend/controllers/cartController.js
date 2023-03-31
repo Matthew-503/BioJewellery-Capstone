@@ -132,65 +132,74 @@ res.status(200).json({ cartItems });
 // @access  private
 const increaseItemQuantity = asyncHandler(async (req, res) => {
         
-    const { productId } = req.params
+    const { productName,quantity } = req.params;
     
+    let newQuantity = quantity;
     //Check if the product exists
-    const product = await Product.findById(productId)
+    const product = await Product.find({'name' : productName});
 
-    if(!product){
+    if(!product || !quantity){
         res.status(400)
-        throw new Error('Sorry, Product not found in database')
+        throw new Error('Sorry, Product not found in database');
     }
 
+    if (product.quantity > quantity){
+        newQuantity = product.quantity
+    }
+
+    if (product.quantity <= 0 ){
+        res.status(400).json({productName});
+        throw new Error('Sorry, Product no longer available');
+    }
     //Cart for the current user that needs updation
-    const cart = await Cart.findById({client:req.user._id})
+    // const cart = await Cart.findById({client:req.user._id})
 
-    if(!cart)
-    {
-        res.status(400)
-        throw new Error('Sorry, the cart for the user does not exist. Start a new one')
-    }
+    // if(!cart)
+    // {
+    //     res.status(400)
+    //     throw new Error('Sorry, the cart for the user does not exist. Start a new one')
+    // }
 
     //Finding the product position in the cart.products array that needs updation
-    const updatingProductIndexVal = cart.products.findIndex((product) =>
-                                    product.productId.toString() === productId )
+    // const updatingProductIndexVal = cart.products.findIndex((product) =>
+    //                                 product.productId.toString() === productId )
 
     //if the product doesn't exist in cart, the index value will be -1
-    if(updatingProductIndexVal === -1){
-        res.status(400);
-        throw new Error('Product does not exist to update');        
-    }
+    // if(updatingProductIndexVal === -1){
+    //     res.status(400);
+    //     throw new Error('Product does not exist to update');        
+    // }
     
     //if the product exists, update the quantity
     //Check if we have enough stock to let the user add the quantity of product in cart
-    let expectedQuantity = cart.products[updatingProductIndexVal].quantity + 1;
-    if( expectedQuantity > product.quantity ){
-        res.status(400)
-        throw new Error('Sorry, we are running low, Requested quantity is unavailable')
-    }
+    // let expectedQuantity = cart.products[updatingProductIndexVal].quantity + 1;
+    // if( expectedQuantity > product.quantity ){
+    //     res.status(400)
+    //     throw new Error('Sorry, we are running low, Requested quantity is unavailable')
+    // }
 
-    cart.products[updatingProductIndexVal].quantity += 1;
+    // cart.products[updatingProductIndexVal].quantity += 1;
     
-    //saving cart info to DB
-    await cart.save()
+    // //saving cart info to DB
+    // await cart.save()
 
-    //fetching the items in cart
-    //extracting productIds to find the product details
-    const productIds = cart.products.map((product) => product.productId);
+    // //fetching the items in cart
+    // //extracting productIds to find the product details
+    // const productIds = cart.products.map((product) => product.productId);
 
-    //Using $in operator to match any of the values in productIds array
-    //if match, returning the product object of that id
-    const products = await Product.find({ _id: { $in: productIds } });
+    // //Using $in operator to match any of the values in productIds array
+    // //if match, returning the product object of that id
+    // const products = await Product.find({ _id: { $in: productIds } });
 
-    //Combining the quantity and full product data into a single array of product objects
-    //attaching product info so, in front end to display additional info like title, desc and images for the user to identify.
-    const cartItems = cart.products.map((product) => 
-    {   
-        const productData = products.find((p) => p._id.equals(product.productId));
-        return { product: productData, quantity: product.quantity };
-    });
+    // //Combining the quantity and full product data into a single array of product objects
+    // //attaching product info so, in front end to display additional info like title, desc and images for the user to identify.
+    // const cartItems = cart.products.map((product) => 
+    // {   
+    //     const productData = products.find((p) => p._id.equals(product.productId));
+    //     return { product: productData, quantity: product.quantity };
+    // });
 
-    res.status(200).json({cartItems});
+    res.status(200).json({ productName,newQuantity });
 })
 
 
@@ -201,64 +210,75 @@ const increaseItemQuantity = asyncHandler(async (req, res) => {
 // @access  private
 const decreaseItemQuantity = asyncHandler(async (req, res) => {
         
-    const { productId } = req.params
+    const { productName,quantity } = req.params
     //Check if the product exists
-    const product = await Product.findById(productId)
+    let newQuantity = quantity;
+    //Check if the product exists
+    const product = await Product.find({'name' : productName});
 
-    if(!product){
+    if(!product || !quantity){
         res.status(400)
-        throw new Error('Sorry, Product not found in database')
+        throw new Error('Sorry, Product not found in database');
     }
 
-    //Cart for the current user that needs updation
-    const cart = await Cart.findById({client:req.user._id})
-
-    if(!cart)
-    {
-        res.status(400)
-        throw new Error('Sorry, the cart for the user does not exist. Start a new one')
+    if (product.quantity > quantity){
+        quantity = product.quantity
     }
 
-    //Finding the product position in the cart.products array that needs updation
-    const updatingProductIndexVal = cart.products.findIndex((product) =>
-                                    product.productId.toString() === productId )
-
-    //if the product doesn't exist in cart, the index value will be -1
-    if(updatingProductIndexVal === -1){
-        res.status(400);
-        throw new Error('Product does not exist to update');        
+    if (product.quantity <= 0 ){
+        returres.status(400).json({productName});
+        throw new Error('Sorry, Product no longer available');
     }
+
+    // //Cart for the current user that needs updation
+    // const cart = await Cart.findById({client:req.user._id})
+
+    // if(!cart)
+    // {
+    //     res.status(400)
+    //     throw new Error('Sorry, the cart for the user does not exist. Start a new one')
+    // }
+
+    // //Finding the product position in the cart.products array that needs updation
+    // const updatingProductIndexVal = cart.products.findIndex((product) =>
+    //                                 product.productId.toString() === productId )
+
+    // //if the product doesn't exist in cart, the index value will be -1
+    // if(updatingProductIndexVal === -1){
+    //     res.status(400);
+    //     throw new Error('Product does not exist to update');        
+    // }
     
-    //if the product exists, update the quantity
-    //if the resulted quantity is 0, remove from cart
-    let resQuantity = cart.products[updatingProductIndexVal].quantity - 1;
-    if(resQuantity === 0){
-        //delete the product from array
-        cart.products.splice(updatingProductIndexVal,1);
-    }
-    //else decrease quantity by 1
-    cart.products[updatingProductIndexVal].quantity -= 1;
+    // //if the product exists, update the quantity
+    // //if the resulted quantity is 0, remove from cart
+    // let resQuantity = cart.products[updatingProductIndexVal].quantity - 1;
+    // if(resQuantity === 0){
+    //     //delete the product from array
+    //     cart.products.splice(updatingProductIndexVal,1);
+    // }
+    // //else decrease quantity by 1
+    // cart.products[updatingProductIndexVal].quantity -= 1;
     
-    //saving cart info to DB
-    await cart.save()
+    // //saving cart info to DB
+    // await cart.save()
 
-    //fetching the items in cart
-    //extracting productIds to find the product details
-    const productIds = cart.products.map((product) => product.productId);
+    // //fetching the items in cart
+    // //extracting productIds to find the product details
+    // const productIds = cart.products.map((product) => product.productId);
 
-    //Using $in operator to match any of the values in productIds array
-    //if match, returning the product object of that id
-    const products = await Product.find({ _id: { $in: productIds } });
+    // //Using $in operator to match any of the values in productIds array
+    // //if match, returning the product object of that id
+    // const products = await Product.find({ _id: { $in: productIds } });
 
-    //Combining the quantity and full product data into a single array of product objects
-    //attaching product info so, in front end to display additional info like title, desc and images for the user to identify.
-    const cartItems = cart.products.map((product) => 
-    {   
-        const productData = products.find((p) => p._id.equals(product.productId));
-        return { product: productData, quantity: product.quantity };
-    });
+    // //Combining the quantity and full product data into a single array of product objects
+    // //attaching product info so, in front end to display additional info like title, desc and images for the user to identify.
+    // const cartItems = cart.products.map((product) => 
+    // {   
+    //     const productData = products.find((p) => p._id.equals(product.productId));
+    //     return { product: productData, quantity: product.quantity };
+    // });
 
-    res.status(200).json({cartItems});
+    res.status(200).json({productName,newQuantity});
 
 })
 

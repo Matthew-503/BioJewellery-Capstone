@@ -2,58 +2,37 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import addressService from './addressService'
 
 const initialState = {
-    addresses: [],
-    shippingAddress:{},
+    shippingAddress:{
+        street: '',
+        city: '',
+        province: '',
+        country: '',
+        postalCode: ''
+    },
     isError: false,
     isSuccess: false,
     isLoading: false,
     message:''
 }
 
-export const createAddress = createAsyncThunk('addresses/create', async (addressData, thunkAPI) => {
-    try {
-        const token = thunkAPI.getState().auth.user.token
-        return await addressService.createAddress(addressData, token)
-    } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message) 
-    }
-})
-
 //Get address
-export const getAddress = createAsyncThunk('addresses/get', async (id, thunkAPI) => {
+export const getAddress = createAsyncThunk('address/get', async (thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await addressService.getAddress(id,token)
+        return await addressService.getAddress(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
     }
 })
 
-//Get user saved addresses
-export const getAddresses = createAsyncThunk('addresses/getAll', async (_, thunkAPI) => {
+//Update address
+export const updateAddress = createAsyncThunk('addresses/put', async (thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await addressService.getAddresses(token)
+        return await addressService.getAddress(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message) 
-    }
-})
-
-//Delete user address
-export const deleteAddress = createAsyncThunk('addresses/delete', 
-async (id, thunkAPI) => {
-    try {
-        const token = thunkAPI.getState().auth.user.token
-        return await addressService.deleteAddress(id, token)
-    } catch (error) {
-        const message = (error.response && 
-            error.response.data && 
-            error.response.data.message) 
-            || error.message || error.toString()
-            
         return thunkAPI.rejectWithValue(message) 
     }
 })
@@ -67,19 +46,6 @@ export const addressSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(createAddress.pending, (state) => {
-            state.isLoading = true
-        })
-        .addCase(createAddress.fulfilled, (state, action) => {
-            state.isLoading = false
-            state.isSuccess = true
-            state.addresses.push(action.payload)
-        })
-        .addCase(createAddress.rejected, (state, action) => {
-            state.isLoading = false
-            state.isError = true
-            state.message = action.payload 
-        })
         .addCase(getAddress.pending, (state) => {
             state.isLoading = true
         })
@@ -93,37 +59,20 @@ export const addressSlice = createSlice({
             state.isError = true
             state.message = action.payload 
         })
-        .addCase(getAddresses.pending, (state) => {
+        .addCase(updateAddress.pending, (state) => {
             state.isLoading = true
         })
-        .addCase(getAddresses.fulfilled, (state, action) => {
+        .addCase(updateAddress.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.addresses = action.payload.addresses
-            state.shippingAddress = action.payload.shippingAddress
+            state.shippingAddress = action.payload
         })
-        .addCase(getAddresses.rejected, (state, action) => {
-            state.isLoading = false
-            state.isError = true
-            state.addresses = null
-            state.shippingAddress = null
-            state.message = action.payload 
-        })
-        .addCase(deleteAddress.pending, (state) => {
-            state.isLoading = true
-        })
-        .addCase(deleteAddress.fulfilled, (state, action) => {
-            state.isLoading = false
-            state.isSuccess = true 
-            state.addresses = state.addresses.filter((address) => address._id !== action.payload.id)
-        })
-        .addCase(deleteAddress.rejected, (state, action) => {
+        .addCase(updateAddress.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload 
-        })
+        }) 
     }
-
 })
 
 export const {reset} = addressSlice.actions

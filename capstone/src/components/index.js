@@ -43,6 +43,8 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
 import EmpProductItem from './EmpProductItem/EmpProductItem';
 
+import ToggleButton from './ToggleButton/ToggleButton';
+
 // import AdminMenu from './AdminMenu/AdminMenu';
 
 import Uploader from "./Uploader/Uploader";
@@ -102,6 +104,8 @@ export {
     EmpProductItem,
 
     SwitchProductDetail,
+
+    ToggleButton,
 
     // ShopProductIcon,
     // Newsletter,

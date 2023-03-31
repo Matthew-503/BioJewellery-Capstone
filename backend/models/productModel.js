@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
         default:"Enter a new description"
     },
     price: {
-        type:mongoose.Types.Decimal128,
+        type: Number,
         required:false,
         default:0
     },

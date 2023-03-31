@@ -20,7 +20,7 @@ import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefit
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
-import OrderPreview from './containers/OrderPreview/OrderPreview';
+import Shipping from './containers/Shipping/Shipping';
 
 //testing address component - need to be removed
 import Address from './components/Address/Address';
@@ -46,8 +46,7 @@ const App = () => (
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
-                {/* <Route path="/orderpreview" element={<OrderPreview />} /> */}
-                <Route path="/addresses" element={<Address />} />
+                <Route path="/shipping" element={<Shipping />} />
             </Route>
             <Route element={<ProtectedRouteUser />}>
                 <Route path="/account" element={<Account />} />
