@@ -30,7 +30,8 @@ import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const isAuth = useAuth();
+    // const isAuth = useAuth();
+    const isAuth = true;
     const { cartProducts, itemCount } = useSelector((state) => state.cart);
 
 
