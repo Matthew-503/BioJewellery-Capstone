@@ -20,12 +20,12 @@ import { NavLink, Link, useNavigate } from "react-router-dom"
 import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
-import { updateItemCount } from '../../features/cartFeatures/cartSlice';
+//import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
-// import { useAuthU } from '../../features/ProtectedRouteUser';
-// import { useAuth } from '../../features/ProtectedRoute';
+import { useAuthU } from '../../features/ProtectedRouteUser';
+import { useAuth } from '../../features/ProtectedRoute';
 import { Navigate, Outlet } from "react-router-dom";
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
@@ -39,25 +39,25 @@ const Navbar = () => {
         (state) => state.auth
     )
 
-    // const useAuth = () => {
-    //     const { user } = useSelector(
-    //         (state) => state.auth
-    //     )
+    const useAuth = () => {
+        const { user } = useSelector(
+            (state) => state.auth
+        )
     
-    //     if (user && user.type==="Client") {
-    //         setAuthU(true);	
-    //     } 
-    //     if (user && user.user.type==="Admin") {
-    //         setAuthA(true);	
-    //     }
+        if (user && user.type==="Client") {
+            setAuthU(true);	
+        } 
+        if (user && user.user.type==="Admin") {
+            setAuthA(true);	
+        }
        
-    // }
+    }
 
     const dispatch = useDispatch();
 
     useEffect(() => {
 
-        dispatch(updateItemCount());
+//        dispatch(updateItemCount());
 
     }, [dispatch, itemCount]);
 
