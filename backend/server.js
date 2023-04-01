@@ -18,6 +18,9 @@ const uuid = require('uuid')
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')('sk_test_51MmsESGqyagVRxA1BIBc0xVLZMDOG4GfABDTRgr0NT3lXCGOAAGIZbZg26QCacl0dQOx7IRLe4nlx2t1fUzL9vYN005qEnNnXX');
 
+//image middleware
+const imageMiddleware = require('./middleware/ImageMiddleware');
+
 //Mongodb connections
 connectDB();
 app.use(express.json());
@@ -52,6 +55,9 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 app.use('/api/addresses', require('./routes/addressRoutes.js'));
 
 app.use(errorHandler);
+
+//Image file upload route
+app.use('/api/file', require('./routes/fileRoutes.js'));
 
 //Stripe request
 app.post("/checkout", async(req, res) => {
