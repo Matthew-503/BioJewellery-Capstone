@@ -6,6 +6,8 @@
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 
+//Initializing stripe client for our account using secret key
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 // @desc    create a checkout session
 // @route   POST /checkout
@@ -13,6 +15,7 @@ const Product = require('../models/productModel')
 const checkout = asyncHandler(async (req, res) => {
     try{
     const items = req.body.cartItems;
+    const email = req.body.userEmail;
 
     //data formatting for stripe
     let lineItems = [];
@@ -44,7 +47,9 @@ const checkout = asyncHandler(async (req, res) => {
         payment_method_types: ['card'],
         mode: 'payment',
         success_url: "http://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel"
+        cancel_url: "http://localhost:3000/cancel",
+        currency: 'cad',
+        customer_email: email
     });
 
     //sending response to front end

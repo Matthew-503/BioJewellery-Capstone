@@ -13,16 +13,16 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { getGst } from '../../features/gstFeatures/gstSlice';
 
 function CheckoutSummary() {
-
+  const { user } = useSelector((state) => state.auth)
   const { cartProducts, subTotal } = useSelector((state) => state.cart);
-  const { gst } = useSelector((state) => state.gst);
+  const { gst } = useSelector((state) => state.gst)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     
     dispatch(getGst());
-              
+     
   }, [subTotal, dispatch]);
 
   function calculateTax() {
@@ -42,7 +42,8 @@ function CheckoutSummary() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({cartProducts})
+      body: JSON.stringify({cartItems: cartProducts, userEmail: user.email})
+      
     })
     
     if(!response.ok){
