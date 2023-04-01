@@ -14,6 +14,7 @@ function Uploader() {
                 <div onClick={() => document.querySelector(".upload__input").click()}>
                     <input
                         type="file"
+                        name='productpic'
                         multiple="multiple"
                         accept='image/*'
                         className="upload__input"
