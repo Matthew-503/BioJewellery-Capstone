@@ -12,11 +12,10 @@ const Gst = require('../models/globalModel')
 // @access  Private
 const getGst = asyncHandler(async (req, res) => {
     try {   
-
         //finiding gst
-        const gst = await Gst.find()
+        const gstObj = await Gst.findOne();
 
-        res.status(200).json({gst});
+        res.status(200).json(gstObj.gst);
 
     } catch (error) {
         res.status(400)

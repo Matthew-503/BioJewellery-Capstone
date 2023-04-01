@@ -3,35 +3,34 @@
 // Date: 15/03/2023
 
 //Description: This component displays the subTotal, tax, total and proceeds to Stripe payment. 
+
 import './CheckoutSummary.css';
-import React, { useState, useEffect }  from 'react'
-import {useNavigate} from 'react-router-dom'
+
+import React, { useEffect }  from 'react'
 import { useSelector, useDispatch  } from "react-redux";
 import { FaShoppingCart } from 'react-icons/fa';
-import { getCartItems } from '../../features/cartFeatures/cartSlice';
-import { getGst } from '../../features/gstFeatures/gstSlice';
-function CheckoutSummary() {
-  
-  const { cartProducts, subTotal } = useSelector((state) => state.cart);
-  const gstPercent = useSelector((state) => state.gst);
 
-  const navigate = useNavigate()
+import { getGst } from '../../features/gstFeatures/gstSlice';
+
+function CheckoutSummary() {
+
+  const { cartProducts, subTotal } = useSelector((state) => state.cart);
+  const { gst } = useSelector((state) => state.gst);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     
     dispatch(getGst());
-    dispatch(getCartItems());
               
-  }, [cartProducts, navigate,dispatch]);
-
+  }, [subTotal, dispatch]);
 
   function calculateTax() {
-    return (subTotal * (gstPercent/100));
+    return (subTotal * (gst/100));
   }
 
   function calculateTotal() {
-    return (subTotal + (subTotal * (gstPercent/100)));
+    return (subTotal + (subTotal * (gst/100)));
   }
 
   const checkout = async () => {
