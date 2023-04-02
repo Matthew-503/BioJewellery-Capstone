@@ -124,8 +124,32 @@ const generateToken = (id) => {
   })
 }
 
+const updateAccount = asyncHandler(async (req, res) => {
+  const account = await Account.findById(req.params.id)
+
+  //Check for account 
+    if(!account) {
+      res.status(400)
+      throw new error('User not found')
+    }
+
+  //Check for user
+  if(account.user.toString() !== User.id) {
+    res.status(401)
+    throw new error('User Not Authorized')    
+  }
+
+    const updatedAccount = await Account.findByIdAndUpdate(req.params.id, 
+      req.body, {
+        new: true,
+      })
+
+    res.status(200).json(updatedAccount)  
+})
+
 module.exports = {
   registerAccount,
   loginAccount,
   getAccount,
+  updateAccount,
 }
