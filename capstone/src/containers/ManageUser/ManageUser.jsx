@@ -13,6 +13,8 @@ const ManageUser = () => {
     const dispatch = useDispatch()
 
     const { account } = useSelector((state) => state.auth)
+    {/* const { account, isLoading, isError, message } = useSelector((state) => 
+state.account) */}
 
     useEffect(() => {
         if(!account) {

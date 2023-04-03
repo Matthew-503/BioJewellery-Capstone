@@ -110,8 +110,16 @@ const loginAccount = asyncHandler(async (req, res) => {
   }
 })
 
+const suspendAccount = asyncHandler(async(req,res) => {
+  res.status(200).json(req.account)
+})
+
+const appealAccount = asyncHandler(async(req,res) => {
+  res.status(200).json(req.account)
+})
+
 // @desc    Get user data
-// @route   GET /api/users/me
+// @route   GET /api/users/account
 // @access  Private
 const getAccount = asyncHandler(async (req, res) => {
   res.status(200).json(req.account)
@@ -150,4 +158,6 @@ module.exports = {
   loginAccount,
   getAccount,
   updateAccount,
+  suspendAccount,
+  appealAccount,
 }

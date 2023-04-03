@@ -31,17 +31,17 @@ const logout = () => {
   localStorage.removeItem('user')
 }
 
-//Get accounts
+// Get user goals
 const getAccounts = async (token) => {
   const config = {
-    header: {
-      Authorization: 'Bearer ${token}',
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
   }
 
- const response = await axios.get(API_URL, config)
- 
- return response.data
+  const response = await axios.get(API_URL, config)
+
+  return response.data
 }
 
 //Update User
