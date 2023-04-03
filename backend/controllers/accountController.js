@@ -123,8 +123,45 @@ const generateToken = (id) => {
   })
 }
 
+// @desc    Forgot Password
+// @route   POST /api/account/forgot-password
+// @access  Public
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  const emailLowerCase = email.toLowerCase()
+
+  try {
+    const oldaccount = await Account.findOne({ 'email': emailLowerCase })
+    if (!oldaccount) {
+      res.status(400)
+      throw new Error('User does not exist!');
+    }
+    const secret = JWT_SECRET + oldaccount.password;
+    const token = jwt.sign({ email: oldaccount.email, id: oldaccount._id }, secret, {
+      expiresIn: "5m",
+    });
+       
+    //http://localhost:8001/api/account/
+    //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
+    const link = `http://localhost:8001/api/account/reset-password/${oldaccount._id}/${token}`;
+    console.log(link)
+  } catch (error) {
+    
+  }
+})
+
+// @desc    Reset Password
+// @route   POST /api/account/reset-password
+// @access  Public
+const resetPassword = asyncHandler(async (req, res) => {
+  const { id, token } = req.params;
+  console.log(req.params);
+})
+
 module.exports = {
   registerAccount,
   loginAccount,
   getAccount,
+  forgotPassword,
+  resetPassword,
 }
