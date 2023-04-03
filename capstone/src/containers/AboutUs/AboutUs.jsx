@@ -27,7 +27,7 @@ const AboutUs = () => {
             <AboutHeader />
             <AboutCompany />
             <AboutSustain />
-            <AboutProduction />
+            {/* <AboutProduction /> */}
         </div>
     );
 };
