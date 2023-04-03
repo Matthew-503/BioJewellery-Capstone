@@ -3,16 +3,16 @@ const router = express.Router()
 const {
   registerAccount,
   loginAccount,
-  getAccount,
+  getAccounts,
   updateAccount,
   suspendAccount,
   appealAccount,
 } = require('../controllers/accountController')
 const { protect } = require('../middleware/authMiddleware')
 
-router.post('/', registerAccount)
+router.post('/', registerAccount, getAccounts)
 router.post('/login', loginAccount)
-router.get('/me', protect, getAccount)
-router.put('/:id', updateAccount, appealAccount, suspendAccount)
+router.get('/me', protect)
+router.put('/:email', updateAccount, appealAccount, suspendAccount)
 
 module.exports = router

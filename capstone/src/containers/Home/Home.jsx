@@ -14,7 +14,6 @@ const Home = () => {
       {/* <Video /> */}
       <Benefits />
       <Follow />
-      <ManageUser />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}

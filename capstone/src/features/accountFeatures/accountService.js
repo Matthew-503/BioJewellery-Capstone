@@ -31,7 +31,7 @@ const logout = () => {
   localStorage.removeItem('user')
 }
 
-// Get user goals
+// Get user accounts
 const getAccounts = async (token) => {
   const config = {
     headers: {

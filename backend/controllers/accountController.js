@@ -118,19 +118,20 @@ const appealAccount = asyncHandler(async(req,res) => {
   res.status(200).json(req.account)
 })
 
-// @desc    Get user data
-// @route   GET /api/users/account
+// @desc    Get accounts
+// @route   GET /api/accounts
 // @access  Private
-const getAccount = asyncHandler(async (req, res) => {
-  res.status(200).json(req.account)
-})
+const getAccounts = asyncHandler(async (req, res) => {
 
-// Generate JWT -- id is the payload
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '30d',
-  })
-}
+  const accounts = await Account.find();
+
+  if(!accounts) {
+    res.status(400) 
+      throw new Error ('Accounts not found')
+  }
+  res.status(200).json(accounts)
+  }
+)
 
 
 // @desc    Update Account
@@ -156,7 +157,7 @@ const updateAccount = asyncHandler(async (req, res) => {
 module.exports = {
   registerAccount,
   loginAccount,
-  getAccount,
+  getAccounts,
   updateAccount,
   suspendAccount,
   appealAccount,

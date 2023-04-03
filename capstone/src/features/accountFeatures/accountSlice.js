@@ -17,10 +17,10 @@ const initialState = {
 
 //Retrieve accounts
 export const getAccounts = createAsyncThunk(
-  'auth/users/me',
+  'auth/get',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.account.token
+      const token = thunkAPI.getState().auth.accounts.token
       return await authService.getAccounts(token)
     } catch (error) {
       const message =
@@ -34,7 +34,7 @@ export const getAccounts = createAsyncThunk(
   }
 )
 
-// Register account
+// get an account
 export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
@@ -120,12 +120,13 @@ export const authSlice = createSlice({
       .addCase(getAccounts.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.account = action.payload
+        state.accounts = action.payload
       })
       .addCase(getAccounts.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
+        state.accounts = null;
       })
   },
 })
