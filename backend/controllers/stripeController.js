@@ -49,9 +49,10 @@ const checkout = asyncHandler(async (req, res) => {
         success_url: "http://localhost:3000/success",
         cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
-        customer_email: email
+        customer_email: email,
+        automatic_tax: {enabled: true}
     });
-
+ 
     //sending response to front end
     res.send(JSON.stringify({
         url: session.url
@@ -65,6 +66,35 @@ const checkout = asyncHandler(async (req, res) => {
     
 })
 
+// @desc    add the product in Stripe
+// @route   POST /checkout/product
+// @access  Private
+const createProduct = asyncHandler(async (req, res) => {
+    try {
+        const { name, description, amount } = req.body;
+        
+        //Creating product in Stripe
+        const product = await stripe.products.create({
+            name,
+            description
+        });
+
+        const price = await stripe.prices.create({
+            unit_amount: amount,
+            currency: 'cad',
+            product: product.id
+          });
+
+        res.json({ priceId: price.id });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error });
+    }
+
+})
+
 module.exports = {    
-    checkout
+    checkout,
+    createProduct
 }
