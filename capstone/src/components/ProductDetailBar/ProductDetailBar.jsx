@@ -39,7 +39,7 @@ const ProductDetailBar = () => {
     let stars = 3;
 
     const [selectedValue, setSelectedValue] = useState("");
-
+    
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
 
@@ -122,7 +122,7 @@ const ProductDetailBar = () => {
             </h1>
 
             <p>
-                Price ${299}
+                Price ${selectedProduct.price + ''  }
             </p>
 
             <div className="detail__bar-status">
@@ -137,7 +137,7 @@ const ProductDetailBar = () => {
 
 
             <div className="detail__bar-dropdown">
-                <select value={selectedValue} onChange={handleChange}>
+                <select  value={selectedValue} onChange={handleChange}>
                     <option value="">Select a quantity</option>
                     {[...Array(11).keys()].map((num) => (
                         <option key={num} value={num}>
@@ -149,7 +149,7 @@ const ProductDetailBar = () => {
             </div>
 
             <Link to="/cart">
-                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))}>
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({'productName':selectedProduct.name, 'productPrice':selectedProduct.price, 'quantity': Number.parseInt(selectedValue)}))}>
                     <FaShoppingCart />  Add to Cart
                 </button>
             </Link>

@@ -14,11 +14,11 @@ import { useState } from 'react';
 
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
-import { Link, useNavigate } from "react-router-dom"
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { toast } from 'react-toastify'
-import { login, reset } from '../../features/accountFeatures/accountSlice'
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { login, reset } from '../../features/accountFeatures/accountSlice';
 import { Navbar } from '../../components';
 
 
@@ -60,7 +60,7 @@ function Login() {
     }
 
     if (isSuccess && user) {
-      dispatch(reset())
+      
       //if its a regular client it redirect to the logged home page (protected route)
       if (user.user.type === "Client") {
         navigate('/')
@@ -119,6 +119,7 @@ function Login() {
               placeholder="Email"
               value={email}
               onChange={onChange}
+              required
             />
 
             <input
@@ -129,6 +130,7 @@ function Login() {
               placeholder="Password"
               value={password}
               onChange={onChange}
+              required
             />
 
             <div className='login__lower-functions login__forget-link'>
@@ -138,7 +140,9 @@ function Login() {
               <br />
               <button type="submit" className="login__button">Login</button>
               <br />
-              <button type="submit" className="login__button">Register</button>
+              <Link to='/signup'>
+                <button className="login__button">Register</button>
+              </Link>
               <br />
               <div className="login__link">
                 <Link to="/">Continue as guest</Link>

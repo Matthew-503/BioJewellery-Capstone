@@ -1,107 +1,37 @@
 // Author: Sri
-// Description: controller logic
-// Version 1.0
-// Date: 14/03/2023
+// Description: Address controller logic
+// Version 1.1
+// Date: 30/03/2023
 
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 const Address = require('../models/addressModel')
 
-// @desc    Get the address based on address id
-// @route   GET /api/addresses/:addressId
+// @desc    Get the address based on user id
+// @route   GET /api/address
 // @access  Private
 const getAddress = asyncHandler(async (req, res) => {
     try {   
 
+        //finiding user object
+        const user = await User.findById(req.user._id);
+
         //finiding address object
-        const address = await Address.findById(req.params.addressId)
+        const address = await Address.findById({_id: user.shippingAddress});
 
         res.status(200).json({address});
 
     } catch (error) {
         res.status(400)
-        throw new Error('Unable to get the address');
+        throw new Error('Unable to get the shipping address');
     }
 
 })
 
-// @desc    Get all the addresses related to an account
-// @route   GET /api/addresses
-// @access  Public
-const getAddresses = asyncHandler(async (req, res) => {
-    try {   
 
-        //finidng user object and replacing address ids with address objects in addresses array
-        const user = await User.findById(req.user._id).populate('addresses')
-
-        //Finding addresses for the selected user
-        const addresses =  user.addresses
-
-        const shippingAddress = user.shippingAddress
-
-        res.status(200).json({addresses, shippingAddress});
-
-    } catch (error) {
-        res.status(401)
-        throw new Error('Unable to get the saved addresses for this account');
-    }
-
-})
-
-// @desc    create an address for a user
-// @route   POST /api/addresses
-// @access  Private
-const createAddress = asyncHandler(async (req, res) => {
-    
-    //user account 
-    const user = await User.findById(req.user._id)
-
-    const { street, city, province, country, postalCode } = req.body
-
-    if (!street || !city || !province || !country || !postalCode) {
-      res.status(400)
-      throw new Error('Please provide all fields!')
-    }
-
-    //Check if address already saved for the user
-    const addressExists = await Address.findOne({
-        client: req.user._id,   
-        street,
-        city,
-        province,
-        country,
-        postalCode
-    })
-    
-    if(addressExists){
-        res.status(400)
-        throw new Error('Address already saved!');
-    }
-                                
-    //creating address
-    const address = await Address.create({
-        client: req.user._id,   
-        street,
-        city,
-        province,
-        country,
-        postalCode
-     });
-
-    //adding address to DB
-    await address.save()
-
-    //adding address under the related user
-    user.addresses.push(address)
-
-    //saving the updated user object
-    await user.save()
-    
-    res.status(200).json({address});
-})
 
 // @desc    update a posted review 
-// @route   PUT /api/addresses/:addressId
+// @route   PUT /api/address
 // @access  Private
 const updateAddress = asyncHandler(async (req, res) => {
 
@@ -109,18 +39,16 @@ const updateAddress = asyncHandler(async (req, res) => {
     const {street, city, province, country, postalCode} = req.body
 
     //finding the address that needs to be updated
-    const address = await Address.findById(req.params.addressId)
+    //finiding user object
+    const user = await User.findById(req.user._id);
 
+    //finiding address object
+    const address = await Address.findById({_id: user.shippingAddress});
+   
     //throw error if no address exists by that id
-    if(!review){
+    if(!address){
         res.status(400)
         throw new Error('Sorry, address not found')
-    }
-
-    //check if the account trying to update address is same as the account saved address
-    if(address.client.toString() !== req.user._id.toString()){
-        res.status(400)
-        throw new Error('Not authorized to update this address')
     }
 
     //set the address fields to the new values or by default the existing value
@@ -136,45 +64,8 @@ const updateAddress = asyncHandler(async (req, res) => {
     res.status(200).json('Address Updated');
 })
 
-// @desc    delete an address
-// @route   DELETE /api/addresses/:addressId
-// @access  Private
-const deleteAddress = asyncHandler(async (req, res) => {
 
-    //finding the address that needs to be removed
-    const address = await Address.findById(req.params.addressId)
-
-    //throw error if no address exists by that id
-    if(!address){
-        res.status(400)
-        throw new Error('Sorry, address not found')
-    }
-
-    //check if the account trying to delete address is same as the account saved address
-    if(address.client.toString() !== req.user._id.toString()){
-        res.status(400)
-        throw new Error('Not authorized to delete this address')
-    }
-
-    //Updating addresses and shippingAddress fields of user object
-    const user = await User.findById(req.user._id)
-    user.addresses.pull(address._id)
-
-    if(user.shippingAddress.toString() === address._id.toString()){
-        user.shippingAddress.remove()
-    }
-
-    await user.save()
-
-    //Remove address from database
-    await address.remove()
-
-    res.status(200).json({id: req.params.addressId});
-})
 module.exports = {
     getAddress,
-    createAddress,
-    updateAddress,
-    deleteAddress,
-    getAddresses
+    updateAddress
 }

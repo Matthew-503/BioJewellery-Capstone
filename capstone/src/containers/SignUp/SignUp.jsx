@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 
-import { SubHeading } from '../../components';
+import { Navbar, SubHeading } from '../../components';
 import { SwitchDetail } from '../../containers';
 import { images } from '../../constants';
-import { Link } from "react-router-dom"
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+
+import { Link, useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { register, reset } from '../../features/accountFeatures/accountSlice'
+
+import PasswordChecklist from "react-password-checklist"
+
 
 import './SignUp.css';
 
@@ -28,10 +36,24 @@ const SignUpForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
+            toast.error('Passwords do not match')
         }
-        console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
+        else {
+            const userData = {
+              name,
+              email,
+              password,
+              street,
+              city,
+              province,
+              country,
+              postalCode,              
+              apartment,
+        }
+      
+            dispatch(register(userData))
+        }
+        //console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
     };
 
     const handleClick = () => {
@@ -45,13 +67,27 @@ const SignUpForm = () => {
         }
     };
 
+    const checkPassword = (password) =>
+    {
+      var re = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+      return re.test(password);
+    }
+  
+
     const handleKeyDown = (e, event) => {
 
         if (e.key === ("Enter") && { confirmPassword } !== null) {
-            setCurrentInput(currentInput + 1);
+            
             if (password !== confirmPassword) {
                 alert('Passwords do not match');
                 return;
+            }
+            else if (!checkPassword(password)) {
+                alert('Please try a different password');
+                return;
+            }
+            else {
+                setCurrentInput(currentInput + 1);
             }
         }
         else {
@@ -77,7 +113,51 @@ const SignUpForm = () => {
         // console.log(name, email, password);
     };
 
+    const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+
+//   const onChange = (e) => {
+//     setFormData((prevState) => ({
+//       ...prevState,
+//       [e.target.name]: e.target.value,
+//     }))
+//   }
+
+//   const onSubmit = (e) => {
+//     e.preventDefault()
+
+//     if (password !== password2) {
+//       toast.error('Passwords do not match')
+//     } else {
+//       const userData = {
+//         name,
+//         email,
+//         password,
+//       }
+
+//       dispatch(register(userData))
+//     }
+//   }
+
     return (
+    <>
+        <Navbar />
         <div className='signup__overall'>
             <div className='signup'>
                 <div className="signup__wrapper">
@@ -97,9 +177,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="name"
+                                        name="name"
                                         placeholder='Name'
                                         value={name}
                                         onChange={(event) => setName(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -108,9 +190,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="email"
                                         id="email"
+                                        name="email"
                                         placeholder='Email'
                                         value={email}
                                         onChange={(event) => setEmail(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -119,9 +203,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="password"
                                         id="password"
+                                        name="password"
                                         placeholder='Password'
                                         value={password}
                                         onChange={(event) => setPassword(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -130,10 +216,23 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="password"
                                         id="confirmPassword"
+                                        name="confirmPassword"
                                         placeholder='Confirm Password'
                                         value={confirmPassword}
                                         onKeyDown={handleKeyDown}
                                         onChange={(event) => setConfirmPassword(event.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                <br></br>
+                                <div class="passwordChecklist">
+                                    
+                                    <PasswordChecklist
+                                            rules={["minLength","specialChar","number","capital","match"]}
+                                            minLength={8}
+                                            value={password}
+                                            valueAgain={confirmPassword}
                                     />
                                 </div>
                             </div>
@@ -144,7 +243,8 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="apartment"
-                                        placeholder='Apartment name'
+                                        name="apartment"
+                                        placeholder='Address Complement'
                                         value={apartment}
                                         onChange={(event) => setApartment(event.target.value)}
                                     />
@@ -155,9 +255,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="street"
+                                        name="street"
                                         placeholder='Street Address'
                                         value={street}
                                         onChange={(event) => setStreet(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -166,10 +268,12 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="city"
+                                        name="city"
                                         placeholder='City'
                                         value={city}
                                         onKeyDown={handleKeyDown}
                                         onChange={(event) => setCity(event.target.value)}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -180,9 +284,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="province"
+                                        name="province"
                                         placeholder='State/Province'
                                         value={province}
                                         onChange={(event) => setProvince(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -191,9 +297,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="country"
+                                        name="country"
                                         placeholder='Country'
                                         value={country}
                                         onChange={(event) => setCountry(event.target.value)}
+                                        required
                                     />
                                 </div>
 
@@ -202,9 +310,11 @@ const SignUpForm = () => {
                                         className='signup__input'
                                         type="string"
                                         id="postalCode"
+                                        name="postalCode"
                                         placeholder='Postal Code'
                                         value={postalCode}
                                         onChange={(event) => setPostalCode(event.target.value)}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -244,10 +354,12 @@ const SignUpForm = () => {
                                 </div>
                             </div>
 
-                            <p className='signup__login'>
-                                Already have an account?
-                                <Link to="/"> Log in</Link>
-                            </p>
+                            <Link to="/login"> 
+                                <p className='signup__login'>
+                                    Already have an account?
+                                    Log in
+                                </p>
+                            </Link>
                         </div>
 
 
@@ -272,6 +384,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="name"
+                                            name="name"
                                             placeholder='Name'
                                             value={name}
                                             onChange={(event) => setName(event.target.value)}
@@ -283,6 +396,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="email"
                                             id="email"
+                                            name="email"
                                             placeholder='Email'
                                             value={email}
                                             onChange={(event) => setEmail(event.target.value)}
@@ -294,6 +408,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="password"
                                             id="password"
+                                            name="password"
                                             placeholder='Password'
                                             value={password}
                                             onChange={(event) => setPassword(event.target.value)}
@@ -305,10 +420,21 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="password"
                                             id="confirmPassword"
+                                            name="confirmPassword"
                                             placeholder='Confirm Password'
                                             value={confirmPassword}
                                             onKeyDown={handleKeyDown}
                                             onChange={(event) => setConfirmPassword(event.target.value)}
+                                        />
+                                    </div>
+
+                                    <div class="passwordChecklist">
+                                    
+                                        <PasswordChecklist
+                                                rules={["minLength","specialChar","number","capital","match"]}
+                                                minLength={8}
+                                                value={password}
+                                                valueAgain={confirmPassword}
                                         />
                                     </div>
                                 </div>
@@ -319,6 +445,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="apartment"
+                                            name="apartment"
                                             placeholder='Apartment name'
                                             value={apartment}
                                             onChange={(event) => setApartment(event.target.value)}
@@ -330,6 +457,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="street"
+                                            name="street"
                                             placeholder='Street Address'
                                             value={street}
                                             onChange={(event) => setStreet(event.target.value)}
@@ -341,6 +469,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="city"
+                                            name="city"
                                             placeholder='City'
                                             value={city}
                                             onKeyDown={handleKeyDown}
@@ -355,6 +484,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="province"
+                                            name="province"
                                             placeholder='State/Province'
                                             value={province}
                                             onChange={(event) => setProvince(event.target.value)}
@@ -366,6 +496,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="country"
+                                            name="country"
                                             placeholder='Country'
                                             value={country}
                                             onChange={(event) => setCountry(event.target.value)}
@@ -377,6 +508,7 @@ const SignUpForm = () => {
                                             className='signup__input'
                                             type="string"
                                             id="postalCode"
+                                            name="postalCode"
                                             placeholder='Postal Code'
                                             value={postalCode}
                                             onChange={(event) => setPostalCode(event.target.value)}
@@ -431,6 +563,7 @@ const SignUpForm = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
 
