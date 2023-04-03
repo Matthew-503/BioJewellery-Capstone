@@ -45,6 +45,7 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import Feedback from './Feedback/Feedback';
 import Return from './Return/Return';
+import Reset from './Reset/Reset';
 
 
 import EmpAccount from './EmpAccount/EmpAccount';
@@ -93,6 +94,7 @@ export {
   OrderConfirmation,
   Feedback,
   Return,
+  Reset,
 
 
   EmpAccount,
