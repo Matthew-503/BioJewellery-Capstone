@@ -94,7 +94,28 @@ const createProduct = asyncHandler(async (req, res) => {
 
 })
 
+// @desc    add the product in Stripe
+// @route   PUT /checkout/product
+// @access  Private
+const updateProductPrice = asyncHandler(async (req, res) => {
+    try {
+        const { priceId, newPrice } = req.body;
+        
+        const updatedPrice = await stripe.prices.update(priceId, {
+            unit_amount: newPrice
+          });
+
+        res.json({updatedPrice});
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error });
+    }
+
+})
+
 module.exports = {    
     checkout,
-    createProduct
+    createProduct,
+    updateProductPrice
 }
