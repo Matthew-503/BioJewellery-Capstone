@@ -42,7 +42,7 @@ const ManageUser = () => {
                 </input>
             </div> 
 
-            <section className="account__contents">
+            {/* <section className="account__contents">
                 {account.length > 0 ? (
                     <div className="accounts">
                         {account.map((account) => (
@@ -50,7 +50,7 @@ const ManageUser = () => {
                         ))}
                     </div>    
                 ) : (<h3>There are no accounts available</h3>) }
-            </section>
+            </section> */}
         </div>
     )
 }
