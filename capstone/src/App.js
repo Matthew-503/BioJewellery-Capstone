@@ -22,8 +22,7 @@ import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
 import Shipping from './containers/Shipping/Shipping';
 
-//testing address component - need to be removed
-import Address from './components/Address/Address';
+
 import { ProtectedRoute } from './features/ProtectedRoute';
 import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
