@@ -15,6 +15,25 @@ const initialState = {
   message: '',
 }
 
+//Retrieve accounts
+export const getAccounts = createAsyncThunk(
+  'auth/getAll',
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.account.token
+      return await authService.getAll(token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 // Register account
 export const register = createAsyncThunk(
   'auth/register',
@@ -94,6 +113,19 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user = null
         state.isSuccess = true
+      })
+      .addCase(getAccounts.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAccounts.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.account = action.payload
+      })
+      .addCase(getAccounts.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
       })
   },
 })

@@ -31,10 +31,31 @@ const logout = () => {
   localStorage.removeItem('user')
 }
 
+//Get accounts
+const getAccounts = async (token) => {
+  const config = {
+    header: {
+      Authorization: 'Bearer ${token}',
+    },
+  }
+
+ const response = await axios.get(API_URL, config)
+ 
+ return response.data
+}
+
+//Update User
+const update = async (userData) => {
+  const response = await axios.post(API_URL + 'update', userData)
+
+
+}
+
 const authService = {
   register,
   logout,
   login,
+  getAccounts,
 }
 
 export default authService

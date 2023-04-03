@@ -1,18 +1,28 @@
 import React from 'react';
 import {useState} from 'react';
 
+
 import './UserBlock.css';
 
-const UserBlock = () => {
+const UserBlock = (account) => {
     return (
-        <div>
-            <div>
-                
+        <div className="user__block-container">
+            <div className="user__details">
+                <h2 className="user__name">{account.name}</h2>
+                <h3 className="user__email">{account.email}</h3>
             </div>
 
-            <div>
-                
-            </div>
+            <button 
+                className="suspend"
+            ></button>
+
+            <button 
+                className="appeal"
+            ></button>
+
+            <button 
+                className="delete"
+            ></button>
 
         </div>
     )
