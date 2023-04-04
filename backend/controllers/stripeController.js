@@ -78,14 +78,18 @@ const createProduct = asyncHandler(async (req, res) => {
             name,
             description
         });
+       
+        // Convert price from dollars to cents
+        const priceInCents = amount * 100;
 
         const price = await stripe.prices.create({
-            unit_amount: amount,
+            unit_amount: priceInCents,
             currency: 'cad',
             product: product.id
-          });
-
-        res.json({ priceId: price.id });
+        });
+ 
+        //TODO: We have to save the product id created for product at stripe end as well
+        res.json({ priceId: price.id, stripeProductId: product.id});
 
     } catch (error) {
         console.error(error);
@@ -99,13 +103,36 @@ const createProduct = asyncHandler(async (req, res) => {
 // @access  Private
 const updateProductPrice = asyncHandler(async (req, res) => {
     try {
-        const { priceId, newPrice } = req.body;
-        
-        const updatedPrice = await stripe.prices.update(priceId, {
-            unit_amount: newPrice
-          });
+        const { productName, amount } = req.body;
 
-        res.json({updatedPrice});
+        const productObj = await Product.findOne({'name': productName});
+
+        //Retrieve the current active price object for the product from Stripe
+        const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
+
+        // Convert price from dollars to cents
+        const priceInCents = amount * 100;
+
+        //creating a new price obj for the updated price
+        const newPriceObj = await stripe.prices.create({
+            product: productObj.stripeProductId,
+            unit_amount: priceInCents,
+            currency: 'cad'
+        });
+
+        //change product's price key to new one
+        productObj.priceApiId = newPriceObj.id;
+
+        //save in DB
+        await productObj.save();
+
+        //changing the status of old price obj to inactive, since we cannot delete price in Stripe
+        await stripe.prices.update(currentPriceObj.id, {
+            active: false
+        });
+
+
+        res.json({newPriceObj});
 
     } catch (error) {
         console.error(error);
