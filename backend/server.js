@@ -53,7 +53,7 @@ app.use('/api/address', require('./routes/addressRoutes.js'));
 app.use('/api/gst', require('./routes/gstRoutes.js'));
 
 // Stripe routes
-app.use('/checkout', require('./routes/stripeRoutes.js'));
+// app.use('/checkout', require('./routes/stripeRoutes.js'));
 
 
 app.use(errorHandler);

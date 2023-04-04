@@ -37,8 +37,10 @@ const getProduct = asyncHandler(async (req, res) => {
 })
 
 
-const setProduct = asyncHandler(async (req, res, next) => {
+const setProduct = asyncHandler(async (req, res) => {
 
+    try {        
+    
     if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
         res.status(400)
         throw new Error('Please provide all fields!')
@@ -49,13 +51,28 @@ const setProduct = asyncHandler(async (req, res, next) => {
         description: req.body.description,
         price: req.body.price,
         quantity: req.body.quantity,
+        stripeProductId: req.stripeProductId,
+        priceApiId: req.priceApiId
     })
-    req.body.productId = product._id
-    product.save();
-    //For uploading images
-    next();
-})
+    
+    if (!product) {
+        res.status(400)
+        throw new Error('error in product creation!')
+    }
 
+    //req.body.productId = product._id
+
+    res.json({product});
+
+    //For uploading images
+    // next();
+
+    } catch (error) {
+        throw new Error(error);
+    }
+
+    
+})
 
 const updateProduct = asyncHandler(async (req, res) => {
 
