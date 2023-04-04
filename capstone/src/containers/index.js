@@ -50,7 +50,6 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Account from './Account/Account';
 import AccountHistory from './Account/AccountHistory';
-
 import Return from './Return/Return';
 
 
@@ -82,7 +81,6 @@ export {
 
 
   Shipping,
-
   ShopCategory,
   Feed,
   ShopProduct,

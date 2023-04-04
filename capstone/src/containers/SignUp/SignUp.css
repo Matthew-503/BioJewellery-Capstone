@@ -1,3 +1,7 @@
+.passwordChecklist {
+    font-size: 1rem;
+}
+
 .signup {
     background: var(--color-lightgreen);
     position: relative;

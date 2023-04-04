@@ -21,7 +21,7 @@ const Home = () => {
       {/* <EmpAccount /> */}
       {/* <EmpManageProduct /> */}
       {/* <Shipping /> */}
-      <Return />
+      {/* <Return /> */}
     </div >
   )
 }
