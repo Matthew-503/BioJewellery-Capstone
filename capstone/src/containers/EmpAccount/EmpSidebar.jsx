@@ -88,4 +88,4 @@ const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
     )
 };
 
-export default EmpSidebar;
+export default EmpSidebarAccount;
