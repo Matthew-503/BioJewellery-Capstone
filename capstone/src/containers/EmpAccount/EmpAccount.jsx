@@ -5,10 +5,10 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
-import SideBarAccount from "./EmpSidebarAccount";
+import SideBarAccount from "./EmpSidebar";
 
 import './EmpAccount.css';
-import EmpSidebarAccount from "./EmpSidebarAccount";
+import EmpSidebar from "./EmpSidebar";
 
 const EmpAccount = (props) => {
 
@@ -30,7 +30,7 @@ const EmpAccount = (props) => {
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh" }}>
-                    <EmpSidebarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <EmpSidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
