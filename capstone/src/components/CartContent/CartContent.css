@@ -22,7 +22,6 @@
     display: flex;
     flex-direction: row;
     gap: 10rem;
-
 }
 
 .cart__content h1 {
@@ -36,7 +35,7 @@
 .cart__content-card {
     display: flex;
     flex-direction: column;
-
+    
 }
 
 .cart__content-card p {

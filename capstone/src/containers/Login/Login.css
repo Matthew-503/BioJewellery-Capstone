@@ -89,10 +89,18 @@
     cursor: pointer;
 }
 
+.login__button:hover {
+    background-color: var(--color-darkgreen);
+}
+
 .login__link {
     margin-top: 0.5vw;
     font-size: 13px;
     font-family: var(--font-alt);
+}
+
+.login__link:hover {
+    color: var(--color-black);
 }
 
 .HeaderImageContainer {

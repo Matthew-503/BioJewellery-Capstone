@@ -1,14 +1,13 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, EmpAdd, EmployeeSettings, EmpAccount, EmpManage, Return, EmpEdit, EmpUser, Reset } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpManageProduct, Return } from '../../containers';
 const Home = () => {
   return (
     <div>
-
-      {/* <Header /> */}
-      {/* <Gallery /> */}
+      <Header />
+      <Gallery />
       {/* <Video /> */}
-      {/* <Benefits /> */}
-      {/* <Follow /> */}
+      <Benefits />
+      <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -20,11 +19,9 @@ const Home = () => {
       {/* <OrderConfirmation /> */}
       {/* <EmpAdd /> */}
       {/* <EmpAccount /> */}
-      {/* <EmpManage /> */}
+      {/* <EmpManageProduct /> */}
+      {/* <Shipping /> */}
       {/* <Return /> */}
-      {/* <EmpEdit /> */}
-      {/* <EmpUser /> */}
-      <Reset />
     </div >
   )
 }

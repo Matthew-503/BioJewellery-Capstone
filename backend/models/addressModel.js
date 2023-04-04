@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
 const addressSchema = new mongoose.Schema({  
-    client:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
     street:{
         type:String,
         required:true
@@ -24,6 +19,10 @@ const addressSchema = new mongoose.Schema({
     postalCode: {
         type:String,
         required:true
+    },
+    apartment: {
+        type:String,
+        required:false
     }
 },{
     timestamps: true

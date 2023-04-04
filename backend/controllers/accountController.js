@@ -15,7 +15,7 @@ const User = require('../models/userModel')
 // @route   POST /api/account
 // @access  Public
 const registerAccount = asyncHandler(async (req, res) => {
-  const { name, email, password, street, city, province, country, postalCode } = req.body
+  const { name, email, password, street, city, province, country, postalCode, apartment} = req.body
 
   if (!name || !email || !password ||!street || !city || !province|| !country|| !postalCode) {
     res.status(400)
@@ -25,11 +25,11 @@ const registerAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check if account exists
-  const accountExists = await Account.findOne({ emailLowerCase })
+  const accountExists = await Account.findOne({ 'email': emailLowerCase })
 
   if (accountExists) {
     res.status(400)
-    throw new Error('Account already exists')
+    throw new Error('Account already exists' + accountExists)
   }
 
   // Hash password
@@ -38,12 +38,12 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   //Create Shipping Address
   const shippingAddress = await Address.create({
-    client: user._id,
     street,
     city,
     province,
     country,
-    postalCode
+    postalCode, 
+    apartment
   })
 
   //Create User 
@@ -53,7 +53,7 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   //push into address list as well
-  user.addresses.push(shippingAddress)
+  // user.addresses.push(shippingAddress)
 
   // Create account
   const account = await Account.create({
@@ -63,14 +63,15 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   if (account) {
-    res.status(201).json({
+    res.json({
       _id: account.id,
       email: account.email,
       token: generateToken(account._id),
-      name: name,
-      user: {
-        _id: user._id
-      }
+      user:{
+        _id: user._id,
+        type: user.type,
+        name: user.name
+      }      
     })
   } 
   else {
@@ -88,20 +89,18 @@ const loginAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check for user email
-  const account = await Account.findOne({ emailLowerCase })
-
-  //user object
-  const user = await User.findById(account.user)
-
+  const account = await Account.findOne({ 'email': emailLowerCase })
   
   if (account && (await bcrypt.compare(password, account.password))) {
+    const user = await User.findById({ '_id': account.user})
     res.json({
       _id: account.id,
       email: account.email,
       token: generateToken(account._id),
       user:{
         _id: user._id,
-        type: user.type
+        type: user.type,
+        name: user.name
       }      
     })
   } else {
@@ -124,8 +123,45 @@ const generateToken = (id) => {
   })
 }
 
+// @desc    Forgot Password
+// @route   POST /api/account/forgot-password
+// @access  Public
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  const emailLowerCase = email.toLowerCase()
+
+  try {
+    const oldaccount = await Account.findOne({ 'email': emailLowerCase })
+    if (!oldaccount) {
+      res.status(400)
+      throw new Error('User does not exist!');
+    }
+    const secret = JWT_SECRET + oldaccount.password;
+    const token = jwt.sign({ email: oldaccount.email, id: oldaccount._id }, secret, {
+      expiresIn: "5m",
+    });
+       
+    //http://localhost:8001/api/account/
+    //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
+    const link = `http://localhost:8001/api/account/reset-password/${oldaccount._id}/${token}`;
+    console.log(link)
+  } catch (error) {
+    
+  }
+})
+
+// @desc    Reset Password
+// @route   POST /api/account/reset-password
+// @access  Public
+const resetPassword = asyncHandler(async (req, res) => {
+  const { id, token } = req.params;
+  console.log(req.params);
+})
+
 module.exports = {
   registerAccount,
   loginAccount,
   getAccount,
+  forgotPassword,
+  resetPassword,
 }

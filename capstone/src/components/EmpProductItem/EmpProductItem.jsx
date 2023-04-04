@@ -53,10 +53,7 @@
 
 // export default EmpProductItem;
 
-import React, { Component } from 'react';
 
-import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
-import Uploader from '../../components/Uploader/Uploader';
 
 // Author: Buola Achor
 // Version 0.1
@@ -133,7 +130,10 @@ import Uploader from '../../components/Uploader/Uploader';
 //         );
 //     }
 // }
+import React, { Component } from 'react';
 
+import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
+import Uploader from '../../components/Uploader/Uploader';
 import { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar, Navbar, ToggleButton } from '../../components';

@@ -6,9 +6,10 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom"
 // import 'antd/dist/antd.css'
+import { createRoot } from 'react-dom/client';
 
 // npm run dev to run the program
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
 
