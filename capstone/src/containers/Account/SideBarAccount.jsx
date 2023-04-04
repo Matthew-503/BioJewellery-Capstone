@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import { images } from '../../constants';
 import { accountCategory } from '../../constants';
 import './SideBarAccount.css'
+import { Link } from "react-router-dom";
 
 const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
     <div className="account__sidebar">
@@ -25,6 +26,7 @@ const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
                 </div>
 
                 {accountCategory.map((category) => (
+                    <Link to={"/" + category.name}>
                     <button
                         className="category-btn account__grid-item"
                         onClick={() => setSelectedCategory(category.name)}
@@ -41,6 +43,7 @@ const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
                             {category.name}
                         </span>
                     </button>
+                    </Link>
                 ))}
             </Stack>
         </div>

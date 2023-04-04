@@ -8,11 +8,11 @@ import cartService from './cartService'
 
 const initialState = {
     cartProducts: [], //product object
-    itemCount: 0,
-    subTotal: 0,
+    itemCount: 0,       
     isError: false,
     isSuccess: false,
     isLoading: false,
+    subTotal: 0,
     message: ''
 }
 
@@ -24,6 +24,17 @@ export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkA
         const token = thunkAPI.getState().auth.user.token
         return await item
         
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message) 
+    }
+})
+
+
+//Add item to cart
+export const getSubtotal = createAsyncThunk('cart/subtotal', async (_, thunkAPI) => {
+    try {
+        return null
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -159,8 +170,7 @@ export const cartSlice = createSlice({
             state.isLoading = false
             state.isSuccess = true
             for(let i = 0; i < state.cartProducts.length; i++){
-                if(state.cartProducts[i].productName === action.payload.productName){
-                
+                if(state.cartProducts[i].productName === action.payload.productName){     
                     state.cartProducts[i].quantity = action.payload.newQuantity;
                 }
             }
@@ -168,6 +178,27 @@ export const cartSlice = createSlice({
         .addCase(decreaseItemQuantity.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
+            state.message = action.payload 
+        })
+        .addCase(getSubtotal.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(getSubtotal.fulfilled, (state, action, thunkAPI) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.subTotal = action.payload
+        })
+        .addCase(getSubtotal.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            let total =  0;
+            for(let i = 0; i < state.cartProducts.length; i++){
+                
+                let amount = (state.cartProducts[i].price * state.cartProducts[i].quantity)
+                total = total + amount
+                console.log(total)
+            }
+            console.log(action.payload)
             state.message = action.payload 
         })
         .addCase(deleteCartItem.pending, (state) => {
