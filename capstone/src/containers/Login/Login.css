@@ -8,6 +8,28 @@
     height: 101vh;
 }
 
+.login__table-column1 {
+    min-width: 50vw;
+}
+
+.login__table-column2 {
+    min-width: 50vw;
+    padding: 7rem 12rem;
+}
+
+.login__img {
+    position: relative;
+    display: inline-block;
+    padding: none;
+}
+
+.login__img img {
+    max-width: 50vw;
+    min-height: 100vh;
+    border-radius: none;
+    position: relative;
+}
+
 .login img {
     height: 101vh;
     /* height: auto; */
