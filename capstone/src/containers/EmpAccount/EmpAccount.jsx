@@ -26,7 +26,7 @@ const EmpAccount = (props) => {
 
     return (
         <div>
-            {/* <Navbar /> */}
+            <Navbar />
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh" }}>
