@@ -20,7 +20,7 @@ export const getAccounts = createAsyncThunk(
   'auth/get',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.accounts.token
+      const token = thunkAPI.getState().auth.user.token
       return await authService.getAccounts(token)
     } catch (error) {
       const message =
@@ -120,7 +120,7 @@ export const authSlice = createSlice({
       .addCase(getAccounts.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.accounts = action.payload
+        state.accounts = action.payload.accounts
       })
       .addCase(getAccounts.rejected, (state, action) => {
         state.isLoading = false
