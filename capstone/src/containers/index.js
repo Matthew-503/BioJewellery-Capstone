@@ -49,6 +49,8 @@ import SignUp from './SignUp/SignUp';
 import Account from './Account/Account';
 import AccountHistory from './Account/AccountHistory';
 import Return from './Return/Return';
+import Reset from './Reset/Reset';
+import ResetConfirm from './Reset/ResetConfirm';
 
 
 import EmpAccount from './EmpAccount/EmpAccount';
@@ -96,6 +98,8 @@ export {
   OrderConfirmation,
   Feedback,
   Return,
+  Reset,
+  ResetConfirm,
 
 
   EmpAccount,
