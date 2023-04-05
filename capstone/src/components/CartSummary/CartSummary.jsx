@@ -6,19 +6,19 @@
 
 import React from 'react';
 import './CartSummary.css';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import { useEffect } from 'react';
 import { PayButton } from '..';
-import { getSubtotal} from '../../features/cartFeatures/cartSlice';
+import { selectSubtotal} from '../../features/cartFeatures/cartSlice';
 const CartSummary = () => {
-    const { subTotal,isError, message } = useSelector((state) => state.cart);
+    const { isError, message } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
-  
+    const subtotal = useSelector(selectSubtotal);
     useEffect(() => {
         if (isError) {
             console.log(message);
         }
-        dispatch(getSubtotal())
+       
 
     }, [isError, message])
     return (
@@ -49,7 +49,7 @@ const CartSummary = () => {
                 </h1>
 
                 <h1>
-                    CA${subTotal}
+                    CA${subtotal}
                 </h1>
             </div>
 
