@@ -92,8 +92,8 @@ const createProductInStripe = asyncHandler(async (req, res) => {
         
         req.stripeProductId = product.id;
         req.priceApiId = price.id;
-        next();
-
+        // next();
+        res.status(200).json('product added in Stripe');
         //TODO: We have to save the product id created for product at stripe end as well
         // res.json({ priceId: price.id, stripeProductId: product.id});
 
