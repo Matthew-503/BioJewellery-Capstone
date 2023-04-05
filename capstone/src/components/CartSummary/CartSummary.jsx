@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { PayButton } from '..';
 import { selectSubtotal} from '../../features/cartFeatures/cartSlice';
 const CartSummary = () => {
-    const { isError, message } = useSelector((state) => state.cart);
+    const { cartProducts,isError, message } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const subtotal = useSelector(selectSubtotal);
     useEffect(() => {
@@ -49,7 +49,7 @@ const CartSummary = () => {
                 </h1>
 
                 <h1>
-                    CA${subtotal}
+                    CA${subtotal.toFixed(2)}
                 </h1>
             </div>
 

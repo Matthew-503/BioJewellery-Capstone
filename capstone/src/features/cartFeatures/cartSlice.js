@@ -39,7 +39,7 @@ export const calculateSubtotal = (products) => {
   };
 
   
-export const selectProducts = (state) => state.cartProducts;
+export const selectProducts = (state) => state.cart.cartProducts;
 
 export const selectSubtotal = createSelector(
   [selectProducts],
