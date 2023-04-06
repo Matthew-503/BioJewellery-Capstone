@@ -6,12 +6,19 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-    },
-    cart:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Cart'
-    },
+    },       
+    products: [
+        {
+            productId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Product'
+            },
+            quantity: {
+                type: Number,
+                default: 1
+            }
+        }
+    ],
     shippingAddress: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -36,7 +43,7 @@ const orderSchema = new mongoose.Schema({
     status:{
         type:String,
         required:true,
-        enum: ['P', 'S', 'C'], //p - pending, S - shipped, C - Complete
+        enum: ['P', 'S', 'C', 'R', 'V'], //p - pending, S - shipped, C - Complete, R - Returned, V - Void
         default:'P' 
     }
 },{

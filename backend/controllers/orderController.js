@@ -68,6 +68,65 @@ const createOrder = asyncHandler(async (req, res) => {
     res.status(200).json({ message: 'Order Created' });
 })
 
+
+
+//Updated verstion of creating order
+const mongoose = require('mongoose');
+const Order = mongoose.model('Order', orderSchema);
+
+// const createOrder = asyncHandler(async (req, res) => {
+//   const { user, products, shippingAddress, startDate, shipDate, receiveDate, trackingNumber, status } = req.body;
+
+//    // Validate the input fields
+//    if (!user) {
+//     res.status(400);
+//     throw new Error('Client ID is required');
+//   }
+
+//   const client = await User.findById({_id: user._id})
+  
+
+//   if (!Array.isArray(products) || products.length === 0) {
+//     res.status(400);
+//     throw new Error('At least one product is required');
+//   }
+//   if (!shippingAddress) {
+//     res.status(400);
+//     throw new Error('Shipping address ID is required');
+//   }
+//   if (!startDate) {
+//     res.status(400);
+//     throw new Error('Start date is required');
+//   }
+//   if (!trackingNumber) {
+//     res.status(400);
+//     throw new Error('Tracking number is required');
+//   }
+//   if (!['P', 'S', 'C', 'R', 'V'].includes(status)) {
+//     res.status(400);
+//     throw new Error('Invalid status');
+//   }
+
+//   // Create the order
+//   const order = new Order({
+//     client,
+//     products,
+//     shippingAddress,
+//     startDate,
+//     shipDate,
+//     receiveDate,
+//     trackingNumber,
+//     status,
+//   });
+
+//   const createdOrder = await order.save();
+
+//   res.status(201).json(createdOrder);
+// });
+
+
+
+
 // @desc    update an existing Order 
 // @route   PATCH /api/order/:orderId
 // @access  Private
