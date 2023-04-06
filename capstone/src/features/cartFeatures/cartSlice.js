@@ -15,7 +15,7 @@ const initialState = {
     subTotal: 0,
     message: ''
 }
-
+ 
 //Add item to cart
 export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkAPI) => {
     try {

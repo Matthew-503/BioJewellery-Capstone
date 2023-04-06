@@ -49,8 +49,12 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 //Address routes
 app.use('/api/address', require('./routes/addressRoutes.js'));
 
-//Stripe routes
-app.use('/checkout', require('./routes/stripeRoutes.js'));
+//GST routes
+app.use('/api/gst', require('./routes/gstRoutes.js'));
+
+// Stripe routes
+// app.use('/checkout', require('./routes/stripeRoutes.js'));
+
 
 app.use(errorHandler);
 
