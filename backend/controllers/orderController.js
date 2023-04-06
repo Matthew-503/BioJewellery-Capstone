@@ -21,108 +21,94 @@ const getOrder = asyncHandler(async (req, res) => {
     res.status(200).json(order)    
 })
 
-// @desc    Create an order
-// @route   POST /api/order
-// @access  Private
-const createOrder = asyncHandler(async (req, res) => {
+// // @desc    Create an order
+// // @route   POST /api/order
+// // @access  Private
+// const createOrder = asyncHandler(async (req, res) => {
     
-    //user
-    const user = await User.findById(req.user._id)
+//     //user
+//     const user = await User.findById(req.user._id)
 
-    //find the cart for the order
-    const cart = Cart.findById(req.body.cartId)
+//     //find the cart for the order
+//     const cart = Cart.findById(req.body.cartId)
 
-    //throw error if no cart exists by that id
-    if(!cart){
-        res.status(400)
-        throw new Error('Sorry, cart not found')
-    }
+//     //throw error if no cart exists by that id
+//     if(!cart){
+//         res.status(400)
+//         throw new Error('Sorry, cart not found')
+//     }
 
-    //get default address value 
-    const shippingAddress = user.defaultAddress
+//     //get default address value 
+//     const shippingAddress = user.defaultAddress
 
-    //start date will be current date
-    const startDate = new Date()
+//     //start date will be current date
+//     const startDate = new Date()
 
-    //generating tracking number
-    const trackGen = () => {
-        const prefix = 'BJ'
-        const rand = Math.floor(Math.random() * 100000000) //a random 8 digit num
-        const val = prefix + rand.toString().padStart(8, '0') //id of 10 chars
-        return val
-    }
+//     //generating tracking number
+//     const trackGen = () => {
+//         const prefix = 'BJ'
+//         const rand = Math.floor(Math.random() * 100000000) //a random 8 digit num
+//         const val = prefix + rand.toString().padStart(8, '0') //id of 10 chars
+//         return val
+//     }
 
-    const trackingNumber = trackGen()
+//     const trackingNumber = trackGen()
 
-    const order = await Order.create({
-        client: user._id,
-        cart,
-        shippingAddress,
-        startDate,
-        trackingNumber
-    })
+//     const order = await Order.create({
+//         client: user._id,
+//         cart,
+//         shippingAddress,
+//         startDate,
+//         trackingNumber
+//     })
 
-    //saving order in database
-    await order.save()
+//     //saving order in database
+//     await order.save()
 
-    res.status(200).json({ message: 'Order Created' });
-})
+//     res.status(200).json({ message: 'Order Created' });
+// })
 
 
 
 //Updated verstion of creating order
-const mongoose = require('mongoose');
-const Order = mongoose.model('Order', orderSchema);
 
-// const createOrder = asyncHandler(async (req, res) => {
-//   const { user, products, shippingAddress, startDate, shipDate, receiveDate, trackingNumber, status } = req.body;
+const createOrder = asyncHandler(async (req, res) => {
+  const { user, products, shippingAddress } = req.body;
+  const startDate = new Date();
+   // Validate the input fields
+   if (!user) {
+    res.status(400);
+    throw new Error('Client ID is required');
+  }
 
-//    // Validate the input fields
-//    if (!user) {
-//     res.status(400);
-//     throw new Error('Client ID is required');
-//   }
-
-//   const client = await User.findById({_id: user._id})
+  const client = await User.findById({_id: user._id})
   
 
-//   if (!Array.isArray(products) || products.length === 0) {
-//     res.status(400);
-//     throw new Error('At least one product is required');
-//   }
-//   if (!shippingAddress) {
-//     res.status(400);
-//     throw new Error('Shipping address ID is required');
-//   }
-//   if (!startDate) {
-//     res.status(400);
-//     throw new Error('Start date is required');
-//   }
-//   if (!trackingNumber) {
-//     res.status(400);
-//     throw new Error('Tracking number is required');
-//   }
-//   if (!['P', 'S', 'C', 'R', 'V'].includes(status)) {
-//     res.status(400);
-//     throw new Error('Invalid status');
-//   }
+  if (!Array.isArray(products) || products.length === 0) {
+    res.status(400);
+    throw new Error('At least one product is required');
+  }
+  if (!shippingAddress) {
+    res.status(400);
+    throw new Error('Shipping address ID is required');
+  }
+  if (!startDate) {
+    res.status(400);
+    throw new Error('Start date is required');
+  }
+ 
+  // Create the order
+  const order = new Order({
+    client,
+    products,
+    shippingAddress,
+    startDate,
+  });
 
-//   // Create the order
-//   const order = new Order({
-//     client,
-//     products,
-//     shippingAddress,
-//     startDate,
-//     shipDate,
-//     receiveDate,
-//     trackingNumber,
-//     status,
-//   });
+  const createdOrder = await order.save();
 
-//   const createdOrder = await order.save();
-
-//   res.status(201).json(createdOrder);
-// });
+  res.status(201).json(createdOrder);
+});
 
 
 

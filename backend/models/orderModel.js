@@ -38,14 +38,14 @@ const orderSchema = new mongoose.Schema({
     },
     trackingNumber:{
         type:String,
-        required:true
+        required:false
     },
     status:{
         type:String,
         required:true,
         enum: ['P', 'S', 'C', 'R', 'V'], //p - pending, S - shipped, C - Complete, R - Returned, V - Void
         default:'P' 
-    }
+    },
 },{
     timestamps: true
 });
