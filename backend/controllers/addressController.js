@@ -77,7 +77,7 @@ const updateAddress = asyncHandler(async (req, res) => {
     address.country = country ?? address.country
     address.postalCode = postalCode ?? address.postalCode
 
-    //save updated review to database
+    //save updated address to database
     await address.save()
 
     res.status(200).json('Address Updated');

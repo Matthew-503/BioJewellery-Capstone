@@ -8,7 +8,6 @@ const productModel = require('../models/productModel');
 
 string = "test"
 
-
 const getAllProducts = asyncHandler(async (req, res) => {
     try {
         const products = await productModel.find();
@@ -35,7 +34,6 @@ const getProduct = asyncHandler(async (req, res) => {
     }
 
 })
-
 
 const setProduct = asyncHandler(async (req, res) => {
 
@@ -70,14 +68,39 @@ const setProduct = asyncHandler(async (req, res) => {
     } catch (error) {
         throw new Error(error);
     }
-
-    
 })
 
 const updateProduct = asyncHandler(async (req, res) => {
+    try 
+    {
+    
+    if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
+        res.status(400)
+        throw new Error('Please provide all fields!')
+    }
 
-        
-    res.status(200).json('Updated product');
+    //receiving product fields 
+    const {name, description, price, quantity} = req.body
+
+    //finiding product object
+    const productObj = await productModel.findById({'name': name});
+
+    //set the product fields to the new values or by default the existing value
+    productObj.name = name ?? productObj.name
+    productObj.description = description ?? productObj.description
+    productObj.price = price ?? productObj.price
+    productObj.quantity = quantity ?? productObj.quantity
+    productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
+
+    //save updated product to database
+    await productObj.save()
+    
+    res.status(200).json('Product Updated');
+
+    }//end of try block    
+    catch (error) {
+        throw new Error(error);
+    }
 })
 
 
@@ -151,8 +174,6 @@ function sortByAsc(arr) {
 }
 
 
-
-
 function sortByDscd(arr) {
     if (arr.length <= 1) {
         return arr;
@@ -178,7 +199,6 @@ function mergeDsc(left, right) {
 
     return result.concat(left, right);
 }
-
 
 module.exports = {
     sortProducts,

@@ -66,8 +66,7 @@ const checkout = asyncHandler(async (req, res) => {
     
 })
 
-// @desc    add the product in Stripe
-// @route   POST /checkout/product
+// @desc    add the product in Stripe before adding it in DB
 // @access  Private
 const createProductInStripe = asyncHandler(async (req, res, next) => {
     try {
@@ -93,9 +92,6 @@ const createProductInStripe = asyncHandler(async (req, res, next) => {
         req.stripeProductId = product.id;
         req.priceApiId = price.id;
         next();
-        // res.status(200).json('product added in Stripe');
-        //TODO: We have to save the product id created for product at stripe end as well
-        // res.json({ priceId: price.id, stripeProductId: product.id});
 
     } catch (error) {
         console.error(error);
@@ -104,48 +100,42 @@ const createProductInStripe = asyncHandler(async (req, res, next) => {
 
 })
 
-// @desc    add the product in Stripe
-// @route   PUT /checkout/product
+// @desc    Edit the product price in Stripe and also update it in DB
 // @access  Private
-const updateProductPriceInStripe = asyncHandler(async (req, res) => {
+const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
     try {
 
-        const productName = req.body.name;
-        const  amount  = req.body.price;
+    const amount  = req.body.price;
 
-        const productObj = await Product.findOne({'name': productName});
+    //finding the product that needs to be updated
+    const productObj = await Product.findOne({'name': req.params.name});
 
-        //Retrieve the current active price object for the product from Stripe
-        const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
+    //Retrieve the current active price object for the product from Stripe
+    const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
 
-        // Convert price from dollars to cents
-        const priceInCents = amount * 100;
+    // Convert price from dollars to cents
+    const priceInCents = amount * 100;
 
-        //creating a new price obj for the updated price
-        const newPriceObj = await stripe.prices.create({
-            product: productObj.stripeProductId,
-            unit_amount: priceInCents,
-            currency: 'cad'
-        });
+    //creating a new price obj for the updated price
+    const newPriceObj = await stripe.prices.create({
+        product: productObj.stripeProductId,
+        unit_amount: priceInCents,
+        currency: 'cad'
+    });
 
-        //change product's price key to new one
-        // productObj.priceApiId = newPriceObj.id;
+    //changing the status of old price obj to inactive, since we cannot delete price in Stripe
+    await stripe.prices.update(currentPriceObj.id, {
+        active: false
+    });
 
-        //save in DB
-        // await productObj.save();
+    // req.priceApiId = newPriceObj.id;
+    // next();
 
-        //changing the status of old price obj to inactive, since we cannot delete price in Stripe
-        await stripe.prices.update(currentPriceObj.id, {
-            active: false
-        });
-
-        req.priceApiId = newPriceObj.id;
-        next();
-        // res.json({newPriceObj});
+    res.status(200).json({newPriceObj});
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error });
+    console.error(error);
+    res.status(500).json({ error });
     }
 
 })
