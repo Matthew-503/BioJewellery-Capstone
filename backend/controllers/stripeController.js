@@ -69,7 +69,7 @@ const checkout = asyncHandler(async (req, res) => {
 // @desc    add the product in Stripe
 // @route   POST /checkout/product
 // @access  Private
-const createProductInStripe = asyncHandler(async (req, res) => {
+const createProductInStripe = asyncHandler(async (req, res, next) => {
     try {
         const name = req.body.name;
         const description = req.body.description;
@@ -92,8 +92,8 @@ const createProductInStripe = asyncHandler(async (req, res) => {
         
         req.stripeProductId = product.id;
         req.priceApiId = price.id;
-        // next();
-        res.status(200).json('product added in Stripe');
+        next();
+        // res.status(200).json('product added in Stripe');
         //TODO: We have to save the product id created for product at stripe end as well
         // res.json({ priceId: price.id, stripeProductId: product.id});
 
