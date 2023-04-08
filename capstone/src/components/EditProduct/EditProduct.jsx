@@ -45,14 +45,14 @@ class EditProduct extends Component {
                     <div className="edit__product-name">
                         <label>
                             Product Name<br/>
-                            <input name="name" type="text" className="edit__input-name" placeholder="XXXX"/><br/>
+                            <input name="name" type="text" className="edit__input-name" /><br/>
                         </label>
                     </div>    
 
                     <div className="edit__product-desc"> 
                         <label>
                             Product Description<br/> 
-                            <input name="descrption" type="text" className="edit__input-desc" placeholder="XXXX"/><br/>
+                            <input name="descrption" type="text" className="edit__input-desc" /><br/>
                         </label>
                     </div>
 
@@ -60,14 +60,14 @@ class EditProduct extends Component {
                         <li className="edit__product-price">
                             <label>
                                 <h3 className="input__name">Price </h3>
-                                    <input name="price" type="number" className="edit__input-price" placeholder="100,00"/><br/>
+                                    <input name="price" type="number" className="edit__input-price"/><br/>
                             </label>
                         </li>
 
                         <li className="edit__product-stock">
                             <label>
                                 <h3 className="input__name">In-Stock</h3>
-                                    <input name="stock" type="number" className="edit__input-stock" placeholder="10"/><br/>
+                                    <input name="stock" type="number" className="edit__input-stock"/><br/>
                             </label>
                         </li>
                     </ul> 

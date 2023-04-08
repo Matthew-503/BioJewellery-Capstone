@@ -104,8 +104,7 @@ const createProductInStripe = asyncHandler(async (req, res, next) => {
 // @access  Private
 const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
     try {
-
-    const amount  = req.body.price;
+    const {name, description, price } = req.body
 
     //finding the product that needs to be updated
     const productObj = await Product.findOne({'name': req.params.name});
@@ -114,24 +113,54 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
     const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
 
     // Convert price from dollars to cents
-    const priceInCents = amount * 100;
+    const priceInCents = price * 100;
 
-    //creating a new price obj for the updated price
-    const newPriceObj = await stripe.prices.create({
-        product: productObj.stripeProductId,
-        unit_amount: priceInCents,
-        currency: 'cad'
-    });
+    //compare new and old price update only if different
+    if(priceInCents !== currentPriceObj.unit_amount)
+    {
 
-    //changing the status of old price obj to inactive, since we cannot delete price in Stripe
-    await stripe.prices.update(currentPriceObj.id, {
-        active: false
-    });
+        //creating a new price obj for the updated price
+        const newPriceObj = await stripe.prices.create({
+            product: productObj.stripeProductId,
+            unit_amount: priceInCents,
+            currency: 'cad'
+        });
 
-    // req.priceApiId = newPriceObj.id;
-    // next();
+        //setting new price as default
+        await stripe.products.update(
+            productObj.stripeProductId,
+            {
+                name: name,
+                description: description,
+                default_price: newPriceObj.id
+            }
+        );
 
-    res.status(200).json({newPriceObj});
+        //changing the status of old price obj to inactive, since we cannot delete price in Stripe
+        await stripe.prices.update(currentPriceObj.id, {
+            active: false
+        });
+
+        req.priceApiId = newPriceObj.id;
+        next();
+    }
+    else{
+        
+        //updating product info other than price
+        await stripe.products.update(
+            productObj.stripeProductId,
+            {
+                name: name,
+                description: description
+            }
+        );
+
+        next();
+    }
+    
+
+    // res.send({productObj});
+    // res.send(newPriceObj.id);
 
     } catch (error) {
     console.error(error);
