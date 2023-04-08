@@ -107,7 +107,7 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
     const {name, description, price } = req.body
 
     //finding the product that needs to be updated
-    const productObj = await Product.findOne({'name': req.params.name});
+    const productObj = await Product.findOne({'_id': req.body.id});
 
     //Retrieve the current active price object for the product from Stripe
     const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);

@@ -83,7 +83,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     const {name, description, price, quantity} = req.body
 
     //finiding product object
-    const productObj = await productModel.findOne({'name': req.params.name});
+    const productObj = await productModel.findOne({'_id': req.body.id});
 
     //set the product fields to the new values or by default the existing value
     productObj.name = name ?? productObj.name

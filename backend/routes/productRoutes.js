@@ -12,7 +12,7 @@ router.route('/sort/:sortType').get(sortProducts)
 
 //testing: to be removed
 router.route('/').post( createProductInStripe, setProduct);
-router.route('/:name').put( updateProductPriceInStripe, updateProduct);
+router.route('/').put(  updateProductPriceInStripe, updateProduct);
 
 // router.route('/').post( upload.single('image'), createProductInStripe ,[setProduct, setProductImage]);
 
