@@ -38,7 +38,7 @@ app.use('/api/product', require('./routes/productRoutes.js'));
 app.use('/api/account', require('./routes/accountRoutes.js'));
 
 //Review routes
-app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
+app.use('/api/reviews', require('./routes/reviewRoutes.js'));
 
 //Cart routes
 app.use('/api/cart', require('./routes/cartRoutes.js'));

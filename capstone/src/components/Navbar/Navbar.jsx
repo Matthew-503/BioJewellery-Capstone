@@ -59,7 +59,7 @@ const Navbar = () => {
 
     useEffect(() => {
 
-        dispatch(updateItemCount());
+        //dispatch(updateItemCount());
 
     }, [dispatch, itemCount]);
 

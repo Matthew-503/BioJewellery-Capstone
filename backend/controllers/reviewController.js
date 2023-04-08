@@ -4,17 +4,17 @@ const asyncHandler = require('express-async-handler')
 const Review = require('../models/reviewModel')
 const Product = require('../models/productModel')
 const User = require('../models/userModel')
-
+const Order = require('../models/orderModel')
 // @desc    Get all the reviews posted for a product
 // @route   GET /api/product/:productId/reviews
 // @access  Public
 const getReview = asyncHandler(async (req, res) => {
     try {        
         //product for which the reviews are requested
-        const productSelected = await Product.findById(req.params.productId)
+        const productSelected = await Product.findById({_id:req.params.productId})
 
         //Finding reviews for the selected product
-        const reviews = await Review.find({ product: productSelected._id });
+        const reviews = await Review.find({ product: productSelected });
         res.status(200).json(reviews);
 
     } catch (error) {
@@ -28,50 +28,56 @@ const getReview = asyncHandler(async (req, res) => {
 // @route   POST /api/product/:productId/reviews
 // @access  Private
 const createReview = asyncHandler(async (req, res) => {
-
-    //Product being reviewed
-    const product = await Product.findById(req.params.productId)
     
-    //user account writing the review
-    const user = await User.findById(req.user._id)
+    const { rating, title, comment, userId, productId } = req.body;
 
-    const { rating, title, comment } = req.body
+    // Find the product being reviewed
+    const product = await Product.findById(productId);
 
-    if (!rating || !title || !comment ) {
-      res.status(400)
-      throw new Error('Please provide all fields!')
+    // Find the user account writing the review
+    const user = await User.findById(userId);
+    const name = user.name;
+
+    if (!rating) {
+      res.status(400);
+      throw new Error('Please provide rating!');
     }
 
-    //Check if review already posted for the product by the user
-    const reviewExists = product.reviews.find((rev) => 
-                                rev.client.toString() === req.user._id.toString())
+    if (!title) {
+        res.status(400);
+        throw new Error('Please provide title!');
+    }
+
+    if (!comment) {
+        res.status(400);
+        throw new Error('Please provide comment!');
+    }
+
+    // Check if review already posted for the product by the user
+    const reviewExists = await Review.findOne({ product: productId, client: userId });
     
-    if(reviewExists){
-        res.status(400)
+    if (reviewExists) {
+        res.status(400);
         throw new Error('Product already reviewed!');
     }
-                                
-    //creating review
-    const review = await Review.create({
-        name: user.name,
-        rating,
-        title,
-        comment,
-        client: req.user._id,
-        product: product._id     
-     });
 
-    //adding review to DB
-    await review.save()
+    const ratingFormatted = Number.parseInt(rating);  
 
-    //adding review under the related product
-    product.reviews.push(review)
+    // Create review document
+    const review = new Review({
+        name: name,
+        rating: ratingFormatted,
+        title: title,
+        comment: comment,
+        client: user,
+        product: product     
+    });
 
-    //saving the altered product object
-    await product.save()
-    
-    res.status(200).json({ message: 'Review Created' });
-})
+    // Save review to the database
+    const createdReview = await review.save();
+
+    res.status(200).json({ createdReview });
+});
 
 // @desc    update a posted review 
 // @route   PUT /api/product/:productId/reviews/:reviewId

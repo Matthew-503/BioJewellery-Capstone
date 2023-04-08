@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { Rating, ReviewBlock, DescriptionBlock } from '..';
 
@@ -53,12 +53,11 @@ const SwitchProductDetail = () => {
                     )}
 
                     {myProfession === "Review" && (
-                        <ReviewBlock
-                            customerUsername={customerDefaultName}
-                            customerDescription={customerDefaultDescription}
-                            customerTitle={customerDefaultTitle}
-                            reviewStarRating={stars}
-                        />
+                         reviews.length > 0 ? (
+                            <ReviewBlock reviews={reviews} />
+                          ) : (
+                            <p>no reviews yet!</p>
+                          )
                     )}
 
                 </p>

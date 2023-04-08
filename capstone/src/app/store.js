@@ -7,7 +7,7 @@ import cartReducer from '../features/cartFeatures/cartSlice';
 import orderReducer from '../features/orderFeatures/orderSlice';
 import addressReducer from '../features/addressFeatures/addressSlice';
 import gstReducer from '../features/gstFeatures/gstSlice';
-
+import reviewReducer from '../features/reviewFeatures/reviewSlice';
 export const store = configureStore({
   reducer: {
    auth: authReducer,
@@ -15,6 +15,7 @@ export const store = configureStore({
    cart: cartReducer,
    order: orderReducer,
    address: addressReducer,
-   gst: gstReducer
+   gst: gstReducer,
+   review:reviewReducer
   }
 });

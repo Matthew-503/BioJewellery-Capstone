@@ -139,7 +139,7 @@ function sortByAsc(arr) {
         const result = [];
 
         while (left.length && right.length) {
-            if (left[0].name <= right[0].name) {
+            if (left[0].price <= right[0].price) {
                 result.push(left.shift());
             } else {
                 result.push(right.shift());
@@ -169,7 +169,7 @@ function mergeDsc(left, right) {
     const result = [];
 
     while (left.length && right.length) {
-        if (left[0].name >= right[0].name) {
+        if (left[0].price >= right[0].price) {
             result.push(left.shift());
         } else {
             result.push(right.shift());
