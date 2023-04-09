@@ -5,7 +5,7 @@ const { getReview, createReview, updateReview, deleteReview } = require('../cont
 
 //error for authorization when testing getReview route. Help!
 router.route('/').get(getReview).post(protect, createReview);
-
+router.route('/:name').get(getReview)
 router.route('/:reviewId').put(protect, updateReview).delete(protect, deleteReview);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import ReviewService from "../services/reviewService";
+import ReviewService from "./reviewServices";
 
 const initialState = {
     reviews: [],
@@ -10,9 +10,9 @@ const initialState = {
 // Get all reviews
 export const getAllReviews = createAsyncThunk(
   "reviews/getAllReviews",
-  async () => {
-    const response = await ReviewService.getAllReviews();
-    return response.data;
+  async (productName) => {
+    const response = await ReviewService.getAllReviews(productName);
+    return response;
   }
 );
 
@@ -25,7 +25,7 @@ export const createReview = createAsyncThunk(
   }
 );
 
-const reviewSlice = createSlice({
+export const reviewSlice = createSlice({
   name: "reviews",
   initialState,
   reducers: {
@@ -41,6 +41,8 @@ const reviewSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.reviews = action.payload;
+        console.log(action.payload)
+
       })
       .addCase(getAllReviews.rejected, (state, action) => {
         state.loading = false;

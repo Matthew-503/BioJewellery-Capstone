@@ -11,15 +11,15 @@ const Order = require('../models/orderModel')
 const getReview = asyncHandler(async (req, res) => {
     try {        
         //product for which the reviews are requested
-        const productSelected = await Product.findById({_id:req.params.productId})
-
+        const productSelected = await Product.findOne({'name':req.params.name})
+       
         //Finding reviews for the selected product
-        const reviews = await Review.find({ product: productSelected });
+        const reviews = await Review.find({ 'product': productSelected });
         res.status(200).json(reviews);
 
     } catch (error) {
         res.status(400)
-        throw new Error('Unable to get the review you are looking for');
+        throw new Error(productSelected);
     }
 
 })

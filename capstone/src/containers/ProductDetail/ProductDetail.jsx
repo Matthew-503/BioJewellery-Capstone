@@ -22,21 +22,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getProductByName, reset } from '../../features/productFeatures/productSlice';
+import {getAllReviews } from '../../features/reviewFeatures/reviewSlice'
 const productImage = images.cerrado;
 
 const ProductDetail = ({ productid }) => {
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
 
+
     let { name } = useParams();
     const dispatch = useDispatch();
-
+   
     useEffect(() => {
         if (isError) {
             console.log(message);
         }
         dispatch(getProductByName(name))
-
+        dispatch(getAllReviews(name));
         return () => {
             dispatch(reset())
         }
@@ -65,7 +67,7 @@ const ProductDetail = ({ productid }) => {
                 </div>
 
                 <div>
-                    <SwitchDetail />
+                    <SwitchDetail  productName= {name}/>
                 </div>
             </div>
         </div>
