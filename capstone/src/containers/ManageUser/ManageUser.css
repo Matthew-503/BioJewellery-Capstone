@@ -1,17 +1,23 @@
 .account__center {
     max-height: 100%;
-    height: auto;
+    height: 500px;
+    width: 100%;
 }
 
 .account__header-text {
-    padding: 5px 4px;
+    font-size: 40;
+    padding: 4rem 5rem;
     color: #072D2E;
 }
 
+.account__search-bar {
+    padding-left: 5rem;
+}
+
 .search__account {
-    height: 30px;
-    width: 865px;
+    height: 40px;
+    width: 1000px;
     padding: 0rem 1rem;
-    border-radius: 3px;
-    font-size: 18;
+    border-radius: 10px;
+    font-size: 22;
 }

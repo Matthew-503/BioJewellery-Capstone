@@ -35,9 +35,9 @@ state.account) */}
                     Manage Users
                 </h1>
             </div>
-
+        
             <div className="account__search-bar">
-                <input 
+                <input
                     type="text" 
                     className="search__account" 
                     placeholder="Search User">
@@ -53,6 +53,8 @@ state.account) */}
                     </div>    
                 ) : (<h3>There are no accounts available</h3>) }
             </section> */}
+
+            {/* <UserBlocl /> */}
         </div>
     )
 }
