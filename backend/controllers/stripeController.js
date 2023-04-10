@@ -108,7 +108,6 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
 
     //finding the product that needs to be updated
     const productObj = await Product.findOne({'_id': req.body.id});
-
     //Retrieve the current active price object for the product from Stripe
     const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
 
@@ -158,11 +157,10 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
         next();
     }
     
-
-    // res.send({productObj});
     // res.send(newPriceObj.id);
 
-    } catch (error) {
+    } 
+    catch (error) {
     console.error(error);
     res.status(500).json({ error });
     }
