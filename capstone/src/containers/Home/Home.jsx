@@ -17,8 +17,9 @@ const Home = () => {
       <UserBlock />
 
       {/* <Video /> */}
-      {/* <Benefits /> */}
-      {/* <Follow /> */}
+      <Benefits />
+      <Follow />
+      <Account />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
+import { getAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
 
@@ -16,8 +18,14 @@ const Account = () => {
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
+    const { account } = useSelector
+
     useEffect(() => {
         // setVideos(null);
+
+        if(isError) {
+            console.log(message);
+        }
 
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
