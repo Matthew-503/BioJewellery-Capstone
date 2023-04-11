@@ -24,12 +24,12 @@ import { login, reset } from '../../features/accountFeatures/accountSlice';
 import { Navbar } from '../../components';
 
 
-import './Reset.css';
+import './ResetConfirm.css';
 
 
 
 
-function Reset() {
+function ResetConfirm() {
     // const [username, setUsername] = useState('');
     // const [password, setPassword] = useState('');
 
@@ -39,11 +39,11 @@ function Reset() {
     // };
 
     const [formData, setFormData] = useState({
-        email: '',
         password: '',
+        confirmPassword: '',
     })
 
-    const { email, password } = formData
+    const { password, confirmPassword } = formData
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -62,6 +62,7 @@ function Reset() {
         }
 
         if (isSuccess && user) {
+
             //if its a regular client it redirect to the logged home page (protected route)
             if (user.user.type === "Client") {
                 navigate('/')
@@ -87,8 +88,8 @@ function Reset() {
         e.preventDefault()
 
         const userData = {
-            email,
             password,
+            confirmPassword,
         }
 
         dispatch(login(userData))
@@ -124,11 +125,22 @@ function Reset() {
 
                                     <input
                                         className='login__input'
-                                        type="text"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        value={email}
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={onChange}
+                                        required
+                                    />
+
+                                    <input
+                                        className='login__input'
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Confirm Password"
+                                        value={confirmPassword}
                                         onChange={onChange}
                                         required
                                     />
@@ -203,4 +215,4 @@ function Reset() {
     );
 };
 
-export default Reset;
+export default ResetConfirm;

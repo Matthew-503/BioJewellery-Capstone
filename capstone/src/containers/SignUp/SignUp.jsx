@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
+import { Box, Stack, Typography } from "@mui/material";
 import { register, reset } from '../../features/accountFeatures/accountSlice'
 
 import PasswordChecklist from "react-password-checklist"
@@ -40,17 +41,17 @@ const SignUpForm = () => {
         }
         else {
             const userData = {
-              name,
-              email,
-              password,
-              street,
-              city,
-              province,
-              country,
-              postalCode,              
-              apartment,
-        }
-      
+                name,
+                email,
+                password,
+                street,
+                city,
+                province,
+                country,
+                postalCode,
+                apartment,
+            }
+
             dispatch(register(userData))
         }
         //console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
@@ -67,17 +68,16 @@ const SignUpForm = () => {
         }
     };
 
-    const checkPassword = (password) =>
-    {
-      var re = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
-      return re.test(password);
+    const checkPassword = (password) => {
+        var re = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+        return re.test(password);
     }
-  
+
 
     const handleKeyDown = (e, event) => {
 
         if (e.key === ("Enter") && { confirmPassword } !== null) {
-            
+
             if (password !== confirmPassword) {
                 alert('Passwords do not match');
                 return;
@@ -104,466 +104,429 @@ const SignUpForm = () => {
         } else {
             setDisplay(display + 1);
         }
-
-        // event.preventDefault();
-        // if (password !== confirmPassword) {
-        //     alert('Passwords do not match');
-        //     return;
-        // }
-        // console.log(name, email, password);
     };
 
     const navigate = useNavigate()
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+    const { user, isLoading, isError, isSuccess, message } = useSelector(
+        (state) => state.auth
+    )
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
 
-    if (isSuccess || user) {
-      navigate('/')
-    }
+        if (isSuccess || user) {
+            navigate('/')
+        }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
-
-//   const onChange = (e) => {
-//     setFormData((prevState) => ({
-//       ...prevState,
-//       [e.target.name]: e.target.value,
-//     }))
-//   }
-
-//   const onSubmit = (e) => {
-//     e.preventDefault()
-
-//     if (password !== password2) {
-//       toast.error('Passwords do not match')
-//     } else {
-//       const userData = {
-//         name,
-//         email,
-//         password,
-//       }
-
-//       dispatch(register(userData))
-//     }
-//   }
+        dispatch(reset())
+    }, [user, isError, isSuccess, message, navigate, dispatch])
 
     return (
-    <>
-        <Navbar />
-        <div className='signup__overall'>
-            <div className='signup'>
-                <div className="signup__wrapper">
-                    <img src={images.login} alt="G_overlay" className='left' />
-                    <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-                    {/* <p className='HeaderText '>Start for free and get great offers!</p> */}
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <div className='right signup__form'>
-                        <h1>Sign Up</h1>
+        <>
+            <Navbar />
 
-                        <p>Join us to be part of the greater world!</p>
-                        {currentInput === 1 && (
-                            <div className='signup__details'>
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="name"
-                                        name="name"
-                                        placeholder='Name'
-                                        value={name}
-                                        onChange={(event) => setName(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        placeholder='Email'
-                                        value={email}
-                                        onChange={(event) => setEmail(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        placeholder='Password'
-                                        value={password}
-                                        onChange={(event) => setPassword(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="password"
-                                        id="confirmPassword"
-                                        name="confirmPassword"
-                                        placeholder='Confirm Password'
-                                        value={confirmPassword}
-                                        onKeyDown={handleKeyDown}
-                                        onChange={(event) => setConfirmPassword(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <br></br>
-                                <div class="passwordChecklist">
-                                    
-                                    <PasswordChecklist
-                                            rules={["minLength","specialChar","number","capital","match"]}
-                                            minLength={8}
-                                            value={password}
-                                            valueAgain={confirmPassword}
-                                    />
+            <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
+                <Box p={0} sx={{ overflowY: "auto", height: "100vh", flex: 2 }}>
+                    <div className="account">
+                        <div className="account__table">
+                            <div className="login__table-column1">
+                                <div className="login__img">
+                                    <img src={images.login} alt="G_overlay" className="blur" />
                                 </div>
                             </div>
-                        )} {currentInput === 2 && (
-                            <div>
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="apartment"
-                                        name="apartment"
-                                        placeholder='Address Complement'
-                                        value={apartment}
-                                        onChange={(event) => setApartment(event.target.value)}
-                                    />
-                                </div>
 
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="street"
-                                        name="street"
-                                        placeholder='Street Address'
-                                        value={street}
-                                        onChange={(event) => setStreet(event.target.value)}
-                                        required
-                                    />
-                                </div>
+                            <div className="signup__table-column2">
+                                <form onSubmit={handleSubmit}>
+                                    <div className='signup__header1'>
+                                        <SubHeading title={"Sign Up"} className='login__subheading' />
 
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="city"
-                                        name="city"
-                                        placeholder='City'
-                                        value={city}
-                                        onKeyDown={handleKeyDown}
-                                        onChange={(event) => setCity(event.target.value)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        )} {currentInput === 3 && (
-                            <div>
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="province"
-                                        name="province"
-                                        placeholder='State/Province'
-                                        value={province}
-                                        onChange={(event) => setProvince(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="country"
-                                        name="country"
-                                        placeholder='Country'
-                                        value={country}
-                                        onChange={(event) => setCountry(event.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        className='signup__input'
-                                        type="string"
-                                        id="postalCode"
-                                        name="postalCode"
-                                        placeholder='Postal Code'
-                                        value={postalCode}
-                                        onChange={(event) => setPostalCode(event.target.value)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        )}
-
-                        <div className="signup__link">
-                            <div className="ProgressButton">
-                                <div className="ProgressBar">
-                                    {/* <button onClick={handleClick} className='signup__next-button'>
-                                    <BsArrowLeft size={30} className='signup__button-icon' />
-                                </button> */}
-
-                                    {/* {
-                                    currentInput === 3 ? (
-                                        <button onClick={handleClick} className='signup__next-button'>
-                                            <BsArrowLeft size={30} className='signup__button-icon' />
-                                        </button>
-                                    ) : null} */}
-
-                                    <div className="ProgressBar">
-                                        <span className={progress === 0 ? 'Active' : ''} />
-                                        <span className={progress === 1 ? 'Active' : ''} />
-                                        <span className={progress === 2 ? 'Active' : ''} />
+                                        <p>Join us to be part of the greater world!</p>
                                     </div>
-                                    {/* {
-                                    clickCount < 2 ? (
-                                        <button onClick={handleClick} className='signup__next-button'>
-                                            <BsArrowRight size={30} className='signup__button-icon' />
-                                        </button>
-                                    ) : null} */}
-                                </div>
 
-                                <div >
-                                    {currentInput === 3 ? (
-                                        <button type="submit" className="signup__button">Sign Up</button>
-                                    ) : null}
-                                </div>
+                                    {currentInput === 1 && (
+                                        <div className='signup__details'>
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="name"
+                                                    name="name"
+                                                    placeholder='Name'
+                                                    value={name}
+                                                    onChange={(event) => setName(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    placeholder='Email'
+                                                    value={email}
+                                                    onChange={(event) => setEmail(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="password"
+                                                    id="password"
+                                                    name="password"
+                                                    placeholder='Password'
+                                                    value={password}
+                                                    onChange={(event) => setPassword(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="password"
+                                                    id="confirmPassword"
+                                                    name="confirmPassword"
+                                                    placeholder='Confirm Password'
+                                                    value={confirmPassword}
+                                                    onKeyDown={handleKeyDown}
+                                                    onChange={(event) => setConfirmPassword(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <br></br>
+                                            <div class="passwordChecklist">
+
+                                                <PasswordChecklist
+                                                    rules={["minLength", "specialChar", "number", "capital", "match"]}
+                                                    minLength={8}
+                                                    value={password}
+                                                    valueAgain={confirmPassword}
+                                                />
+                                            </div>
+                                        </div>
+                                    )} {currentInput === 2 && (
+                                        <div>
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="apartment"
+                                                    name="apartment"
+                                                    placeholder='Address Complement'
+                                                    value={apartment}
+                                                    onChange={(event) => setApartment(event.target.value)}
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="street"
+                                                    name="street"
+                                                    placeholder='Street Address'
+                                                    value={street}
+                                                    onChange={(event) => setStreet(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="city"
+                                                    name="city"
+                                                    placeholder='City'
+                                                    value={city}
+                                                    onKeyDown={handleKeyDown}
+                                                    onChange={(event) => setCity(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    )} {currentInput === 3 && (
+                                        <div>
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="province"
+                                                    name="province"
+                                                    placeholder='State/Province'
+                                                    value={province}
+                                                    onChange={(event) => setProvince(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="country"
+                                                    name="country"
+                                                    placeholder='Country'
+                                                    value={country}
+                                                    onChange={(event) => setCountry(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <input
+                                                    className='login__input'
+                                                    type="string"
+                                                    id="postalCode"
+                                                    name="postalCode"
+                                                    placeholder='Postal Code'
+                                                    value={postalCode}
+                                                    onChange={(event) => setPostalCode(event.target.value)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="signup__link">
+                                        <div className="ProgressButton">
+                                            <div className="ProgressBar">
+
+                                                <div className="ProgressBar">
+                                                    <span className={progress === 0 ? 'Active' : ''} />
+                                                    <span className={progress === 1 ? 'Active' : ''} />
+                                                    <span className={progress === 2 ? 'Active' : ''} />
+                                                </div>
+                                            </div>
+
+                                            <div >
+                                                {currentInput === 3 ? (
+                                                    <button type="submit" className="signup__button">Sign Up</button>
+                                                ) : null}
+                                            </div>
+                                        </div>
+
+                                        <Link to="/login">
+                                            <p className='signup__login'>
+                                                Already have an account?
+                                                Log in
+                                            </p>
+                                        </Link>
+                                    </div>
+                                </form>
                             </div>
-
-                            <Link to="/login"> 
-                                <p className='signup__login'>
-                                    Already have an account?
-                                    Log in
-                                </p>
-                            </Link>
                         </div>
-
-
                     </div>
-                </form>
-            </div>
+                </Box>
+            </Stack>
 
-            <div className='signup__smallscreen'>
-                <div className='signup__overlay'>
-                    <form onSubmit={handleSubmit}>
-                        <div className='signup__form'>
-                            <div className='signup__header' >
-                                <h1>Sign Up </h1>
+            <div className='signup__overall'>
+                <div className='signup__smallscreen'>
+                    <div className='signup__overlay'>
+                        <form onSubmit={handleSubmit}>
+                            <div className='signup__form'>
+                                <div className='signup__header' >
+                                    <h1>Sign Up </h1>
 
-                                <p>Join us to be part of the greater world!</p>
-                            </div>
+                                    <p>Join us to be part of the greater world!</p>
+                                </div>
 
-                            {currentInput === 1 && (
-                                <div className='signup__details'>
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="name"
-                                            name="name"
-                                            placeholder='Name'
-                                            value={name}
-                                            onChange={(event) => setName(event.target.value)}
-                                        />
-                                    </div>
+                                {currentInput === 1 && (
+                                    <div className='signup__details'>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="name"
+                                                name="name"
+                                                placeholder='Name'
+                                                value={name}
+                                                onChange={(event) => setName(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            placeholder='Email'
-                                            value={email}
-                                            onChange={(event) => setEmail(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                placeholder='Email'
+                                                value={email}
+                                                onChange={(event) => setEmail(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="password"
-                                            id="password"
-                                            name="password"
-                                            placeholder='Password'
-                                            value={password}
-                                            onChange={(event) => setPassword(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="password"
+                                                id="password"
+                                                name="password"
+                                                placeholder='Password'
+                                                value={password}
+                                                onChange={(event) => setPassword(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="password"
-                                            id="confirmPassword"
-                                            name="confirmPassword"
-                                            placeholder='Confirm Password'
-                                            value={confirmPassword}
-                                            onKeyDown={handleKeyDown}
-                                            onChange={(event) => setConfirmPassword(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="password"
+                                                id="confirmPassword"
+                                                name="confirmPassword"
+                                                placeholder='Confirm Password'
+                                                value={confirmPassword}
+                                                onKeyDown={handleKeyDown}
+                                                onChange={(event) => setConfirmPassword(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div class="passwordChecklist">
-                                    
-                                        <PasswordChecklist
-                                                rules={["minLength","specialChar","number","capital","match"]}
+                                        <div class="passwordChecklist">
+
+                                            <PasswordChecklist
+                                                rules={["minLength", "specialChar", "number", "capital", "match"]}
                                                 minLength={8}
                                                 value={password}
                                                 valueAgain={confirmPassword}
-                                        />
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            )} {currentInput === 2 && (
-                                <div>
+                                )} {currentInput === 2 && (
                                     <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="apartment"
-                                            name="apartment"
-                                            placeholder='Apartment name'
-                                            value={apartment}
-                                            onChange={(event) => setApartment(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="apartment"
+                                                name="apartment"
+                                                placeholder='Apartment name'
+                                                value={apartment}
+                                                onChange={(event) => setApartment(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="street"
-                                            name="street"
-                                            placeholder='Street Address'
-                                            value={street}
-                                            onChange={(event) => setStreet(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="street"
+                                                name="street"
+                                                placeholder='Street Address'
+                                                value={street}
+                                                onChange={(event) => setStreet(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="city"
-                                            name="city"
-                                            placeholder='City'
-                                            value={city}
-                                            onKeyDown={handleKeyDown}
-                                            onChange={(event) => setCity(event.target.value)}
-                                        />
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="city"
+                                                name="city"
+                                                placeholder='City'
+                                                value={city}
+                                                onKeyDown={handleKeyDown}
+                                                onChange={(event) => setCity(event.target.value)}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            )} {currentInput === 3 && (
-                                <div>
+                                )} {currentInput === 3 && (
                                     <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="province"
-                                            name="province"
-                                            placeholder='State/Province'
-                                            value={province}
-                                            onChange={(event) => setProvince(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="province"
+                                                name="province"
+                                                placeholder='State/Province'
+                                                value={province}
+                                                onChange={(event) => setProvince(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="country"
-                                            name="country"
-                                            placeholder='Country'
-                                            value={country}
-                                            onChange={(event) => setCountry(event.target.value)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="country"
+                                                name="country"
+                                                placeholder='Country'
+                                                value={country}
+                                                onChange={(event) => setCountry(event.target.value)}
+                                            />
+                                        </div>
 
-                                    <div>
-                                        <input
-                                            className='signup__input'
-                                            type="string"
-                                            id="postalCode"
-                                            name="postalCode"
-                                            placeholder='Postal Code'
-                                            value={postalCode}
-                                            onChange={(event) => setPostalCode(event.target.value)}
-                                        />
+                                        <div>
+                                            <input
+                                                className='signup__input'
+                                                type="string"
+                                                id="postalCode"
+                                                name="postalCode"
+                                                placeholder='Postal Code'
+                                                value={postalCode}
+                                                onChange={(event) => setPostalCode(event.target.value)}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
 
-                            <div className="signup__link">
-                                <div className="ProgressButton">
-                                    <div className="ProgressBar">
-                                        {/* <button onClick={handleClick} className='signup__next-button'>
+                                <div className="signup__link">
+                                    <div className="ProgressButton">
+                                        <div className="ProgressBar">
+                                            {/* <button onClick={handleClick} className='signup__next-button'>
                                     <BsArrowLeft size={30} className='signup__button-icon' />
                                 </button> */}
 
-                                        {/* {
+                                            {/* {
                                     currentInput === 3 ? (
                                         <button onClick={handleClick} className='signup__next-button'>
                                             <BsArrowLeft size={30} className='signup__button-icon' />
                                         </button>
                                     ) : null} */}
 
-                                        <div className="ProgressBar">
-                                            <span className={progress === 0 ? 'Active' : ''} />
-                                            <span className={progress === 1 ? 'Active' : ''} />
-                                            <span className={progress === 2 ? 'Active' : ''} />
-                                        </div>
-                                        {/* {
+                                            <div className="ProgressBar">
+                                                <span className={progress === 0 ? 'Active' : ''} />
+                                                <span className={progress === 1 ? 'Active' : ''} />
+                                                <span className={progress === 2 ? 'Active' : ''} />
+                                            </div>
+                                            {/* {
                                     clickCount < 2 ? (
                                         <button onClick={handleClick} className='signup__next-button'>
                                             <BsArrowRight size={30} className='signup__button-icon' />
                                         </button>
                                     ) : null} */}
+                                        </div>
+
+                                        <div >
+                                            {currentInput === 3 ? (
+                                                <button type="submit" className="signup__button">Sign Up</button>
+                                            ) : null}
+                                        </div>
                                     </div>
 
-                                    <div >
-                                        {currentInput === 3 ? (
-                                            <button type="submit" className="signup__button">Sign Up</button>
-                                        ) : null}
-                                    </div>
+                                    <p className='signup__login'>
+                                        Already have an account?
+                                        <Link to="/"> Log in</Link>
+                                    </p>
                                 </div>
 
-                                <p className='signup__login'>
-                                    Already have an account?
-                                    <Link to="/"> Log in</Link>
-                                </p>
+
                             </div>
-
-
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </>
+        </>
     );
 };
 
