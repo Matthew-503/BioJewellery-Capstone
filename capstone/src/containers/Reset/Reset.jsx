@@ -62,7 +62,6 @@ function Reset() {
         }
 
         if (isSuccess && user) {
-
             //if its a regular client it redirect to the logged home page (protected route)
             if (user.user.type === "Client") {
                 navigate('/')

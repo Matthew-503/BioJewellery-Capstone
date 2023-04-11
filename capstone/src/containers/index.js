@@ -54,9 +54,11 @@ import ResetConfirm from './Reset/ResetConfirm';
 
 
 import EmpAccount from './EmpAccount/EmpAccount';
-import EmpSidebarAccount from './EmpAccount/EmpSidebarAccount';
-import EmpAddProduct from './EmpAccount/EmpAddProduct';
-import EmpManageProduct from './EmpAccount/EmpManageProduct';
+import EmpSidebar from './EmpAccount/EmpSidebar';
+import EmpAdd from './EmpAccount/EmpAdd';
+import EmpEdit from './EmpAccount/EmpEdit';
+import EmpManage from './EmpAccount/EmpManage';
+import EmpUser from './EmpAccount/EmpUser';
 
 
 import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
@@ -103,9 +105,11 @@ export {
 
 
   EmpAccount,
-  EmpSidebarAccount,
-  EmpAddProduct,
-  EmpManageProduct,
+  EmpSidebar,
+  EmpAdd,
+  EmpEdit,
+  EmpManage,
+  EmpUser,
 
 
   EmployeeSettings,
