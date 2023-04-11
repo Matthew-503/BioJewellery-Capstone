@@ -10,6 +10,7 @@ const asyncHandler = require('express-async-handler')
 const Account = require('../models/accountModel')
 const Address = require('../models/addressModel')
 const User = require('../models/userModel')
+const sendMail = require('../helpers/sendEmail')
 
 // @desc    Register new Account
 // @route   POST /api/account
@@ -123,30 +124,47 @@ const generateToken = (id) => {
   })
 }
 
+// Generate JWT for acsess -- id is the payload
+const generateTokenAccess = (email) => {
+  return jwt.sign({ email }, process.env.JWT_SECRET, {
+    expiresIn: '1d',
+  })
+}
+
 // @desc    Forgot Password
 // @route   POST /api/account/forgot-password
 // @access  Public
 const forgotPassword = asyncHandler(async (req, res) => {
+
+  //get email
   const { email } = req.body;
   const emailLowerCase = email.toLowerCase()
 
   try {
+    //check email 
     const oldaccount = await Account.findOne({ 'email': emailLowerCase })
     if (!oldaccount) {
       res.status(400)
       throw new Error('User does not exist!');
     }
-    const secret = JWT_SECRET + oldaccount.password;
-    const token = jwt.sign({ email: oldaccount.email, id: oldaccount._id }, secret, {
-      expiresIn: "5m",
-    });
-       
-    //http://localhost:8001/api/account/
-    //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
-    const link = `http://localhost:8001/api/account/reset-password/${oldaccount._id}/${token}`;
-    console.log(link)
-  } catch (error) {
+
+    const user = await User.findById({ '_id': oldaccount.user})
+
+    //create token
+    const token = generateTokenAccess(oldaccount.email);
     
+    //send email
+    //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
+    const url = `http://localhost:3000/account/reset-password/${token}`;
+    const name = user.name;
+    sendMail.sendEmailReset(email, url, "Reset your password", name)
+
+    //success
+    res
+    .status(200)
+    .json({ msg: "Re-send the password, please check your email." })
+  } catch (error) {
+    res.status(500).json({msg: error.message})
   }
 })
 
@@ -154,8 +172,30 @@ const forgotPassword = asyncHandler(async (req, res) => {
 // @route   POST /api/account/reset-password
 // @access  Public
 const resetPassword = asyncHandler(async (req, res) => {
-  const { id, token } = req.params;
-  console.log(req.params);
+  try {
+    //get password 
+    const {password} = req.body
+
+    //hash password
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password, salt)
+
+    //update password 
+
+    const email = req.email
+
+    //const account = await Account.findOne({ 'email': email})
+    await Account.findOneAndUpdate(
+      {'email': email},
+      {password: hashedPassword}
+    );
+
+    //reset success
+    res.status(200).json({msg: "Password was updated successfully."})
+  }
+  catch (error) {
+    res.status(500).json({msg: error.message})
+  }
 })
 
 module.exports = {
@@ -163,5 +203,5 @@ module.exports = {
   loginAccount,
   getAccount,
   forgotPassword,
-  resetPassword,
+  resetPassword
 }
