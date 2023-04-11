@@ -130,6 +130,7 @@ const getAccounts = asyncHandler(async (req, res) => {
       throw new Error ('Accounts not found')
   }
   res.status(200).json(accounts)
+
   }
 )
 

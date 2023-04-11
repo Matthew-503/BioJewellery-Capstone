@@ -17,7 +17,7 @@ const initialState = {
 
 //Retrieve accounts
 export const getAccounts = createAsyncThunk(
-  'auth/get',
+  'auth/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token

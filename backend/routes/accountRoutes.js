@@ -10,7 +10,7 @@ const {
 } = require('../controllers/accountController')
 const { protect } = require('../middleware/authMiddleware')
 
-router.post('/', registerAccount, getAccounts)
+router.route('/').post(registerAccount).get(getAccounts);
 router.post('/login', loginAccount)
 router.get('/me', protect)
 router.put('/:email', updateAccount, appealAccount, suspendAccount)

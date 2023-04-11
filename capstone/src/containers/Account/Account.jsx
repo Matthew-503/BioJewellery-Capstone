@@ -18,14 +18,10 @@ const Account = () => {
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
-    const { account } = useSelector
+    const { account } = useSelector((state) => state.account);
 
     useEffect(() => {
         // setVideos(null);
-
-        if(isError) {
-            console.log(message);
-        }
 
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
@@ -72,6 +68,7 @@ const Account = () => {
                                         className='account__input'
                                         type="password"
                                         id="password"
+                                        value={account.password}
                                         placeholder="Enter Password"
                                     />
                                 </div>
