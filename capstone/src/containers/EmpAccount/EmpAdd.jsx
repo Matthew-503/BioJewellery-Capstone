@@ -87,11 +87,11 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 
-import './EmpAddProduct.css';
-import EmpSidebarAccount from "./EmpSidebarAccount";
+import './EmpAdd.css';
+import EmpSidebar from "./EmpSidebar";
 
 
-const EmpAddProduct = (props) => {
+const EmpAdd = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
@@ -111,7 +111,7 @@ const EmpAddProduct = (props) => {
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh" }}>
-                    <EmpSidebarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <EmpSidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
@@ -198,4 +198,4 @@ const EmpAddProduct = (props) => {
         </div>
     )
 }
-export default EmpAddProduct;
+export default EmpAdd;

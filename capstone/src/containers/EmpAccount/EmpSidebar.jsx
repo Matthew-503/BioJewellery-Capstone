@@ -2,7 +2,7 @@ import React from "react";
 import { Stack } from "@mui/material";
 import { images } from '../../constants';
 import { empAccountCategory } from '../../constants';
-import './EmpSidebarAccount.css'
+import './EmpSidebar.css'
 
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'

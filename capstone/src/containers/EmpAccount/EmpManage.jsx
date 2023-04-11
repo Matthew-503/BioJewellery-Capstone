@@ -88,11 +88,11 @@ import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 
-import './EmpManageProduct.css';
-import EmpSidebarAccount from "./EmpSidebarAccount";
+import './EmpManage.css';
+import EmpSidebar from "./EmpSidebar";
 
 
-const EmpManageProduct = (props) => {
+const EmpManage = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
@@ -112,7 +112,7 @@ const EmpManageProduct = (props) => {
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh" }}>
-                    <EmpSidebarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <EmpSidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </Box>
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
@@ -126,7 +126,7 @@ const EmpManageProduct = (props) => {
                         </button>
 
                         <div className='emp__manage-search'>
-                            <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
+                            <input className='navbar-input-search' type='text' placeholder='Search BioJewellery Products' />
                         </div>
 
                         <div className='emp__manage-product'>
@@ -138,4 +138,4 @@ const EmpManageProduct = (props) => {
         </div>
     )
 }
-export default EmpManageProduct;
+export default EmpManage;
