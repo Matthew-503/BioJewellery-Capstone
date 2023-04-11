@@ -6,14 +6,14 @@ const { protect } = require('../middleware/authMiddleware');
 const { createProductInStripe, updateProductPriceInStripe } = require('../controllers/stripeController');
 
 const upload = require('../middleware/ImageMiddleware');
-const cloudinary = require('../config/cloudinary');
+
 
 router.route('/all').get(getAllProducts)
 
 router.route('/sort/:sortType').get(sortProducts)
 
 //testing: to be removed
-router.route('/').post( setProduct);
+router.route('/').post(upload.single('productpic'), setProduct);
 // router.route('/').post( createProductInStripe, setProduct);
 // router.route('/').put(  updateProductPriceInStripe, updateProduct);
 

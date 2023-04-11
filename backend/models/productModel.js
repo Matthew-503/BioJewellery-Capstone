@@ -65,10 +65,14 @@ const productSchema = new mongoose.Schema({
         required:false,
         default:0
     },
-    images:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ProductImages'
-    }],
+    cloudinaryId:{
+        type:String,
+        required: true
+    },
+    imageUrl:{
+        type:String,
+        required: true
+    },
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review'

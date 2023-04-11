@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const productModel = require('../models/productModel');
+const cloudinary = require('../config/cloudinary');
 
 string = "test"
 
@@ -37,8 +38,10 @@ const getProduct = asyncHandler(async (req, res) => {
 
 const setProduct = asyncHandler(async (req, res) => {
 
-    try {        
+    try {   
     
+    const result = await cloudinary.uploader.upload(req.file.path);
+        
     if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
         res.status(400)
         throw new Error('Please provide all fields!')
@@ -50,7 +53,9 @@ const setProduct = asyncHandler(async (req, res) => {
         price: req.body.price,
         quantity: req.body.quantity,
         stripeProductId: req.stripeProductId,
-        priceApiId: req.priceApiId
+        priceApiId: req.priceApiId,
+        cloudinaryId: result.public_id,
+        imageUrl: result.secure_url
     })
     
     if (!product) {
@@ -58,12 +63,7 @@ const setProduct = asyncHandler(async (req, res) => {
         throw new Error('error in product creation!')
     }
 
-    //req.body.productId = product._id
-
     res.json({product});
-
-    //For uploading images
-    // next();
 
     } catch (error) {
         throw new Error(error);
