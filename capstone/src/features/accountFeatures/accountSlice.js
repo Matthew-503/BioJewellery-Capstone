@@ -17,11 +17,10 @@ const initialState = {
 
 //Retrieve account by email
 export const getAccount = createAsyncThunk(
-  'auth/getAll',
+  'auth/get',
   async (email, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await authService.getAccounts(email, token)
+      return await authService.getAccount(email)
     } catch (error) {
       const message =
         (error.response &&

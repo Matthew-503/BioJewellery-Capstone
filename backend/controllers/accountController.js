@@ -126,7 +126,7 @@ const getAccount = asyncHandler(async (req, res) => {
 
   const emailLowerCase = email.toLowerCase()
 l
-  const account = await Account.findOne({ emailLowerCase })
+  const account = await Account.findOne({ 'email': emailLowerCase })
 
   if(!account) {
     res.status(400) 

@@ -13,13 +13,30 @@ import { getAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
 import { useNavigate } from "react-router-dom";
+import { updateAccount } from "../../../../backend/controllers/accountController";
 
 const Account = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    const { user } =  useSelector((state) => state.auth)
     const { account, isError, message} = useSelector((state) => state.account)
+
+    const {accountData, setAccountData} = useState({
+        email: account.email,
+        password: account.password,
+        user: account.user,
+    });
+
+    const handleInputChange =(e) => {
+        setAccountData({
+            accountData,
+            [e.target.email]: e.target.value,
+            [e.target.password]: e.target.value,
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateAccount(accountData));
+    }
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
@@ -29,24 +46,14 @@ const Account = () => {
             console.log(message)
         }
 
-        if (!user) {
-            navigate('/home')
-        }
-
         dispatch(getAccount())
 
         return () => {
             dispatch(reset())
         }
-    }, [user, navigate, isError, message]);
+    }, [isError, message]); 
 
     useEffect(() => {
-        if(isError) {
-            console.log(message)
-        }
-
-        dispatch(getAccount())
-
         // setVideos(null);
 
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
@@ -94,7 +101,8 @@ const Account = () => {
                                         className='account__input'
                                         type="password"
                                         id="password"
-                                        placeholder="Enter Password"
+                                        value={accountData.password}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
                             </div>
@@ -135,7 +143,8 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="email"
-                                        placeholder="Enter Email Address"
+                                        value={accountData.email}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
 
@@ -215,7 +224,10 @@ const Account = () => {
 
 
                         <div className="account__action">
-                            <button>
+                            <button
+                                type="submit"
+                                onClick={handleSubmit}
+                            >
                                 Save
                             </button>
 
