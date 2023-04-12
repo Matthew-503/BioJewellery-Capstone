@@ -85,6 +85,13 @@
     line-height: 2rem;
 }
 
+.cart__content-empty h1 {
+    font-size: 2rem;
+    font-family: var(--font-base);
+    font-weight: 700;
+    color: var(--color-darkgreen);
+}
+
 /* .review__table tr :first-child {
     width: 50%
 } */

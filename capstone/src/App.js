@@ -1,4 +1,4 @@
-    // Author: Ling Shan Matthew Ng, Naomy Tung
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 1.o
 // Date: 25/1/2023
 
@@ -29,10 +29,10 @@ import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
 const App = () => (
     <div>
-        
+
         <Routes>
             <Route path="/" element={<UserNavigation />}>
-                <Route path="/aboutus"  element={<AboutUs />} />
+                <Route path="/aboutus" element={<AboutUs />} />
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/categories">
@@ -57,40 +57,14 @@ const App = () => (
                 <Route path="/editproduct" element={<EmpAccount />} />
             </Route>
 
-   
             
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            {/* <Route path="/admin">
-                
-                 <Route index element={<HomeAdmin />} />              
-            </Route> */}
-            </Routes>
-
-            {/* Route specifications for the Login Page
-                <Route path="/login" element={<LoginTemplate />}>
-                <Route index element={<Blog />} /> 
-                <Route path=":cat" element={<ShopProduct />} />  
-                //dont forget to add <Outlet context(){varname: "whatever"}/> in the Login Template     
-                //in the other page to use the context const obj = useOutletContext();   
-                //use the replace in the Link so it will go back 2 pages   
-            </Route>  */}
-
-             {/* <Route path="*" element={<NotFound />}
-        <Navbar />
-        <Uploader />   */}
+        </Routes>
 
 
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <AddProduct />  */}
 
-
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <EditProduct />  */}
-
-
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <EmployeeMenu /> */}
     </div>
 );
 

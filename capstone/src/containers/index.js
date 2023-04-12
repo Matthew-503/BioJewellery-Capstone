@@ -50,6 +50,7 @@ import Account from './Account/Account';
 import AccountHistory from './Account/AccountHistory';
 import Return from './Return/Return';
 import Reset from './Reset/Reset';
+import ResetConfirm from './Reset/ResetConfirm';
 
 
 import EmpAccount from './EmpAccount/EmpAccount';
@@ -100,6 +101,7 @@ export {
   Feedback,
   Return,
   Reset,
+  ResetConfirm,
 
 
   EmpAccount,

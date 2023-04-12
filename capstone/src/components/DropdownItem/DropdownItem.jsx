@@ -6,9 +6,12 @@ import './DropdownItem.css';
 
 const DropdownItem = (props) => {
     return (
-        <li className='dropdownItem'>
-            <a href={props.link}> {props.text} </a>
-        </li>
+        <div className='dropdownItem'>
+            <li>
+                <a href={props.link}> {props.text} </a>
+            </li>
+        </div>
+
     )
 }
 
