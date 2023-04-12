@@ -53,15 +53,18 @@ const ProductDetail = ({ productid }) => {
     return (
         <div className="app__gallery app__section-padding">
             <div className="detail__headtext">
+                <h1>
+                    {selectedProduct.name}
+                </h1>
 
-                <SubHeading title={selectedProduct.name} />
                 <img
                     className="detail__product-image"
                     src={images.cerrado}
                     alt="product image"
                 />
+
                 <div className='detail__sidebar'>
-                    <ProductDetailBar />
+                    {/* <ProductDetailBar /> */}
                 </div>
 
                 <div>
