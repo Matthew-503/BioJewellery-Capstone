@@ -3,11 +3,12 @@ import './Uploader.css'
 
 import { useState } from 'react';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
-function Uploader() {
+function Uploader({onImageUpload}) {
     const [image, setImage] = useState(null)
     const [fileName, setFileName] = useState("No Selected file")
-    const [imageFile, setImageFile] = useState(null);
+    const [imageFile, setImageFile] = useState(null)
 
     return (
         <div className='upload'>
@@ -23,7 +24,7 @@ function Uploader() {
                             if (files) {
                                 setFileName(files[0].name)
                                 setImage(URL.createObjectURL(files[0]))
-                                setImageFile(files[0])
+                                onImageUpload(setImageFile(files[0]));
                             }
                         }}
                     />

@@ -1,10 +1,3 @@
-import React, { Component } from 'react';
-
-import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
-import Uploader from '../Uploader/Uploader';
-
-import './AddProduct.css';
-
 // Author: Buola Achor
 // Version 0.1
 // Date: 18/1/2023
@@ -15,71 +8,134 @@ import './AddProduct.css';
 
 // Input: User Product Specifications, 
 // Output: Page
+import './AddProduct.css';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
+import Uploader from '../Uploader/Uploader';
+import { setProduct } from '../../features/productFeatures/productSlice';
 
-class AddProduct extends Component {
-   
-    render() 
-    { 
-        return(
+function AddProduct(){
+
+    const dispatch = useDispatch();
+
+    const [newProduct, setNewProduct] = useState({});
+
+    const handleImageUpload = (imageFile) => {
+        setNewProduct((prevProduct) => ({
+          ...prevProduct,
+          imageFile: imageFile,
+        }));
+    };
+    
+    const changeHandler = (e) => {
+
+        setNewProduct((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(setProduct(newProduct));
+    };
+    
+    return (
+        <>
             <div className="flex__center">
 
-                <form>
+            <form onSubmit={handleSubmit}>
 
-                    <div className="add__employee-menu">
-                        <EmployeeMenu />
+                <div className="add__employee-menu">
+                    <EmployeeMenu />
+                </div>
+
+                <div className="add__name">
+                    <h1 className="add__title">Add Product</h1>
+
+                    <div className="add__product-info">
+                        <p>Product Information</p>
                     </div>
+                </div>
 
-                    <div className="add__name">
-                        <h1 className="add__title">Add Product</h1>
+                <div className="add__product-uploader">
+                        <Uploader onImageUpload={handleImageUpload}/>
+                </div>  
 
-                        <div className="add__product-info">
-                            <p>Product Information</p>
-                        </div>
-                    </div>
+                <div className="add__product-name">
+                    <label>
+                        <h3 className="input__name">Product Name</h3>
+                            <input 
+                                name="name" 
+                                type="text" 
+                                required
+                                className="add_input-name" 
+                                placeholder="Product Name"
+                                onChange={changeHandler}
+                            />
+                    </label>
+                </div>
 
-                    <div className="add__product-uploader">
-                            <Uploader />
-                    </div>  
+                <div className="add__product-description">    
+                    <label>
+                        <h3 className="input__name">Product Description</h3>
+                            <input 
+                                name="description" 
+                                type="text" 
+                                required
+                                className="add_input-desc" 
+                                placeholder="Product Description"
+                                onChange={changeHandler}
+                            />
+                            <br/>
+                    </label>
+                </div>
 
-                    <div className="add__product-name">
+                <ul className="add__price-prod">
+                    <li className="add__product-price">
                         <label>
-                            <h3 className="input__name">Product Name</h3>
-                                <input name="name" type="text" className="add_input-name" placeholder="Product Name"/>
+                            <h3 className="input__name">Price In CAD</h3>
+                                <input 
+                                    name="price" 
+                                    type="number" 
+                                    required
+                                    className="add_input-price" 
+                                    placeholder="Price per unit"
+                                    onChange={changeHandler}
+                                />
+                                <br/>
                         </label>
-                    </div>
+                    </li>
 
-                    <div className="add__product-description">    
+                    <li className="add__product-stock">
                         <label>
-                            <h3 className="input__name">Product Description</h3>
-                                <input name="descrption" type="text" className="add_input-desc" placeholder="Description"/><br/>
+                            <h3 className="input__name">In-Stock</h3>
+                                <input 
+                                    name="quantity" 
+                                    type="number" 
+                                    required
+                                    className="add_input-stock" 
+                                    placeholder="Number of Products in Stock"
+                                    onChange={changeHandler}
+                                />
+                                <br/>
                         </label>
-                    </div>
+                    </li>
+                </ul>        
 
-                    <ul className="add__price-prod">
-                        <li className="add__product-price">
-                            <label>
-                                <h3 className="input__name">Price </h3>
-                                    <input name="price" type="number" className="add_input-price" placeholder="Price per unit"/><br/>
-                            </label>
-                        </li>
-
-                        <li className="add__product-stock">
-                            <label>
-                                <h3 className="input__name">In-Stock</h3>
-                                    <input name="stock" type="number" className="add_input-stock" placeholder="Number of Products in Stock"/><br/>
-                            </label>
-                        </li>
-                    </ul>        
-
-                    <div className="add__buttons">
-                        <button className="button-save" >Save</button>
-                        <button className="button-cancel">Cancel</button>  
-                    </div>
-                </form>     
+                <div className="add__buttons">
+                    <button className="button-save" type='submit' >Add Product</button>
+                    <button className="button-cancel">Cancel</button>  
+                </div>
+            </form>     
 
             </div>
-    );
-    }
+        </>
+    )
 }
+
+    
+
 
 export default AddProduct;

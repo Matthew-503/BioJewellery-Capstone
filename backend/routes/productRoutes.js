@@ -10,7 +10,9 @@ router.route('/all').get(getAllProducts);
 
 router.route('/sort/:sortType').get(sortProducts);
 
-router.route('/').post(protect, createProductInStripe, upload.single('productpic'), setProduct );
+router.route('/').post( upload.single('productData.imageFile'), setProduct );
+
+// router.route('/').post(protect, createProductInStripe, upload.single('productPic'), setProduct );
 
 router.route('/').put(protect, updateProductPriceInStripe, upload.single('productpic'), updateProduct );
 

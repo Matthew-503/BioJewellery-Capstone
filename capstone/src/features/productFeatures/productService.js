@@ -20,6 +20,15 @@ const getProductByName= async(name) => {
    
 }
 
+const setProduct= async(productData) => {
+    
+
+    const response = await axios.get(API_URL, productData)
+
+    return response.data
+   
+}
+
 
 const sortProducts = async(sortType) => {
    
@@ -31,7 +40,8 @@ const sortProducts = async(sortType) => {
 const productService =  {
     getAllProducts,
     getProductByName,
-    sortProducts
+    sortProducts,
+    setProduct
 }
 
 export default productService

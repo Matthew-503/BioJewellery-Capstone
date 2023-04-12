@@ -6,32 +6,13 @@
 
 import './CheckoutSummary.css';
 
-import React, { useEffect }  from 'react'
-import { useSelector, useDispatch  } from "react-redux";
+import React from 'react'
+import { useSelector  } from "react-redux";
 import { FaShoppingCart } from 'react-icons/fa';
-
-import { getGst } from '../../features/gstFeatures/gstSlice';
 
 function CheckoutSummary() {
   const { user } = useSelector((state) => state.auth)
   const { cartProducts, subTotal } = useSelector((state) => state.cart);
-  const { gst } = useSelector((state) => state.gst)
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    
-    dispatch(getGst());
-     
-  }, [subTotal, dispatch]);
-
-  function calculateTax() {
-    return (subTotal * (gst/100));
-  }
-
-  function calculateTotal() {
-    return (subTotal + (subTotal * (gst/100)));
-  }
 
   const checkout = async () => {
     try {
@@ -65,8 +46,6 @@ function CheckoutSummary() {
   <div className='checkout__summary'>
     <div className='checkout__summary-header'>
       <div>Subtotal: CA${subTotal}</div>
-      <div>Tax: CA${calculateTax()}</div>
-      <div>Order Total: CA${calculateTotal()}</div>
     </div>
     
 

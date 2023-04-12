@@ -19,11 +19,11 @@ const productSchema = new mongoose.Schema({
     },
     stripeProductId:{
         type: String,
-        required:true
+        required:false
     },
     priceApiId:{
         type: String,
-        required:true
+        required:false
     },
     quantity: {
         type:Number,

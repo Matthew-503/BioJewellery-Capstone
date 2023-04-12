@@ -6,7 +6,6 @@ import productReducer from '../features/productFeatures/productSlice';
 import cartReducer from '../features/cartFeatures/cartSlice';
 import orderReducer from '../features/orderFeatures/orderSlice';
 import addressReducer from '../features/addressFeatures/addressSlice';
-import gstReducer from '../features/gstFeatures/gstSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +13,6 @@ export const store = configureStore({
    products:productReducer,
    cart: cartReducer,
    order: orderReducer,
-   address: addressReducer,
-   gst: gstReducer
+   address: addressReducer
   }
 });

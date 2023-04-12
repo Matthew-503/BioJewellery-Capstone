@@ -63,7 +63,7 @@ const setProduct = asyncHandler(async (req, res) => {
         throw new Error('error in product creation!')
     }
 
-    res.json({product});
+    res.json({message: 'Product added!'});
 
     } catch (error) {
         throw new Error(error);
