@@ -29,13 +29,13 @@
 }
 
 .navbar-p {
-    font-family: var(--font-alt);
+    font-family: var(--font-base);
     color: var(--color-golden);
     font-weight: 500;
     letter-spacing: 0.04em;
     text-transform: capitalize;
     line-height: 28px;
-    font-size: 20px;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -244,6 +244,8 @@ input[type=text]:focus {
     .navbar {
         padding: 0.5rem;
         align-items: right;
+        justify-content: right;
+        gap: 0.5rem;
     }
 
     .navbar-login {
