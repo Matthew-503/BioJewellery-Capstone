@@ -27,7 +27,6 @@
 
 .category-btn:hover {
     background-color: #c0dfc1;
-    /* color: white; */
 }
 
 .grid-container {
@@ -42,6 +41,10 @@
 
 .sidebar__content {
     margin-left: 0.5rem;
+}
+
+.sidebar__small {
+    display: none;
 }
 
 @media screen and (max-width: 430px) {
@@ -65,4 +68,12 @@
     .sidebar__content {
         display: none;
     }
+
+    .sidebar__small {
+        display: flex;
+    }
+
+    /* .grid-container {
+        display: none;
+    } */
 }
