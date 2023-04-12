@@ -12,13 +12,41 @@ import { Navbar } from '../../components';
 import { getAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user } =  useSelector((state) => state.auth)
+    const { account, isError, message} = useSelector((state) => state.account)
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
+        if(isError) {
+            console.log(message)
+        }
+
+        if (!user) {
+            navigate('/home')
+        }
+
+        dispatch(getAccount())
+
+        return () => {
+            dispatch(reset())
+        }
+    }, [user, navigate, isError, message]);
+
+    useEffect(() => {
+        if(isError) {
+            console.log(message)
+        }
+
+        dispatch(getAccount())
+
         // setVideos(null);
 
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
@@ -76,7 +104,9 @@ const Account = () => {
                                     Personal Information
                                 </h1>
 
-                                <h3>First Name</h3>
+
+                                //Do not think we are using the first and last name
+                                {/* <h3>First Name</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
@@ -96,7 +126,7 @@ const Account = () => {
                                         id="lastname"
                                         placeholder="Enter Last Name"
                                     />
-                                </div>
+                            </div> */}   
 
                                 <h3>Email</h3>
                                 <br />

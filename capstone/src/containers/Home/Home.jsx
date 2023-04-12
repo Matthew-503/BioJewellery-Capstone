@@ -5,17 +5,8 @@ const Home = () => {
   return (
     <div>
 
-      {/*<Header /> */}
-      {/*<Gallery /> */}
-      {/* <Video /> */}
-      {/*<Benefits /> */}
-      {/*<Header /> */}
-      {/*<Gallery /> */}
-
-      <ManageUser />
-
-      <UserBlock />
-
+      <Header />
+      <Gallery />
       {/* <Video /> */}
       <Benefits />
       <Follow />

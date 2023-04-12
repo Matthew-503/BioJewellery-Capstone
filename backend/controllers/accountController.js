@@ -118,18 +118,21 @@ const appealAccount = asyncHandler(async(req,res) => {
   res.status(200).json(req.account)
 })
 
-// @desc    Get accounts
+// @desc    Get account by email
 // @route   GET /api/accounts
 // @access  Private
-const getAccounts = asyncHandler(async (req, res) => {
+const getAccount = asyncHandler(async (req, res) => {
+  const { email } = req.body
 
-  const accounts = await Account.find();
+  const emailLowerCase = email.toLowerCase()
+l
+  const account = await Account.findOne({ emailLowerCase })
 
-  if(!accounts) {
+  if(!account) {
     res.status(400) 
       throw new Error ('Accounts not found')
   }
-  res.status(200).json(accounts)
+  res.status(200).json(account)
 
   }
 )
@@ -158,7 +161,7 @@ const updateAccount = asyncHandler(async (req, res) => {
 module.exports = {
   registerAccount,
   loginAccount,
-  getAccounts,
+  getAccount,
   updateAccount,
   suspendAccount,
   appealAccount,

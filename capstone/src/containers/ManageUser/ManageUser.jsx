@@ -2,19 +2,17 @@ import React from 'react';
 import {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {getAccounts, reset } from '../../features/accountFeatures/accountSlice';
 
 import { UserBlock } from '../../components';
 
 import './ManageUser.css';
 
 const ManageUser = () => {
-    const navigate = useNavigate()
+    {/* const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const { account } = useSelector((state) => state.auth)
-    {/* const { account, isLoading, isError, message } = useSelector((state) => 
-state.account) */}
+     const { account, isLoading, isError, message } = useSelector((state) => 
+state.account) 
 
     useEffect(() => {
         if(!account) {
@@ -26,7 +24,7 @@ state.account) */}
         return () => {
             dispatch(reset())
         }
-    }, [account, navigate, dispatch]) 
+    }, [account, navigate, dispatch]) */}
 
     return(
         <div className="account__center">
