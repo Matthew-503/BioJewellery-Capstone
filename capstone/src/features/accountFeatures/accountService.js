@@ -45,8 +45,8 @@ const getAccounts = async (token) => {
 }
 
 //Update User
-const update = async (userData) => {
-  const response = await axios.post(API_URL + 'update', userData)
+const updateAccount = async (accountData) => {
+  const response = await axios.post(API_URL + 'update', accountData)
 
   return response.data
 }
