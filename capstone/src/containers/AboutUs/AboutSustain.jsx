@@ -31,7 +31,7 @@ const AboutSustain = () => (
                     <MdOutlineEco />
                 </div>
 
-                <h1 className='benefits__title'>
+                <h1 className='about__title'>
                     Eco-Friendly
                 </h1>
 
@@ -45,7 +45,7 @@ const AboutSustain = () => (
                     <MdNaturePeople />
                 </div>
 
-                <h1 className='benefits__title'>
+                <h1 className='about__title'>
                     Nature
                 </h1>
 
@@ -59,7 +59,7 @@ const AboutSustain = () => (
                     <TbRefresh />
                 </div>
 
-                <h1 className='benefits__title'>
+                <h1 className='about__title'>
                     Sustainable
                 </h1>
 
