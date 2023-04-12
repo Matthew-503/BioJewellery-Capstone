@@ -85,12 +85,28 @@ const updateProduct = asyncHandler(async (req, res) => {
     //finiding product object
     const productObj = await productModel.findOne({'_id': req.body.id});
 
+    
+
+    // Upload new image to cloudinary
+    let result;
+    if (req.file) {
+      result = await cloudinary.uploader.upload(req.file.path);
+    }
+
+    //if new image is uploaded successfully to cludinary, delete the old one
+    if(result){
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(productObj.cloudinaryId);
+    }
+
     //set the product fields to the new values or by default the existing value
     productObj.name = name ?? productObj.name
     productObj.description = description ?? productObj.description
     productObj.price = price ?? productObj.price
     productObj.quantity = quantity ?? productObj.quantity
-    productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
+    // productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
+    productObj.cloudinaryId = result.public_id ?? productObj.cloudinaryId
+    productObj.imageUrl = result.secure_url ?? productObj.imageUrl
 
     //save updated product to database
     await productObj.save()
