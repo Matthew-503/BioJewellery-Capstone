@@ -8,6 +8,10 @@
 }
 
 .gallery__subheading {
+    font-size: 4.5rem;
+    font-family: var(--font-base);
+    font-weight: 600;
+    color: var(--color-darkgreen);
     position: relative;
 }
 
@@ -183,6 +187,10 @@
         display: flex;
         flex-direction: column;
         padding: 2.5rem;
+    }
+
+    .gallery__subheading {
+        font-size: 2rem;
     }
 
     .gallery__content {
