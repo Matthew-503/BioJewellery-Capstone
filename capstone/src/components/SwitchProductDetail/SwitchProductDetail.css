@@ -1,4 +1,4 @@
-.switch__button{
+.switch__button {
     background-color: var(--color-lightgreen);
     color: var(--color-green);
     font-family: var(--font-base);
@@ -12,4 +12,21 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 430px) {
+    .switch__button {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 25px;
+        padding: 0.5rem 0.6rem;
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    .switch_tab {
+        display: flex;
+        flex-direction: row;
+    }
 }
