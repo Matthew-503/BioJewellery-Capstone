@@ -155,14 +155,12 @@ const forgotPassword = asyncHandler(async (req, res) => {
     
     //send email
     //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
-    const url = `http://localhost:3000/account/reset-password/${token}`;
+    const url = `http://localhost:3000/reset-password/${token}`;
     const name = user.name;
     sendMail.sendEmailReset(email, url, "Reset your password", name)
 
     //success
-    res
-    .status(200)
-    .json({ msg: "Re-send the password, please check your email." })
+    res.status(200).json({ msg: "Re-send the password, please check your email." })
   } catch (error) {
     res.status(500).json({msg: error.message})
   }
@@ -181,13 +179,12 @@ const resetPassword = asyncHandler(async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
 
     //update password 
-
     const email = req.email
 
     //const account = await Account.findOne({ 'email': email})
     await Account.findOneAndUpdate(
       {'email': email},
-      {password: hashedPassword}
+      {'password': hashedPassword}
     );
 
     //reset success

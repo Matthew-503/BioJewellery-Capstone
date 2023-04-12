@@ -46,6 +46,33 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   }
 })
 
+// Forget password
+export const forgetPassword = createAsyncThunk('auth/forgetPassword', async (email, thunkAPI) => {
+  try {
+    return await authService.forgetPassword(email)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
+// Reset password
+export const resetPassword = createAsyncThunk('auth/resetPassword', async (userData, thunkAPI) => {
+  try {
+   // const token = thunkAPI.getState().auth.user.token
+    return await authService.resetPassword(userData)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
 // Logout user
 export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout()
@@ -95,6 +122,30 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user = null
         state.isSuccess = true
+      })
+      .addCase(forgetPassword.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(forgetPassword.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(forgetPassword.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(resetPassword.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
       })
   },
 })

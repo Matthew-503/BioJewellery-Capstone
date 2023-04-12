@@ -142,7 +142,7 @@ function Login() {
 
                     <div className='login__lower-functions login__forget-link'>
                       <div className="login__link">
-                        <Link to="/">Forgot password?</Link>
+                        <Link to="/reset">Forgot password?</Link>
                       </div>
                       <br />
                       <button type="submit" className="login__button">Login</button>

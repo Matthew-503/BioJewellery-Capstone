@@ -4,11 +4,11 @@ const Account = require('../models/accountModel')
 const authPassword = ( req, res, next ) => {
     try {
         //check token 
-        const token = req.header("Authorization");
-        if (!token) return res.status(400).json({msg: "Authentication failed. No token"})
+        const {email} = req.body
+        if (!email) return res.status(400).json({msg: "Authentication failed. No token"})
 
         //validate
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const decoded = jwt.verify(email, process.env.JWT_SECRET)
 
         // Get user from the token
         req.email = decoded.email
