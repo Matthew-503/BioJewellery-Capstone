@@ -33,6 +33,7 @@ import DropdownMenu from './DropdownMenu/DropdownMenu';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
+import ShopSidebar from './ShopSidebar/ShopSidebar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
 import ProductSideBar from './ProductSideBar/ProductSideBar';
@@ -95,6 +96,7 @@ export {
     DescriptionBlock,
 
     SideBar,
+    ShopSidebar,
     ProductItems,
     ProductDetailBar,
     CartSummary,
