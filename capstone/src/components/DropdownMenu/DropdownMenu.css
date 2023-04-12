@@ -32,3 +32,7 @@
     text-align: center;
 }
 
+.dropdownItem {
+    cursor: pointer;
+}
+
