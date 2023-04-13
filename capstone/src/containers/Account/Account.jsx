@@ -9,11 +9,9 @@ import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
-import { getAccount, reset } from "../../features/accountFeatures/accountSlice";
+import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
-import { useNavigate } from "react-router-dom";
-import { updateAccount } from "../../../../backend/controllers/accountController";
 
 const Account = () => {
     const dispatch = useDispatch()
@@ -28,14 +26,14 @@ const Account = () => {
     const handleInputChange =(e) => {
         setAccountData({
             accountData,
-            [e.target.email]: e.target.value,
-            [e.target.password]: e.target.value,
-        })
+            email: e.target.value,
+            password: e.target.value,
+        })  
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateAccount(accountData));
+        dispatch(updateAccount(accountData.email));
     }
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
@@ -46,12 +44,10 @@ const Account = () => {
             console.log(message)
         }
 
-        dispatch(getAccount())
-
         return () => {
             dispatch(reset())
         }
-    }, [isError, message]); 
+    }, [isError, message]);
 
     useEffect(() => {
         // setVideos(null);

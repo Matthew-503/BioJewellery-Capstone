@@ -45,8 +45,8 @@ const getAccounts = async (token) => {
 }
 
 //Update User
-const updateAccount = async (accountData) => {
-  const response = await axios.post(API_URL + 'update', accountData)
+const updateAccount = async (email) => {
+  const response = await axios.post(API_URL + 'update', email)
 
   return response.data
 }
@@ -56,6 +56,7 @@ const authService = {
   logout,
   login,
   getAccounts,
+  updateAccount,
 }
 
 export default authService

@@ -68,6 +68,20 @@ export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout()
 })
 
+export const updateAccount = createAsyncThunk('auth/update', async (accountData, thunkAPI) => {
+  try {
+    return await accountData.email
+  } catch (error) {
+      const message = (
+          error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+          error.message ||
+          error.toString();
+      return thunkAPI.rejectWithValue(message)
+  }
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
