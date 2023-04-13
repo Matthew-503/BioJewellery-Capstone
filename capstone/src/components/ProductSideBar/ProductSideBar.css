@@ -9,9 +9,9 @@
 }
 
 .sidebar button {
-    background: var(--color-white);
+    background: var(--color-darkgreen);
     border: none;
-    color: black;
+    color: var(--color-golden);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -27,6 +27,10 @@
 
 .category-btn:hover {
     background-color: #c0dfc1;
+}
+
+.category-btn span {
+    color: var(--color-golden);
 }
 
 .grid-container {
