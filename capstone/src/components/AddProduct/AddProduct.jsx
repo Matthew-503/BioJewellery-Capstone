@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
-// import Uploader from '../Uploader/Uploader';
 import { setProduct } from '../../features/productFeatures/productSlice';
 import './AddProduct.css';
-
-// Author: Buola Achor
-// Version 0.1
-// Date: 18/1/2023
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+// Author: Buola Achor, Sri
+// Version 2.1
+// Date: 13/4/2023
 
 // Description: This is the add product employee page. 
 // Precondition: Must be connected and be able to add to the database also have the uploader component
@@ -26,14 +25,30 @@ function AddProduct() {
         price:'',
         quantity:''
     });
-
-    useEffect(() => {
-        console.log(image);
+    const [fileName, setFileName] = useState("No Selected file")
+    const [imageLink, setImageLink] = useState('')
+    const {message, isLoading, isSuccess} = useSelector((state) => state.products)
     
-    }, [image]);
+    useEffect(() => {
+
+            if(isSuccess){
+                setNewProduct({
+                    name:'',
+                    description:'',
+                    price:'',
+                    quantity:''
+                })
+                setImage(null);
+                setFileName("No Selected file");
+                setImageLink('');
+            }
+
+    }, [message, isLoading, isSuccess, dispatch]);
 
     const uploadImage = (e) => {
         setImage(e.target.files[0]);
+        setFileName(e.target.files[0].name);
+        setImageLink(URL.createObjectURL(e.target.files[0]));
     }
     const changeHandler = (name) => (e) => {
 
@@ -41,7 +56,7 @@ function AddProduct() {
         value = e.target.value;
 
         setNewProduct({ ...newProduct, [name]: value});
-        // console.log(newProduct);
+        
     }
 
     const handleSubmit = async (event) => {
@@ -78,19 +93,35 @@ function AddProduct() {
                     </div>
                 </div>
 
-                {/* <div className="add__product-uploader">
-                        <Uploader onImageUpload={handleImageUpload}/>
-                </div>  */}
 
                 <div className="add__product-uploader">
-                    <input 
-                        name="image" 
-                        type="file" 
-                        accept='image/*'
-                        className="add_input-name" 
-                        required
-                        onChange={  uploadImage }
-                    />
+                    <div className="upload" onClick={() => document.querySelector(".upload__input").click()}>
+                    
+                        <input 
+                            name="image" 
+                            type="file" 
+                            accept='image/*'
+                            className="upload__input" 
+                            hidden
+                            required
+                            onChange={ uploadImage }
+
+                        />
+                        {imageLink ?
+                            <img src={imageLink} alt={fileName} />
+                            :
+                            <>
+                                <div className='upload__icons-upload'>
+                                    <AiOutlineCloudUpload color='#1475cf' size={60} />
+                                </div>
+
+                                <p>Browse Files to Upload</p>
+                            </>
+                        }
+                        <div>
+                            <h1>{fileName}</h1>
+                        </div>
+                    </div>
                 </div>  
 
                 <div className="add__product-name">
@@ -159,6 +190,9 @@ function AddProduct() {
                     <button className="button-save" type='submit' >Save</button>
                     <button className="button-cancel">Cancel</button>  
                 </div>  
+                <div className="message">
+                    <div className="content">{message}</div>
+                </div>
             </form>
         </div>
     );

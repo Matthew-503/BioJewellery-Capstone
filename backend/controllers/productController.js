@@ -78,7 +78,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
     }
     
     // res.json({ product });
-    res.json({ 'message': 'product added'});
+    res.json({ 'message': `Product ${product.name} added! You can start adding another one`});
 
     } catch(error){
         throw new Error(error);

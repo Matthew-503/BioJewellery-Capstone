@@ -14,7 +14,7 @@ const initialState = {
     isError: false,
     isSuccess: false,
     isLoading: false,
-    message: ''
+    message: 'Waiting for new product :)'
 }
 export const getProducts = createAsyncThunk('products/getall', async (_, thunkAPI) => {
     try {
@@ -84,7 +84,7 @@ export const productSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        reset: (state) => initialState,
+        reset: (state) => initialState
     }, extraReducers: (builder) => {
         builder
         .addCase(getProducts.pending, (state) => {
@@ -132,6 +132,7 @@ export const productSlice = createSlice({
         })
         .addCase(setProduct.pending, (state) => {
             state.isLoading = true
+            state.message = "Sending product to backend"
         })
         .addCase(setProduct.fulfilled, (state, action) => {
             state.isLoading = false
