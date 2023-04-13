@@ -19,7 +19,7 @@ import { MdOutlineEco, MdNaturePeople } from 'react-icons/md';
 import { SubHeading } from '../../components';
 
 const AboutSustain = () => (
-    <div className='app__benefits app__section-padding' id='benefits'>
+    <div className='app__benefits app__section-padding about__sus' id='benefits'>
 
         <h1 className="benefits__h1">
             Sustainability
