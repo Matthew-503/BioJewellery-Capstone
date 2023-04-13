@@ -47,7 +47,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
     try {   
     
     const result = await cloudinary.uploader.upload(req.file.path);
-    // res.json(result);
+    
 
     if (!result) {
         res.status(400)
@@ -66,8 +66,8 @@ const setProduct = asyncHandler(async (req, res, next) => {
         description: req.body.description,
         price: req.body.price,
         quantity: req.body.quantity,
-        // stripeProductId: req.stripeProductId,
-        // priceApiId: req.priceApiId,
+        stripeProductId: req.stripeProductId,
+        priceApiId: req.priceApiId,
         cloudinaryId: result.public_id,
         imageUrl: result.secure_url
     })
