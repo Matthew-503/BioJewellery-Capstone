@@ -43,6 +43,7 @@ import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
 import EmpProductItem from './EmpProductItem/EmpProductItem';
 import EmpUserItem from './EmpUserItem/EmpUserItem';
+import SideBarAccount from '../containers/Account/SideBarAccount';
 
 import ToggleButton from './ToggleButton/ToggleButton';
 
@@ -104,6 +105,7 @@ export {
     Uploader,
     EmpProductItem,
     EmpUserItem,
+    SideBarAccount,
 
     SwitchProductDetail,
 

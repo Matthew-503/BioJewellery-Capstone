@@ -1,4 +1,4 @@
-// Author: Nicholas Proc
+// Author: Nicholas Proc, Naomy T
 // Version: 0.1 
 // Date: 20/1/2023
 
@@ -22,8 +22,23 @@ import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getProductByName, reset } from '../../features/productFeatures/productSlice';
 import './Return.css';
+import { Footer } from '../../containers';
+import { Navbar, SideBarAccount } from '../../components';
+import { fetchFromAPI } from '../../constants';
+import { Box, Stack, Typography } from "@mui/material";
+
 
 const Return = () => {
+
+    const [selectedCategory, setSelectedCategory] = useState("Products");
+    const [setVideos] = useState(null);
+
+    useEffect(() => {
+        // setVideos(null);
+
+        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+            .then((data) => setVideos(data.items))
+    }, [selectedCategory]);
 
     const [selectedOption, setSelectedOption] = useState('');
 
@@ -32,103 +47,59 @@ const Return = () => {
     }
 
     return (
-        <div className="app__gallery return app__section-padding">
-            <div>
-                <SubHeading title='Return Product' />
-            </div>
+        <div>
+            <Navbar />
+            <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
 
-            <div className='return__product'>
-                <div className='return__product-select'>
-                    <label class="container">
-                        <input type="checkbox" />
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
+            <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
+                <SideBarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+            </Box>
 
-                <div className='retrun__product-img'>
-                    <h1>
-                        Product Image
-                    </h1>
-                </div>
+            <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+                    <div className="app__gallery return app__section-padding">
+                        
+                        <div>
+                            <SubHeading title='Return Product' />
+                        </div>
 
-                <div className='return__product-detail'>
-                    <h1>
-                        Golden Leaf Necklace
-                    </h1>
+                        <form>
 
-                    <h1>
-                        #N90Y3
-                    </h1>
+                            <div className='return__product-text'>
+                                <p>
+                                    Kindly complete the form and we will be in touch with you shortly.
+                                </p>                                
+                            </div>                       
 
-                    <h1>
-                        $299.99
-                    </h1>
-                </div>
+                            <div className='return__product-text'>
+                                <textarea 
+                                    placeholder='Enter invoice number.'
+                                    id="invoice"
+                                    name="invoice"
+                                    // value={invoice}
+                                    // onChange={(event) => setInvoice(event.target.value)}
+                                    required
+                                />
 
-                <div className='return__product-action'>
-                    <div className='return__product-option'>
-                        <select id="dropdown" value={selectedOption} onChange={handleOptionSelect}>
-                            <option value="">Reason</option>
-                            <option value="option1">Shipped the Wrong Item</option>
-                            <option value="option2">Damaged Upon Arrival</option>
-                            <option value="option3">Didn't Match the Description</option>
-                            <option value="option4">Others</option>
-                        </select>
-                    </div>
+                                
+                                <textarea 
+                                    rows="5" 
+                                    placeholder='Could you kindly let us know what was the issues with the product?'
+                                    id="reason"
+                                    name="reason"
+                                    // value={reason}
+                                    // onChange={(event) => setReason(event.target.value)}
+                                    required
+                                />
+                            </div>
 
-                    <div className='return__product-text'>
-                        <textarea placeholder='We would love to hear from you...'></textarea>
-                    </div>
-
-                </div>
-            </div>
-
-            <div className='return__product'>
-                <div className='return__product-select'>
-                    <label class="container">
-                        <input type="checkbox" />
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <div className='retrun__product-img'>
-                    <h1>
-                        Product Image
-                    </h1>
-                </div>
-
-                <div className='return__product-detail'>
-                    <h1>
-                        Golden Leaf Necklace
-                    </h1>
-
-                    <h1>
-                        #N90Y3
-                    </h1>
-
-                    <h1>
-                        $299.99
-                    </h1>
-                </div>
-
-                <div className='return__product-action'>
-                    <div className='return__product-option'>
-                        <select id="dropdown" value={selectedOption} onChange={handleOptionSelect}>
-                            <option value="">Reason</option>
-                            <option value="option1">Shipped the Wrong Item</option>
-                            <option value="option2">Damaged Upon Arrival</option>
-                            <option value="option3">Didn't Match the Description</option>
-                            <option value="option4">Others</option>
-                        </select>
-                    </div>
-
-                    <div className='return__product-text'>
-                        <textarea placeholder='We would love to hear from you...'></textarea>
-                    </div>
-
-                </div>
-            </div>
-        </div >
+                            <button type="submit" className="login__button">Submit Claim</button>                    
+                         
+                        </form> 
+                    </div >
+                </Box>
+            </Stack>
+            <Footer />
+        </div>
     )
 };
 

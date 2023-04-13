@@ -35,13 +35,13 @@ const Account = () => {
                     <div className="account">
                         <div className="account__table">
                             <div className="account__table-column1">
-                                <div className="account__avatar">
+                                {/* <div className="account__avatar">
                                     <img src={images.avatar} alt="G_overlay" className="blur" />
 
                                     <div className="account__overlay">
                                         <ModeEditIcon className="account__icon" />
                                     </div>
-                                </div>
+                                </div> */}
                                 <h1 className='account__header'>
                                     Account
                                 </h1>

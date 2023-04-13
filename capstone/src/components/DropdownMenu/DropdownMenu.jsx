@@ -40,7 +40,7 @@ const DropdownMenu = () => {
         <div className="flex flex-col dropdownMenu">
             <ul className='flex flex-col gap-4'>
                 <DropdownItem text = {"Profile"} link={'/account'}/>
-                <DropdownItem text = {"History"} link={'/history'}/>
+                <DropdownItem text = {"Claims"} link={'/claims'}/>
                 <li className='dropdownItem'>
                     <a onClick={logoutClick}> Logout </a>
                 </li>
