@@ -175,17 +175,47 @@
 
 /* extra small devices */
 @media screen and (max-width: 650px) {
-    .app__gallery {
-        padding: 4rem 0 4rem 4rem;
+    .detail__bar {
+        min-width: 18vw;
+        max-width: 100vw;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+        background-color: var(--color-lightgreen);
+        box-shadow: 0 0 3px 3px rgb(224, 224, 224);
     }
 
-    .app__gallery-content {
-        min-width: 100%;
-        padding: 4rem;
+    .detail__bar h1 {
+        font-size: 1.5rem;
     }
 
-    .detail__image {
-        min-width: 240px;
-        max-height: 320px;
+    .detail__bar p {
+        font-size: 1.2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detail__bar-col {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .detail__bar-status {
+        max-width: 100vw;
+        min-width: 15vw;
+        font-size: 1.5rem;
+        font-weight: 600;
+        flex-direction: row;
+        line-height: 1rem;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .detail__bar-dropdown select {
+        font-size: 1rem;
+        font-weight: 500;
     }
 }

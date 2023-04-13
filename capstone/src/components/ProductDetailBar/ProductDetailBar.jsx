@@ -39,7 +39,7 @@ const ProductDetailBar = () => {
     let stars = 3;
 
     const [selectedValue, setSelectedValue] = useState("");
-    
+
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
 
@@ -121,23 +121,24 @@ const ProductDetailBar = () => {
                 {selectedProduct.name}
             </h1>
 
-            <p>
-                Price ${selectedProduct.price + ''  }
-            </p>
-
-            <div className="detail__bar-status">
-                <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
-                    {isTrue ? 'In Stock' : 'Out of Stock'}
+            <div className="detail__bar-col">
+                <p>
+                    Price ${selectedProduct.price + ''}
                 </p>
 
-                <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
-                    {icon}
+                <div className="detail__bar-status">
+                    <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
+                        {isTrue ? 'In Stock' : 'Out of Stock'}
+                    </p>
+
+                    <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
+                        {icon}
+                    </div>
                 </div>
             </div>
 
-
             <div className="detail__bar-dropdown">
-                <select  value={selectedValue} onChange={handleChange}>
+                <select value={selectedValue} onChange={handleChange}>
                     <option value="">Select a quantity</option>
                     {[...Array(11).keys()].map((num) => (
                         <option key={num} value={num}>
@@ -149,7 +150,7 @@ const ProductDetailBar = () => {
             </div>
 
             <Link to="/cart">
-                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({'productName':selectedProduct.name, 'productPrice':selectedProduct.price, 'quantity': Number.parseInt(selectedValue)}))}>
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({ 'productName': selectedProduct.name, 'productPrice': selectedProduct.price, 'quantity': Number.parseInt(selectedValue) }))}>
                     <FaShoppingCart />  Add to Cart
                 </button>
             </Link>
