@@ -10,7 +10,6 @@ const Home = () => {
       {/* <Video /> */}
       <Benefits />
       <Follow />
-      <Account />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}

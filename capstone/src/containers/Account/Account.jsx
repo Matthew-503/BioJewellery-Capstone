@@ -3,6 +3,7 @@ import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
@@ -14,18 +15,18 @@ import { updateAccount, reset } from "../../features/accountFeatures/accountSlic
 import './Account.css';
 
 const Account = () => {
-    const dispatch = useDispatch()
-    const { account, isError, message} = useSelector((state) => state.account)
+     const dispatch = useDispatch()
+    const { user, isError, message} = useSelector((state) => state.auth)
 
-    const {accountData, setAccountData} = useState({
-        email: account.email,
-        password: account.password,
-        user: account.user,
+    const {userData, setUserData} = useState({
+        email: user.email,
+        password: user.password,
+        user: user.user,
     });
 
     const handleInputChange =(e) => {
-        setAccountData({
-            accountData,
+        setUserData({
+            userData,
             email: e.target.value,
             password: e.target.value,
         })  
@@ -33,13 +34,21 @@ const Account = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateAccount(accountData.email));
+        dispatch(updateAccount(userData.email));
     }
 
+    
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
+
+        {/*
+        if (!user) {
+            useNavigate('/home')
+        } */}
+
+
         if(isError) {
             console.log(message)
         }
@@ -47,14 +56,10 @@ const Account = () => {
         return () => {
             dispatch(reset())
         }
-    }, [isError, message]);
-
-    useEffect(() => {
-        // setVideos(null);
-
+        
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
-    }, [selectedCategory]);
+    }, [useNavigate, selectedCategory, isError, message]);
 
     return (
         <div>
@@ -97,8 +102,7 @@ const Account = () => {
                                         className='account__input'
                                         type="password"
                                         id="password"
-                                        value={accountData.password}
-                                        onChange={handleInputChange}
+                                        
                                     />
                                 </div>
                             </div>
@@ -139,8 +143,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="email"
-                                        value={accountData.email}
-                                        onChange={handleInputChange}
+                                  
                                     />
                                 </div>
 
