@@ -3,18 +3,38 @@ import Rating from '../Rating/Rating';
 
 // import images from '../../constants/images';
 import './ReviewBlock.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import {replyReview } from '../../features/reviewFeatures/reviewSlice'
+import { useNavigate } from "react-router-dom";
 
-const ReviewBlock = ({ customerUsername, customerTitle, customerDescription, reviewStarRating }) => {
+const ReviewBlock = ({ review }) => {
+    const { user } = useSelector((state) => state.auth);
+    const [showForm, setShowForm] = useState(false);
+    const [replyText, setReplyText] = useState("");
+    const { selectedProduct } = useSelector((state) => state.products);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    var productName = null;
-    var price = null;
-    var description = null;
-    var stars = 3;
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      // call your onClick function here with replyText as a parameter
+      console.log("Reply submitted:", replyText);
+      setShowForm(false);
+      setReplyText("");
+    }
+    
+    const handleCancel = () => {
+        setShowForm(false);
+        setReplyText("");
+    };
 
-    //Default Variable for review block
-    var customerDefaultName = "Very Cool Name";
-    var customerDefaultTitle = "Default Title";
-    var customerDefaultDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+    const onClick = (e) =>{
+        e.preventDefault()
+       
+        dispatch(replyReview({"reply":replyText, "reviewId":review._id}))
+        window.location.reload();
+    }
 
     return (
         // <div className='review'>
@@ -45,41 +65,52 @@ const ReviewBlock = ({ customerUsername, customerTitle, customerDescription, rev
         <div className='review'>
             <div className='review__header'>
                 <div className="review__rating">
-                    <Rating starRating={stars} />
+                    <Rating starRating={review.rating} />
                 </div>
 
                 <h3 className='review__header-title'>
-                    {customerDefaultTitle}
+                    {review.title}
                 </h3>
             </div>
 
             <p className='review__detail'>
-                {customerDefaultDescription}
+                {review.comment}
             </p>
 
             <p className='review__name'>
-                {customerDefaultName}
+                {review.name}
             </p>
-
-            
-
-            <div className='review__header'>
-                <div className="review__rating">
-                    <Rating starRating={stars} />
+            {user.user.type === "Admin" && review.reply === "false" &&
+                <div>
+                    <button onClick={() => setShowForm(!showForm)}>
+                        {showForm ? "Hide Reply Form" : "Reply"}
+                    </button>
+                    {showForm && (
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Reply:
+                                <textarea value={replyText} onChange={(e) => setReplyText(e.target.value)} />
+                            </label>
+                            <button type="submit" onClick={onClick}>Reply</button>
+                            <button type="button" onClick={handleCancel}>Cancel</button>
+                        </form>
+                    )}
                 </div>
+            }
 
-                <h3 className='review__header-title'>
-                    {customerDefaultTitle}
-                </h3>
-            </div>
 
-            <p className='review__detail'>
-                {customerDefaultDescription}
-            </p>
+            {review.reply !== "false" &&
+                <div>
+                    <h4 className='review__header-title'>
+                        Biojewelry Response
+                    </h4>
+                    <p className='review__detail'>
+                        {review.reply}
+                    </p>
+                </div>
+            }
 
-            <p className='review__name'>
-                {customerDefaultName}
-            </p>
+
         </div>
 
     );

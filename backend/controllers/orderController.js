@@ -12,14 +12,15 @@ const User = require('../models/userModel')
 const getOrder = asyncHandler(async (req, res) => {   
     //Finding the order based on orderId
     const order = await Order.findById(req.params.orderId)
-
+    res.status(200).json(order)  
     if(!order){
         res.status(400)
         throw new Error('Sorry the order is not found')
     }
 
-    res.status(200).json(order)    
+      
 })
+
 
 // // @desc    Create an order
 // // @route   POST /api/order
@@ -184,5 +185,6 @@ module.exports = {
     createOrder,
     updateOrder,
     cancelOrder,
-    getOrder
+    getOrder,
+    
 }

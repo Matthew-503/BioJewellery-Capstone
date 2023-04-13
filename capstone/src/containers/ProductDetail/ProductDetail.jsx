@@ -25,7 +25,7 @@ import { getProductByName, reset } from '../../features/productFeatures/productS
 import {getAllReviews } from '../../features/reviewFeatures/reviewSlice'
 const productImage = images.cerrado;
 
-const ProductDetail = ({ productid }) => {
+const ProductDetail = () => {
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
 
@@ -39,18 +39,12 @@ const ProductDetail = ({ productid }) => {
         }
         dispatch(getProductByName(name))
         dispatch(getAllReviews(name));
+      
         return () => {
             dispatch(reset())
         }
-    }, [isError, message, dispatch])
-    var price = null;
-    var NameName = "test";
-    var stars = 3;
-
-    //Default Variable for review block
-    var customerDefaultName = "Very Cool Name";
-    var customerDefaultTitle = "Default Title";
-    var customerDefaultDescription = "Default Description";
+    }, [name,isError, message, dispatch])
+  
 
     return (
         <div className="app__gallery app__section-padding">
@@ -59,7 +53,7 @@ const ProductDetail = ({ productid }) => {
                 <SubHeading title={selectedProduct.name} />
                 <img
                     className="detail__product-image"
-                    src={images.cerrado}
+                    src={productImage}
                     alt="product image"
                 />
                 <div className='detail__sidebar'>

@@ -14,21 +14,54 @@ import React, { useState } from 'react';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import { Link } from "react-router-dom"
-
+import { useSelector, useDispatch } from "react-redux";
 import './Feedback.css';
-
-
+import { getProductByName, reset } from '../../features/productFeatures/productSlice';
+import { createReview } from '../../features/reviewFeatures/reviewSlice';
+import { useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const Feedback = () => {
     const [title, setTitle] = useState('');
     const [feedback, setFeedback] = useState('');
+    
+    const [rating, setRating] = useState(0);
+    const {user} = useSelector((state) => state.auth);
+    const { selectedProduct, isError, message } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
+   
+  
+
+    let { name } = useParams();
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(title);
-        console.log(feedback);
+           
+        const formData = { 
+            "rating": rating, 
+            "title":title,
+            "comment":feedback, 
+            "userId":user.user._id,
+            "productId":selectedProduct._id
+            } 
+
+            dispatch(createReview(formData))
+            navigate("/products/"  + selectedProduct.name)
     };
 
-    const [rating, setRating] = useState(0);
+    useEffect(() => {
+        if (isError) {
+            console.log(message);
+        }
+        dispatch(getProductByName(name))
+       
+      
+        return () => {
+            dispatch(reset())
+        }
+    }, [isError, message, dispatch])
+
 
     const handleStarClick = (star) => {
         setRating(star);
