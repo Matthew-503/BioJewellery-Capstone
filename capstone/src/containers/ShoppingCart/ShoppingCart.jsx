@@ -14,20 +14,20 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const ShoppingCart = () => {
-    const { user,isError, message } = useSelector((state) => state.auth);
+    const { user, isError, message } = useSelector((state) => state.auth);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isError) {
             console.log(message);
         }
-        
-        if(user === null){
+
+        if (user === null) {
             navigate("/login")
         }
 
-      
-    }, [isError, message,user])
+
+    }, [isError, message, user])
     return (
         <div className="cart app__section-padding">
             <div className='cart__headtext'>
@@ -35,7 +35,6 @@ const ShoppingCart = () => {
                     ShoppingCart
                     {/* <HiOutlineShoppingBag className='cart__icons' /> */}
                 </h1>
-
             </div>
 
             <div className='detail__sidebar'>
