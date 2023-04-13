@@ -9,6 +9,13 @@
     gap: 5rem;
 }
 
+.checkout__summary-header h3{
+    font-size: 1.8rem;
+    font-family: var(--font-base);
+    font-weight: 600;
+    color: var(--color-darkgreen);
+}
+
 .order__button {
     display: flex;
     justify-content: center;
@@ -19,7 +26,7 @@
     margin-top: 0.5vw;
     min-width: 25vw;
     background-color: var(--color-green);
-    color: #f8f8f8;
+    color: var(--color-golden);
     font-family: var(--font-alt);
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -30,4 +37,19 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 430px) {
+    .checkout__summary-header {
+        gap: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .checkout__summary-header h3{
+        font-size: 1.5rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-darkgreen);
+    }
 }
