@@ -35,7 +35,7 @@ export const createReview = createAsyncThunk(
   }
 );
 
-// Create a review
+// Reply a review
 export const replyReview = createAsyncThunk(
   "reviews/replyReview",
   async (replyParams, thunkAPI) => {
@@ -49,7 +49,19 @@ export const replyReview = createAsyncThunk(
   }
 );
 
-
+// Create a review
+export const removeReview = createAsyncThunk(
+  "reviews/removeReview",
+  async (reviewId, thunkAPI) => {
+   
+    const token = thunkAPI.getState().auth.user.token
+    const userId = thunkAPI.getState().auth.user.user._id
+    const replyData = {"userId":userId}
+    console.log(reviewId)
+    const response = await ReviewService.removeReview(reviewId, replyData, token);
+    return response.data;
+  }
+);
 
 export const selectReviews = state => state.review.reviews;
 
@@ -105,6 +117,19 @@ export const reviewSlice = createSlice({
         state.reviews = action.payload;
       })
       .addCase(replyReview.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(removeReview.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(removeReview.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.reviews = action.payload;
+      })
+      .addCase(removeReview.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

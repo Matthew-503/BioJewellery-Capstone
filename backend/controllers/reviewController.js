@@ -14,7 +14,10 @@ const getReview = asyncHandler(async (req, res) => {
         const productSelected = await Product.findOne({ 'name': req.params.name })
 
         //Finding reviews for the selected product
-        const reviews = await Review.find({ 'product': productSelected });
+        const reviews = await Review.find({
+            'product': productSelected,
+            'isactive': true
+        });
         res.status(200).json(reviews);
 
     } catch (error) {
@@ -168,7 +171,7 @@ const respondToReview = asyncHandler(async (req, res) => {
         throw new Error('Sorry not Authorized')
     }
 
-    
+
 
     //set the review fields to the new values or by default the existing value
     review.reply = reply ?? review.reply
@@ -176,9 +179,9 @@ const respondToReview = asyncHandler(async (req, res) => {
 
     //save updated review to database
     await review.save()
-  
+
     const reviews = await Review.find(review.product)
-    res.status(200).json({reviews});
+    res.status(200).json({ reviews });
 })
 // @desc    delete a review posted
 // @route   DELETE /api/product/:productId/review/:reviewId
@@ -188,28 +191,41 @@ const deleteReview = asyncHandler(async (req, res) => {
     //finding the review that needs to be removed
     const review = await Review.findById(req.params.reviewId)
 
+    
+    //receiving review fields from request
+    const { userId } = req.body
+
     //throw error if no review exists by that id
     if (!review) {
         res.status(400)
         throw new Error('Sorry, review not found')
     }
 
+    // Find the user account writing the review
+    const user = await User.findById(userId);
+    
     //check if the account trying to delete review is same as the account posted review
-    if (review.client.toString() !== req.user._id.toString()) {
+    if (!user) {
         res.status(400)
         throw new Error('Not authorized to delete this review')
     }
 
-    //update reviews array field of product
-    const product = Product.findById(req.params.productId)
-    product.reviews.pull(review._id)
-    await product.save()
+    //check if the account trying to delete review is same as the account posted review
+    if (user.type === "Admin") {
+        res.status(400)
+        throw new Error('Not authorized to delete this review')
+    }
+
+
+    //set the review fields to the new values or by default the existing value
+    review.isActive = false ?? review.isActive
 
     //Remove review from database
-    await review.remove()
-
-    res.status(200).json('Review Removed');
+    await review.save()
+    const reviews = await Review.find({"product":review.product})
+    res.status(200).json(reviews);
 })
+
 module.exports = {
     createReview,
     updateReview,

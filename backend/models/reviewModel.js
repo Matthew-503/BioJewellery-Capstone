@@ -25,6 +25,11 @@ const reviewSchema = new mongoose.Schema({
         required:true,
         default:'false'
     },
+    isActive:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
     product: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

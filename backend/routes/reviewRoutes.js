@@ -6,7 +6,8 @@ const { canReview,getReview, createReview, respondToReview, deleteReview } = req
 //error for authorization when testing getReview route. Help!
 router.route('/').get(getReview).post(protect, createReview);
 router.route('/:name').get(getReview)
-router.route('/:reviewId').put(protect, respondToReview).delete(protect, deleteReview);
+router.route('/:reviewId').put(protect, respondToReview)
+router.route('/delete/:reviewId').put(protect, deleteReview);
 
 
 
