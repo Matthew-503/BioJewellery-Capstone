@@ -5,10 +5,10 @@
     font-family: var(--font-alt);
     font-weight: 500;
     line-height: 2rem;
-    color: var(--color-darkgreen);
-    background-color: var(--color-lightgreen);
+    color: var(--color-golden);
+    background-color: var(--color-darkgreen);
     padding: 0.5rem;
-    border: none;
+    border: 1px solid var(--color-darkgreen);
     border-radius: 10px;
     margin-top: 1rem;
 }
