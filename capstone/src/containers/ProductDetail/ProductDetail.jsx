@@ -64,7 +64,7 @@ const ProductDetail = ({ productid }) => {
                 />
 
                 <div className='detail__sidebar'>
-                    {/* <ProductDetailBar /> */}
+                    <ProductDetailBar />
                 </div>
 
                 <div>
