@@ -84,6 +84,7 @@
 @media screen and (max-width: 430px) {
     .order__pt1 {
         flex-direction: column;
+        gap: 0rem;
     }
 
     .order__detail-long {
@@ -96,5 +97,14 @@
 
     .order__pt3 {
         flex-direction: column;
+    }
+
+    .order__category {
+        min-width: 90vw;
+        max-width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 1.5rem 0 1.5rem;
     }
 }
