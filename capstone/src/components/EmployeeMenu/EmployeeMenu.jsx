@@ -56,7 +56,7 @@ const EmployeeMenu = () => {
     }
 
     return (
-        <div className="employee__menu" class="employee">
+        <div className="employee__menu, employee">
 
             <div className="employee__text">
 

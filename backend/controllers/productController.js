@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const productModel = require('../models/productModel');
+const cloudinary = require('../config/cloudinary');
 
 string = "test"
 
@@ -22,14 +23,19 @@ const getAllProducts = asyncHandler(async (req, res) => {
 
 
 const getProduct = asyncHandler(async (req, res) => {
+
     try {
-        if (req.params.name === null || req.params.name === '' || req.params.name === undefined) {
+        
+        if (req.body.id === null || req.body.id === '' || req.body.id === undefined) {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
-        const product = await productModel.find({ name: req.params.name });
-        res.status(200).json({ product });
-    } catch (error) {
+        //finiding product object
+        const productObj = await productModel.findOne({'_id': req.body.id});
+       
+        res.status(200).json({ productObj });
+    } 
+    catch (error) {
         res.status(400)
         throw new Error('Unable to get the products');
     }
@@ -38,29 +44,93 @@ const getProduct = asyncHandler(async (req, res) => {
 
 
 const setProduct = asyncHandler(async (req, res, next) => {
+    try {   
+    
+    const result = await cloudinary.uploader.upload(req.file.path);
+    // res.json(result);
+
+    if (!result) {
+        res.status(400)
+        throw new Error('error in image file upload')
+    }
 
     if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
         res.status(400)
         throw new Error('Please provide all fields!')
     }
 
+    
+
     const product = await productModel.create({
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
         quantity: req.body.quantity,
+        // stripeProductId: req.stripeProductId,
+        // priceApiId: req.priceApiId,
+        cloudinaryId: result.public_id,
+        imageUrl: result.secure_url
     })
-    req.body.productId = product._id
-    product.save();
-    //For uploading images
-    next();
+
+    if (!product) {
+        res.status(400)
+        throw new Error('error in product creation!')
+    }
+    
+    // res.json({ product });
+    res.json({ 'message': 'product added'});
+
+    } catch(error){
+        throw new Error(error);
+    }
 })
 
 
 const updateProduct = asyncHandler(async (req, res) => {
+    try 
+    {
+    
+    if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity || !req.body.id) {
+        res.status(400)
+        throw new Error('Please provide all fields!')
+    }
 
-        
-    res.status(200).json('Updated product');
+    //receiving product fields 
+    const {name, description, price, quantity, id} = req.body
+
+    //finiding product object
+    const productObj = await productModel.findOne({'_id': id});
+
+    // Upload new image to cloudinary
+    let result;
+    if (req.file) {
+      result = await cloudinary.uploader.upload(req.file.path);
+    }
+
+    //if new image is uploaded successfully to cludinary, delete the old one
+    if(result){
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(productObj.cloudinaryId);
+    }
+
+    //set the product fields to the new values or by default the existing value
+    productObj.name = name ?? productObj.name
+    productObj.description = description ?? productObj.description
+    productObj.price = price ?? productObj.price
+    productObj.quantity = quantity ?? productObj.quantity
+    // productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
+    productObj.cloudinaryId = result.public_id ?? productObj.cloudinaryId
+    productObj.imageUrl = result.secure_url ?? productObj.imageUrl
+
+    //save updated product to database
+    await productObj.save()
+    
+    res.status(200).json(productObj);
+
+    }//end of try block    
+    catch (error) {
+        throw new Error(error);
+    }    
 })
 
 

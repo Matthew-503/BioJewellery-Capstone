@@ -28,10 +28,20 @@ const sortProducts = async(sortType) => {
     console.log(response)
     return response.data
 }
+
+const setProduct= async(formData) => {
+    
+    const response = await axios.post(API_URL, formData)
+    console.log(response)
+    return response.data
+   
+}
+
 const productService =  {
     getAllProducts,
     getProductByName,
-    sortProducts
+    sortProducts,
+    setProduct
 }
 
 export default productService

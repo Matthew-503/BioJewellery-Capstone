@@ -55,6 +55,8 @@ const App = () => (
             <Route element={<ProtectedRoute />}>
                 <Route path="/add" element={<EmpAccount />} />
                 <Route path="/editproduct" element={<EmpAccount />} />
+                //The following addproduct route to be removed
+                <Route path="/addproduct" element={<AddProduct />} />
             </Route>
 
             
