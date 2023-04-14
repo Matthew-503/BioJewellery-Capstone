@@ -88,10 +88,12 @@ const loginAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check for user email
-  const account = await Account.findOne({ emailLowerCase })
+  const account = await Account.findOne({ 'email': emailLowerCase })
 
   //user object
   const user = await User.findById(account.user)
+
+  const address = await Address.findById(user.shippingAddress)
 
   
   if (account && (await bcrypt.compare(password, account.password))) {
@@ -102,6 +104,14 @@ const loginAccount = asyncHandler(async (req, res) => {
       user:{
         _id: user._id,
         type: user.type
+
+      },
+      address: {
+        street: address.street,
+        city: address.street,
+        province: address.province,
+        country: address.country,
+        postalCode: address.postalCode
       }      
     })
   } else {

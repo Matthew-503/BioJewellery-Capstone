@@ -18,23 +18,27 @@ const Account = () => {
      const dispatch = useDispatch()
     const { user, isError, message} = useSelector((state) => state.auth)
 
-    const {userData, setUserData} = useState({
+    {/* const {userData, setUserData} = useState({
         email: user.email,
         password: user.password,
         user: user.user,
-    });
+    }); 
 
     const handleInputChange =(e) => {
         setUserData({
             userData,
-            email: e.target.value,
-            password: e.target.value,
+            [e.target.name]: e.target.value,
         })  
     }
+    */}
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateAccount(userData.email));
+        dispatch(updateAccount(user.user.email));
+    }
+
+    const handlePasswordChange = (e) => {
+
     }
 
     
@@ -84,25 +88,27 @@ const Account = () => {
                                     Account
                                 </h1>
 
-                                <h3>Username</h3>
+                                <h3>Current Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="username"
-                                        placeholder="Enter Username"
+                                        name="cpassword"
+                                        placeholder="Enter Password"
+                                        onChange={handlePasswordChange}
                                     />
                                 </div>
 
-                                <h3>Password</h3>
+                                <h3>New Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="password"
-                                        id="password"
-                                        
+                                        name="npassword"
+                                        placeholder="Enter Password"
+                                        onChange={handlePasswordChange}    
                                     />
                                 </div>
                             </div>
@@ -143,7 +149,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="email"
-                                  
+                                        placeholder={user.user.email}
                                     />
                                 </div>
 
