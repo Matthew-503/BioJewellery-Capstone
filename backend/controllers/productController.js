@@ -11,7 +11,7 @@ string = "test"
 
 const getAllProducts = asyncHandler(async (req, res) => {
     try {
-        const products = (await productModel.find({"isAvailable": true}));
+        const products = await productModel.find();
         res.status(200).json(products);
     } catch (error) {
         res.status(400)
@@ -27,7 +27,7 @@ const getProduct = asyncHandler(async (req, res) => {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
-        const product = await productModel.find({ "name": req.params.name, "isAvailable": true });
+        const product = await productModel.find({ name: req.params.name });
         res.status(200).json({ product });
     } catch (error) {
         res.status(400)
@@ -37,10 +37,8 @@ const getProduct = asyncHandler(async (req, res) => {
 })
 
 
-const setProduct = asyncHandler(async (req, res) => {
+const setProduct = asyncHandler(async (req, res, next) => {
 
-    try {        
-    
     if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
         res.status(400)
         throw new Error('Please provide all fields!')
@@ -51,28 +49,13 @@ const setProduct = asyncHandler(async (req, res) => {
         description: req.body.description,
         price: req.body.price,
         quantity: req.body.quantity,
-        stripeProductId: req.stripeProductId,
-        priceApiId: req.priceApiId
     })
-    
-    if (!product) {
-        res.status(400)
-        throw new Error('error in product creation!')
-    }
-
-    //req.body.productId = product._id
-
-    res.json({product});
-
+    req.body.productId = product._id
+    product.save();
     //For uploading images
-    // next();
-
-    } catch (error) {
-        throw new Error(error);
-    }
-
-    
+    next();
 })
+
 
 const updateProduct = asyncHandler(async (req, res) => {
 
@@ -95,24 +78,24 @@ const sortProducts = asyncHandler(async (req, res) => {
     }
     switch (sortChoice) {
         case 'Ascd':
-            products = await productModel.find({"isAvailable": true});
+            products = await productModel.find();
             products = sortByAsc(products);
 
             break;
         case 'Dscd':
-            products = await productModel.find({"isAvailable": true});
+            products = await productModel.find();
             products = sortByDscd(products);
             break;
         case 'On Sale':
-            products = await productModel.find({ "onSale": true, "isAvailable": true });
+            products = await productModel.find({ onSale: true });
             
             break;
         case 'Trending':
-            products = await productModel.find({ "Trending": true, "isAvailable": true });
+            products = await productModel.find({ Trending: true });
             
             break;
         case 'Popular':
-            products = await productModel.find({ "isPopular": true, "isAvailable": true });
+            products = await productModel.find({ isPopular: true });
             break;
         default:
             throw new Error('Cant sort products by ' + sortChoice)
@@ -139,7 +122,7 @@ function sortByAsc(arr) {
         const result = [];
 
         while (left.length && right.length) {
-            if (left[0].price <= right[0].price) {
+            if (left[0].name <= right[0].name) {
                 result.push(left.shift());
             } else {
                 result.push(right.shift());
@@ -169,7 +152,7 @@ function mergeDsc(left, right) {
     const result = [];
 
     while (left.length && right.length) {
-        if (left[0].price >= right[0].price) {
+        if (left[0].name >= right[0].name) {
             result.push(left.shift());
         } else {
             result.push(right.shift());

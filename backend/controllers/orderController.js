@@ -12,107 +12,61 @@ const User = require('../models/userModel')
 const getOrder = asyncHandler(async (req, res) => {   
     //Finding the order based on orderId
     const order = await Order.findById(req.params.orderId)
-    res.status(200).json(order)  
+
     if(!order){
         res.status(400)
         throw new Error('Sorry the order is not found')
     }
 
-      
+    res.status(200).json(order)    
 })
 
-
-// // @desc    Create an order
-// // @route   POST /api/order
-// // @access  Private
-// const createOrder = asyncHandler(async (req, res) => {
-    
-//     //user
-//     const user = await User.findById(req.user._id)
-
-//     //find the cart for the order
-//     const cart = Cart.findById(req.body.cartId)
-
-//     //throw error if no cart exists by that id
-//     if(!cart){
-//         res.status(400)
-//         throw new Error('Sorry, cart not found')
-//     }
-
-//     //get default address value 
-//     const shippingAddress = user.defaultAddress
-
-//     //start date will be current date
-//     const startDate = new Date()
-
-//     //generating tracking number
-//     const trackGen = () => {
-//         const prefix = 'BJ'
-//         const rand = Math.floor(Math.random() * 100000000) //a random 8 digit num
-//         const val = prefix + rand.toString().padStart(8, '0') //id of 10 chars
-//         return val
-//     }
-
-//     const trackingNumber = trackGen()
-
-//     const order = await Order.create({
-//         client: user._id,
-//         cart,
-//         shippingAddress,
-//         startDate,
-//         trackingNumber
-//     })
-
-//     //saving order in database
-//     await order.save()
-
-//     res.status(200).json({ message: 'Order Created' });
-// })
-
-
-
-//Updated verstion of creating order
-
+// @desc    Create an order
+// @route   POST /api/order
+// @access  Private
 const createOrder = asyncHandler(async (req, res) => {
-  const { userId, products } = req.body;
-  const startDate = new Date();
-   // Validate the input fields
-   if (!userId) {
-    res.status(400);
-    throw new Error('Client ID is required');
-  }
+    
+    //user
+    const user = await User.findById(req.user._id)
 
-  const client = await User.findById(userId)
-  
+    //find the cart for the order
+    const cart = Cart.findById(req.body.cartId)
 
-  if (!Array.isArray(products) || products.length === 0) {
-    res.status(400);
-    throw new Error('At least one product is required');
-  }
-  if (!client.shippingAddress) {
-    res.status(400);
-    throw new Error('Shipping address ID is required');
-  }
-  if (!startDate) {
-    res.status(400);
-    throw new Error('Start date is required');
-  }
- const shippingAddress = client.shippingAddress
-  // Create the order
-  const order = new Order({
-    client,
-    products,
-    shippingAddress,
-    startDate,
-  });
+    //throw error if no cart exists by that id
+    if(!cart){
+        res.status(400)
+        throw new Error('Sorry, cart not found')
+    }
 
-  const createdOrder = await order.save();
+    //get default address value 
+    const shippingAddress = user.defaultAddress
 
-  res.status(201).json(createdOrder);
-});
+    //start date will be current date
+    const startDate = new Date()
 
+    //generating tracking number
+    const trackGen = () => {
+        const prefix = 'BJ'
+        const rand = Math.floor(Math.random() * 100000000) //a random 8 digit num
+        const val = prefix + rand.toString().padStart(8, '0') //id of 10 chars
+        return val
+    }
 
+    const trackingNumber = trackGen()
 
+    const order = await Order.create({
+        client: user._id,
+        cart,
+        shippingAddress,
+        startDate,
+        trackingNumber
+    })
+
+    //saving order in database
+    await order.save()
+
+    res.status(200).json({ message: 'Order Created' });
+})
 
 // @desc    update an existing Order 
 // @route   PATCH /api/order/:orderId
@@ -185,6 +139,5 @@ module.exports = {
     createOrder,
     updateOrder,
     cancelOrder,
-    getOrder,
-    
+    getOrder
 }

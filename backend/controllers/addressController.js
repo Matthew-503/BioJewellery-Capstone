@@ -8,39 +8,22 @@ const User = require('../models/userModel')
 const Address = require('../models/addressModel')
 
 // @desc    Get the address based on user id
-// @route   GET /api/address/:userId
+// @route   GET /api/address
 // @access  Private
 const getAddress = asyncHandler(async (req, res) => {
     try {   
-        const  { userId }  = req.params;
-        if(!userId){
-            res.status(400)
-            throw new Error('Prob with userId in req body');
-        }
 
         //finiding user object
-        const user = await User.findById({'_id': userId});
-        if(!user){
-            res.status(400)
-            throw new Error('It is not fetching user data from DB');
-        }
-            
-        //finiding address object
-        const address = await Address.findById({'_id': user.shippingAddress});
+        const user = await User.findById(req.user._id);
 
-        if(!address)
-        {
-            res.status(400)
-            throw new Error(' It is not fetching address data from DB');
-        }
-        
+        //finiding address object
+        const address = await Address.findById({_id: user.shippingAddress});
+
         res.status(200).json({address});
 
-    } 
-    
-    catch (error) {
+    } catch (error) {
         res.status(400)
-        throw new Error(error);
+        throw new Error('Unable to get the shipping address');
     }
 
 })
@@ -48,18 +31,16 @@ const getAddress = asyncHandler(async (req, res) => {
 
 
 // @desc    update a posted review 
-// @route   PUT /api/address/:userId
+// @route   PUT /api/address
 // @access  Private
 const updateAddress = asyncHandler(async (req, res) => {
-    try {     
- 
+
     //receiving address fields 
     const {street, city, province, country, postalCode} = req.body
 
     //finding the address that needs to be updated
     //finiding user object
-    const  { userId }  = req.params;
-    const user = await User.findById({'_id': userId});
+    const user = await User.findById(req.user._id);
 
     //finiding address object
     const address = await Address.findById({_id: user.shippingAddress});
@@ -81,12 +62,8 @@ const updateAddress = asyncHandler(async (req, res) => {
     await address.save()
 
     res.status(200).json('Address Updated');
-
-    } catch (error) {
-        res.status(400)
-        throw new Error(error);
-    }
 })
+
 
 module.exports = {
     getAddress,

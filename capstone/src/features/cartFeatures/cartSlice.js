@@ -3,19 +3,19 @@
 // Date: 15/03/2023
  
 //createSlice used to create a slice which manages a portion of the global state
-import {createSlice, createAsyncThunk, createSelector} from '@reduxjs/toolkit'
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
 const initialState = {
     cartProducts: [], //product object
-    itemCount: 0,       
+    itemCount: 0,
+    subTotal: 0,
     isError: false,
     isSuccess: false,
     isLoading: false,
-    subTotal: 0,
     message: ''
 }
- 
+
 //Add item to cart
 export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkAPI) => {
     try {
@@ -30,21 +30,6 @@ export const addItemToCart = createAsyncThunk('cart/create', async (item, thunkA
     }
 })
 
-export const calculateSubtotal = (products) => {
-    let subtotal = 0;
-    products.forEach((product) => {
-      subtotal += (product.productPrice * product.quantity);
-    });
-    return subtotal;
-  };
-
- const selectProducts = (state) => state.cart.cartProducts;
-
-export const selectSubtotal = createSelector(
-  [selectProducts],
-  (products) => calculateSubtotal(products)
-);
-  
 //Get cart items
 export const getCartItems = createAsyncThunk('cart/getAll', async (_, thunkAPI) => {
     try {
@@ -106,22 +91,15 @@ async (productName, thunkAPI) => {
     }
 })
 
-
-
 //Slice creation to manage cart state
-    export const cartSlice = createSlice({
-        name: 'cart',
-        initialState,
-        reducers: {
-            reset: (state) => initialState,
-            updateProductQuantity: (state, action) => {
-                const { product, quantity } = action.payload;
-                const productIndex = state.cartProducts.findIndex(p => p.productName === product.productName);
-                state.cartProducts[productIndex].quantity = quantity;
-                state.subTotal = state.cartProducts.reduce((total, p) => total + (p.productPrice * p.quantity), 0).toFixed(2);
-              },
-            
-        },
+export const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        reset: (state) => initialState,
+
+        
+    },
     
     extraReducers: (builder) => {
         builder
@@ -181,7 +159,8 @@ async (productName, thunkAPI) => {
             state.isLoading = false
             state.isSuccess = true
             for(let i = 0; i < state.cartProducts.length; i++){
-                if(state.cartProducts[i].productName === action.payload.productName){     
+                if(state.cartProducts[i].productName === action.payload.productName){
+                
                     state.cartProducts[i].quantity = action.payload.newQuantity;
                 }
             }
@@ -216,5 +195,5 @@ async (productName, thunkAPI) => {
     }
 })
 
-export const {reset, updateProductQuantity} = cartSlice.actions
+export const {reset} = cartSlice.actions
 export default cartSlice.reducer

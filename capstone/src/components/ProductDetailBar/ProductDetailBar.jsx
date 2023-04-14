@@ -26,20 +26,20 @@ const productImage = images.gallery01;
 
 const ProductDetailBar = () => {
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
-    const { reviews } = useSelector((state) => state.review);
-    const { user } = useSelector((state) => state.auth);
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (isError) {
             console.log(message);
         }
-      
+
+
     }, [isError, message])
 
     let stars = 3;
 
     const [selectedValue, setSelectedValue] = useState("");
-
+    
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
 
@@ -53,7 +53,67 @@ const ProductDetailBar = () => {
 
     const icon = isTrue ? <BsCheckCircleFill /> : <BsFillXCircleFill />;
 
+    // //Default Variable for review block
+    // var customerDefaultName = "Very Cool Name";
+    // var customerDefaultTitle = "Default Title";
+    // var customerDefaultDescription = "Default Description";
     return (
+        // <div className="detail__bar">
+        //     <div>
+        //         <table className='detail__table'>
+        //             <tbody>
+        //                 <tr>
+        //                     <th>Price ${299}</th>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-stock">
+        //                             In stock
+        //                             <BsCheckCircleFill className='detail__bar-icons' />
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         {selectedProduct.name}
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>Quantity: {selectedProduct.quantity}</td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-add-button">
+        //                             <Link to="/cart">
+        //                                 <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
+        //                                     <FaShoppingCart />  Add to Cart
+        //                                 </button>
+        //                             </Link>
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td >
+        //                         <div className="detail__bar-star">
+        //                             <Rating starRating={stars} className="detail__bar-rating" />
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //                 <tr>
+        //                     <td>
+        //                         <div className="detail__bar-review-button">
+        //                             <Link to="/cart">
+        //                                 <button className="detail__bar-review-button">
+        //                                     Write a review
+        //                                 </button>
+        //                             </Link>
+        //                         </div>
+        //                     </td>
+        //                 </tr>
+        //             </tbody>
+        //         </table>
+        //     </div>
+        // </div>
 
 
         <div className="detail__bar">
@@ -62,7 +122,7 @@ const ProductDetailBar = () => {
             </h1>
 
             <p>
-                Price ${selectedProduct.price + ''}
+                Price ${selectedProduct.price + ''  }
             </p>
 
             <div className="detail__bar-status">
@@ -77,7 +137,7 @@ const ProductDetailBar = () => {
 
 
             <div className="detail__bar-dropdown">
-                <select value={selectedValue} onChange={handleChange}>
+                <select  value={selectedValue} onChange={handleChange}>
                     <option value="">Select a quantity</option>
                     {[...Array(11).keys()].map((num) => (
                         <option key={num} value={num}>
@@ -89,7 +149,7 @@ const ProductDetailBar = () => {
             </div>
 
             <Link to="/cart">
-                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({ 'productName': selectedProduct.name, 'productPrice': selectedProduct.price, 'quantity': Number.parseInt(selectedValue) }))}>
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({'productName':selectedProduct.name, 'productPrice':selectedProduct.price, 'quantity': Number.parseInt(selectedValue)}))}>
                     <FaShoppingCart />  Add to Cart
                 </button>
             </Link>
@@ -98,16 +158,11 @@ const ProductDetailBar = () => {
                 <Rating starRating={stars} />
             </div>
 
-          
-                <Link to={"/feedback/" + selectedProduct.name}>
-                    <button className="detail__bar-button">
-                        Write a review
-                    </button>
-                </Link>
-        
-
-
-
+            <Link to="/cart">
+                <button className="detail__bar-button">
+                    Write a review
+                </button>
+            </Link>
         </div>
     )
 };
