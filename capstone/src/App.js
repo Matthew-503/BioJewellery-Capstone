@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp, ManageProduct } from './containers';
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
@@ -27,6 +27,7 @@ import Address from './components/Address/Address';
 import { ProtectedRoute } from './features/ProtectedRoute';
 import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
+//TODO: editproductinfo, manageproduct routes to be removed
 const App = () => (
     <div>
 
@@ -54,9 +55,9 @@ const App = () => (
             </Route>
             <Route element={<ProtectedRoute />}>
                 <Route path="/add" element={<EmpAccount />} />
-                <Route path="/editproduct" element={<EmpAccount />} />
-                //The following addproduct route to be removed
                 <Route path="/addproduct" element={<AddProduct />} />
+                <Route path="/manageproduct" element={<ManageProduct />} />
+                <Route path="/editproduct/:productName" element={<EditProduct />} />
             </Route>
 
             

@@ -18,20 +18,19 @@ const getAllProducts = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Unable to get the products');
     }
-
 })
 
 
 const getProduct = asyncHandler(async (req, res) => {
 
     try {
-        
-        if (req.body.id === null || req.body.id === '' || req.body.id === undefined) {
+       
+        if (req.body.name === null || req.body.name === '' || req.body.name === undefined) {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
         //finiding product object
-        const productObj = await productModel.findOne({'_id': req.body.id});
+        const productObj = await productModel.findOne({'name': req.body.name});
        
         res.status(200).json({ productObj });
     } 
@@ -86,7 +85,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
 })
 
 
-const updateProduct = asyncHandler(async (req, res) => {
+const updateProduct = asyncHandler(async (req, res, next) => {
     try 
     {
     
@@ -118,14 +117,14 @@ const updateProduct = asyncHandler(async (req, res) => {
     productObj.description = description ?? productObj.description
     productObj.price = price ?? productObj.price
     productObj.quantity = quantity ?? productObj.quantity
-    // productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
+    productObj.priceApiId = req.priceApiId ?? productObj.priceApiId
     productObj.cloudinaryId = result.public_id ?? productObj.cloudinaryId
     productObj.imageUrl = result.secure_url ?? productObj.imageUrl
 
     //save updated product to database
     await productObj.save()
     
-    res.status(200).json(productObj);
+    res.status(200).json({'product': productObj, 'message': `Product ${product.name} updated! You can start updating another one`});
 
     }//end of try block    
     catch (error) {

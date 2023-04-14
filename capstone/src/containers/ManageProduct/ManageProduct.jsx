@@ -10,6 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { FaSearch } from 'react-icons/fa';
 
 import './ManageProduct.css';
+import { Link } from 'react-router-dom';
 
 const ManageProduct = ({ value, onChange }) => {
 
@@ -70,7 +71,9 @@ const ManageProduct = ({ value, onChange }) => {
             </h1>
 
             <div>
-                <AddIcon />
+                <Link to="/addproduct">
+                    <AddIcon />
+                </Link>
             </div>
 
             <div>
@@ -81,9 +84,8 @@ const ManageProduct = ({ value, onChange }) => {
                     placeholder="Search Product"
                 />
             </div>
-
-            
-                <EmpProductItem />
+           
+            <EmpProductItem />
             
         </div>
     )

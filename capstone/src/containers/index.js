@@ -59,7 +59,7 @@ import EmpAdd from './EmpAccount/EmpAdd';
 import EmpEdit from './EmpAccount/EmpEdit';
 import EmpManage from './EmpAccount/EmpManage';
 import EmpUser from './EmpAccount/EmpUser';
-
+import ManageProduct from './ManageProduct/ManageProduct'
 
 import EmployeeSettings from './EmployeeSettings/EmployeeSettings';
 import EmployeeReturn from './EmployeeReturn/EmployeeReturn';
@@ -114,6 +114,7 @@ export {
 
   EmployeeSettings,
   EmployeeReturn,
+  ManageProduct
 };
 
 

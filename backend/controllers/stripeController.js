@@ -160,8 +160,8 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
 
     } 
     catch (error) {
-    console.error(error);
-    res.status(500).json({ error });
+        console.error(error);
+        res.status(500).json({ error });
     }
 
 })

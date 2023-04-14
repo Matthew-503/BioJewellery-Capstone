@@ -130,102 +130,187 @@
 //         );
 //     }
 // }
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
-import Uploader from '../../components/Uploader/Uploader';
-import { useEffect, useState } from "react";
-import { images } from '../../constants';
-import { SubHeading, ProductDetailBar, Navbar, ToggleButton } from '../../components';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
+// import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
+// import Uploader from '../../components/Uploader/Uploader';
+// import { useEffect, useState } from "react";
+// import { images } from '../../constants';
+// import { SubHeading, ProductDetailBar, Navbar, ToggleButton } from '../../components';
+// import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
-import { fetchFromAPI } from '../../constants';
-import { Box, Stack, Typography } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+// import { fetchFromAPI } from '../../constants';
+// import { Box, Stack, Typography } from "@mui/material";
+// import AddIcon from '@mui/icons-material/Add';
 
-import { Switch } from 'antd';
+// import { Switch } from 'antd';
+// import './EmpProductItem.css';
+
+// const EmpProductItem = () => {
+
+//     const [toggle, setToggle] = useState(false);
+
+//     const toggler = () => {
+//         toggle ? setToggle(false) : setToggle(true);
+//     }
+
+//     const [isDisabled, setIsDisabled] = useState(true);
+
+//     const handleToggle = () => {
+//         setIsDisabled((prevIsDisabled) => !prevIsDisabled);
+//     };
+
+//     return (
+//         <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
+//             <div className='emp__product-item-img'>
+//                 <h1>
+//                     Product slot
+//                 </h1>
+//             </div>
+
+//             <div className='emp__product-item-detail'>
+//                 <div className='emp__product-item-category'>
+//                     <h1>
+//                         Name
+//                     </h1>
+
+//                     <h1>
+//                         Price
+//                     </h1>
+
+//                     <h1>
+//                         Description
+//                     </h1>
+
+//                     <h1>
+//                         Stock
+//                     </h1>
+//                 </div>
+
+//                 <div className='emp__product-item-description'>
+//                     <h1>
+//                         Golden Leaf Necklace
+//                     </h1>
+
+//                     <h1>
+//                         $ 299.99
+//                     </h1>
+
+//                     <h1>
+//                         A nice looking golden leaf shaped necklace
+//                     </h1>
+
+//                     <h1>
+//                         200
+//                     </h1>
+
+//                     <div className='emp__product-item-action'>
+//                         <div className='emp__product-item-toggle'>
+//                             <Switch onClick={handleToggle} />
+//                             {/* {toggle ?
+//                                 <span>
+//                                     true
+//                                 </span>
+//                                 :
+//                                 <span>
+//                                     false
+//                                 </span>} */}
+
+//                             {/* {isDisabled ? "Disable" : "Enable" } */}
+
+//                             <button className='emp__product-item-button'>
+//                                 Edit
+//                             </button>
+//                         </div>
+
+
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+// export default EmpProductItem;
+
 import './EmpProductItem.css';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProducts } from '../../features/productFeatures/productSlice';
 
 const EmpProductItem = () => {
 
-    const [toggle, setToggle] = useState(false);
+    const dispatch = useDispatch();
+    const { products } = useSelector((state) => state.products)
 
-    const toggler = () => {
-        toggle ? setToggle(false) : setToggle(true);
-    }
+    useEffect(() => {
 
-    const [isDisabled, setIsDisabled] = useState(true);
+        dispatch(getProducts()) 
+        console.log(products);
 
-    const handleToggle = () => {
-        setIsDisabled((prevIsDisabled) => !prevIsDisabled);
-    };
+    }, []);
 
     return (
-        <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
+        <div className='emp__product-item'>
+
             <div className='emp__product-item-img'>
                 <h1>
-                    Product slot
+                    Product List
                 </h1>
             </div>
 
-            <div className='emp__product-item-detail'>
-                <div className='emp__product-item-category'>
-                    <h1>
-                        Name
-                    </h1>
+            <div>
+                {products.map(product => (
+                    <div key={product._id}>
+                        <div className='emp__product-item-detail'>
+                            <div className='emp__product-item-category'>
+                                <h1>
+                                    Name
+                                </h1>
 
-                    <h1>
-                        Price
-                    </h1>
+                                <h1>
+                                    Price
+                                </h1>
 
-                    <h1>
-                        Description
-                    </h1>
+                                <h1>
+                                    Description
+                                </h1>
 
-                    <h1>
-                        Stock
-                    </h1>
-                </div>
+                                <h1>
+                                    Stock
+                                </h1>
+                            </div>
 
-                <div className='emp__product-item-description'>
-                    <h1>
-                        Golden Leaf Necklace
-                    </h1>
+                            <div className='emp__product-item-description'>
+                                <h1>
+                                    {product.name}
+                                </h1>
 
-                    <h1>
-                        $ 299.99
-                    </h1>
+                                <h1>
+                                    CA${product.price}
+                                </h1>
 
-                    <h1>
-                        A nice looking golden leaf shaped necklace
-                    </h1>
+                                <h1>
+                                    {product.description}
+                                </h1>
 
-                    <h1>
-                        200
-                    </h1>
+                                <h1>
+                                    {product.quantity}
+                                </h1>
 
-                    <div className='emp__product-item-action'>
-                        <div className='emp__product-item-toggle'>
-                            <Switch onClick={handleToggle} />
-                            {/* {toggle ?
-                                <span>
-                                    true
-                                </span>
-                                :
-                                <span>
-                                    false
-                                </span>} */}
-
-                            {/* {isDisabled ? "Disable" : "Enable" } */}
-
-                            <button className='emp__product-item-button'>
-                                Edit
-                            </button>
+                                <div> 
+                                    <Link to={`/editproduct/${product.name}}`}>
+                                        <button 
+                                        className='emp__product-item-button'
+                                        >
+                                           Edit
+                                        </button>
+                                    </Link>    
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     )

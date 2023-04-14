@@ -1,20 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import productService from './productService';
-
-
+ 
+ 
 const initialState = {
     products: [],
-    selectedProduct: {
-        name:'',
-        description: '',
-        price: '',
-        quantity: '',
-        imageUrl: ''
-    },
+    selectedProduct: {},
     isError: false,
     isSuccess: false,
     isLoading: false,
-    message: 'Waiting for new product :)'
+    message: 'Waiting for product :)'
 }
 export const getProducts = createAsyncThunk('products/getall', async (_, thunkAPI) => {
     try {
@@ -46,7 +40,6 @@ export const getProductByName = createAsyncThunk('products/get', async (name, th
 
     }
 });
-
 
 export const sortProducts = createAsyncThunk('products/sort', async (sortType, thunkAPI) => {
     try {
@@ -80,6 +73,23 @@ export const setProduct = createAsyncThunk('products/post', async (formData, thu
     }
 });
 
+export const updateProduct = createAsyncThunk('products/put', async (formData, thunkAPI) => {
+    try {
+        
+        return await productService.updateProduct(formData);
+
+    } catch (error) {
+        const message = (
+            error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString();
+        return thunkAPI.rejectWithValue(message)
+
+    }
+});
+
 export const productSlice = createSlice({
     name: 'products',
     initialState,
@@ -89,6 +99,7 @@ export const productSlice = createSlice({
         builder
         .addCase(getProducts.pending, (state) => {
             state.isLoading = true
+            state.message = 'Finding your perfect collection'
         })
         .addCase(getProducts.fulfilled, (state, action) => {
             state.isLoading = false
@@ -107,8 +118,7 @@ export const productSlice = createSlice({
         .addCase(getProductByName.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.selectedProduct = action.payload.product[0]
-        
+            state.selectedProduct = action.payload.product[0]        
         })
         .addCase(getProductByName.rejected, (state, action) => {
             state.isLoading = false
@@ -145,6 +155,22 @@ export const productSlice = createSlice({
             state.isError = true
             state.message = action.payload
         })
+        .addCase(updateProduct.pending, (state) => {
+            state.isLoading = true
+            state.message = "Updating product in backend"
+        })
+        .addCase(updateProduct.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.message = action.payload.message
+        })
+        .addCase(updateProduct.rejected, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = false
+            state.isError = true
+            state.message = action.payload
+        })
+        
     }
 
 })
