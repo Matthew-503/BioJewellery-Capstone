@@ -8,8 +8,9 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-const useAuthU = () => {
+const useAuth = () => {
 	
+
 	const { user } = useSelector(
         (state) => state.auth
     )
@@ -22,7 +23,7 @@ const useAuthU = () => {
 }
 
 const ProtectedRouteUser = () => {
-  const isAuth = useAuthU();
+  const isAuth = useAuth();
   return isAuth ? 
     <Outlet />
    : (
@@ -32,5 +33,5 @@ const ProtectedRouteUser = () => {
 
 export {
   ProtectedRouteUser,
-  useAuthU,
+  useAuth,
 }
