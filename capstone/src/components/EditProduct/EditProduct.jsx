@@ -36,8 +36,8 @@ const EditProduct = () => {
     const [newData, setNewData] = useState(null);
 
     useEffect(() => {
-        let formData = new FormData();
-        formData.append('name', productName);
+        // let formData = new FormData();
+        // formData.append('name', productName);
  
 
         dispatch(getProductByName(productName));
