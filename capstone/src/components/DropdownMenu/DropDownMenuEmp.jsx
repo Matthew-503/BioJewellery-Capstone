@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 import { useState } from 'react';
 
-const DropdownMenu = () => {
+const DropdownMenuEmp = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -39,8 +39,8 @@ const DropdownMenu = () => {
     return (
         <div className="flex flex-col dropdownMenu">
             <ul className='flex flex-col gap-4'>
-                <DropdownItem text = {"Profile"} link={'/account'}/>
-                <DropdownItem text = {"Claims"} link={'/claims'}/>
+                <DropdownItem text = {"Manage"} link={'/manageproduct'}/>
+                <DropdownItem text = {"Add"} link={'/addproduct'}/>
                 <li className='dropdownItem'>
                     <a onClick={logoutClick}> Logout </a>
                 </li>
@@ -49,5 +49,5 @@ const DropdownMenu = () => {
     )
 }
 
-export default DropdownMenu;
+export default DropdownMenuEmp;
 

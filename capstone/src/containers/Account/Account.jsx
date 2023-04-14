@@ -8,6 +8,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
 import './Account.css';
 
@@ -15,6 +17,13 @@ const Account = () => {
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user, isSuccess } = useSelector(
+        (state) => state.auth
+    )
 
     useEffect(() => {
         // setVideos(null);
@@ -35,13 +44,13 @@ const Account = () => {
                     <div className="account">
                         <div className="account__table">
                             <div className="account__table-column1">
-                                <div className="account__avatar">
+                                {/* <div className="account__avatar">
                                     <img src={images.avatar} alt="G_overlay" className="blur" />
 
                                     <div className="account__overlay">
                                         <ModeEditIcon className="account__icon" />
                                     </div>
-                                </div>
+                                </div> */}
                                 <h1 className='account__header'>
                                     Account
                                 </h1>
@@ -53,7 +62,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="username"
-                                        placeholder="Enter Username"
+                                        placeholder={user.user.name}
                                     />
                                 </div>
 

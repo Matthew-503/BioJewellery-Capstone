@@ -69,7 +69,7 @@ function Login() {
       }
       //otherwise it will go to the admin view (protected route)
       else {
-        navigate('/editproduct')
+        navigate('/manageproduct')
       }
 
     }
@@ -142,7 +142,7 @@ function Login() {
 
                     <div className='login__lower-functions login__forget-link'>
                       <div className="login__link">
-                        <Link to="/">Forgot password?</Link>
+                        <Link to="/reset">Forgot password?</Link>
                       </div>
                       <br />
                       <button type="submit" className="login__button">Login</button>
@@ -151,9 +151,9 @@ function Login() {
                         <button className="login__button">Register</button>
                       </Link>
                       <br />
-                      <div className="login__link">
+                      {/* <div className="login__link">
                         <Link to="/">Continue as guest</Link>
-                      </div>
+                      </div> */}
                     </div>
                 </form>
               </div>
