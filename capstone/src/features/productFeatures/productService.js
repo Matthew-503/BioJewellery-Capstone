@@ -8,9 +8,9 @@ const getAllProducts = async() => {
     return response.data
 }
 
-const getProductByName= async(name) => {
+const getProductByName= async(formData) => {
     
-    const response = await axios.get(API_URL, name)
+    const response = await axios.get(API_URL, formData)
 
     return response.data
    

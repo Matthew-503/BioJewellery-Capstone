@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { useParams } from 'react-router-dom';
 import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import './EditProduct.css';
@@ -22,9 +22,11 @@ import { getProductByName, updateProduct } from '../../features/productFeatures/
 //attach id of the product in formData when sending
 //Need to fix the product name by useParams
 
-const EditProduct = (props) => {
+const EditProduct = () => {
 
-    const productName = props.match.params.productName;
+    // const { productName } = useParams();
+    const productName  = 'Cerrado Leaf Bracelet';
+    console.log(productName);
 
     const dispatch = useDispatch();
     const { selectedProduct, message, isLoading, isSuccess} = useSelector((state) => state.products)
@@ -34,13 +36,17 @@ const EditProduct = (props) => {
     const [newData, setNewData] = useState(null);
 
     useEffect(() => {
-        dispatch(getProductByName(productName))
+        let formData = new FormData();
+        formData.append('name', productName);
+        console.log(formData);
+
+        dispatch(getProductByName(formData));
 
         console.log(selectedProduct)
         setImageLink(selectedProduct.imageUrl)
         setFileName(selectedProduct.name)
 
-    }, [selectedProduct, message, isLoading, isSuccess, dispatch]);
+    }, []);
 
     const uploadImage = (e) => {
         setImage(e.target.files[0]);

@@ -299,7 +299,7 @@ const EmpProductItem = () => {
                                 </h1>
 
                                 <div> 
-                                    <Link to={`/editproduct/${product.name}}`}>
+                                    <Link to={`/editproduct/${product.name}`}>
                                         <button 
                                         className='emp__product-item-button'
                                         >
