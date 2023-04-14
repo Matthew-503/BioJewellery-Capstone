@@ -31,10 +31,21 @@ const logout = () => {
   localStorage.removeItem('user')
 }
 
+//Update User
+const updateAccount = async (email) => {
+  const response = await axios.post(API_URL + 'update', email)
+
+  console.log(response);
+
+  return response.data
+
+}
+
 const authService = {
   register,
   logout,
   login,
+  updateAccount,
 }
 
 export default authService

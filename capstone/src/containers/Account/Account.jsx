@@ -2,26 +2,67 @@ import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
+import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
 
 const Account = () => {
 
+    const dispatch = useDispatch()
+    const { user, isError, message} = useSelector((state) => state.auth)
+
+    const [userData, setUserData] = useState({
+        email: user.email,
+        password: user.password,
+    });
+
+    const handleInputChange =(e) => {
+        setUserData({
+            userData,
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(userData.email)
+        dispatch(updateAccount(userData.email));
+    }
+
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
+        if(isError) {
+            console.log(message)
+        }
+
+        {/* if (!user) {
+            useNavigate('/home')
+        } */}
+
+        return () => {
+            dispatch(reset())
+        }
+        
+        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+            .then((data) => setVideos(data.items))
+    }, [useNavigate, selectedCategory, isError, message]);
+
+    {/* useEffect(() => {
         // setVideos(null);
 
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
-    }, [selectedCategory]);
+    }, [selectedCategory]); */}
 
     return (
         <div>
@@ -63,8 +104,9 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="password"
-                                        id="password"
-                                        placeholder="Enter Password"
+                                        name="password"
+                                        placeholder={user.password}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
                             </div>
@@ -91,7 +133,7 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="lastname"
+                                        name="lastname"
                                         placeholder="Enter Last Name"
                                     />
                                 </div>
@@ -102,8 +144,9 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="email"
-                                        placeholder="Enter Email Address"
+                                        name="email"
+                                        placeholder={user.password}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
 
@@ -113,7 +156,7 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="phone"
+                                        name="phone"
                                         placeholder="Enter Phone Number"
                                     />
                                 </div>
@@ -124,7 +167,7 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="address"
+                                        name="address"
                                         placeholder="Enter Address"
                                     />
                                 </div>
@@ -137,7 +180,7 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="city"
+                                                name="city"
                                                 placeholder="City"
                                             />
                                         </div>
@@ -148,7 +191,7 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="province"
+                                                name="province"
                                                 placeholder="Province"
                                             />
                                         </div>
@@ -161,7 +204,7 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="postalCode"
+                                                name="postalCode"
                                                 placeholder="Postal Code"
                                             />
                                         </div>
@@ -172,7 +215,7 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="country"
+                                                name="country"
                                                 placeholder="Country"
                                             />
                                         </div>
@@ -182,7 +225,9 @@ const Account = () => {
                         </div>
 
 
-                        <div className="account__action">
+                        <div className="account__action"
+                            onChange={handleSubmit}
+                        >
                             <button>
                                 Save
                             </button>

@@ -14,7 +14,7 @@ const Home = () => {
       {/* <Error /> */}
       {/* <Policy /> */}
       {/* <Feedback /> */}
-      {/* <Account /> */}
+      <Account /> 
       {/* <AccountHistory /> */}
       {/* <OrderConfirmation /> */}
       {/* <EmpAdd /> */}
