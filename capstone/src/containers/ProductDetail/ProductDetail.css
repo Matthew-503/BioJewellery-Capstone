@@ -2,7 +2,7 @@
     float: right;
 }
 
-.detail__headtext h1 {
+.detail__headtext {
     font-size: 5rem;
     font-family: var(--font-base);
     font-weight: 600;
@@ -101,7 +101,7 @@
     .app__gallery {
         padding: 2.5rem 2rem;
     }
-    
+
     .detail__headtext {
         display: flex;
         flex-direction: column;
@@ -114,5 +114,5 @@
         color: var(--color-darkgreen);
         margin: 0 0 0.8rem 0;
     }
-    
+
 }
