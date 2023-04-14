@@ -40,6 +40,8 @@ import ProductSideBar from './ProductSideBar/ProductSideBar';
 import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
 
+import AccSidebar from './AccSidebar/AccSidebar';
+
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
 import EmpProductItem from './EmpProductItem/EmpProductItem';
@@ -100,6 +102,7 @@ export {
     ProductItems,
     ProductDetailBar,
     CartSummary,
+    AccSidebar,
 
     EmployeeMenu,
     EmployeeProduct,
