@@ -11,7 +11,7 @@
 
 // Notes: updated the sequence
 
-
+import UserNavigation from './UserNavigation/UserNavigation';
 
 
 import Home from './Home/Home';
@@ -39,8 +39,6 @@ import Feedback from './Feedback/Feedback';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import Shipping from './Shipping/Shipping';
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
-import UserNavigation from './UserNavigation/UserNavigation';
-
 // import ShopCategory from './ShopCategory/ShopCategory';
 
 import SwitchDetail from '../components/SwitchProductDetail/SwitchProductDetail';
