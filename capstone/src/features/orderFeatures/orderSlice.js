@@ -12,10 +12,12 @@ const initialState = {
 //ThunkAPI has a method to get any state at any part of the app
 //register and login routes are not protected, so there is no need to send the token
 //but the order route is protected, so we send token along with the data.
-export const createOrder = createAsyncThunk('order/create', async (orderData, thunkAPI) => {
+export const createOrder = createAsyncThunk('order/create', async (stripeInvoice, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await orderService.createOrder(orderData, token)
+
+
+        return await orderService.createOrder(stripeInvoice, token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -48,6 +50,13 @@ async (id, thunkAPI) => {
         return thunkAPI.rejectWithValue(message) 
     }
 })
+
+
+
+//addShippinformation Once the shipping information has been update/completed dispatch it from the address slice
+
+//after successfull payment retrieve the products from the cartslice and the userId from the user.user._id from the auth state 
+//add these to the body along with the invoice from stripe and create the order.
 
 
 export const orderSlice = createSlice({

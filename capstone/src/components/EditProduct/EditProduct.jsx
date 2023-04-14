@@ -38,15 +38,15 @@ const EditProduct = () => {
     useEffect(() => {
         let formData = new FormData();
         formData.append('name', productName);
-        console.log(formData);
+ 
 
-        dispatch(getProductByName(formData));
+        dispatch(getProductByName(productName));
 
         console.log(selectedProduct)
         setImageLink(selectedProduct.imageUrl)
         setFileName(selectedProduct.name)
 
-    }, []);
+    }, [dispatch]);
 
     const uploadImage = (e) => {
         setImage(e.target.files[0]);

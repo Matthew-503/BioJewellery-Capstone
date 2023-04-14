@@ -26,8 +26,9 @@ const getOrder = asyncHandler(async (req, res) => {
 // @access  Private
 const createOrder = asyncHandler(async (req, res) => {
     
+    
     //user
-    const user = await User.findById(req.user._id)
+    const user = await User.findById(req.body.userId)
 
     //find the cart for the order
     const cart = Cart.findById(req.body.cartId)
