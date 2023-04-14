@@ -9,6 +9,22 @@
     gap: 2rem;
 }
 
+.review__button {
+    margin-top: 0.5vw;
+    width: 23vw;
+    background-color: var(--color-green);
+    color: #f8f8f8;
+    font-family: var(--font-alt);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 .review__header {
     display: flex;
     flex-direction: row;
@@ -37,6 +53,8 @@
     line-height: 0.5rem;
     color: var(--color-golden);
 }
+
+
 
 .review__detail {
     font-size: 1.5rem;

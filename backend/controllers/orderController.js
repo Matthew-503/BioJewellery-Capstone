@@ -74,22 +74,22 @@ const getOrder = asyncHandler(async (req, res) => {
 //Updated verstion of creating order
 
 const createOrder = asyncHandler(async (req, res) => {
-  const { user, products, shippingAddress } = req.body;
+  const { userId, products } = req.body;
   const startDate = new Date();
    // Validate the input fields
-   if (!user) {
+   if (!userId) {
     res.status(400);
     throw new Error('Client ID is required');
   }
 
-  const client = await User.findById({_id: user._id})
+  const client = await User.findById(userId)
   
 
   if (!Array.isArray(products) || products.length === 0) {
     res.status(400);
     throw new Error('At least one product is required');
   }
-  if (!shippingAddress) {
+  if (!client.shippingAddress) {
     res.status(400);
     throw new Error('Shipping address ID is required');
   }
@@ -97,7 +97,7 @@ const createOrder = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error('Start date is required');
   }
- 
+ const shippingAddress = client.shippingAddress
   // Create the order
   const order = new Order({
     client,

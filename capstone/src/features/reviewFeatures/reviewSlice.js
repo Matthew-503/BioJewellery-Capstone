@@ -57,7 +57,7 @@ export const removeReview = createAsyncThunk(
     const token = thunkAPI.getState().auth.user.token
     const userId = thunkAPI.getState().auth.user.user._id
     const replyData = {"userId":userId}
-    console.log(reviewId)
+  
     const response = await ReviewService.removeReview(reviewId, replyData, token);
     return response.data;
   }

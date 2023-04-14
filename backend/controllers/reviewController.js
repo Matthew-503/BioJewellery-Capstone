@@ -16,7 +16,7 @@ const getReview = asyncHandler(async (req, res) => {
         //Finding reviews for the selected product
         const reviews = await Review.find({
             'product': productSelected,
-            'isactive': true
+            'isActive': true
         });
         res.status(200).json(reviews);
 
@@ -207,11 +207,11 @@ const deleteReview = asyncHandler(async (req, res) => {
     //check if the account trying to delete review is same as the account posted review
     if (!user) {
         res.status(400)
-        throw new Error('Not authorized to delete this review')
+        throw new Error('Please include a user')
     }
 
     //check if the account trying to delete review is same as the account posted review
-    if (user.type === "Admin") {
+    if (user.type !== "Admin") {
         res.status(400)
         throw new Error('Not authorized to delete this review')
     }

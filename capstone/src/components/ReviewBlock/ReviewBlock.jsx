@@ -38,18 +38,13 @@ const ReviewBlock = ({ review }) => {
 
     const handleClick = () => {
         dispatch(removeReview(review._id))
-        //window.location.reload();
+        window.location.reload();
     }
 
     return (
         <div className='review'>
             <div className='review__header'>
-                {user.user.type === "Admin" &&
-                    <div className="review__rating">
-                    <button onClick={handleClick}>
-                        Remove
-                    </button>
-                </div>}
+
 
                 <div className="review__rating">
                     <Rating starRating={review.rating} />
@@ -69,7 +64,7 @@ const ReviewBlock = ({ review }) => {
             </p>
             {user.user.type === "Admin" && review.reply === "false" &&
                 <div>
-                    <button onClick={() => setShowForm(!showForm)}>
+                    <button onClick={() => setShowForm(!showForm)} className="review__button">
                         {showForm ? "Hide Reply Form" : "Reply"}
                     </button>
 
@@ -79,8 +74,8 @@ const ReviewBlock = ({ review }) => {
                                 Reply:
                                 <textarea value={replyText} onChange={(e) => setReplyText(e.target.value)} />
                             </label>
-                            <button type="submit" onClick={onClick}>Reply</button>
-                            <button type="button" onClick={handleCancel}>Cancel</button>
+                            <button type="submit" onClick={onClick} className="review__button">Reply</button>
+                            <button type="button" onClick={handleCancel} className="review__button">Cancel</button>
                         </form>
                     )}
                 </div>
@@ -98,7 +93,12 @@ const ReviewBlock = ({ review }) => {
                 </div>
             }
 
-
+            {user.user.type === "Admin" &&
+                <div >
+                    <button onClick={handleClick} className="review__button">
+                        Remove
+                    </button>
+                </div>}
         </div>
 
     );

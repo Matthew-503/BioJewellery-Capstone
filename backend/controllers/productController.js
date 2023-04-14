@@ -11,7 +11,7 @@ string = "test"
 
 const getAllProducts = asyncHandler(async (req, res) => {
     try {
-        const products = await productModel.find();
+        const products = (await productModel.find({"isAvailable": true}));
         res.status(200).json(products);
     } catch (error) {
         res.status(400)
@@ -27,7 +27,7 @@ const getProduct = asyncHandler(async (req, res) => {
             res.status(400)
             throw new Error('No way to determine product being searched for');
         }
-        const product = await productModel.find({ name: req.params.name });
+        const product = await productModel.find({ "name": req.params.name, "isAvailable": true });
         res.status(200).json({ product });
     } catch (error) {
         res.status(400)
@@ -95,24 +95,24 @@ const sortProducts = asyncHandler(async (req, res) => {
     }
     switch (sortChoice) {
         case 'Ascd':
-            products = await productModel.find();
+            products = await productModel.find({"isAvailable": true});
             products = sortByAsc(products);
 
             break;
         case 'Dscd':
-            products = await productModel.find();
+            products = await productModel.find({"isAvailable": true});
             products = sortByDscd(products);
             break;
         case 'On Sale':
-            products = await productModel.find({ onSale: true });
+            products = await productModel.find({ "onSale": true, "isAvailable": true });
             
             break;
         case 'Trending':
-            products = await productModel.find({ Trending: true });
+            products = await productModel.find({ "Trending": true, "isAvailable": true });
             
             break;
         case 'Popular':
-            products = await productModel.find({ isPopular: true });
+            products = await productModel.find({ "isPopular": true, "isAvailable": true });
             break;
         default:
             throw new Error('Cant sort products by ' + sortChoice)
