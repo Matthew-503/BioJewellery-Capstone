@@ -2,6 +2,10 @@
     display: none;
 }
 
+.sidebar button:hover {
+    background-color: #07484A;
+}
+
 @media screen and (max-width: 430px) {
     .shop__sidebar-small {
         display: flex;
