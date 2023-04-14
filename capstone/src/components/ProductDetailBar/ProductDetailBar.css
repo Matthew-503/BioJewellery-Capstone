@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     padding: 2.5rem 1.5rem;
-    background-color: var(--color-lightgreen);
+    background-color: var(--color-white);
     box-shadow: 0 0 3px 3px rgb(224, 224, 224);
 }
 
@@ -41,9 +41,9 @@
 }
 
 .detail__bar-dropdown select {
-    border: none;
+    border: 1px solid var(--color-lightgreen);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
     font-family: var(--font-alt);
     color: var(--color-darkgreen);
     line-height: 1.5rem;
@@ -57,7 +57,7 @@
 }
 
 .detail__bar-button {
-    background-color: var(--color-lightgreen);
+    background-color: #fefefe;
     color: var(--color-darkgreen);
     font-family: var(--font-base);
     font-weight: 600;
@@ -97,7 +97,7 @@
     letter-spacing: 0.04em;
     line-height: 28px;
     font-size: 16px;
-    padding: 0.3rem 0.3rem;
+    padding: 0.3rem 1.5rem;
     border-radius: 5px;
     border: none;
     outline: none;
