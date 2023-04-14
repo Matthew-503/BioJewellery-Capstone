@@ -24,14 +24,18 @@ import './Navbar.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
+
 import { DropdownMenuEmp } from '../../components';
 import { useAuthU } from '../../features/ProtectedRouteUser';
 import { useAuth } from '../../features/ProtectedRoute';
+
 import { Navigate, Outlet } from "react-router-dom";
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
     const navigate = useNavigate()
+    // const isAuth = useAuth();
+    const isAuth = true;
     const { cartProducts, itemCount } = useSelector((state) => state.cart);
     const {isAuthU, setAuthU}  = useState(false);	
     const {isAuthA, setAuthA}  = useState(false);
@@ -40,25 +44,25 @@ const Navbar = () => {
         (state) => state.auth
     )
 
-    const useAuth = () => {
-        const { user } = useSelector(
-            (state) => state.auth
-        )
+    // const useAuth = () => {
+    //     const { user } = useSelector(
+    //         (state) => state.auth
+    //     )
     
-        if (user && user.type==="Client") {
-            setAuthU(true);	
-        } 
-        if (user && user.user.type==="Admin") {
-            setAuthA(true);	
-        }
+    //     if (user && user.type==="Client") {
+    //         setAuthU(true);	
+    //     } 
+    //     if (user && user.user.type==="Admin") {
+    //         setAuthA(true);	
+    //     }
        
-    }
+    // }
 
     const dispatch = useDispatch();
 
     useEffect(() => {
 
-//        dispatch(updateItemCount());
+        //dispatch(updateItemCount());
 
     }, [dispatch, itemCount]);
 
@@ -68,12 +72,14 @@ const Navbar = () => {
     const [openDropdownMenuEmp, setopenDropdownMenuEmp] = useState(false);
 
     const onPerfilClick = () => {
-        if (user && user.user.type==="Client") {
+        if (isAuth) {
             setopenDropdownMenu(!openDropdownMenu);
         }
+
         else if(user && user.user.type==="Admin") {
             setopenDropdownMenuEmp(!openDropdownMenuEmp);
         }
+
         else {
             navigate('/login');
         }
@@ -99,13 +105,13 @@ const Navbar = () => {
                 </li>
             </ul>
 
-            {/* <div className="navbar-input">
+            <div className="navbar-input">
                 <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
 
                 <a href="#login">
                     <MdSearch className="navbar-icons" />
                 </a>
-            </div> */}
+            </div>
 
             <div className="navbar-input">
                 <a href="/cart">
@@ -115,11 +121,10 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-input">
-                <a href="#" onClick={onPerfilClick}>
+                <a href="#login" onClick={onPerfilClick}>
                     <MdAccountCircle className="navbar-icons" />
                 </a>
             </div>
-            
             {
                 openDropdownMenu && <DropdownMenu />
             }

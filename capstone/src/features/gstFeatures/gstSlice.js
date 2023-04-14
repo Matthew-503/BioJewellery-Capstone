@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import gstService from './gstService'
 
 const initialState = {
-    gst:5,
+    gst: 0,
     isError: false,
     isSuccess: false,
     isLoading: false,
