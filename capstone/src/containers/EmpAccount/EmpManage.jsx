@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
 import Uploader from '../../components/Uploader/Uploader';
+import { Link } from 'react-router-dom';
 
 // Author: Buola Achor
 // Version 0.1
@@ -121,13 +122,18 @@ const EmpManage = (props) => {
                             Manange Products
                         </h1>
 
+                        
                         <button className='emp__manage-add'>
+                        <Link to="/addproduct">
                             <AddIcon className='emp__manage-icon '/>
+                        </Link>
                         </button>
+                        
+                        
 
-                        <div className='emp__manage-search'>
+                        {/* <div className='emp__manage-search'>
                             <input className='navbar-input-search' type='text' placeholder='Search BioJewellery Products' />
-                        </div>
+                        </div> */}
 
                         <div className='emp__manage-product'>
                             <EmpProductItem />
