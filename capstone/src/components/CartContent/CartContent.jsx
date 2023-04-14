@@ -85,9 +85,9 @@ const CartContent = () => {
                 </div>
                 
                 :
-                <>
+                <div className='cart__content-empty'>
                     <h1>Cart is empty!</h1>
-                </>
+                </div>
             }
         </>
     );

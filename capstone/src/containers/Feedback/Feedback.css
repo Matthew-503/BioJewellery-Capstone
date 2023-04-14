@@ -86,13 +86,13 @@
     cursor: pointer;
 }
 
-span {
+.feedback__input span {
     font-size: 2rem;
     color: var(--color-golden);
     cursor: default;
 }
 
-span:hover {
+.feedback__input span:hover {
     cursor: pointer;
 }
 

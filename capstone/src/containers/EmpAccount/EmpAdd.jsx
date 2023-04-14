@@ -150,7 +150,7 @@ const EmpAdd = (props) => {
 
                                 <div className="emp-account__small-table">
                                     <div className="emp-account__table-column2">
-                                        <h3>Price</h3>
+                                        <h3>Price in CA$</h3>
                                         <br />
                                         <div className='emp-account__input-short'>
                                             <input

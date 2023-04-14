@@ -1,4 +1,4 @@
-    // Author: Ling Shan Matthew Ng, Naomy Tung
+// Author: Ling Shan Matthew Ng, Naomy Tung
 // Version 1.o
 // Date: 25/1/2023
 
@@ -15,8 +15,10 @@
 
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
-import { Navbar, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Feedback,Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+
+import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
+import {EmpManage, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
@@ -30,70 +32,50 @@ import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
 const App = () => (
     <div>
-        
+
         <Routes>
             <Route path="/" element={<UserNavigation />}>
-                <Route path="/aboutus"  element={<AboutUs />} />
+                <Route path="/aboutus" element={<AboutUs />} />
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/categories">
                     <Route index element={<Feed />} />
                     <Route path=":cat" element={<Feed />} />
                 </Route>
-                <Route path="/products">
-                    <Route index element={<ShopProduct />} />
-                    <Route path=":name" element={<ProductDetail />} />
+                <Route path="/reset-password">
+                    <Route index element={<ResetConfirm />} />
+                    <Route path=":email" element={<ResetConfirm />} />
                 </Route>
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
                 <Route path="/shipping" element={<Shipping />} />
+                <Route path="/products">
+                    <Route index element={<ShopProduct />} />
+                    <Route path=":name" element={<ProductDetail />} />
+                </Route>
+                <Route path="/reset" element={<Reset />} />
             </Route>
             <Route element={<ProtectedRouteUser />}>
                 <Route path="/feedback/:name" element={<Feedback />} />
                 <Route path="/account" element={<Account />} />
-                <Route path="/history" element={<AccountHistory />} />
+                <Route path="/claims" element={<Return />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-                <Route path="/add" element={<EmpAccount />} />
-                <Route path="/addproduct" element={<AddProduct />} />
-                <Route path="/editproduct" element={<EmpAccount />} />
+                <Route path="/addproduct" element={<EmpAdd />} />
+                <Route path="/manageproduct" element={<EmpManage />} />
+
             </Route>
 
-   
             
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            {/* <Route path="/admin">
-                
-                 <Route index element={<HomeAdmin />} />              
-            </Route> */}
-            </Routes>
-
-            {/* Route specifications for the Login Page
-                <Route path="/login" element={<LoginTemplate />}>
-                <Route index element={<Blog />} /> 
-                <Route path=":cat" element={<ShopProduct />} />  
-                //dont forget to add <Outlet context(){varname: "whatever"}/> in the Login Template     
-                //in the other page to use the context const obj = useOutletContext();   
-                //use the replace in the Link so it will go back 2 pages   
-            </Route>  */}
-
-             {/* <Route path="*" element={<NotFound />}
-        <Navbar />
-        <Uploader />   */}
+            
+        </Routes>
 
 
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <AddProduct />  */}
 
-
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <EditProduct />  */}
-
-
-        {/* The addproduct did not cause spacing issues, but is affecting other divs, have to comment out this component */}
-        {/* <EmployeeMenu /> */}
     </div>
 );
 

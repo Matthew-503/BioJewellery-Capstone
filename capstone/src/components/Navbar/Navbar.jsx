@@ -24,8 +24,11 @@ import './Navbar.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
-// import { useAuthU } from '../../features/ProtectedRouteUser';
-// import { useAuth } from '../../features/ProtectedRoute';
+
+import { DropdownMenuEmp } from '../../components';
+import { useAuthU } from '../../features/ProtectedRouteUser';
+import { useAuth } from '../../features/ProtectedRoute';
+
 import { Navigate, Outlet } from "react-router-dom";
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
@@ -66,11 +69,17 @@ const Navbar = () => {
     const [toggleMenu, setToggleMenu] = React.useState(false);
 
     const [openDropdownMenu, setopenDropdownMenu] = useState(false);
+    const [openDropdownMenuEmp, setopenDropdownMenuEmp] = useState(false);
 
     const onPerfilClick = () => {
         if (isAuth) {
             setopenDropdownMenu(!openDropdownMenu);
         }
+
+        else if(user && user.user.type==="Admin") {
+            setopenDropdownMenuEmp(!openDropdownMenuEmp);
+        }
+
         else {
             navigate('/login');
         }
@@ -118,6 +127,9 @@ const Navbar = () => {
             </div>
             {
                 openDropdownMenu && <DropdownMenu />
+            }
+            {
+                openDropdownMenuEmp && <DropdownMenuEmp />
             }
 
 
