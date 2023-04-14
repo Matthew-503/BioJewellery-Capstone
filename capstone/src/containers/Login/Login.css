@@ -185,6 +185,10 @@
         padding: 9rem 2rem;
     }
 
+    .login__small-form {
+        padding: 6rem 2rem;
+    }
+
     .login__small-table {
         display: flex;
         flex-direction: row;
@@ -205,15 +209,19 @@
     }
 
     .login__small-input input {
-        min-width: 60vw;
+        min-width: 80vw;
     }
 
-    .login__link {
-        margin-top: 1rem;
+    .login__small-link {
+        font-size: 1rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-golden);
+        margin-top: 0.5rem;
     }
 
     .login__small-button {
-        min-width: 31vw;
+        min-width: 45vw;
         max-width: 30vw;
         font-size: 0.8rem;
         font-family: var(--font-alt);

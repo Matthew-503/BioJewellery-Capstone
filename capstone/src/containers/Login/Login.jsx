@@ -161,7 +161,7 @@ function Login() {
               </div>
             </div>
 
-            <div className='account__small'>
+            {/* <div className='account__small'>
               <div className="account__table login__small">
                 <form onSubmit={onSubmit}>
                   <SubHeading title={"Login"} className='login__subheading' />
@@ -210,6 +210,65 @@ function Login() {
                     </div>
                   </div>
                 </form>
+              </div>
+            </div> */}
+
+
+            <div className='signup__overall'>
+              <div className='signup__smallscreen'>
+                <div className='signup__overlay'>
+                  <form onSubmit={onSubmit}>
+                    <div className='login__small-form'>
+                      <div className='signup__header' >
+                        <h1>Login</h1>
+
+                        <p>Join us to be part of the greater world!</p>
+                      </div>
+
+                      {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
+
+                      <div className='login__small-input'>
+                        <input
+                          className='login__input'
+                          type="text"
+                          id="email"
+                          name="email"
+                          placeholder="Email"
+                          value={email}
+                          onChange={onChange}
+                          required
+                        />
+
+                        <input
+                          className='login__input'
+                          type="password"
+                          id="password"
+                          name="password"
+                          placeholder="Password"
+                          value={password}
+                          onChange={onChange}
+                          required
+                        />
+                      </div>
+
+                      <div className='login__lower-functions login__forget-link'>
+                        <div className="login__small-link">
+                          <Link to="/">Forgot password?</Link>
+                        </div>
+                        <br />
+                        <button type="submit" className="login__small-button">Login</button>
+                        <br />
+                        <Link to='/signup'>
+                          <button className="login__small-button">Register</button>
+                        </Link>
+                        <br />
+                        <div className="login__small-link">
+                          <Link to="/">Continue as guest</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
