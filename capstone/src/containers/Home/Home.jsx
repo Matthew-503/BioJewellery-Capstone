@@ -4,13 +4,13 @@ import { ShopSidebar } from '../../components';
 const Home = () => {
   return (
     <div>
-      <Header />
-      <Gallery />
+      {/* <Header /> */}
+      {/* <Gallery /> */}
       {/* <Video /> */}
-      <Benefits />
-      <Follow />
+      {/* <Benefits /> */}
+      {/* <Follow /> */}
       {/* <Login /> */}
-      {/* <SignUp /> */}
+      <SignUp />
       {/* <AboutUs /> */}
       {/* <Error /> */}
       {/* <Policy /> */}
