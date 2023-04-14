@@ -34,8 +34,7 @@ Cart page
 
 Order page
 *Display default shipping address 
-* button change to display a radio button lists of other added addresses along with a new address button
-*On clicking new address button, it will pop up a window for address form
+* Update shipping address
 *Display subtotal, tax, total
 *Proceed to Pay
 
