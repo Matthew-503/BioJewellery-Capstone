@@ -2,26 +2,68 @@ import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
+import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
 
 import './Account.css';
 
 const Account = () => {
+     const dispatch = useDispatch()
+    const { user, isError, message} = useSelector((state) => state.auth)
 
+    {/* const {userData, setUserData} = useState({
+        email: user.email,
+        password: user.password,
+        user: user.user,
+    }); 
+
+    const handleInputChange =(e) => {
+        setUserData({
+            userData,
+            [e.target.name]: e.target.value,
+        })  
+    }
+    */}
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateAccount(user.user.email));
+    }
+
+    const handlePasswordChange = (e) => {
+
+    }
+
+    
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
-        // setVideos(null);
 
+        {/*
+        if (!user) {
+            useNavigate('/home')
+        } */}
+
+
+        if(isError) {
+            console.log(message)
+        }
+
+        return () => {
+            dispatch(reset())
+        }
+        
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
-    }, [selectedCategory]);
+    }, [useNavigate, selectedCategory, isError, message]);
 
     return (
         <div>
@@ -35,36 +77,38 @@ const Account = () => {
                     <div className="account">
                         <div className="account__table">
                             <div className="account__table-column1">
-                                {/* <div className="account__avatar">
+                                <div className="account__avatar">
                                     <img src={images.avatar} alt="G_overlay" className="blur" />
 
                                     <div className="account__overlay">
                                         <ModeEditIcon className="account__icon" />
                                     </div>
-                                </div> */}
+                                </div>
                                 <h1 className='account__header'>
                                     Account
                                 </h1>
 
-                                <h3>Username</h3>
+                                <h3>Current Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="username"
-                                        placeholder="Enter Username"
+                                        name="cpassword"
+                                        placeholder="Enter Password"
+                                        onChange={handlePasswordChange}
                                     />
                                 </div>
 
-                                <h3>Password</h3>
+                                <h3>New Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="password"
-                                        id="password"
+                                        name="npassword"
                                         placeholder="Enter Password"
+                                        onChange={handlePasswordChange}    
                                     />
                                 </div>
                             </div>
@@ -74,7 +118,9 @@ const Account = () => {
                                     Personal Information
                                 </h1>
 
-                                <h3>First Name</h3>
+
+                                //Do not think we are using the first and last name
+                                {/* <h3>First Name</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
@@ -94,7 +140,7 @@ const Account = () => {
                                         id="lastname"
                                         placeholder="Enter Last Name"
                                     />
-                                </div>
+                            </div> */}   
 
                                 <h3>Email</h3>
                                 <br />
@@ -103,7 +149,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="email"
-                                        placeholder="Enter Email Address"
+                                        placeholder={user.user.email}
                                     />
                                 </div>
 
@@ -183,7 +229,10 @@ const Account = () => {
 
 
                         <div className="account__action">
-                            <button>
+                            <button
+                                type="submit"
+                                onClick={handleSubmit}
+                            >
                                 Save
                             </button>
 

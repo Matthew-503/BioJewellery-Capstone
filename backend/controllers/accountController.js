@@ -166,6 +166,26 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    Update Account
+// @route   POST /api/update
+// @access  Public
+const updateAccount = asyncHandler(async (req, res) => {
+  const account = await Account.findById(req.params.id)
+
+  //Check for account 
+    if(!account) {
+      res.status(400)
+      throw new error('Account not found')
+    }
+
+    const updatedAccount = await Account.findByIdAndUpdate(req.params.id, 
+      req.body, {
+        new: true,
+      })
+
+    res.status(200).json(updatedAccount)  
+})
+
 // @desc    Reset Password
 // @route   POST /api/account/reset-password
 // @access  Public
@@ -200,5 +220,6 @@ module.exports = {
   loginAccount,
   getAccount,
   forgotPassword,
-  resetPassword
+  resetPassword,
+  updateAccount
 }

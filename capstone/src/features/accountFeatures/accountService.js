@@ -46,6 +46,13 @@ const resetPassword = async (userData) => {
   return response.data
 }
 
+//Update User
+const updateAccount = async (userData) => {
+  const response = await axios.post(API_URL + 'update', userData)
+
+  return response.data
+}
+
 // Logout user
 const logout = () => {
   localStorage.removeItem('user')
@@ -56,7 +63,8 @@ const authService = {
   logout,
   login,
   forgetPassword,
-  resetPassword
+  resetPassword,
+  updateAccount,
 }
 
 export default authService
