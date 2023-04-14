@@ -90,9 +90,11 @@ const Return = () => {
                                     // onChange={(event) => setReason(event.target.value)}
                                     required
                                 />
+
+                                <button type="submit" className="return__button">Submit Claim</button>  
                             </div>
 
-                            <button type="submit" className="login__button">Submit Claim</button>                    
+                                              
                          
                         </form> 
                     </div >
