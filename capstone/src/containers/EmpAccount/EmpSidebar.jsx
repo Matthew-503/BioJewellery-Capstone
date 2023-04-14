@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
 import { useState } from 'react';
+import { MdAccountCircle } from 'react-icons/md';
 
 const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
     const navigate = useNavigate()
@@ -48,7 +49,8 @@ const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
                 >
 
                     <div className="empaccount__sidebar-img">
-                        <img src={images.avatar} alt="G_overlay" />
+                        {/* <img src={images.avatar} alt="G_overlay" /> */}
+                        <MdAccountCircle className="sidebar-icons" />
                         <h1>
                             {user.user.name}
                         </h1>

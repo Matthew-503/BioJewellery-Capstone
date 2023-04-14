@@ -30,6 +30,7 @@ import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
 import CartItem from './CartItem/CartItem';
 import DropdownItem from './DropdownItem/DropdownItem';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
+import DropdownMenuEmp from './DropdownMenu/DropDownMenuEmp';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
@@ -110,6 +111,7 @@ export {
     SwitchProductDetail,
 
     ToggleButton,
+    DropdownMenuEmp
 
     // ShopProductIcon,
     // Newsletter,

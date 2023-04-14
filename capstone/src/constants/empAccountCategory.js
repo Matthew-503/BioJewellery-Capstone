@@ -10,6 +10,6 @@ export default [
     // { name: 'View KPIs', icon: <BarChartIcon />, },
     { name: 'Manage Products', icon: <AppsIcon />, route: '/manageproduct'},
     { name: 'Add Product', icon: <AddIcon />, route: '/addproduct' },
-    { name: 'Logout'},
+    // { name: 'Logout'},
     // { name: 'Return Home',  route: '/'},
 ];
