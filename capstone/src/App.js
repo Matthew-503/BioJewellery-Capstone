@@ -49,12 +49,10 @@ const App = () => (
                 <Route path="/shipping" element={<Shipping />} />
             </Route>
 
-            {/*
             <Route element={<ProtectedRouteUser />}>
                 <Route path="/account" element={<Account />} />
                 <Route path="/history" element={<AccountHistory />} />
             </Route>
-            */} 
 
             <Route element={<ProtectedRoute />}>
                 <Route path="/add" element={<EmpAccount />} />
