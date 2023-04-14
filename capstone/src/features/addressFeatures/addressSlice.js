@@ -2,7 +2,13 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import addressService from './addressService'
 
 const initialState = {
-    shippingAddress:{},
+    shippingAddress:{
+        street: '',
+        city: '',
+        province: '',
+        country: '',
+        postalCode: ''
+    },
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -10,11 +16,10 @@ const initialState = {
 }
 
 //Get address
-export const getAddress = createAsyncThunk('address/get', async (id, thunkAPI) => {
+export const getAddress = createAsyncThunk('address/get', async (thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-       
-        return await addressService.getAddress(id, token)
+        return await addressService.getAddress(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -22,10 +27,10 @@ export const getAddress = createAsyncThunk('address/get', async (id, thunkAPI) =
 })
 
 //Update address
-export const updateAddress = createAsyncThunk('addresses/put', async (userId, newAddress, thunkAPI) => {
+export const updateAddress = createAsyncThunk('addresses/put', async (thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await addressService.updateAddress(userId, newAddress, token)
+        return await addressService.getAddress(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -60,7 +65,7 @@ export const addressSlice = createSlice({
         .addCase(updateAddress.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.message = action.payload
+            state.shippingAddress = action.payload
         })
         .addCase(updateAddress.rejected, (state, action) => {
             state.isLoading = false
