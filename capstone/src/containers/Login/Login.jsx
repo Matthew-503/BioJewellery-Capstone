@@ -69,7 +69,7 @@ function Login() {
       }
       //otherwise it will go to the admin view (protected route)
       else {
-        navigate('/editproduct')
+        navigate('/manageproduct')
       }
 
     }
@@ -151,9 +151,9 @@ function Login() {
                         <button className="login__button">Register</button>
                       </Link>
                       <br />
-                      <div className="login__link">
+                      {/* <div className="login__link">
                         <Link to="/">Continue as guest</Link>
-                      </div>
+                      </div> */}
                     </div>
                 </form>
               </div>

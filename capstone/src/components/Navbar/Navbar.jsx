@@ -70,7 +70,7 @@ const Navbar = () => {
             setopenDropdownMenu(!openDropdownMenu);
         }
         else if(user && user.user.type==="Admin") {
-            navigate('/editproduct');
+            navigate('/manageproduct');
         }
         else {
             navigate('/login');

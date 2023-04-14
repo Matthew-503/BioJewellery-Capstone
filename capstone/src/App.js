@@ -16,7 +16,7 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+import {EmpManage, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
@@ -58,8 +58,8 @@ const App = () => (
                 <Route path="/claims" element={<Return />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-                <Route path="/add" element={<EmpAccount />} />
-                <Route path="/editproduct" element={<EmpAccount />} />
+                <Route path="/addproduct" element={<EmpAdd />} />
+                <Route path="/manageproduct" element={<EmpManage />} />
             </Route>
 
             

@@ -8,6 +8,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
 import './Account.css';
 
@@ -15,6 +17,13 @@ const Account = () => {
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user, isSuccess } = useSelector(
+        (state) => state.auth
+    )
 
     useEffect(() => {
         // setVideos(null);
@@ -53,7 +62,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="username"
-                                        placeholder="Enter Username"
+                                        placeholder={user.user.name}
                                     />
                                 </div>
 

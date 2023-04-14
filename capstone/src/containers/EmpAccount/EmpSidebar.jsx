@@ -38,14 +38,13 @@ const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
     return (
         <div className="empaccount__sidebar">
             <div class="grid-container">
-                <Stack
-                    direction="row"
-                    sx={{
-                        // overflowY: "auto",
-                        height: 'auto',
-                        flexDirection: { md: "column" },
-                        alignItems: 'right',
-                    }}
+                <div
+                    // direction="row"
+                    // sx={{
+                    //     // overflowY: "none",
+                    //     flexDirection: { md: "column" },
+                    //     alignItems: 'right',
+                    // }}
                 >
 
                     <div className="empaccount__sidebar-img">
@@ -82,7 +81,7 @@ const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {
                         </Link>
                     ))}
                     
-                </Stack>
+                </div>
             </div>
         </div>
     )
