@@ -126,7 +126,7 @@ const SignUpForm = () => {
     }, [user, isError, isSuccess, message, navigate, dispatch])
 
     return (
-        <>
+        <div>
             <Navbar />
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
@@ -483,28 +483,11 @@ const SignUpForm = () => {
                                 <div className="signup__link">
                                     <div className="ProgressButton">
                                         <div className="ProgressBar">
-                                            {/* <button onClick={handleClick} className='signup__next-button'>
-                                    <BsArrowLeft size={30} className='signup__button-icon' />
-                                </button> */}
-
-                                            {/* {
-                                    currentInput === 3 ? (
-                                        <button onClick={handleClick} className='signup__next-button'>
-                                            <BsArrowLeft size={30} className='signup__button-icon' />
-                                        </button>
-                                    ) : null} */}
-
                                             <div className="ProgressBar">
                                                 <span className={progress === 0 ? 'Active' : ''} />
                                                 <span className={progress === 1 ? 'Active' : ''} />
                                                 <span className={progress === 2 ? 'Active' : ''} />
                                             </div>
-                                            {/* {
-                                    clickCount < 2 ? (
-                                        <button onClick={handleClick} className='signup__next-button'>
-                                            <BsArrowRight size={30} className='signup__button-icon' />
-                                        </button>
-                                    ) : null} */}
                                         </div>
 
                                         <div >
@@ -519,14 +502,12 @@ const SignUpForm = () => {
                                         <Link to="/"> Log in</Link>
                                     </p>
                                 </div>
-
-
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
