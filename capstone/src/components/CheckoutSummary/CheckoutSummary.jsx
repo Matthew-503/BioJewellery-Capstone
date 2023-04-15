@@ -15,7 +15,7 @@ function CheckoutSummary() {
     
 
     const cartItems = [
-      { name: "Cerrado Leaf Bracelet", quantity: 1}
+      { name: "Leaf Ring Collection", quantity: 1}
     ]
 
     // const email = 'blossomshini@gmail.com';
