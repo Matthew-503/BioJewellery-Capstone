@@ -16,8 +16,8 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
 
-import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import {EmpManage, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+import { Navbar, EditProduct, EmployeeMenu, Uploader } from './components';
+import {EmpManage,Feedback, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
 
 
 import './App.css';
