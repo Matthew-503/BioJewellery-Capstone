@@ -18,7 +18,7 @@ const Shipping = () => {
 
     return (
         <div className='order app__section-padding'>
-            <SubHeading title={'Order Details'} />
+            <SubHeading title={'Shipping Details'} />
 
             <div className='order__pt1'>
                 <Address />
