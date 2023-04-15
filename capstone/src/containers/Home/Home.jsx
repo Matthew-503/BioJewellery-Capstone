@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpManageProduct, Return, Reset, ResetConfirm, Feed, ShopProduct } from '../../containers';
+import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpAdd,EmpManage, Return, Reset, ResetConfirm, Feed, ShopProduct } from '../../containers';
 import { ShopSidebar } from '../../components';
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <Gallery />
       {/* <Video /> */}
       <Benefits />
-      <Follow />
+        <Follow />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <AboutUs /> */}
@@ -20,7 +20,7 @@ const Home = () => {
       {/* <OrderConfirmation /> */}
       {/* <EmpAdd /> */}
       {/* <EmpAccount /> */}
-      {/* <EmpManageProduct /> */}
+      {/* <EmpManage /> */}
       {/* <Feed /> */}
       {/* <ShopProduct /> */}
       {/* <ShopSidebar /> */}
@@ -28,6 +28,7 @@ const Home = () => {
       {/* <Return /> */}
       {/* <Reset /> */}
       {/* <ResetConfirm /> */}
+      {/* <ProductDetail /> */}
     </div >
   )
 }
