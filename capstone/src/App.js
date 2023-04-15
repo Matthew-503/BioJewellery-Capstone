@@ -48,6 +48,7 @@ const App = () => (
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
                 <Route path="/shipping" element={<Shipping />} />
+                <Route path="/addproduct" element={<AddProduct />} />
             </Route>
             <Route element={<ProtectedRouteUser />}>
                 <Route path="/account" element={<Account />} />
@@ -56,7 +57,7 @@ const App = () => (
             <Route element={<ProtectedRoute />}>
                 <Route path="/add" element={<EmpAccount />} />
                 <Route path="/empadd" element={<EmpAdd />} />
-                <Route path="/addproduct" element={<AddProduct />} />
+                
                 <Route path="/manageproduct" element={<ManageProduct />} />
                 <Route path="/editproduct/:productName" element={<EditProduct />} />
             </Route>
