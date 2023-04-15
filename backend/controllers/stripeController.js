@@ -15,6 +15,12 @@ app.use(express.static('public'));
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
+//TODO idea: 1] Change to test mode 2]console.log checkout session id and also test by passing it in url
+//next method to create order (or) 3]In the success url page, useEffect -> call the order creation api using url's session id  
+//4]In the api, call to retrieve the details of that checkout session and crerate an order object -> save in DB
+//5] Also return the order obj as response
+//6] show the order object details in front end.
+
 // @desc    create a checkout session for purchase
 // @route   POST /checkout
 // @access  Private
@@ -69,7 +75,7 @@ const checkout = asyncHandler(async (req, res) => {
         line_items : lineItems,
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: "http://localhost:3000/success",
+        success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
         customer: customerId
@@ -79,12 +85,14 @@ const checkout = asyncHandler(async (req, res) => {
     session.metadata = { email: email };
     session.payment_intent_data = { receipt_email: email };
 
+    console.log()
+
     //sending response to front end
     res.send(JSON.stringify({
         url: session.url
     }));
 
-    }catch (error) {
+    } catch (error) {
         
         res.status(400)
         throw new Error(error);
