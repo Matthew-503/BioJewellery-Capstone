@@ -15,10 +15,10 @@ function CheckoutSummary() {
     
 
     const cartItems = [
-      { name: "Leaf Ring Collection", quantity: 1}
+      { name: "Cerrado Leaf Bracelet", quantity: 1}
     ]
 
-    // const email = 'blossomshini@gmail.com';
+    const email = 'blossomshini@gmail.com';
 
     const checkout = async () => {
     try {
@@ -29,7 +29,7 @@ function CheckoutSummary() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({'cartItems': cartItems})
+        body: JSON.stringify({'cartItems': cartItems, 'email': email})
       })
       
       if(!response.ok){

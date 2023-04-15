@@ -6,6 +6,12 @@
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 
+const express = require('express');
+const app = express();
+//allows any ip address to access our express server
+var cors = require('cors');
+app.use(cors());
+app.use(express.static('public'));
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
@@ -16,7 +22,23 @@ const checkout = asyncHandler(async (req, res) => {
     try{
     console.log(req.body);
     const items = req.body.cartItems;
-    // const email = req.body.email;
+    const email = req.body.email;
+    
+    const customerList = await stripe.customers.list({ email: email });
+    const customer = customerList.data[0];
+
+    let customerId;
+    //If existing customer, retrieve id
+    if (customer) {
+    customerId = customer.id;
+    } 
+    else {
+    //creating a new customer object and then retrieving it's id
+    const newCustomer = await stripe.customers.create({
+        email: email
+    });
+    customerId = newCustomer.id;
+    }
 
     //data formatting for stripe
     let lineItems = [];
@@ -50,11 +72,12 @@ const checkout = asyncHandler(async (req, res) => {
         success_url: "http://localhost:3000/success",
         cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
-        email: 'blossomshini@gmail.com',
-        automatic_tax: {
-            enabled: true,
-          }
+        customer: customerId
     });
+
+    //sending the invoice email to the customer after successful payment
+    session.metadata = { email: email };
+    session.payment_intent_data = { receipt_email: email };
 
     //sending response to front end
     res.send(JSON.stringify({
