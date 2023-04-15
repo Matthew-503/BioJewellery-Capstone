@@ -52,7 +52,7 @@ const ProductDetail = ({ productid }) => {
 
     return (
         <div className="app__gallery app__section-padding">
-            <div>
+            <div className='detail'>
                 <h1 className="detail__headtext">
                     {selectedProduct.name}
                 </h1>

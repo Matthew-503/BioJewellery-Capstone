@@ -102,12 +102,17 @@
         padding: 2.5rem 2rem;
     }
 
+    .detail {
+        display: flex;
+        flex-direction: column;
+    }
+
     .detail__headtext {
         display: flex;
         flex-direction: column;
     }
 
-    .detail__headtext h1 {
+    .detail__headtext {
         font-size: 2rem;
         font-family: var(--font-base);
         font-weight: 600;
