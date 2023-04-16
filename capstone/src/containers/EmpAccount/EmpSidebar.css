@@ -1,11 +1,11 @@
 .empaccount__sidebar {
     max-width: 19vw;
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     position: relative;
     justify-content: space-between;
     align-items: center;
-    padding: 8rem 0.8rem 3rem 0.8rem;
+    /* padding: 8rem 0.8rem 3rem 0.8rem; */
 }
 
 .empaccount__sidebar-img {
@@ -24,12 +24,13 @@
 }
 
 .empaccount__sidebar-img img {
-    max-width: 25vw;
-    max-height: 25vh;
+    max-width: 16vw;
+    max-height: 16vh;
     border-radius: 100%;
 }
 
 .empaccount__sidebar button {
+    min-width: 20vw;
     background: var(--color-white);
     border: none;
     color: black;

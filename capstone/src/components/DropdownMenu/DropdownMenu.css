@@ -9,6 +9,7 @@
     /* border: 1px solid var(--color-darkgreen);   */
     background-color: #072d2ee1;
     box-shadow: 0 0 3px 3px rgb(224, 224, 224);
+    z-index: 4;
 }
 
 /* .dropdownMenu::before {
@@ -29,5 +30,9 @@
     padding: 0;
     list-style: none;
     text-align: center;
+}
+
+.dropdownItem {
+    cursor: pointer;
 }
 

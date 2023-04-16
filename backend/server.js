@@ -38,7 +38,7 @@ app.use('/api/product', require('./routes/productRoutes.js'));
 app.use('/api/account', require('./routes/accountRoutes.js'));
 
 //Review routes
-app.use('/api/product/:productId/reviews', require('./routes/reviewRoutes.js'));
+app.use('/api/reviews', require('./routes/reviewRoutes.js'));
 
 //Cart routes
 app.use('/api/cart', require('./routes/cartRoutes.js'));
@@ -49,8 +49,15 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 //Address routes
 app.use('/api/address', require('./routes/addressRoutes.js'));
 
-//Stripe routes
-app.use('/checkout', require('./routes/stripeRoutes.js'));
+//GST routes
+app.use('/api/gst', require('./routes/gstRoutes.js'));
+
+// Stripe routes
+// app.use('/checkout', require('./routes/stripeRoutes.js'));
+
+
+//Return Request Form routes
+//app.use('/returnrequest', require('./routes/returnrequest.js'));
 
 app.use(errorHandler);
 

@@ -164,7 +164,7 @@ const EmpProductItem = () => {
         <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
             <div className='emp__product-item-img'>
                 <h1>
-                    Product slot
+                    Product List
                 </h1>
             </div>
 

@@ -15,15 +15,18 @@
 
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom"
-import { Navbar, AddProduct, EditProduct, EmployeeMenu, Uploader } from './components';
-import { Account, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+
+import { Navbar, EditProduct, EmployeeMenu, Uploader } from './components';
+import {EmpManage,Feedback, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
+
 
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
 import Shipping from './containers/Shipping/Shipping';
 
-//testing address component - need to be removed
-import Address from './components/Address/Address';
+//AddProduct import to be removed
+import AddProduct from './components/AddProduct/AddProduct';
+
 import { ProtectedRoute } from './features/ProtectedRoute';
 import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
@@ -39,28 +42,36 @@ const App = () => (
                     <Route index element={<Feed />} />
                     <Route path=":cat" element={<Feed />} />
                 </Route>
-                <Route path="/products">
-                    <Route index element={<ShopProduct />} />
-                    <Route path=":name" element={<ProductDetail />} />
+                <Route path="/reset-password">
+                    <Route index element={<ResetConfirm />} />
+                    <Route path=":email" element={<ResetConfirm />} />
                 </Route>
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/success" element={<OrderConfirmation />} />
                 <Route path="/cancel" element={<PaymentCancellation />} />
                 <Route path="/shipping" element={<Shipping />} />
+                <Route path="/products">
+                    <Route index element={<ShopProduct />} />
+                    <Route path=":name" element={<ProductDetail />} />
+                </Route>
+                <Route path="/reset" element={<Reset />} />
             </Route>
             <Route element={<ProtectedRouteUser />}>
+                <Route path="/feedback/:name" element={<Feedback />} />
                 <Route path="/account" element={<Account />} />
-                <Route path="/history" element={<AccountHistory />} />
+                <Route path="/claims" element={<Return />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-                <Route path="/add" element={<EmpAccount />} />
-                <Route path="/editproduct" element={<EmpAccount />} />
+                <Route path="/addproduct" element={<EmpAdd />} />
+                <Route path="/manageproduct" element={<EmpManage />} />
+
             </Route>
 
             
 
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            
         </Routes>
 
 

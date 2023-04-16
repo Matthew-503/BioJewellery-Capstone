@@ -4,7 +4,7 @@ const { getAllProducts, getProduct, setProduct, updateProduct, deleteProduct,sor
 const {  setProductImage, getProductImage, deleteProductImage, updateProductImage } = require('../controllers/productImagesController');
 const { protect } = require('../middleware/authMiddleware');
 const {upload}  = require('../middleware/ImageMiddleware');
-
+const { createProductInStripe } = require('../controllers/stripeController');
 
 
 
@@ -12,7 +12,10 @@ router.route('/all').get(getAllProducts)
 
 router.route('/sort/:sortType').get(sortProducts)
 
-router.route('/').post( upload.single('image'),[setProduct, setProductImage]);
+//testing: to be removed
+router.route('/').post( createProductInStripe, setProduct);
+
+// router.route('/').post( upload.single('image'), createProductInStripe ,[setProduct, setProductImage]);
 
 router.route('/:name').get(getProduct);
 

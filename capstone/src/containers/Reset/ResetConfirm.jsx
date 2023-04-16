@@ -14,14 +14,16 @@ import { useState } from 'react';
 
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Box, Stack, Typography } from "@mui/material";
 
 import { toast } from 'react-toastify';
-import { login, reset } from '../../features/accountFeatures/accountSlice';
+import { resetPassword, reset } from '../../features/accountFeatures/accountSlice';
 import { Navbar } from '../../components';
+
+import PasswordChecklist from "react-password-checklist"
 
 
 import './ResetConfirm.css';
@@ -30,74 +32,68 @@ import './ResetConfirm.css';
 
 
 function ResetConfirm() {
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log(username, password);
-    // };
-
-    const [formData, setFormData] = useState({
-        password: '',
-        confirmPassword: '',
-    })
-
-    const { password, confirmPassword } = formData
-
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const { user, isError, isSuccess, message } = useSelector(
+    const { message, isSuccess, isError} = useSelector(
         (state) => state.auth
     )
 
-    const [errorMessage, setErrorMessage] = useState('');
+    let { email } = useParams();
 
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setsuccessMessage] = useState('');
+    const [isSuccessful, setSuccessful] = useState(false);
 
     useEffect(() => {
         if (isError) {
-            toast.error(message)
-            setErrorMessage(' Sorry. Email or password incorrect. Please try again or create a new account.');
+            toast.error(message);
+            setErrorMessage("" + message);
+        }     
+  
+        if (isSuccess) { 
+          setsuccessMessage("Password was updated successfully!");
+          setSuccessful(true);
+          dispatch(reset());    
         }
+    
+       
+      }, [isError, isSuccess, navigate, dispatch])
 
-        if (isSuccess && user) {
-
-            //if its a regular client it redirect to the logged home page (protected route)
-            if (user.user.type === "Client") {
-                navigate('/')
-            }
-            //otherwise it will go to the admin view (protected route)
-            else {
-                navigate('/editproduct')
-            }
-
-        }
-
-
-    }, [user, isError, isSuccess, message, navigate, dispatch])
-
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }))
-    }
-
-    const onSubmit = (e) => {
+      const checkPassword = (password) => {
+        var re = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+        return re.test(password);
+      }
+    
+      const onSubmit = (e) => {
         e.preventDefault()
 
-        const userData = {
-            password,
-            confirmPassword,
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
         }
-
-        dispatch(login(userData))
-    }
+        else if (!checkPassword(password)) {
+            alert('Please try a different password');
+            return;
+        }
+        else {
+            const userData = {
+                password,
+                email
+            }
+          
+            dispatch(resetPassword(userData))
+        }
+    
+        
+      }
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={0} sx={{ overflowY: "auto", height: "100vh", flex: 2 }}>
@@ -121,6 +117,7 @@ function ResetConfirm() {
 
 
                                     {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
+                                    {isSuccessful ? <p className='login__success-message'>{successMessage}</p> : null}
 
 
                                     <input
@@ -130,24 +127,34 @@ function ResetConfirm() {
                                         name="password"
                                         placeholder="Password"
                                         value={password}
-                                        onChange={onChange}
+                                        onChange={(event) => setPassword(event.target.value)}
                                         required
                                     />
 
                                     <input
                                         className='login__input'
                                         type="password"
-                                        id="password"
-                                        name="password"
+                                        id="confirmPassword"
+                                        name="confirmPassword"
                                         placeholder="Confirm Password"
                                         value={confirmPassword}
-                                        onChange={onChange}
+                                        onChange={(event) => setConfirmPassword(event.target.value)}
                                         required
                                     />
 
+                                    <div class="passwordChecklist">
+
+                                        <PasswordChecklist
+                                            rules={["minLength", "specialChar", "number", "capital", "match"]}
+                                            minLength={8}
+                                            value={password}
+                                            valueAgain={confirmPassword}
+                                        />
+                                    </div>
+
                                     <div className='login__lower-functions login__forget-link'>
                                         <br />
-                                        <button type="submit" className="login__button">Send Conformation Email</button>
+                                        <button type="submit" className="login__button">Reset Password</button>
                                     </div>
                                 </form>
                             </div>
