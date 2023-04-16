@@ -72,7 +72,15 @@ const registerAccount = asyncHandler(async (req, res) => {
         _id: user._id,
         type: user.type,
         name: user.name
-      }      
+      },
+      address:{
+        street: address.street,
+        city: address.city,
+        province: address.province,
+        country: address.country,
+        postalCode: address.postalCode,
+        apartment: address.apartment,
+      }
     })
   } 
   else {
