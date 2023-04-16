@@ -129,7 +129,7 @@
     margin-top: 0.5vw;
     min-width: 25vw;
     background-color: var(--color-green);
-    color: #f8f8f8;
+    color: var(--color-golden);
     font-family: var(--font-alt);
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -146,7 +146,7 @@
     margin-top: 0.5vw;
     min-width: 10vw;
     background-color: var(--color-green);
-    color: #f8f8f8;
+    color: var(--color-golden);
     font-family: var(--font-alt);
     font-weight: 600;
     letter-spacing: 0.04em;

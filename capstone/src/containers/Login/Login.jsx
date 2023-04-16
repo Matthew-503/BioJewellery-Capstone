@@ -101,16 +101,17 @@ function Login() {
 
       <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
         <Box p={0} sx={{ overflowY: "auto", height: "100vh", flex: 2 }}>
-          <div className="account">
-            <div className="account__table">
-              <div className="login__table-column1">
-                <div className="login__img">
-                  <img src={images.login} alt="G_overlay" className="blur" />
+          <div>
+            <div className="account">
+              <div className="account__table">
+                <div className="login__table-column1">
+                  <div className="login__img">
+                    <img src={images.login} alt="G_overlay" className="blur" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="login__table-column2">
-                <form onSubmit={onSubmit}>
+                <div className="login__table-column2">
+                  <form onSubmit={onSubmit}>
                     <SubHeading title={"Login"} className='login__subheading' />
 
                     <p>Welcome back! Please enter your details</p>
@@ -155,68 +156,124 @@ function Login() {
                         <Link to="/">Continue as guest</Link>
                       </div> */}
                     </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            {/* <div className='account__small'>
+              <div className="account__table login__small">
+                <form onSubmit={onSubmit}>
+                  <SubHeading title={"Login"} className='login__subheading' />
+
+                  <p>Welcome back! Please enter your details</p>
+
+                  {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
+
+                  <div className='login__small-input'>
+                    <input
+                      className='login__input'
+                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={onChange}
+                      required
+                    />
+
+                    <input
+                      className='login__input'
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={onChange}
+                      required
+                    />
+                  </div>
+
+                  <div className='login__lower-functions login__forget-link'>
+                    <div className="login__link">
+                      <Link to="/">Forgot password?</Link>
+                    </div>
+                    <br />
+                    <button type="submit" className="login__small-button">Login</button>
+                    <br />
+                    <Link to='/signup'>
+                      <button className="login__small-button">Register</button>
+                    </Link>
+                    <br />
+                    <div className="login__link">
+                      <Link to="/">Continue as guest</Link>
+                    </div>
+                  </div>
                 </form>
+              </div>
+            </div> */}
+
+
+            <div className='signup__overall'>
+              <div className='signup__smallscreen'>
+                <div className='signup__overlay'>
+                  <form onSubmit={onSubmit}>
+                    <div className='login__small-form'>
+                      <div className='signup__header' >
+                        <h1>Login</h1>
+
+                        <p>Join us to be part of the greater world!</p>
+                      </div>
+
+                      {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
+
+                      <div className='login__small-input'>
+                        <input
+                          className='login__input'
+                          type="text"
+                          id="email"
+                          name="email"
+                          placeholder="Email"
+                          value={email}
+                          onChange={onChange}
+                          required
+                        />
+
+                        <input
+                          className='login__input'
+                          type="password"
+                          id="password"
+                          name="password"
+                          placeholder="Password"
+                          value={password}
+                          onChange={onChange}
+                          required
+                        />
+                      </div>
+
+                      <div className='login__lower-functions login__forget-link'>
+                        <div className="login__small-link">
+                          <Link to="/">Forgot password?</Link>
+                        </div>
+                        <br />
+                        <button type="submit" className="login__small-button">Login</button>
+                        <br />
+                        <Link to='/signup'>
+                          <button className="login__small-button">Register</button>
+                        </Link>
+                        <br />
+                        <div className="login__small-link">
+                          <Link to="/">Continue as guest</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </Box>
       </Stack>
-
-
-      {/* <div className='login'>
-        <div className="login__wrapper">
-          <img src={images.login} alt="G_overlay" className='left' />
-          <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-        </div>
-        <form onSubmit={onSubmit}>
-          <div className='right login__form'>
-            <SubHeading title={"Login"} className='login__subheading' />
-
-            <p>Welcome back! Please enter your details</p>
-
-            {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
-
-
-            <input
-              className='login__input'
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={onChange}
-              required
-            />
-
-            <input
-              className='login__input'
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={onChange}
-              required
-            />
-
-            <div className='login__lower-functions login__forget-link'>
-              <div className="login__link">
-                <Link to="/">Forgot password?</Link>
-              </div>
-              <br />
-              <button type="submit" className="login__button">Login</button>
-              <br />
-              <Link to='/signup'>
-                <button className="login__button">Register</button>
-              </Link>
-              <br />
-              <div className="login__link">
-                <Link to="/">Continue as guest</Link>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div> */}
     </>
   );
 };

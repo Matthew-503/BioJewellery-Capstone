@@ -34,11 +34,14 @@ import DropdownMenuEmp from './DropdownMenu/DropDownMenuEmp';
 import PayButton from './PayButton/PayButton';
 
 import SideBar from './SideBar/SideBar';
+import ShopSidebar from './ShopSidebar/ShopSidebar';
 import ProductItems from './ProductItems/ProductItems';
 import ProductDetailBar from './ProductDetailBar/ProductDetailBar';
 import ProductSideBar from './ProductSideBar/ProductSideBar';
 import CartSummary from './CartSummary/CartSummary';
 import SwitchProductDetail from './SwitchProductDetail/SwitchProductDetail';
+
+import AccSidebar from './AccSidebar/AccSidebar';
 
 import EmployeeMenu from './EmployeeMenu/EmployeeMenu';
 import EmployeeProduct from './EmployeeProduct/EmployeeProduct';
@@ -97,9 +100,11 @@ export {
     DescriptionBlock,
 
     SideBar,
+    ShopSidebar,
     ProductItems,
     ProductDetailBar,
     CartSummary,
+    AccSidebar,
 
     EmployeeMenu,
     EmployeeProduct,

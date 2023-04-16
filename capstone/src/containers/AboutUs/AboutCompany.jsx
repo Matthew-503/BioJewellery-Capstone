@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutCompany = () => {
     return (
-        <div className='about app__section-padding'>
+        <div className='about__comp app__section-padding'>
             <table className='about__company'>
                 <tr>
                     <td>

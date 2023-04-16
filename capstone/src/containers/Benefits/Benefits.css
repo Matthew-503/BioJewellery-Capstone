@@ -52,14 +52,14 @@
 .benefits__title {
     font-family: var(--font-base);
     color: var(--color-green);
-    font-size: 35px;
+    font-size: 2rem;
     letter-spacing: 0.04em;
     text-transform: capitalize;
 }
 
 .benefits__h1 {
     font-family: var(--font-base);
-    color: var(--color-green);
+    color: var(--color-darkgreen);
     font-size: 64px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
@@ -116,19 +116,26 @@
     }
 
     .benefits__h1 {
-        font-size: 39px;
+        font-size: 2rem;
+        font-weight: 600;
         text-align: center;
     }
 
     .benefits__title {
-        font-size: 30px;
+        font-size: 1.7rem;
+        font-weight: 550;
     }
 
     .benefits__p {
-        font-size: 14px;
+        font-size: 0.8rem;
     }
 
     .app__card-links {
+        margin: 0;
+    }
+
+    .app__card-links_icons,
+    .app__card-links-align {
         margin: 0;
     }
 }

@@ -312,6 +312,12 @@
     .app__card-links_icons svg {
         margin-top: .5rem;
     }
+
+    .app__card-links-align {
+        flex: 1;
+        margin: 0rem;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 330px) {

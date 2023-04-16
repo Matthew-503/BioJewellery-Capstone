@@ -48,14 +48,17 @@ const ProductDetail = () => {
 
     return (
         <div className="app__gallery app__section-padding">
-            <div className="detail__headtext">
+            <div className='detail'>
+                <h1 className="detail__headtext">
+                    {selectedProduct.name}
+                </h1>
 
-                <SubHeading title={selectedProduct.name} />
                 <img
                     className="detail__product-image"
                     src={productImage}
                     alt="product image"
                 />
+
                 <div className='detail__sidebar'>
                     <ProductDetailBar />
                 </div>

@@ -1,23 +1,3 @@
-/* .cart__table {
-    width: 50vw;
-    padding: 1rem;
-    background-color: #fff;
-    line-height: 2vw;
-}
-.cart__table th {
-    font-size: 18px;
-    text-align: left;
-    line-height: 1vw;
-    justify-content: space-between;
-    padding-bottom: 0.25rem;
-}
-.cart_table td {
-    text-align: left;
-    font-size: 18px;
-    border: 1px solid black;
-    justify-content: space-between;
-} */
-
 .cart__content {
     display: flex;
     flex-direction: row;
@@ -35,7 +15,7 @@
 .cart__content-card {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .cart__content-card p {
@@ -71,8 +51,8 @@
     min-width: 0.5vw;
     font-family: var(--font-alt);
     font-weight: 500;
-    color: var(--color-darkgreen);
-    background-color: var(--color-lightgreen);
+    color: var(--color-golden);
+    background-color: var(--color-darkgreen);
     padding: 0.5rem;
     border: none;
     border-radius: 10px;
@@ -92,152 +72,8 @@
     color: var(--color-darkgreen);
 }
 
-/* .review__table tr :first-child {
-    width: 50%
-} */
-
-.review__stock {
-    font-size: 18px;
-    color: lightgreen;
-    /* padding: 1px; */
-}
-
-.review__button {
-    text-align: center;
-}
-
-.review__star {
-    font-size: 18px;
-    text-align: center;
-}
-
-.review__icons {
-    /* position: relative; */
-    justify-content: space-between;
-    margin: 0 0 0 1vw;
-}
-
-/* .review__rating {
-    padding: 0 10vw 0 0;
-} */
-
-
-.app__gallery {
-    flex-direction: row;
-
-    background: var(--color-lightgreen);
-    padding: 4rem 0 4rem 6rem;
-}
-
-.app__gallery-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-
-    min-width: 500px;
-    padding-right: 2rem;
-}
-
-.app__gallery-content button {
-    margin-top: 1rem;
-}
-
-.app__gallery-images {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    max-width: 50%;
-    position: relative;
-}
-
-.app__gallery-images_container {
-    display: flex;
-    /* is row by refault but will make changes for mobile devices */
-    flex-direction: row;
-    /* sets width of specific content to max */
-    width: max-content;
-    /* allow to scroll horizontally */
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    /* hide the scroll bar of images */
-    scrollbar-width: none;
-}
-
-/* hide the scroll bar of images */
-.app__gallery-images_container::-webkit-scrollbar {
+.cart__content-small {
     display: none;
-}
-
-.review__image {
-    position: relative;
-    min-width: 301px;
-    height: 30vw;
-    margin-left: 5rem;
-}
-
-.gallery__image-icon {
-    position: absolute;
-    color: #fff;
-    font-size: 2rem;
-    opacity: 0;
-    transition: .5s ease;
-    cursor: pointer;
-}
-
-/* image styling */
-.review__imageimg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1;
-    transition: .5s ease;
-}
-
-/* action when hovering */
-.app__gallery-images_card:hover img {
-    opacity: .7;
-}
-
-/* appear insta icon when hovering */
-.app__gallery-images_card:hover .gallery__image-icon {
-    opacity: 1;
-    color: var(--color-black);
-}
-
-/* styling carosel arrow icon */
-.app__gallery-images_arrows {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 1rem;
-    position: absolute;
-    bottom: 5%;
-}
-
-/* styling carosel arrow icon */
-.gallery__arrow-icon {
-    color: var(--color-golden);
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: var(--color-black);
-    border-radius: 5px;
-}
-
-.gallery__arrow-icon {
-    color: var(--color-golden);
-    font-size: 2rem;
-    cursor: pointer;
-    background: var(--color-black);
-    border-radius: 5px;
-}
-
-/* hover arrow effect */
-.gallery__arrow-icon:hover {
-    color: var(--color-white);
 }
 
 /* Extra large device */
@@ -273,18 +109,56 @@
 }
 
 /* extra small devices */
-@media screen and (max-width: 650px) {
-    .app__gallery {
-        padding: 4rem 0 4rem 4rem;
+@media screen and (max-width: 430px) {
+    .cart__content {
+        display: none;
     }
 
-    .app__gallery-content {
-        min-width: 100%;
-        padding: 4rem;
+    .cart__content-small {
+        display: block;
+        margin-top: 2rem;
     }
 
-    .review__image {
-        min-width: 240px;
-        height: 320px;
+    .cart__content-small-name h1 {
+        font-size: 1.8rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-darkgreen);
+    }
+
+    .cart__content-small-name p {
+        font-size: 1.3rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-darkgreen);
+    }
+
+    .cart__content-small-detail {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .cart__content-small-detail h1 {
+        font-size: 1.8rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-darkgreen);
+    }
+
+    .cart__content-small-detail p {
+        font-size: 1.3rem;
+        font-family: var(--font-base);
+        font-weight: 600;
+        color: var(--color-darkgreen);
+    }
+
+    .cart__content-action button {
+        min-width: 7vw;
+        min-height: 1vh;
+        padding: 0.2rem;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 0rem;
     }
 }

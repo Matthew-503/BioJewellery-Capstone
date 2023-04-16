@@ -23,12 +23,12 @@ const Footer = () => (
     <div className='footer' id='footer'>
         <div className='footer__links'>
             <div className='app__card-links_logo'>
-                <div className='footer__links-icons' style={{ textAlign: 'left' }}>
+                <div className='footer__links-icons'>
                     <FiInstagram />
                     <FaTiktok />
                 </div>
 
-                <p className="app__p" style={{ textAlign: 'left' }}>
+                <p className="footer__p">
                     Contact Number
                     <br />
                     +123456789

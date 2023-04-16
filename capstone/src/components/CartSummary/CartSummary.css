@@ -13,194 +13,7 @@
     gap: 3rem;
 }
 
-/* .cart__summary-action button{
-    
-} */
 
-
-
-
-.cartbar__table {
-    /* border: 2px solid forestgreen; */
-    width: 20vw;
-    height: 10vw;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 0 5px 5px rgb(224, 224, 224);
-    /* overflow-y: auto; */
-    /* float: left; */
-}
-
-.cartbar__table th {
-    font-size: 26px;
-    text-align: left;
-    /* border-bottom: 1px solid black; */
-}
-
-.cartbar__table td {
-    text-align: left;
-    font-size: 24px;
-    /* border: 1px solid black; */
-}
-
-/* .cartbar__table tr :first-child {
-    text-align: left;
-    font-size: 10px;
-    border-bottom: 1px solid black;
-} */
-
-.cartbar__stock {
-    font-size: 18px;
-    color: lightgreen;
-    /* padding: 1px; */
-}
-
-.cartbar__button {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.cartbar__star {
-    font-size: 18px;
-    text-align: center;
-}
-
-.cartbar__icons {
-    /* position: relative; */
-    justify-content: space-between;
-    margin: 0 0 0 1vw;
-}
-
-/* .cartbar__rating {
-    padding: 0 1vw 0 0;
-} */
-
-
-.app__gallery {
-    flex-direction: row;
-
-    background: var(--color-lightgreen);
-    padding: 4rem 0 4rem 6rem;
-}
-
-.app__gallery-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-
-    min-width: 500px;
-    padding-right: 2rem;
-}
-
-.app__gallery-content button {
-    margin-top: 1rem;
-}
-
-.app__gallery-images {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    max-width: 50%;
-    position: relative;
-}
-
-.app__gallery-images_container {
-    display: flex;
-    /* is row by refault but will make changes for mobile devices */
-    flex-direction: row;
-    /* sets width of specific content to max */
-    width: max-content;
-    /* allow to scroll horizontally */
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    /* hide the scroll bar of images */
-    scrollbar-width: none;
-}
-
-/* hide the scroll bar of images */
-.app__gallery-images_container::-webkit-scrollbar {
-    display: none;
-}
-
-
-
-.gallery__image-icon {
-    position: absolute;
-    color: #fff;
-    font-size: 2rem;
-    opacity: 0;
-    transition: .5s ease;
-    cursor: pointer;
-}
-
-/* image styling */
-.cartbar__imageimg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1;
-    transition: .5s ease;
-}
-
-/* action when hovering */
-.app__gallery-images_card:hover img {
-    opacity: .7;
-}
-
-/* appear insta icon when hovering */
-.app__gallery-images_card:hover .gallery__image-icon {
-    opacity: 1;
-    color: var(--color-black);
-}
-
-/* styling carosel arrow icon */
-.app__gallery-images_arrows {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 1rem;
-    position: absolute;
-    bottom: 5%;
-}
-
-/* styling carosel arrow icon */
-.gallery__arrow-icon {
-    color: var(--color-golden);
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: var(--color-black);
-    border-radius: 5px;
-}
-
-.gallery__arrow-icon {
-    color: var(--color-golden);
-    font-size: 2rem;
-    cursor: pointer;
-    background: var(--color-black);
-    border-radius: 5px;
-}
-
-/* hover arrow effect */
-.gallery__arrow-icon:hover {
-    color: var(--color-white);
-}
-
-/* Extra large device */
-@media screen and (min-width: 2000px) {
-    .app__gallery-content {
-        min-width: 1000px;
-        padding: 4rem;
-    }
-
-    .cartbar__image {
-        min-width: 400px;
-        height: 550px;
-    }
-}
 
 /* laptop devices */
 @media screen and (max-width: 1150px) {
@@ -223,17 +36,13 @@
 
 /* extra small devices */
 @media screen and (max-width: 650px) {
-    .app__gallery {
-        padding: 4rem 0 4rem 4rem;
+    .cart__summary-header {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
     }
 
-    .app__gallery-content {
-        min-width: 100%;
-        padding: 4rem;
-    }
-
-    .cartbar__image {
-        min-width: 240px;
-        height: 320px;
+    .cart__summary-header h1 {
+        font-size: 1.8rem;
     }
 }

@@ -41,17 +41,19 @@ const Gallery = () => {
     return (
         <div className="gallery ">
             <div className="gallery__content">
-
-                <SubHeading title="Popular Products" className="gallery__subheading"/>
+                <h1 className='gallery__subheading'>
+                    Popular Products
+                </h1>
 
                 <p className="app__p" style={{ marginTop: '2rem' }}>
                     Numbers don't lie, check out our most popular from our collection
                 </p>
+                
                 <button type="button" className="app__button" style={{ marginTop: '2rem' }}>
                     View More
                 </button>
             </div>
-            
+
 
             <div className="gallery__images">
                 <div className="gallery__images-container" ref={scrollRef}>

@@ -12,6 +12,14 @@
     padding-top: 0;
 }
 
+.footer__p {
+    font-size: 1rem;
+    font-family: var(--font-alt);
+    font-family: 700;
+    color: var(--color-darkgreen);
+    text-align: left;
+}
+
 .footer__links {
     width: 100%;
     display: flex;
@@ -32,13 +40,15 @@
 } */
 
 .footer__links-icons {
+    text-align: left;
     margin-top: 0.5rem;
 }
 
 .footer__links-icons svg {
+    font-size: 2rem;
     color: var(--color-darkgreen);
+    text-align: left;
     margin: .5rem;
-    font-size: 24px;
     cursor: pointer;
 }
 
@@ -101,12 +111,23 @@
         width: 80%;
     }
 
+    .footer__p {
+        font-size: 0.8rem;
+        font-family: 700;
+        text-align: center;
+    }
+
     .footer__links {
         margin: 0;
     }
 
     .footer__links-icons {
         margin: 0;
+        text-align: center;
+    }
+    
+    .footer__links-icons svg {
+        font-size: 1.5rem;
         text-align: center;
     }
 

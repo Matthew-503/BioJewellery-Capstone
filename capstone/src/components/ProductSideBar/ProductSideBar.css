@@ -9,9 +9,9 @@
 }
 
 .sidebar button {
-    background: var(--color-white);
+    background: var(--color-darkgreen);
     border: none;
-    color: black;
+    color: var(--color-golden);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -25,9 +25,12 @@
     transition-duration: 0.4s;
 }
 
-.category-btn:hover {
-    background-color: #c0dfc1;
-    /* color: white; */
+.sidebar:hover {
+    background-color: #07484A;
+}
+
+.category-btn span {
+    color: var(--color-golden);
 }
 
 .grid-container {
@@ -42,6 +45,10 @@
 
 .sidebar__content {
     margin-left: 0.5rem;
+}
+
+.sidebar__small {
+    display: none;
 }
 
 @media screen and (max-width: 430px) {
@@ -65,4 +72,12 @@
     .sidebar__content {
         display: none;
     }
+
+    .sidebar__small {
+        display: flex;
+    }
+
+    /* .grid-container {
+        display: none;
+    } */
 }

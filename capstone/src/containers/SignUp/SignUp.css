@@ -240,6 +240,10 @@
         display: none;
     }
 
+    .signup__form {
+        padding: 1rem 13vw;
+    }
+
     .signup__overall {
         background: url('../../assets/login.png');
         background-position: center;
@@ -247,18 +251,18 @@
         background-repeat: no-repeat;
         background-attachment: local;
         z-index: -1;
-        height: 100vh;
+        max-height: 100vh;
     }
 
     .signup__overlay {
-        background: linear-gradient(90deg, rgba(204, 228, 228, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.096) 0%, rgba(0, 0, 0, 0.315) 100%);
         ;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: local;
         z-index: -2;
-        height: 100vh;
+        max-height: 100vh;
     }
 
     .signup__smallscreen {
@@ -278,19 +282,27 @@
     .signup__header h1 {
         font-size: 4rem;
         font-family: var(--font-base);
-        margin: 2rem 0rem;
+        color: var(--color-golden);
+        margin: 0 0 1rem 0;
+    }
+
+    .signup__header p {
+        font-size: 1.3rem;
+        font-family: var(--font-base);
+        color: var(--color-golden);
     }
 
     .signup__details {
+        display: flex;
+        flex-direction: column;
         text-align: center;
-        margin-bottom: 2rem;
+        gap: 1rem;
     }
 
     .signup__input {
         max-width: 15rem;
         max-height: 1.8rem;
         font-size: medium;
-        margin-top: 1.5rem;
         border-radius: 2px;
         background-color: #ffffffa9;
     }
@@ -303,6 +315,11 @@
         font-family: var(--font-alt);
         font-size: 0.8rem;
         color: var(--color-golden);
+        margin-top: 3rem;
     }
 
+    .eQAUJG span {
+        color: var(--color-golden);
+        opacity: 1;
+    }
 }
