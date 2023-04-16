@@ -15,10 +15,11 @@ import { updateAccount, reset } from "../../features/accountFeatures/accountSlic
 import './Account.css';
 
 const Account = () => {
-     const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const { user, isError, message} = useSelector((state) => state.auth)
-
-    {/* const {userData, setUserData} = useState({
+    const [newPassword, setNewPassword] = useState("");
+    
+    {/* const [userData, setUserData] = useState({
         email: user.email,
         password: user.password,
         user: user.user,
@@ -29,16 +30,15 @@ const Account = () => {
             userData,
             [e.target.name]: e.target.value,
         })  
-    }
-    */}
-
+    } */}
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateAccount(user.user.email));
     }
 
     const handlePasswordChange = (e) => {
-
+        setNewPassword(e.target.value); 
     }
 
     
@@ -160,7 +160,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="phone"
-                                        placeholder="Enter Phone Number"
+                                        placeholder={user.user.phoneNumber}
                                     />
                                 </div>
 
@@ -171,7 +171,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="address"
-                                        placeholder="Enter Address"
+                                        placeholder={user.user.address}
                                     />
                                 </div>
 
@@ -184,7 +184,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="city"
-                                                placeholder="City"
+                                                placeholder={user.user.city}
                                             />
                                         </div>
 
@@ -195,7 +195,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="province"
-                                                placeholder="Province"
+                                                placeholder={user.user.province}
                                             />
                                         </div>
                                     </div>
@@ -208,7 +208,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="postalCode"
-                                                placeholder="Postal Code"
+                                                placeholder={user.user.postalCode}
                                             />
                                         </div>
 
@@ -219,7 +219,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="country"
-                                                placeholder="Country"
+                                                placeholder={user.user.country}
                                             />
                                         </div>
                                     </div>

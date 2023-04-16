@@ -61,6 +61,7 @@ const registerAccount = asyncHandler(async (req, res) => {
     email: emailLowerCase,
     password: hashedPassword,
     user: user._id,
+    address: shippingAddress._id,
   })
 
   if (account) {
@@ -74,12 +75,12 @@ const registerAccount = asyncHandler(async (req, res) => {
         name: user.name
       },
       address:{
-        street: address.street,
-        city: address.city,
-        province: address.province,
-        country: address.country,
-        postalCode: address.postalCode,
-        apartment: address.apartment,
+        street: shippingAddress.street,
+        city: shippingAddress.city,
+        province: shippingAddress.province,
+        country: shippingAddress.country,
+        postalCode: shippingAddress.postalCode,
+        apartment: shippingAddress.apartment,
       }
     })
   } 
@@ -99,6 +100,8 @@ const loginAccount = asyncHandler(async (req, res) => {
 
   // Check for user email
   const account = await Account.findOne({ 'email': emailLowerCase })
+
+  const address = await Address.findById({'address': address})
   
   if (account && (await bcrypt.compare(password, account.password))) {
     const user = await User.findById({ '_id': account.user})
@@ -110,7 +113,15 @@ const loginAccount = asyncHandler(async (req, res) => {
         _id: user._id,
         type: user.type,
         name: user.name
-      }      
+      },      
+      address:{
+        street: address.street,
+        city: address.city,
+        province: address.province,
+        country: address.country,
+        postalCode: address.postalCode,
+        apartment: address.apartment,
+      }
     })
   } else {
     res.status(400)
