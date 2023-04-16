@@ -11,14 +11,20 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 function CheckoutSummary() {
   
-    const { subTotal } = useSelector((state) => state.cart);
+    const { subTotal, cartProducts } = useSelector((state) => state.cart);
+    const { user } = useSelector((state) => state.auth);
+
+    const cartItems = cartProducts
+    const email = user.email;
     
+    // console.log({'cartItems': cartItems, 'email': email});
 
-    const cartItems = [
-      { name: "Cerrado Leaf Bracelet", quantity: 1}
-    ]
 
-    const email = 'blossomshini@gmail.com';
+    // const cartItems = [
+    //   { name: "Flower stud earring", quantity: 2}
+    // ]
+
+    // const email = 'blossomshini@gmail.com';
 
     const checkout = async () => {
     try {

@@ -4,7 +4,8 @@ const asyncHandler = require('express-async-handler')
 const Order = require('../models/orderModel')
 const Cart = require('../models/cartModel')
 const User = require('../models/userModel')
-
+//Initializing stripe client for our account using secret key
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 // @desc    Get order
 // @route   GET /api/order/:orderId
@@ -27,117 +28,72 @@ const getOrder = asyncHandler(async (req, res) => {
 const createOrder = asyncHandler(async (req, res) => {
     
     //user
-    const user = await User.findById(req.user._id)
+    const user = await User.findOne({ 'email': req.body.email });
+    const sessionId = req.body.sessionId;
 
-    //find the cart for the order
-    const cart = Cart.findById(req.body.cartId)
+    //get checkout session
 
-    //throw error if no cart exists by that id
-    if(!cart){
-        res.status(400)
-        throw new Error('Sorry, cart not found')
-    }
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent);
 
-    //get default address value 
-    const shippingAddress = user.defaultAddress
+    // const receiptNumber = paymentIntent.charges.data[0].receipt_number;
 
-    //start date will be current date
-    const startDate = new Date()
+    // console.log(receiptNumber);
 
-    //generating tracking number
-    const trackGen = () => {
-        const prefix = 'BJ'
-        const rand = Math.floor(Math.random() * 100000000) //a random 8 digit num
-        const val = prefix + rand.toString().padStart(8, '0') //id of 10 chars
-        return val
-    }
+    // Extract the line items from the checkout session object
+    const orderItems = [];
+    const orderTotal = 0;
+    line_items = session["display_items"];
+    // for item in line_items:
+    //     console.log(item["description"], item["amount"])
 
-    const trackingNumber = trackGen()
+    // stripe.checkout.sessions.listLineItems(
+    //     session.id,
+    //     function(err, lineItems) {
+    //         for (let i = 0; i < lineItems.length; i++) 
+    //         {
+    //             const lineItem = lineItems[i];
+    //             const item = {
+    //                 name: lineItem.description,
+    //                 quantity: lineItem.quantity,
+    //                 price: lineItem.price.unit_amount / 100,
+    //             };
+    //             orderItems.push(item);
+    //             orderTotal += item.price * item.quantity;
+    //             console.log(lineItems);
+    //         }
+    //     }
+    // );
 
-    const order = await Order.create({
-        client: user._id,
-        cart,
-        shippingAddress,
-        startDate,
-        trackingNumber
-    })
-
-    //saving order in database
-    await order.save()
-
-    res.status(200).json({ message: 'Order Created' });
-})
-
-// @desc    update an existing Order 
-// @route   PATCH /api/order/:orderId
-// @access  Private
-const updateOrder = asyncHandler(async (req, res) => {
-
-    //finding the order that needs to be updated
-    const order = await Order.findById(req.params.orderId)
-
-    //throw error if no order exists by that id
-    if(!order){
-        res.status(400)
-        throw new Error('Sorry, order not found')
-    }
-
-    //check if the account trying to update order is same as the account placed order
-    if(order.client.toString() !== req.user._id.toString()){
-        res.status(400)
-        throw new Error('Not authorized to update this order')
-    }
-
-    //if order is shipped or completed
-    if(order.status !== 'P')
-    {
-        res.status(400)
-        throw new Error('Cannot change shipping address for this order')
-    }
-
-    //set the shipping address field to the new value, if new val is null set the default existing value
-    order.shippingAddress = req.body.newAddress ?? order.shippingAddress
-
-    //save updated order to database
-    await order.save()
     
-    res.status(200).json({message: 'Order Updated'});
+    
+    res.send({line_items});
+
+    // const orderItems = [];
+    // const orderTotal = 0;
+
+    // //get shipping address value 
+    // const shippingAddress = user.shippingAddress;
+
+    // 
+    // }
+      
+
+    // const order = await Order.create({
+    //     client: user._id,
+    //     shippingAddress,
+    //     orderItems,
+    //     orderTotal,
+    //     receiptNumber
+    // })
+
+    // //saving order in database
+    // await order.save()
+
+    // res.json({ order });
 })
 
-// @desc    Cancel an order
-// @route   DELETE /api/order/:orderId
-// @access  Private
-const cancelOrder = asyncHandler(async (req, res) => {
-
-   //finding the order that needs to be removed
-   const order = await Order.findById(req.params.orderId)
-
-   //throw error if no order exists by that id
-   if(!order){
-       res.status(400)
-       throw new Error('Sorry, order not found')
-   }
-
-   //check if the account trying to cancel order is same as the account placed
-   if(order.client.toString() !== req.user._id.toString()){
-       res.status(400)
-       throw new Error('Not authorized to cancel this order')
-   }
-
-   //check if order is shipped or completed
-   if(order.status !== 'P'){
-       res.status(400)
-       throw new Error('Sorry, order cannot be canceled')
-   }
-
-   //Remove review from database
-   await order.remove()
-
-    res.status(200).json({message: 'Order Canceled'});
-})
 module.exports = {
     createOrder,
-    updateOrder,
-    cancelOrder,
     getOrder
 }

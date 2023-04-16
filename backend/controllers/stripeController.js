@@ -85,7 +85,28 @@ const checkout = asyncHandler(async (req, res) => {
     session.metadata = { email: email };
     session.payment_intent_data = { receipt_email: email };
 
-    console.log()
+    // const orderItems = [];
+    // const orderTotal = 0;
+
+    // stripe.checkout.sessions.listLineItems(
+    //     session.id,
+    //     function(err, lineItems) 
+    //     {
+    //       // asynchronously called
+    //       for (let i = 0; i < lineItems.length; i++) 
+    //         {
+    //             const lineItem = lineItems[i];
+    //             const item = {
+    //                 name: lineItem.description,
+    //                 quantity: lineItem.quantity,
+    //                 price: lineItem.price.unit_amount / 100,
+    //             };
+    //             orderItems.push(item);
+    //             orderTotal += item.price * item.quantity;
+    //             console.log(orderItems);
+    //         }
+    //     }
+    // );
 
     //sending response to front end
     res.send(JSON.stringify({
