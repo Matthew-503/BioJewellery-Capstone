@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
     <div className="account__sidebar">
-        <div class="grid-container">
+        <div className="grid-container">
             <Stack
                 direction="row"
                 sx={{

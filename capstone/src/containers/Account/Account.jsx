@@ -119,7 +119,7 @@ const Account = () => {
                                 </h1>
 
 
-                                //Do not think we are using the first and last name
+                                
                                 {/* <h3>First Name</h3>
                                 <br />
                                 <div className='account__input-long'>
