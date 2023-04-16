@@ -33,7 +33,7 @@ const ProductDetailBar = () => {
         if (isError) {
             console.log(message);
         }
-      
+
     }, [isError, message])
 
     let stars = 3;
@@ -112,77 +112,28 @@ const ProductDetailBar = () => {
         // </div>
 
 
+
         <div className="detail__bar">
             <h1>
                 {selectedProduct.name}
             </h1>
 
-                <div className="detail__bar-col">
-                    <p>
-                        Price ${selectedProduct.price + ''}
+            <div className="detail__small-bar-col">
+                <p>
+                    Price ${selectedProduct.price + ''}
+                </p>
+
+                <div className="detail__bar-status ">
+                    <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
+                        {isTrue ? 'In Stock' : 'Out of Stock'}
                     </p>
 
-                    <div className="detail__bar-status">
-                        <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
-                            {isTrue ? 'In Stock' : 'Out of Stock'}
-                        </p>
-
-                        <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
-                            {icon}
-                        </div>
+                    <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
+                        {icon}
                     </div>
-               
-
-            <div className="detail__bar-dropdown">
-                <select  value={selectedValue} onChange={handleChange}>
-                    <option value="">Select a quantity</option>
-                    {[...Array(11).keys()].map((num) => (
-                        <option key={num} value={num}>
-                            {num}
-                        </option>
-                    ))}
-                </select>
-
                 </div>
-
-                <Link to="/cart">
-                    <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({ 'productName': selectedProduct.name, 'productPrice': selectedProduct.price, 'quantity': Number.parseInt(selectedValue) }))}>
-                        <FaShoppingCart />  Add to Cart
-                    </button>
-                </Link>
-
-                <div className="detail__bar-rating">
-                    <Rating starRating={stars} />
-                </div>
-
-                <Link to="/cart">
-                    <button className="detail__bar-button">
-                        Write a review
-                    </button>
-                </Link>
             </div>
-
-            <div className="detail__small-bar">
-                <h1>
-                    {selectedProduct.name}
-                </h1>
-
-                <div className="detail__small-bar-col">
-                    <p>
-                        Price ${selectedProduct.price + ''}
-                    </p>
-
-                    <div className="detail__bar-status">
-                        <p style={textColorStyle} onChange={() => setIsTrue(!isTrue)}>
-                            {isTrue ? 'In Stock' : 'Out of Stock'}
-                        </p>
-
-                        <div className='detail__bar-icons' style={textColorStyle} onChange={() => setIsTrue(!isTrue)} >
-                            {icon}
-                        </div>
-                    </div>
-                </div>
-
+            <div className="detail__bar-dropdown">
                 <select value={selectedValue} onChange={handleChange}>
                     <option value="">Select a quantity</option>
                     {[...Array(11).keys()].map((num) => (
@@ -191,24 +142,26 @@ const ProductDetailBar = () => {
                         </option>
                     ))}
                 </select>
+            </div>
 
-                <Link to="/cart">
-                    <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({ 'productName': selectedProduct.name, 'productPrice': selectedProduct.price, 'quantity': Number.parseInt(selectedValue) }))}>
-                        <FaShoppingCart />  Add to Cart
-                    </button>
-                </Link>
 
-                <div className="detail__bar-rating">
-                    <Rating starRating={stars} />
-                </div>
+            <Link to="/cart">
+                <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart({ 'productName': selectedProduct.name, 'productPrice': selectedProduct.price, 'quantity': Number.parseInt(selectedValue) }))}>
+                    <FaShoppingCart />  Add to Cart
+                </button>
+            </Link>
 
-          
-                <Link to={"/feedback/" + selectedProduct.name}>
-                    <button className="detail__bar-button">
-                        Write a review
-                    </button>
-                </Link>
-        
+            <div className="detail__bar-rating">
+                <Rating starRating={stars} />
+            </div>
+
+
+            <Link to={"/feedback/" + selectedProduct.name}>
+                <button className="detail__bar-review-button">
+                    Write a review
+                </button>
+            </Link>
+
 
 
 
