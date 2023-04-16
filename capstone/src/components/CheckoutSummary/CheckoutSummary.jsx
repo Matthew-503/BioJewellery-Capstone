@@ -56,7 +56,7 @@ function CheckoutSummary() {
     return (
     <div className='checkout__summary'>
       <div className='checkout__summary-header'>
-        <div>Subtotal: CA${subTotal}</div>
+        <div>Total: CA${subTotal}</div>
       </div>
       
 
