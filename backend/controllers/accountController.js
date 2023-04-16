@@ -240,5 +240,6 @@ module.exports = {
   getAccount,
   forgotPassword,
   resetPassword,
-  updateAccount
+  updateAccount,
+  authPassword,
 }

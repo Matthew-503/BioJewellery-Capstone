@@ -54,7 +54,7 @@ const App = () => (
                 <Route path="/reset" element={<Reset />} />
             </Route>
             <Route element={<ProtectedRouteUser />}>
-                <Route path="/account" element={<Account />} />
+                {/* <Route path="/account" element={<Account />} /> */}
                 <Route path="/claims" element={<Return />} />
             </Route>
             <Route element={<ProtectedRoute />}>

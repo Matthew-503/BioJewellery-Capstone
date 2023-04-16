@@ -149,7 +149,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="email"
-                                        placeholder={user.user.email}
+                                        
                                     />
                                 </div>
 
@@ -159,8 +159,7 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="phone"
-                                        placeholder={user.user.phoneNumber}
+                                        id="phone" 
                                     />
                                 </div>
 
@@ -171,7 +170,7 @@ const Account = () => {
                                         className='account__input'
                                         type="text"
                                         id="address"
-                                        placeholder={user.user.address}
+                                        
                                     />
                                 </div>
 
@@ -184,7 +183,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="city"
-                                                placeholder={user.user.city}
+                                             
                                             />
                                         </div>
 
@@ -195,7 +194,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="province"
-                                                placeholder={user.user.province}
+                                               
                                             />
                                         </div>
                                     </div>
@@ -208,7 +207,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="postalCode"
-                                                placeholder={user.user.postalCode}
+                                           
                                             />
                                         </div>
 
@@ -219,7 +218,7 @@ const Account = () => {
                                                 className='account__input'
                                                 type="text"
                                                 id="country"
-                                                placeholder={user.user.country}
+                                              
                                             />
                                         </div>
                                     </div>

@@ -48,7 +48,7 @@ const resetPassword = async (userData) => {
 
 //Update User
 const updateAccount = async (userData) => {
-  const response = await axios.post(API_URL + 'update', userData)
+  const response = await axios.get(API_URL + 'update', userData)
 
   return response.data
 }
