@@ -174,68 +174,49 @@ const forgotPassword = asyncHandler(async (req, res) => {
 // @access  Public
 const updateAccount = asyncHandler(async (req, res) => {
 
-  if(!req.body.email || !req.body.passsword || !req.body.street || !req.body.city 
-      || !req.body.province || !req.body.country || !eq.body.postalCode) {
-        res.status(400)
-        throw new Error('Error, fields missing')
-      }
+  if(!req.body.password || !req.body.street || !req.body.city 
+    || !req.body.province || !req.body.country || !eq.body.postalCode) {
+      res.status(400)
+      throw new Error('Error, fields missing')
+    }
 
   const account = await Account.findOne({'email':req.body.email});
 
   //Check for account 
     if(!account) {
       res.status(400)
-      throw new error('Account not found')
+      throw new Error('Account not found')
     }
 
+    //Hasing password
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
-    const shippingAddress = await Address.updateOne({
-      street: req.body.street,
-      city: req.body.city,
-      province: req.body.province,
-      country: req.body.country,
-      postalCode: req.body.postalCode,
-      apartment: req.body.apartment
-    })
-   
-    const user = await User.updateOne({
-      name: req.body.name,
-      shippingAddress: shippingAddress.req.body.id
-    })
+    //Save password
+    account.password = hashedPassword || account.password
 
-    account = await Account.updateOne({
-      email: req.body.email.toLowerCase(),
-      password: hashedPassword,
-      user: user.req.body.id,
-      address: shippingAddress.req.body.id
-    })
+    //save phone number
+    account.user.phoneNumber = req.body.phoneNumber || account.user.phoneNumber
 
-    if (account) {
-      res.json({
-        _id: account.id,
-        email: account.email,
-        token: generateToken(account._id),
-        user:{
-          _id: user._id,
-          type: user.type,
-          name: user.name
-        },
-        address:{
-          street: shippingAddress.street,
-          city: shippingAddress.city,
-          province: shippingAddress.province,
-          country: shippingAddress.country,
-          postalCode: shippingAddress.postalCode,
-          apartment: shippingAddress.apartment
-        }
-      })
-    } 
-    else {
-      res.status(400)
-      throw new Error('Invalid user data')
-    }
+    //save street
+    account.user.address.street = req.body.street || account.user.address.street
+
+    //save city
+    account.user.address.city = req.body.city || account.user.address.city
+
+    //save province
+    account.user.address.province = req.body.province || account.user.address.province
+
+    //save postalcode
+    account.user.address.postalCode = req.body.postalCode || account.user.address.postalCode
+
+    //save apartment
+    account.user.address.apartment = req.body.apartment || account.user.address.apartment
+
+    await account.save()
+
+    res.status(200).json({message: 'Account Updated'});
+
   })
 
 // @desc    Reset Password
