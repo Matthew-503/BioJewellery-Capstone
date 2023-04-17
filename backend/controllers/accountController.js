@@ -73,14 +73,6 @@ const registerAccount = asyncHandler(async (req, res) => {
         _id: user._id,
         type: user.type,
         name: user.name
-      },
-      address:{
-        street: shippingAddress.street,
-        city: shippingAddress.city,
-        province: shippingAddress.province,
-        country: shippingAddress.country,
-        postalCode: shippingAddress.postalCode,
-        apartment: shippingAddress.apartment,
       }
     })
   } 
@@ -113,14 +105,6 @@ const loginAccount = asyncHandler(async (req, res) => {
         _id: user._id,
         type: user.type,
         name: user.name
-      },      
-      address:{
-        street: address.street,
-        city: address.city,
-        province: address.province,
-        country: address.country,
-        postalCode: address.postalCode,
-        apartment: address.apartment,
       }
     })
   } else {
@@ -189,7 +173,14 @@ const forgotPassword = asyncHandler(async (req, res) => {
 // @route   POST /api/update
 // @access  Public
 const updateAccount = asyncHandler(async (req, res) => {
-  const account = await Account.findById(req.params.id)
+
+  if(!req.body.email || !req.body.passsword || !req.body.street || !req.body.city 
+      || !req.body.province || !req.body.country || !eq.body.postalCode) {
+        res.status(400)
+        throw new Error('Error, fields missing')
+      }
+
+  const account = await Account.findOne({'email':req.body.email});
 
   //Check for account 
     if(!account) {
@@ -197,13 +188,55 @@ const updateAccount = asyncHandler(async (req, res) => {
       throw new error('Account not found')
     }
 
-    const updatedAccount = await Account.findByIdAndUpdate(req.params.id, 
-      req.body, {
-        new: true,
-      })
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
-    res.status(200).json(updatedAccount)  
-})
+    const shippingAddress = await Address.updateOne({
+      street: req.body.street,
+      city: req.body.city,
+      province: req.body.province,
+      country: req.body.country,
+      postalCode: req.body.postalCode,
+      apartment: req.body.apartment
+    })
+   
+    const user = await User.updateOne({
+      name: req.body.name,
+      shippingAddress: shippingAddress.req.body.id
+    })
+
+    account = await Account.updateOne({
+      email: req.body.email.toLowerCase(),
+      password: hashedPassword,
+      user: user.req.body.id,
+      address: shippingAddress.req.body.id
+    })
+
+    if (account) {
+      res.json({
+        _id: account.id,
+        email: account.email,
+        token: generateToken(account._id),
+        user:{
+          _id: user._id,
+          type: user.type,
+          name: user.name
+        },
+        address:{
+          street: shippingAddress.street,
+          city: shippingAddress.city,
+          province: shippingAddress.province,
+          country: shippingAddress.country,
+          postalCode: shippingAddress.postalCode,
+          apartment: shippingAddress.apartment
+        }
+      })
+    } 
+    else {
+      res.status(400)
+      throw new Error('Invalid user data')
+    }
+  })
 
 // @desc    Reset Password
 // @route   POST /api/account/reset-password
@@ -241,5 +274,4 @@ module.exports = {
   forgotPassword,
   resetPassword,
   updateAccount,
-  authPassword,
 }

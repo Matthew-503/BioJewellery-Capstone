@@ -16,13 +16,14 @@ import './Account.css';
 
 const Account = () => {
     const dispatch = useDispatch()
-    const { user, isError, message} = useSelector((state) => state.auth)
+    const { user } = useSelector((state) => state.auth)
     const [newPassword, setNewPassword] = useState("");
     
-    {/* const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState({
         email: user.email,
         password: user.password,
-        user: user.user,
+        address: user.address,
+
     }); 
 
     const handleInputChange =(e) => {
@@ -30,11 +31,11 @@ const Account = () => {
             userData,
             [e.target.name]: e.target.value,
         })  
-    } */}
+    }
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateAccount(user.user.email));
+        dispatch(updateAccount(userData));
     }
 
     const handlePasswordChange = (e) => {
@@ -52,18 +53,13 @@ const Account = () => {
             useNavigate('/home')
         } */}
 
-
-        if(isError) {
-            console.log(message)
-        }
-
         return () => {
             dispatch(reset())
         }
         
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
-    }, [useNavigate, selectedCategory, isError, message]);
+    }, [useNavigate, selectedCategory ]);
 
     return (
         <div>
@@ -96,7 +92,6 @@ const Account = () => {
                                         type="text"
                                         name="cpassword"
                                         placeholder="Enter Password"
-                                        onChange={handlePasswordChange}
                                     />
                                 </div>
 
@@ -118,8 +113,6 @@ const Account = () => {
                                     Personal Information
                                 </h1>
 
-
-                                
                                 {/* <h3>First Name</h3>
                                 <br />
                                 <div className='account__input-long'>
@@ -140,7 +133,7 @@ const Account = () => {
                                         id="lastname"
                                         placeholder="Enter Last Name"
                                     />
-                            </div> */}   
+                            </div>   
 
                                 <h3>Email</h3>
                                 <br />
@@ -151,7 +144,7 @@ const Account = () => {
                                         id="email"
                                         
                                     />
-                                </div>
+                                </div> */}
 
                                 <h3>Phone Number</h3>
                                 <br />

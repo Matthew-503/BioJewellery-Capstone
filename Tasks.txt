@@ -50,3 +50,17 @@ Resources to refer:
 *Net Ninja
 *CodingTheSmartWay
 *Traversy Media
+
+
+
+---Update Account
+Refer the ADDEDITProduct branch for proucts api update
+
+-Get the form inputs and pass it as formData
+-append the user email from auth.user.email
+-make a put request to backend with the formData
+-in the backend api, retrieve the account object based on email
+-update necessary fields of account object
+-retrieve the user object from the id in account object's user field, and have to update that user object fields, save it in DB
+-While saving password. refer to register account and create a hash token and save it
+-Retrieve the address id of that user object's address field, update address and save it in DB,
