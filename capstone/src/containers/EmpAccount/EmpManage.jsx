@@ -92,18 +92,24 @@ import AddIcon from '@mui/icons-material/Add';
 import './EmpManage.css';
 import EmpSidebar from "./EmpSidebar";
 
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts, reset } from '../../features/productFeatures/productSlice';
 
 const EmpManage = (props) => {
-
+    const dispatch = useDispatch();
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
+    const { products, isError, message } = useSelector((state) => state.products)
 
+    
     useEffect(() => {
-        // setVideos(null);
+        if (isError) {
+            console.log(message);
+        }
 
-        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-            .then((data) => setVideos(data.items))
-    }, [selectedCategory]);
+        dispatch(getProducts())
+
+    }, [isError, message, dispatch])
 
     const { checked, onChange } = props;
 
@@ -122,22 +128,29 @@ const EmpManage = (props) => {
                             Manange Products
                         </h1>
 
-                        
-                        <button className='emp__manage-add'>
                         <Link to="/addproduct">
-                            <AddIcon className='emp__manage-icon '/>
+                            <button className='emp__manage-add'>
+
+                                <AddIcon className='emp__manage-icon ' />
+
+                            </button>
                         </Link>
-                        </button>
-                        
-                        
+
 
                         {/* <div className='emp__manage-search'>
                             <input className='navbar-input-search' type='text' placeholder='Search BioJewellery Products' />
                         </div> */}
 
-                        <div className='emp__manage-product'>
-                            <EmpProductItem />
-                        </div>
+                        {products.length > 0 ? (
+                           
+                            <div className="emp__manage-product">
+                                {products.map((product) => (<EmpProductItem
+                                    key={product._id}
+                                    product={product}
+                                />))}
+                            </div>
+                        ) : (<h3>You have not set any products</h3>)}
+
                     </div>
                 </Box>
             </Stack>

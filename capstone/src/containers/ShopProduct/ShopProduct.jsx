@@ -38,7 +38,6 @@ const ShopProduct = () => {
 
         dispatch(getProducts())
 
-        console.log("Products: " + products);
     }, [isError, message, dispatch])
 
     return (
@@ -50,7 +49,7 @@ const ShopProduct = () => {
                             {products.map((product) => (<ProductItems
                                 key={product._id}
                                 product={product}
-                                imgUrl={images.cerrado}
+                                imgUrl={product.imageUrl}
                             />))}
                         </div>
                     ) : (<h3>You have not set any products</h3>)}

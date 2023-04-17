@@ -131,7 +131,7 @@
 //     }
 // }
 import React, { Component } from 'react';
-
+import { Link } from "react-router-dom";
 import EmployeeMenu from '../../components/EmployeeMenu/EmployeeMenu';
 import Uploader from '../../components/Uploader/Uploader';
 import { useEffect, useState } from "react";
@@ -146,20 +146,21 @@ import AddIcon from '@mui/icons-material/Add';
 import { Switch } from 'antd';
 import './EmpProductItem.css';
 
-const EmpProductItem = () => {
+const EmpProductItem = ({ product }) => {
 
-    const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(true);
 
     const toggler = () => {
         toggle ? setToggle(false) : setToggle(true);
     }
 
-    const [isDisabled, setIsDisabled] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const handleToggle = () => {
         setIsDisabled((prevIsDisabled) => !prevIsDisabled);
     };
 
+    console.log(product)
     return (
         <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
             <div className='emp__product-item-img'>
@@ -187,27 +188,28 @@ const EmpProductItem = () => {
                     </h1>
                 </div>
 
-                <div className='emp__product-item-description'>
-                    <h1>
-                        Golden Leaf Necklace
-                    </h1>
+                <form action="">
+                    <div className='emp__product-item-description'>
+                        <h1>
+                            {product.name}
+                        </h1>
 
-                    <h1>
-                        $ 299.99
-                    </h1>
+                        <h1>
+                            ${product.price}
+                        </h1>
 
-                    <h1>
-                        A nice looking golden leaf shaped necklace
-                    </h1>
+                        <h1>
+                            {product.description}
+                        </h1>
 
-                    <h1>
-                        200
-                    </h1>
+                        <h1>
+                            {product.quantity}
+                        </h1>
 
-                    <div className='emp__product-item-action'>
-                        <div className='emp__product-item-toggle'>
-                            <Switch onClick={handleToggle} />
-                            {/* {toggle ?
+                        <div className='emp__product-item-action'>
+                            <div className='emp__product-item-toggle'>
+                                <Switch onClick={handleToggle} />
+                                {/* {toggle ?
                                 <span>
                                     true
                                 </span>
@@ -216,16 +218,19 @@ const EmpProductItem = () => {
                                     false
                                 </span>} */}
 
-                            {/* {isDisabled ? "Disable" : "Enable" } */}
+                                {/* {isDisabled ? "Disable" : "Enable" } */}
 
-                            <button className='emp__product-item-button'>
-                                Edit
-                            </button>
+                                <Link to={ "/editproduct/" + product.name}>
+                                    <button className='emp__product-item-button'>
+                                        Edit
+                                    </button>
+                                </Link>
+                            </div>
+
+
                         </div>
-
-
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     )

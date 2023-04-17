@@ -30,7 +30,7 @@ function CheckoutSummary() {
     try {
 
       //a fetch request to backend
-      const response = await fetch("http://localhost:8001/checkout", {
+      const response = await fetch("http://localhost:8001/checkout/", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

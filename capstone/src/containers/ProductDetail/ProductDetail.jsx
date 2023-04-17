@@ -55,7 +55,7 @@ const ProductDetail = () => {
 
                 <img
                     className="detail__product-image"
-                    src={productImage}
+                    src={selectedProduct.imageUrl}
                     alt="product image"
                 />
 

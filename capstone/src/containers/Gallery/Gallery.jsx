@@ -18,7 +18,7 @@ import React from 'react';
 import { BsInstagram, BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
-
+import { Link } from 'react-router-dom'; 
 import './Gallery.css';
 
 const galleryImages = [images.gallery01, images.gallery02, images.gallery03, images.gallery04];
@@ -49,9 +49,11 @@ const Gallery = () => {
                     Numbers don't lie, check out our most popular from our collection
                 </p>
                 
+                <Link to="/categories">
                 <button type="button" className="app__button" style={{ marginTop: '2rem' }}>
                     View More
                 </button>
+                </Link>
             </div>
 
 

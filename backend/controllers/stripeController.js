@@ -16,7 +16,6 @@ const checkout = asyncHandler(async (req, res) => {
     try{
     const items = req.body.cartItems;
     const email = req.body.userEmail;
-
     //data formatting for stripe
     let lineItems = [];
 
@@ -52,7 +51,7 @@ const checkout = asyncHandler(async (req, res) => {
         customer_email: email,
         automatic_tax: {enabled: true}
     });
- 
+
     //sending response to front end
     res.send(JSON.stringify({
         url: session.url
@@ -66,10 +65,9 @@ const checkout = asyncHandler(async (req, res) => {
     
 })
 
-// @desc    add the product in Stripe
-// @route   POST /checkout/product
+// @desc    add the product in Stripe before adding it in DB
 // @access  Private
-const createProductInStripe = asyncHandler(async (req, res) => {
+const createProductInStripe = asyncHandler(async (req, res, next) => {
     try {
         const name = req.body.name;
         const description = req.body.description;
@@ -92,10 +90,7 @@ const createProductInStripe = asyncHandler(async (req, res) => {
         
         req.stripeProductId = product.id;
         req.priceApiId = price.id;
-        // next();
-        res.status(200).json('product added in Stripe');
-        //TODO: We have to save the product id created for product at stripe end as well
-        // res.json({ priceId: price.id, stripeProductId: product.id});
+        next();
 
     } catch (error) {
         console.error(error);
@@ -104,22 +99,23 @@ const createProductInStripe = asyncHandler(async (req, res) => {
 
 })
 
-// @desc    add the product in Stripe
-// @route   PUT /checkout/product
+// @desc    Edit the product price in Stripe and also update it in DB
 // @access  Private
-const updateProductPriceInStripe = asyncHandler(async (req, res) => {
+const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
     try {
+    const {name, description, price } = req.body
 
-        const productName = req.body.name;
-        const  amount  = req.body.price;
+    //finding the product that needs to be updated
+    const productObj = await Product.findOne({'_id': req.body.id});
+    //Retrieve the current active price object for the product from Stripe
+    const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
 
-        const productObj = await Product.findOne({'name': productName});
+    // Convert price from dollars to cents
+    const priceInCents = price * 100;
 
-        //Retrieve the current active price object for the product from Stripe
-        const currentPriceObj = await stripe.prices.retrieve(productObj.priceApiId);
-
-        // Convert price from dollars to cents
-        const priceInCents = amount * 100;
+    //compare new and old price update only if different
+    if(priceInCents !== currentPriceObj.unit_amount)
+    {
 
         //creating a new price obj for the updated price
         const newPriceObj = await stripe.prices.create({
@@ -128,11 +124,15 @@ const updateProductPriceInStripe = asyncHandler(async (req, res) => {
             currency: 'cad'
         });
 
-        //change product's price key to new one
-        // productObj.priceApiId = newPriceObj.id;
-
-        //save in DB
-        // await productObj.save();
+        //setting new price as default
+        await stripe.products.update(
+            productObj.stripeProductId,
+            {
+                name: name,
+                description: description,
+                default_price: newPriceObj.id
+            }
+        );
 
         //changing the status of old price obj to inactive, since we cannot delete price in Stripe
         await stripe.prices.update(currentPriceObj.id, {
@@ -141,9 +141,25 @@ const updateProductPriceInStripe = asyncHandler(async (req, res) => {
 
         req.priceApiId = newPriceObj.id;
         next();
-        // res.json({newPriceObj});
+    }
+    else{
+        
+        //updating product info other than price
+        await stripe.products.update(
+            productObj.stripeProductId,
+            {
+                name: name,
+                description: description
+            }
+        );
 
-    } catch (error) {
+        next();
+    }
+    
+    // res.send(newPriceObj.id);
+
+    } 
+    catch (error) {
         console.error(error);
         res.status(500).json({ error });
     }
