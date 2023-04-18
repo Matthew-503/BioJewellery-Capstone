@@ -218,21 +218,9 @@ const getAccount = asyncHandler(async (req, res) => {
 
 const updateAccount = asyncHandler(async (req, res) => {
 
+  const { password, name, street, city, province, country, postalCode, email } = req.body
 
-  if (!req.body.password || !req.body.name || !req.body.street || !req.body.city
-
-    || !req.body.province || !req.body.country || !req.body.postalCode) {
-
-    res.status(400)
-
-    throw new Error('Error, fields missing')
-
-  }
-
-
-
-
-  const account = await Account.findOne({ 'email': req.body.email });
+  const account = await Account.findOne({ 'email': email });
 
 
 
@@ -243,57 +231,62 @@ const updateAccount = asyncHandler(async (req, res) => {
   }
 
 
-
-
-  //Hasing password
-  const salt = await bcrypt.genSalt(10)
-
-  const hashedPassword = await bcrypt.hash(req.body.password, salt)
-
-
-
-
   //Save password
+  if (password) {
+    //Hasing password
+    const salt = await bcrypt.genSalt(10)
 
-  account.password = hashedPassword || account.password
+    const hashedPassword = await bcrypt.hash(password, salt)
+    account.password = hashedPassword ?? account.password
+  }
+
 
 
 
 
   //save name
+  if (name) {
 
-  account.user.name = req.body.name || account.user.name
-  //save phone number
-  account.user.phoneNumber = req.body.phoneNumber || account.user.phoneNumber
-
-
-  //save address
-  account.user.address = account.user.address || {}
+    account.user.name = req.body.name ?? account.user.name
+  }
 
 
+
+  // //save address
+  // account.user.address = account.user.address || {}
+
+
+if(street){
 
   //save street
-  account.user.address.street = req.body.street || account.user.address.street
+  account.user.address.street = street ?? account.user.address.street
 
-  //save city
-  account.user.address.city = req.body.city || account.user.address.city
+}
+  if(city){
+    //save city
+  account.user.address.city = city ?? account.user.address.city
 
-  //save province
-  account.user.address.province = req.body.province || account.user.address.province
+  }
+ if(province){
+   //save province
+   account.user.address.province = province ?? account.user.address.province
 
+ }
 
-  //save country
-  account.user.address.country = req.body.country || account.user.address.country
-
-
-  //save postalcode
-  account.user.address.postalCode = req.body.postalCode || account.user.address.postalCode
-
-
-  //save apartment
-  account.user.address.apartment = req.body.apartment || account.user.address.apartment
-  await account.save()
+ if(country){
   
+  //save country
+  account.user.address.country = country ?? account.user.address.country
+
+ }
+
+ if(postalCode){
+   //save postalcode
+   account.user.address.postalCode = postalCode ?? account.user.address.postalCode
+
+ }
+  await account.save()
+
   res.status(200).json({ message: 'Account Updated' });
 
 })

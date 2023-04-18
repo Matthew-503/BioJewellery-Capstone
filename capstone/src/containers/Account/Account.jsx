@@ -44,8 +44,7 @@ const Account = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
-        // dispatch(updateAccount(formData));
+        dispatch(updateAccount(formData));
 
     }
 
@@ -69,10 +68,7 @@ const Account = () => {
             console.log(message)
         }
 
-        return () => {
-            dispatch(reset())
-        }
-
+        
 
     }, [useNavigate, selectedCategory, isError, message]);
 
@@ -88,7 +84,8 @@ const Account = () => {
 
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
                     <div className="account">
-                        <form action={handleSubmit} method="GET">
+                        <form onSubmit={handleSubmit}>
+
                             <div className="account__table">
                                 <div className="account__table-column1">
 
