@@ -4,20 +4,20 @@ const {
   registerAccount,
   loginAccount,
   getAccount,
+  updateAccount,
+  suspendAccount,
+  appealAccount,
   forgotPassword,
   resetPassword
 } = require('../controllers/accountController')
 const { protect } = require('../middleware/authMiddleware')
 const authPassword = require('../middleware/passwordMiddleware')
 
-
-router.post('/', registerAccount)
-router.post('/login', loginAccount)
-router.get('/me', protect, getAccount)
+router.route('/').post(registerAccount).get(getAccount);
 router.post('/forgot-password', forgotPassword)
 router.post('/reset-password', authPassword, resetPassword)
-
-//10:32 https://www.youtube.com/watch?v=AClnCg_WCJk
-//router.get('/reset-password/:id/:token', resetPassword)
+router.post('/login', loginAccount)
+router.get('/me', protect)
+router.put('/:email', updateAccount, appealAccount, suspendAccount)
 
 module.exports = router

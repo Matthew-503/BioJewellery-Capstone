@@ -26,37 +26,37 @@ const login = async (userData) => {
   return response.data
 }
 
-// Forget Password
-const forgetPassword = async (userData) => {
-  const response = await axios.post(API_URL + 'forgot-password', userData)
-
-  return response.data
-}
-
-// Reset Password
-const resetPassword = async (userData) => {
-
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //   },
-  // }
-  const response = await axios.post(API_URL + 'reset-password', userData)
-
-  return response.data
-}
-
 // Logout user
 const logout = () => {
   localStorage.removeItem('user')
+}
+
+// Get user accounts
+const getAccounts = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.get(API_URL, config)
+
+  return response.data
+}
+
+//Update User
+const updateAccount = async (email) => {
+  const response = await axios.post(API_URL + 'update', email)
+
+  return response.data
 }
 
 const authService = {
   register,
   logout,
   login,
-  forgetPassword,
-  resetPassword
+  getAccounts,
+  updateAccount,
 }
 
 export default authService

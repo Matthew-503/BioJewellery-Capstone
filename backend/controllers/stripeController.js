@@ -51,7 +51,7 @@ const checkout = asyncHandler(async (req, res) => {
 
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
-        let product = await Product.findOne({ 'name': item.name });
+        let product = await Product.findOne({ 'name': item.productName });
         if (product) {
 
           // Convert price from dollars to cents
