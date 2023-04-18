@@ -47,16 +47,11 @@ const resetPassword = async (userData) => {
 }
 
 //Update User
-const updateAccount = async (userData, token) => {
-  const config = {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
-  }
+const updateAccount = async (userData) => {
 
-  const response = await axios.put(API_URL + 'update', userData, config)
+  const response = await axios.put(API_URL + 'update', userData)
 
-  return response.data
+  return JSON.stringify(response.data)
 }
 
 // Logout user

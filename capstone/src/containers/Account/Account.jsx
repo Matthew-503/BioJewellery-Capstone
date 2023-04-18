@@ -16,37 +16,53 @@ import './Account.css';
 
 const Account = () => {
     const dispatch = useDispatch()
-    const { user } = useSelector((state) => state.auth)
+    const { user, isError, message } = useSelector((state) => state.auth)
     const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState('');
     
     const [userData, setUserData] = useState({
         email: user.email,
         password: user.password,
-        address: user.address,
-
+        name: user.user.name,
+        phoneNumber: user.user.phoneNumber,
+        street: user.user.address.street,
+        city: user.user.address.city,
+        province: user.user.address.province,
+        postalCode: user.user.address.postalCode,
+        country: user.user.address.country
     }); 
 
-    const handleInputChange =(e) => {
+    const handleInputChange = (e) => {
         setUserData({
-            userData,
+            ...userData,
             [e.target.name]: e.target.value,
         })  
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (newPassword == confirmPassword) {
+            setUserData({password: confirmPassword})
+        }
         dispatch(updateAccount(userData));
     }
 
     const handlePasswordChange = (e) => {
-        setNewPassword(e.target.value); 
-    }
-
+        if(e.target.value != user.user.password) {
+            setNewPassword(e.target.value); 
+        } else {
+            setNewPassword(user.user.password)
+        }
+    }    
     
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
+        if(isError) {
+            console.log(message)
+        }
 
         {/*
         if (!user) {
@@ -59,7 +75,7 @@ const Account = () => {
         
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
-    }, [useNavigate, selectedCategory ]);
+    }, [useNavigate, selectedCategory, isError, message]);
 
     return (
         <div>
@@ -84,7 +100,7 @@ const Account = () => {
                                     Account
                                 </h1>
 
-                                <h3>Current Password</h3>
+                                <h3>New Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
@@ -92,6 +108,7 @@ const Account = () => {
                                         type="text"
                                         name="cpassword"
                                         placeholder="Enter Password"
+                                        onChange={handlePasswordChange} 
                                     />
                                 </div>
 
@@ -102,8 +119,8 @@ const Account = () => {
                                         className='account__input'
                                         type="password"
                                         name="npassword"
-                                        placeholder="Enter Password"
-                                        onChange={handlePasswordChange}    
+                                        placeholder="Re-enter password"
+                                        onChange={(e) => setConfirmPassword(e.target.value)}    
                                     />
                                 </div>
                             </div>
@@ -133,26 +150,29 @@ const Account = () => {
                                         id="lastname"
                                         placeholder="Enter Last Name"
                                     />
-                            </div>   
+                            </div> */}
 
-                                <h3>Email</h3>
+                                <h3>Name</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="email"
-                                        
+                                        name="name"
+                                        value={userData.name}
+                                        onChange={handleInputChange}                                       
                                     />
-                                </div> */}
+                                </div> 
 
                                 <h3>Phone Number</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
                                         className='account__input'
-                                        type="text"
-                                        id="phone" 
+                                        type="text"                                     
+                                        name="phone"
+                                        value={userData.phoneNumber}
+                                        onChange={handleInputChange} 
                                     />
                                 </div>
 
@@ -162,7 +182,9 @@ const Account = () => {
                                     <input
                                         className='account__input'
                                         type="text"
-                                        id="address"
+                                        name="street"
+                                        value={userData.street}
+                                        onChange={handleInputChange}
                                         
                                     />
                                 </div>
@@ -175,8 +197,9 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="city"
-                                             
+                                                name="city"
+                                                value={user.city}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
 
@@ -186,8 +209,9 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="province"
-                                               
+                                                name="province"
+                                                value={userData.province}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -199,8 +223,9 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="postalCode"
-                                           
+                                                name="postalCode"
+                                                value={userData.postalCode}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
 
@@ -210,8 +235,9 @@ const Account = () => {
                                             <input
                                                 className='account__input'
                                                 type="text"
-                                                id="country"
-                                              
+                                                name="country"
+                                                value={userData.country}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>

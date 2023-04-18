@@ -174,8 +174,8 @@ const forgotPassword = asyncHandler(async (req, res) => {
 // @access  Public
 const updateAccount = asyncHandler(async (req, res) => {
 
-  if(!req.body.password || !req.body.street || !req.body.city 
-    || !req.body.province || !req.body.country || !eq.body.postalCode) {
+  if(!req.body.password || !req.body.name || !req.body.phoneNumber || !req.body.street || !req.body.city 
+    || !req.body.province || !req.body.country || !req.body.postalCode) {
       res.status(400)
       throw new Error('Error, fields missing')
     }
@@ -195,8 +195,14 @@ const updateAccount = asyncHandler(async (req, res) => {
     //Save password
     account.password = hashedPassword || account.password
 
+    //save name
+    account.user.name = req.body.name || account.user.name
+
     //save phone number
     account.user.phoneNumber = req.body.phoneNumber || account.user.phoneNumber
+
+    //save address
+    account.user.address = account.user.address || {}
 
     //save street
     account.user.address.street = req.body.street || account.user.address.street
@@ -206,6 +212,9 @@ const updateAccount = asyncHandler(async (req, res) => {
 
     //save province
     account.user.address.province = req.body.province || account.user.address.province
+
+    //save country
+    account.user.address.country = req.body.country || account.user.address.country
 
     //save postalcode
     account.user.address.postalCode = req.body.postalCode || account.user.address.postalCode
