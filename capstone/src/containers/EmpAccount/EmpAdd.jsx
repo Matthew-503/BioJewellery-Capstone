@@ -292,7 +292,9 @@ const EmpAdd = (props) => {
                                 </button>
                             </div>
 
-
+                            <div className="message">
+                                <div className="content">{message}</div>
+                            </div>
 
                         </div>
                     </form>

@@ -39,7 +39,7 @@ const Benefits = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    We offer multiple payment methods including crypto currency
+                    We offer multiple payment methods including visa, credit and debit
                 </p>
             </div>
 
