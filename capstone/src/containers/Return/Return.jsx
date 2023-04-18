@@ -20,12 +20,16 @@ import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDeta
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { getProductByName, reset } from '../../features/productFeatures/productSlice';
+import { getProductByName } from '../../features/productFeatures/productSlice';
 import './Return.css';
 import { Footer } from '../../containers';
 import { Navbar, SideBarAccount } from '../../components';
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import { returnRequest, reset } from '../../features/returnFeatures/returnSlice';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Return = () => {
@@ -46,6 +50,72 @@ const Return = () => {
         setSelectedOption(e.target.value);
     }
 
+      const [invoice, setInvoice] = useState('');
+      const [content, setContent] = useState('');
+      
+      const dispatch = useDispatch()
+    
+      const { isError, isSuccess, message } = useSelector(
+        (state) => state.return
+      )
+      const { user } = useSelector(
+        (state) => state.auth
+      )
+
+      const email  = user.email
+    
+    
+      useEffect(() => {
+        if (isError) {
+            toast.error(message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            
+        }
+    
+        if (isSuccess) {
+            toast.success('Email was successfully sent. We will get back to you soon!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+            setInvoice("");
+            setContent("");
+            
+        }
+
+        dispatch(reset())
+    
+    
+      }, [ isError, isSuccess, message])
+    
+    
+      const onSubmit = (e) => {
+        e.preventDefault()
+    
+        const userData = {
+          email,
+          content,
+          invoice,
+          
+        }
+    
+        dispatch(returnRequest(userData))
+      }
+
     return (
         <div>
             <Navbar />
@@ -62,7 +132,8 @@ const Return = () => {
                             <SubHeading title='Return Product' />
                         </div>
 
-                        <form>
+                        <form onSubmit={onSubmit}>
+                            <ToastContainer />
 
                             <div className='return__product-text'>
                                 <p>
@@ -75,8 +146,8 @@ const Return = () => {
                                     placeholder='Enter invoice number.'
                                     id="invoice"
                                     name="invoice"
-                                    // value={invoice}
-                                    // onChange={(event) => setInvoice(event.target.value)}
+                                    value={invoice}
+                                    onChange={(event) => setInvoice(event.target.value)}
                                     required
                                 />
 
@@ -84,10 +155,10 @@ const Return = () => {
                                 <textarea 
                                     rows="5" 
                                     placeholder='Could you kindly let us know what was the issues with the product?'
-                                    id="reason"
-                                    name="reason"
-                                    // value={reason}
-                                    // onChange={(event) => setReason(event.target.value)}
+                                    id="content"
+                                    name="content"
+                                    value={content}
+                                    onChange={(event) => setContent(event.target.value)}
                                     required
                                 />
 

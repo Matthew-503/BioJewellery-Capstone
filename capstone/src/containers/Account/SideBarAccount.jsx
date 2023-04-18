@@ -5,9 +5,19 @@ import { accountCategory } from '../../constants';
 import './SideBarAccount.css'
 import { MdAccountCircle } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom"
+import { useSelector } from 'react-redux';
 
-const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
-    <div className="account__sidebar">
+
+
+
+function SideBarAccount({ selectedCategory, setSelectedCategory }) {
+
+    const { user } = useSelector(
+        (state) => state.auth
+    )
+
+    return (
+        <div className="account__sidebar">
         <div class="grid-container">
             <Stack
                 direction="row"
@@ -23,7 +33,7 @@ const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
                     {/* <img src={images.avatar} alt="G_overlay" /> */}
                     <MdAccountCircle className="sidebar-icons" />
                     <h1>
-                        Ya Boi
+                        {user.user.name}
                     </h1>
                 </div>
 
@@ -50,6 +60,9 @@ const SideBarAccount = ({ selectedCategory, setSelectedCategory }) => (
             </Stack>
         </div>
     </div>
-);
+    )
+
+    
+}
 
 export default SideBarAccount;

@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const {
-  returnrequest
+  returnRequest
 } = require('../controllers/returnController')
 
 
-router.post('/', returnrequest)
+router.post('/', returnRequest)
 
 
 module.exports = router
