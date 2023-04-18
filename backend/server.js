@@ -57,7 +57,7 @@ app.use('/api/gst', require('./routes/gstRoutes.js'));
 
 
 //Return Request Form routes
-//app.use('/returnrequest', require('./routes/returnrequest.js'));
+app.use('/api/returnrequest', require('./routes/returnrequest.js'));
 
 app.use(errorHandler);
 
