@@ -36,7 +36,8 @@ const AboutSustain = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    orem ipsum dolor sit ametorem ipsum dolor
+                The natural leaves, twigs and seeds are extracted by leaf collectors who respect the 
+                nature cycle, making the collection in the correct way
                 </p>
             </div>
 
@@ -50,7 +51,7 @@ const AboutSustain = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    orem ipsum dolor sit ametorem ipsum dolor
+                     We are concern about consumer health: we do not use chemicals that are harmful to health.
                 </p>
             </div>
 
@@ -64,7 +65,8 @@ const AboutSustain = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    orem ipsum dolor sit ametorem ipsum dolor
+                    We develop a sustainable management, with orientation to practices that reduce the 
+                    waste of raw material and other products necessary for production
                 </p>
             </div>
         </div>

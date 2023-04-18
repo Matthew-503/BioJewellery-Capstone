@@ -10,7 +10,12 @@ const AboutCompany = () => {
                             About the Company
                         </h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque, tellus a scelerisque rhoncus, massa nulla consequat orci, vitae dapibus elit urna eget lectus. Nam quis neque augue. Fusce semper et neque et volutpat. Nunc  tortor.
+                        Canadian company whose mission is to transform nature into 
+                        jewelry. Is in the diversity of the Brazilian flora where we find inspiration and raw material to 
+                        create the pieces. 
+                        Our earrings, pendants, rings, bracelets and necklaces are handmade using natural 
+                        leaves and seeds, which, after being prepared with special technique, are plated in 18k gold, 
+                        transforming into beautiful biojewels. 
                         </p>
                     </td>
                 </tr>

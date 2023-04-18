@@ -9,7 +9,10 @@ const AboutHeader = () => {
                         About Us
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque, tellus a scelerisque rhoncus, massa nulla consequat orci, vitae dapibus elit urna eget lectus. Nam quis neque augue. Fusce semper et neque et volutpat. Nunc  tortor.
+                        For Biojewelery, beauty and nature go together and is supported by two 
+                        fundamental concepts: health and sustainability. We believe that we are all responsible for the 
+                        preserving the environment. Therefore, we adopt attitudes that contribute to a good quality of 
+                        life today and for future generations.
                     </p>
                 </div>
             </div>
