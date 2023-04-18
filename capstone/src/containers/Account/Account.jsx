@@ -17,19 +17,42 @@ import './Account.css';
 const Account = () => {
     const dispatch = useDispatch()
     const { user, isError, message } = useSelector((state) => state.auth)
-    const [confirmPassword, setConfirmPassword] = useState('');
-    
-    const [userData, setUserData] = useState({
+
+
+    const [formData, setFormData] = useState({
         email: user.email,
         password: user.password,
-    }); 
+        name: user.user.name,
+        street: user.address.street,
+        city: user.address.city,
+        postalCode: user.address.postalCode,
+        province: user.address.province,
+        country: user.address.country
+    })
 
-    const handleInputChange = (e) => {
-        setUserData({
-            ...userData,
+    const {name, street, city, postalCode, province, country} = formData
+
+    const changeHandler = (e) => {
+
+        setFormData((prevState) => ({
+
+            ...prevState,
             [e.target.name]: e.target.value,
-        })  
+        }))
     }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData)
+        // dispatch(updateAccount(formData));
+
+    }
+
+    const handlePasswordChange = (e) => {
+
+    }
+
     
     const handleSubmit = (e) => {
         e.preventDefault();
