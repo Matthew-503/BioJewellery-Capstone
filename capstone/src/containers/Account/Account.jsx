@@ -251,7 +251,8 @@ const Account = () => {
                                                     id="country"
                                                     name="country"
                                                     placeholder="Country"
-                                                    value={user.address.country}
+                                                    value={country}
+                                                    onChange={changeHandler}
                                                 />
                                             </div>
                                         </div>
