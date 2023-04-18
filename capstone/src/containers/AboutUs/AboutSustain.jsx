@@ -36,8 +36,8 @@ const AboutSustain = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                The natural leaves, twigs and seeds are extracted by leaf collectors who respect the 
-                nature cycle, making the collection in the correct way
+                    The natural leaves, twigs and seeds are extracted by leaf collectors who respect the 
+                    nature cycle, making the collection in the correct way
                 </p>
             </div>
 

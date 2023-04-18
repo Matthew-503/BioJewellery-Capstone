@@ -11,17 +11,17 @@ import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
 import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
+import { ToastContainer, toast } from 'react-toastify';
 
 import './Account.css';
 
 const Account = () => {
     const dispatch = useDispatch()
-    const { user, isError, message } = useSelector((state) => state.auth)
+    const { user, isSuccess, isError, message } = useSelector((state) => state.auth)
 
 
     const [formData, setFormData] = useState({
         email: user.email,
-        password: user.password,
         name: user.user.name,
         street: user.address.street,
         city: user.address.city,
@@ -45,6 +45,7 @@ const Account = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateAccount(formData));
+        //window.location.reload();
 
     }
 
@@ -58,19 +59,40 @@ const Account = () => {
 
     useEffect(() => {
 
-        {/*
-        if (!user) {
-            useNavigate('/home')
-        } */}
-
-
         if (isError) {
-            console.log(message)
+            toast.error(message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            
         }
+    
+        if (isSuccess) {
+            toast.success('Updated Successfully!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            
+        }
+
+        dispatch(reset())
+    
 
         
 
-    }, [useNavigate, selectedCategory, isError, message]);
+    }, [isSuccess, isError, message]);
 
 
 
@@ -85,9 +107,10 @@ const Account = () => {
                 <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
                     <div className="account">
                         <form onSubmit={handleSubmit}>
+                            <ToastContainer />
 
                             <div className="account__table">
-                                <div className="account__table-column1">
+                                {/* <div className="account__table-column1">
 
                                     <h1 className='account__header'>
                                         Account
@@ -116,7 +139,7 @@ const Account = () => {
                                             onChange={handlePasswordChange}
                                         />
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="account__table-column1">
                                     <h1 className='account__header'>
@@ -226,6 +249,7 @@ const Account = () => {
                                                     className='account__input'
                                                     type="text"
                                                     id="country"
+                                                    name="country"
                                                     placeholder="Country"
                                                     value={user.address.country}
                                                 />

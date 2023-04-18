@@ -17,6 +17,6 @@ router.route('/').post(registerAccount).get(getAccount);
 router.post('/forgot-password', forgotPassword)
 router.post('/reset-password', authPassword, resetPassword)
 router.post('/login', loginAccount)
-router.get('/me', protect)
+//router.get('/me', protect)
 router.put('/update', updateAccount)
 module.exports = router
