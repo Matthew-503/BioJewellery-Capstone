@@ -37,6 +37,23 @@ function CheckoutSummary() {
           window.location.assign(response.url);
         }
       })
+<<<<<<< Updated upstream
+=======
+     
+      if(!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      //converts response to JSON format and returns
+      const data = await response.json();
+      if (data.url) {
+        window.location.assign(data.url);
+      }
+                
+    } catch (error) {
+      console.error('Error:', error);
+    }
+>>>>>>> Stashed changes
     }
 
     return (

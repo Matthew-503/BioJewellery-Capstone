@@ -15,17 +15,29 @@ export const createAddress = createAsyncThunk('addresses/create', async (address
         const token = thunkAPI.getState().auth.user.token
         return await addressService.createAddress(addressData, token)
     } catch (error) {
+        
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
     }
 })
 
+<<<<<<< Updated upstream
 //Get address
 export const getAddress = createAsyncThunk('addresses/get', async (id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
         return await addressService.getAddress(id,token)
+=======
+//Update address
+export const updateAddress = createAsyncThunk('addresses/put', async (AddressInfo, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+   
+        return await addressService.updateAddress(AddressInfo, token)
+>>>>>>> Stashed changes
     } catch (error) {
+     
+        console.log(error)
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
     }
@@ -99,6 +111,7 @@ export const addressSlice = createSlice({
         .addCase(getAddresses.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
+<<<<<<< Updated upstream
             state.addresses = action.payload.addresses
             state.shippingAddress = action.payload.shippingAddress
         })
@@ -118,6 +131,12 @@ export const addressSlice = createSlice({
             state.addresses = state.addresses.filter((address) => address._id !== action.payload.id)
         })
         .addCase(deleteAddress.rejected, (state, action) => {
+=======
+            
+            state.shippingAddress = action.payload
+        })
+        .addCase(updateAddress.rejected, (state, action) => {          
+>>>>>>> Stashed changes
             state.isLoading = false
             state.isError = true
             state.message = action.payload 

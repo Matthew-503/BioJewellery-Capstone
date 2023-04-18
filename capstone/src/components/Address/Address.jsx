@@ -47,10 +47,27 @@ const Address = () => {
         return <Spinner />
     }
 
+<<<<<<< Updated upstream
     //the selected addressId will be passed to get address obj and saved in shippingAddress state
     function onAddressSelect(event, addressId){
         event.preventDefault();
         dispatch(getAddress({addressId}))
+=======
+    const updateAddressHandler = (e) => {
+        e.preventDefault();
+        
+        formData.street = (formData.street === undefined) ? shippingAddress.street : formData.street
+        formData.city = (formData.city === undefined) ? shippingAddress.city : formData.city
+        formData.postalCode = (formData.postalCode === undefined) ? shippingAddress.postalCode : formData.postalCode
+        formData.province = (formData.province === undefined) ? shippingAddress.province : formData.province
+        formData.country = (formData.country === undefined) ? shippingAddress.country : formData.country
+        formData.userId = user.user._id
+        
+        setIsUpdating(true);
+        dispatch(updateAddress(formData))
+        setIsUpdating(false);
+        setIsDisabled(true);
+>>>>>>> Stashed changes
     }
     
     const handleCloseModal = () => setShowModal(false);

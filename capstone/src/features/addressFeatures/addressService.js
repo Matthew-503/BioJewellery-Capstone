@@ -14,15 +14,25 @@ const createAddress = async (addressData, token) => {
     return response.data
 }
 
+<<<<<<< Updated upstream
 //Get address object based on ID
 const getAddress = async (addressId, token) => {
+=======
+//Update address 
+const updateAddress = async (AddressInfo, token) => {
+>>>>>>> Stashed changes
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
+<<<<<<< Updated upstream
 
     const response = await axios.get(API_URL+ addressId, config)
+=======
+    const response = await axios.put(API_URL, AddressInfo, config)
+    
+>>>>>>> Stashed changes
     return response.data
 }
 
