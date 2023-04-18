@@ -10,12 +10,14 @@ import { useNavigate } from "react-router-dom";
 
 const ReviewBlock = ({ review }) => {
     const { user } = useSelector((state) => state.auth);
+    console.log(user.user.type)
     const userType ={
-        user: {
+        
             
             type: (user !== null || user !== undefined) ? user.user.type : "guest"
-          }
+          
     } 
+    console.log(userType)
     const [showForm, setShowForm] = useState(false);
     const [replyText, setReplyText] = useState("");
     const { selectedProduct } = useSelector((state) => state.products);
@@ -68,7 +70,7 @@ const ReviewBlock = ({ review }) => {
             <p className='review__name'>
                 {review.name}
             </p>
-            {userType === "Admin" && review.reply === "false" &&
+            {userType.type === "Admin" && review.reply === "false" &&
                 <div>
                     <button onClick={() => setShowForm(!showForm)} className="review__button">
                         {showForm ? "Hide Reply Form" : "Reply"}
@@ -99,7 +101,7 @@ const ReviewBlock = ({ review }) => {
                 </div>
             }
 
-            {userType === "Admin" &&
+            {userType.type === "Admin" &&
                 <div >
                     <button onClick={handleClick} className="review__button">
                         Remove
