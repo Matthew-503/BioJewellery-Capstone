@@ -2,13 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import addressService from './addressService'
 
 const initialState = {
-    shippingAddress:{
-        street: '',
-        city: '',
-        province: '',
-        country: '',
-        postalCode: ''
-    },
+    shippingAddress:{},
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -16,10 +10,11 @@ const initialState = {
 }
 
 //Get address
-export const getAddress = createAsyncThunk('address/get', async (thunkAPI) => {
+export const getAddress = createAsyncThunk('address/get', async (id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await addressService.getAddress(token)
+       
+        return await addressService.getAddress(id, token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -27,10 +22,12 @@ export const getAddress = createAsyncThunk('address/get', async (thunkAPI) => {
 })
 
 //Update address
-export const updateAddress = createAsyncThunk('addresses/put', async (thunkAPI) => {
+export const updateAddress = createAsyncThunk('addresses/put', async (userId, newAddress, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await addressService.getAddress(token)
+        
+        console.log(newAddress)
+        return await addressService.updateAddress(userId, newAddress, token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message) 
@@ -50,9 +47,10 @@ export const addressSlice = createSlice({
             state.isLoading = true
         })
         .addCase(getAddress.fulfilled, (state, action) => {
+            
             state.isLoading = false
             state.isSuccess = true
-            state.shippingAddress = action.payload
+            state.shippingAddress = action.payload.address
         })
         .addCase(getAddress.rejected, (state, action) => {
             state.isLoading = false
@@ -65,7 +63,7 @@ export const addressSlice = createSlice({
         .addCase(updateAddress.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.shippingAddress = action.payload
+            state.shippingAddress = action.payload.address
         })
         .addCase(updateAddress.rejected, (state, action) => {
             state.isLoading = false

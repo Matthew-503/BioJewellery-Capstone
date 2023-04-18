@@ -10,35 +10,35 @@ import { useSelector } from "react-redux";
 import { FaShoppingCart } from 'react-icons/fa';
 
 function CheckoutSummary() {
+  
+    const {  cartProducts } = useSelector((state) => state.cart);
+    const { user } = useSelector((state) => state.auth);
 
-  const { subTotal } = useSelector((state) => state.cart);
-  const gstPercent = useSelector((state) => state.gst);
+    const cartItems = cartProducts
+    const email = user.email;
+    
+    // console.log({'cartItems': cartItems, 'email': email});
 
-  const cartItems = [
-    { name: "Cerrado Leaf Earring", quantity: 1 }
-  ]
 
-  function calculateTax() {
-    return (subTotal * (gstPercent / 100));
-  }
+    // const cartItems = [
+    //   { name: "Flower stud earring", quantity: 2}
+    // ]
 
-  function calculateTotal() {
-    return (subTotal + (subTotal * (gstPercent / 100)));
-  }
+    // const email = 'blossomshini@gmail.com';
 
-  const checkout = async () => {
+    const checkout = async () => {
     try {
 
       //a fetch request to backend
-      const response = await fetch("http://localhost:8001/checkout/", {
+      const response = await fetch("http://localhost:8001/checkout/",{
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ cartItems })
+        body: JSON.stringify({'cartItems': cartItems, 'email': email})
       })
-
-      if (!response.ok) {
+      
+      if(!response.ok){
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -47,35 +47,23 @@ function CheckoutSummary() {
       if (data.url) {
         window.location.assign(data.url);
       }
-
+                
     } catch (error) {
       console.error('Error:', error);
     }
-  }
+    }
 
-  return (
+    return (
     <div className='checkout__summary'>
-      <div className='checkout__summary-header'>
-        <div>
-          <h3>Subtotal:</h3>
-          <h3>Tax:</h3>
-          <h3>Order Total:</h3>
-        </div>
-
-        <div>
-          <h3>CA${subTotal}</h3>
-          <h3>CA${calculateTax()}</h3>
-          <h3>CA${calculateTotal()}</h3>
-        </div>
-      </div>
-
+      
+      
 
       <div className='order__button'>
         <button
-          className='order__button-submit'
-          onClick={() => { checkout() }}
+            className='order__button-submit'
+            onClick={ () => {checkout()}}
         >
-          Proceed to pay <FaShoppingCart className='order__button-icon' />
+            Proceed to pay <FaShoppingCart className='order__button-icon' />
         </button>
       </div>
 

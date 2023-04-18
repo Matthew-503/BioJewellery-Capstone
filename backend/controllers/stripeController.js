@@ -6,22 +6,52 @@
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 
+const express = require('express');
+const app = express();
+//allows any ip address to access our express server
+var cors = require('cors');
+app.use(cors());
+app.use(express.static('public'));
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
-// @desc    create a checkout session
+//TODO idea: 1] Change to test mode 2]console.log checkout session id and also test by passing it in url
+//next method to create order (or) 3]In the success url page, useEffect -> call the order creation api using url's session id  
+//4]In the api, call to retrieve the details of that checkout session and crerate an order object -> save in DB
+//5] Also return the order obj as response
+//6] show the order object details in front end.
+
+// @desc    create a checkout session for purchase
 // @route   POST /checkout
 // @access  Private
 const checkout = asyncHandler(async (req, res) => {
     try{
+    console.log(req.body);
     const items = req.body.cartItems;
-    const email = req.body.userEmail;
+    const email = req.body.email;
+    
+    const customerList = await stripe.customers.list({ 'email': email });
+    const customer = customerList.data[0];
+
+    let customerId;
+    //If existing customer, retrieve id
+    if (customer) {
+    customerId = customer.id;
+    } 
+    else {
+    //creating a new customer object and then retrieving it's id
+    const newCustomer = await stripe.customers.create({
+        email: email
+    });
+    customerId = newCustomer.id;
+    }
+
     //data formatting for stripe
     let lineItems = [];
 
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
-        let product = await Product.findOne({ name: item.name });
+        let product = await Product.findOne({ 'name': item.name });
         if (product) {
 
           // Convert price from dollars to cents
@@ -45,19 +75,45 @@ const checkout = asyncHandler(async (req, res) => {
         line_items : lineItems,
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: "http://localhost:3000/success",
+        success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
-        customer_email: email,
-        automatic_tax: {enabled: true}
+        customer: customerId
     });
+
+    //sending the invoice email to the customer after successful payment
+    session.metadata = { email: email };
+    session.payment_intent_data = { receipt_email: email };
+
+    // const orderItems = [];
+    // const orderTotal = 0;
+
+    // stripe.checkout.sessions.listLineItems(
+    //     session.id,
+    //     function(err, lineItems) 
+    //     {
+    //       // asynchronously called
+    //       for (let i = 0; i < lineItems.length; i++) 
+    //         {
+    //             const lineItem = lineItems[i];
+    //             const item = {
+    //                 name: lineItem.description,
+    //                 quantity: lineItem.quantity,
+    //                 price: lineItem.price.unit_amount / 100,
+    //             };
+    //             orderItems.push(item);
+    //             orderTotal += item.price * item.quantity;
+    //             console.log(orderItems);
+    //         }
+    //     }
+    // );
 
     //sending response to front end
     res.send(JSON.stringify({
         url: session.url
     }));
 
-    }catch (error) {
+    } catch (error) {
         
         res.status(400)
         throw new Error(error);

@@ -19,10 +19,6 @@ const addressSchema = new mongoose.Schema({
     postalCode: {
         type:String,
         required:true
-    },
-    apartment: {
-        type:String,
-        required:false
     }
 },{
     timestamps: true

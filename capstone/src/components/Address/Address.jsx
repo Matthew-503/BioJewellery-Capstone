@@ -5,161 +5,143 @@
 // Description: This component displays the shipping address with edit option
 
 import './Address.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { getAddress, updateAddress } from '../../features/addressFeatures/addressSlice';
 
-const FirstName = 'First Name';
-const LastName = 'Last Name';
-const Phone = '123 456 789';
-const Street = '17 Ave SW';
-const City = 'Calgary';
-const Postal = 'A3B 0DE';
-const Province = 'AB';
-const Country = 'Canada';
+const Address = () => {
 
-const Address = () => { 
-   
-    const [isDisabled, setIsDisabled] = useState(true);
-
-    const toggleDisabled = () => {
-        setIsDisabled(!isDisabled);
-    }
+    const { user } = useSelector((state) => state.auth)
+    const { shippingAddress, isSuccess, isLoading, isError, message } = useSelector((state) => state.address)
 
     const [formData, setFormData] = useState({
-        firstname: 'YA',
-        lastname: 'BOI',
-        phone: '123 456 7890',
-        street: 'yaboi Ave SW',
-        city: 'Calgary',
-        postal: 'A3B 0DE',
-        province: 'AB',
-        country: 'Canada',
-
-        product: 'Golden Leaf Earring',
-        qty: 100,
-        totalprice: 100,
-        warranty: 'Available 1 year from purchase',
+        street: shippingAddress.street,
+        city: shippingAddress.city,
+        postalCode: shippingAddress.postalCode,
+        province: shippingAddress.province,
+        country: shippingAddress.country
     })
 
-    const { firstname, lastname, phone, street, city, postal, province, country } = formData
+    const [isDisabled, setIsDisabled] = useState(true);
+    const [isUpdating, setIsUpdating] = useState(false);
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (isError) {
+            console.log(message)
+        }
+
+        if (!user) {
+            navigate('/login')
+        }
+
+        dispatch(getAddress(user.user._id));
+
+    }, [user, navigate, isError, message, dispatch]);
+
 
     const changeHandler = (e) => {
+
         setFormData((prevState) => ({
+
             ...prevState,
             [e.target.name]: e.target.value,
         }))
     }
+
+    const updateAddressHandler = () => {
+
+        setIsUpdating(true);
+        updateAddress(user.user._id, formData)
+        dispatch(updateAddress(user.user._id, formData))
+        setIsUpdating(false);
+        setIsDisabled(true);
+    }
+
     return (
         <>
-          <div className='order__category'>
-                    <p className='order__detail-category'>
-                        Shipping address
-                    </p>
+            <div className='order__category'>
+                <p className='order__detail-category'>
+                    Shipping address
+                </p>
+            </div>
+
+            <div className='order__detail-long'>
+                <div>
+                    <div>
+                        <input
+                            type="text"
+                            id="street"
+                            name="street"
+                            value={formData.street === undefined ? shippingAddress.street : formData.street}
+                            disabled={isDisabled}
+                            onChange={changeHandler}
+                        />
+                    </div>
                 </div>
 
-                <div className='order__detail-long'>
-                    <div className='order__detail-short'>
-                        <div>
-                            <input
-                                type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={firstname}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                id="lastname"
-                                name="lastname"
-                                value={lastname}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
+                <div className='order__detail-short'>
+                    <div>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            value={formData.city === undefined ? shippingAddress.city : formData.city}
+                            disabled={isDisabled}
+                            onChange={changeHandler}
+                        />
                     </div>
 
                     <div>
-                        <div>
-                            <input
-                                type="text"
-                                id="phone"
-                                name="phone"
-                                value={phone}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                id="street"
-                                name="street"
-                                value={street}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-                    </div>
-
-                    <div className='order__detail-short'>
-                        <div>
-                            <input
-                                type="text"
-                                id="city"
-                                name="city"
-                                value={city}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                id="postal"
-                                name="postal"
-                                value={postal}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-                    </div>
-
-                    <div className='order__detail-short'>
-                        <div>
-                            <input
-                                type="text"
-                                id="province"
-                                name="province"
-                                value={province}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                id="country"
-                                name="country"
-                                value={country}
-                                disabled={isDisabled}
-                                onChange={changeHandler}
-                            />
-                        </div>
+                        <input
+                            type="text"
+                            id="postalCode"
+                            name="postalCode"
+                            value={formData.postalCode === undefined ? shippingAddress.postalCode : formData.postalCode}
+                            disabled={isDisabled}
+                            onChange={changeHandler}
+                        />
                     </div>
                 </div>
-                <div className='order__button'>
-                    <button
-                        className='order__button-action'
-                        onClick={toggleDisabled}>
-                        {isDisabled ? 'Manage Address' : 'Confirm'}
-                    </button>
+
+                <div className='order__detail-short'>
+                    <div>
+                        <input
+                            type="text"
+                            id="province"
+                            name="province"
+                            value={formData.province === undefined ? shippingAddress.province : formData.province}
+                            disabled={isDisabled}
+                            onChange={changeHandler}
+                        />
+                    </div>
+
+                    <div>
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            value={formData.country === undefined ? shippingAddress.country : formData.country}
+                            disabled={isDisabled}
+                            onChange={changeHandler}
+                        />
+                    </div>
                 </div>
+
+            </div>
+            <div className='order__button'>
+                <button
+                    className='order__button-action'
+                    onClick={isDisabled ? () => { setIsDisabled(false) } : updateAddressHandler}
+                    disabled={isUpdating}
+                >
+                    {isDisabled ? 'Update Address' : 'Confirm'}
+                </button>
+            </div>
+
         </>
     )
 };
