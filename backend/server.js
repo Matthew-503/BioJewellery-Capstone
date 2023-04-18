@@ -57,7 +57,7 @@ app.use('/checkout', require('./routes/stripeRoutes.js'));
 
 
 //Return Request Form routes
-app.use('/api/returnrequest', require('./routes/returnrequest.js'));
+//app.use('/returnrequest', require('./routes/returnrequest.js'));
 
 app.use(errorHandler);
 
