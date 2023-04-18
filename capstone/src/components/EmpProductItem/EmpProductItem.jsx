@@ -163,11 +163,7 @@ const EmpProductItem = ({ product }) => {
     console.log(product)
     return (
         <div className='emp__product-item' style={{ opacity: isDisabled ? 0.5 : 1 }} disabled={isDisabled}>
-            <div className='emp__product-item-img'>
-                <h1>
-                    Product List
-                </h1>
-            </div>
+           
 
             <div className='emp__product-item-detail'>
                 <div className='emp__product-item-category'>

@@ -128,14 +128,7 @@ const EmpManage = (props) => {
                             Manange Products
                         </h1>
 
-                        <Link to="/addproduct">
-                            <button className='emp__manage-add'>
-
-                                <AddIcon className='emp__manage-icon ' />
-
-                            </button>
-                        </Link>
-
+                        
 
                         {/* <div className='emp__manage-search'>
                             <input className='navbar-input-search' type='text' placeholder='Search BioJewellery Products' />
