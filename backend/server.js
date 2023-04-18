@@ -49,15 +49,20 @@ app.use('/api/order', require('./routes/orderRoutes.js'));
 //Address routes
 app.use('/api/address', require('./routes/addressRoutes.js'));
 
-//GST routes
-app.use('/api/gst', require('./routes/gstRoutes.js'));
-
 // Stripe routes
 app.use('/checkout', require('./routes/stripeRoutes.js'));
 
-
 //Return Request Form routes
 app.use('/api/returnrequest', require('./routes/returnrequest.js'));
+
+//Serve frontend
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '../capstone/build')));
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'capstone', 'build', 'index.html')));
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.use(errorHandler);
 

@@ -11,7 +11,7 @@
 
 // Notes: large gap between profile and text
 
-/* eslint-disable import/first */
+
 
 import React from 'react';
 
