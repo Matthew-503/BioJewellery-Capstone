@@ -45,6 +45,7 @@ const Account = () => {
         if (newPassword == confirmPassword) {
             setUserData({password: confirmPassword})
         }
+        
         dispatch(updateAccount(userData));
     }
 
