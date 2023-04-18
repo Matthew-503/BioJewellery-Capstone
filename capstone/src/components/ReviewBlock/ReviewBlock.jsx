@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 const ReviewBlock = ({ review }) => {
     const { user } = useSelector((state) => state.auth);
     console.log(user.user.type)
-    const userType ={
-        
-            
-            type: (user !== null || user !== undefined) ? user.user.type : "guest"
-          
-    } 
+    const userType = {
+
+
+        type: (user !== null || user !== undefined) ? user.user.type : "guest"
+
+    }
     console.log(userType)
     const [showForm, setShowForm] = useState(false);
     const [replyText, setReplyText] = useState("");
@@ -70,20 +70,35 @@ const ReviewBlock = ({ review }) => {
             <p className='review__name'>
                 {review.name}
             </p>
+
+
             {userType.type === "Admin" && review.reply === "false" &&
                 <div>
-                    <button onClick={() => setShowForm(!showForm)} className="review__button">
-                        {showForm ? "Hide Reply Form" : "Reply"}
-                    </button>
+                    <div className='review__admin_row'>
+                        <button onClick={() => setShowForm(!showForm)} className="review__admin-button">
+                            {showForm ? "Hide Reply Form" : "Reply"}
+                        </button>
+
+                        {userType.type === "Admin" &&
+                            <div >
+                                <button onClick={handleClick} className="review__admin-button">
+                                    Remove
+                                </button>
+                            </div>
+                        }
+                    </div>
 
                     {showForm && (
-                        <form onSubmit={handleSubmit}>
-                            <label>
+                        <form onSubmit={handleSubmit} className='review__admin-form'>
+                            <label className='review__admin-col'>
                                 Reply:
                                 <textarea value={replyText} onChange={(e) => setReplyText(e.target.value)} />
                             </label>
-                            <button type="submit" onClick={onClick} className="review__button">Reply</button>
-                            <button type="button" onClick={handleCancel} className="review__button">Cancel</button>
+                            <div className='review__admin-action'>
+                                <button type="submit" onClick={onClick} className="review__admin-button">Reply</button>
+                                <button type="button" onClick={handleCancel} className="review__admin-button">Cancel</button>
+                            </div>
+
                         </form>
                     )}
                 </div>
@@ -100,13 +115,6 @@ const ReviewBlock = ({ review }) => {
                     </p>
                 </div>
             }
-
-            {userType.type === "Admin" &&
-                <div >
-                    <button onClick={handleClick} className="review__button">
-                        Remove
-                    </button>
-                </div>}
         </div>
 
     );
