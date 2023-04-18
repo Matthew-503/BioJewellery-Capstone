@@ -11,7 +11,8 @@ const {
 const { protect } = require('../middleware/authMiddleware')
 const authPassword = require('../middleware/passwordMiddleware')
 
-router.route('/').post(registerAccount).get(getAccount)
+router.route('/').post(registerAccount)
+router.get('/get', getAccount)
 router.post('/login', loginAccount)
 router.get('/me', protect, getAccount)
 router.post('/forgot-password', forgotPassword)

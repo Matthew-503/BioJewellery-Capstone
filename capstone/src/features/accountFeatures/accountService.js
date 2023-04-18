@@ -15,6 +15,31 @@ const register = async (userData) => {
   return response.data
 }
 
+//Get user cart items
+const getAccount = async (token) => {
+  const config = {
+      headers: {
+          Authorization: `Bearer ${token}`
+      }
+  }
+
+  const response = await axios.get(API_URL, config)
+  return response.data
+}
+
+const confirmPassword = async (password, token) => {
+  const config = {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}
+
+  const response = await axios.put(API_URL + password, config)
+
+  return response.data 
+}
+
+
 // Login user
 const login = async (userData) => {
   const response = await axios.post(API_URL + 'login', userData)

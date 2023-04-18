@@ -117,7 +117,15 @@ const loginAccount = asyncHandler(async (req, res) => {
 // @route   GET /api/users/me
 // @access  Private
 const getAccount = asyncHandler(async (req, res) => {
-  res.status(200).json(req.account)
+  
+  const account = await Account.findOne({'email':req.body.email});
+
+  if (!account) {
+    res.status(400)
+    throw new Error('Sorry, there is no account with this email.')
+  }
+
+  res.status(200).json({ account })
 })
 
 // Generate JWT -- id is the payload

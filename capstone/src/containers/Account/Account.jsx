@@ -17,19 +17,11 @@ import './Account.css';
 const Account = () => {
     const dispatch = useDispatch()
     const { user, isError, message } = useSelector((state) => state.auth)
-    const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState('');
     
     const [userData, setUserData] = useState({
         email: user.email,
         password: user.password,
-        name: user.user.name,
-        phoneNumber: user.user.phoneNumber,
-        street: user.user.address.street,
-        city: user.user.address.city,
-        province: user.user.address.province,
-        postalCode: user.user.address.postalCode,
-        country: user.user.address.country
     }); 
 
     const handleInputChange = (e) => {
@@ -41,21 +33,9 @@ const Account = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (newPassword == confirmPassword) {
-            setUserData({password: confirmPassword})
-        }
         
         dispatch(updateAccount(userData));
-    }
-
-    const handlePasswordChange = (e) => {
-        if(e.target.value != user.user.password) {
-            setNewPassword(e.target.value); 
-        } else {
-            setNewPassword(user.user.password)
-        }
-    }    
+    }  
     
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
@@ -101,7 +81,7 @@ const Account = () => {
                                     Account
                                 </h1>
 
-                                <h3>New Password</h3>
+                                <h3>Current Password</h3>
                                 <br />
                                 <div className='account__input-long'>
                                     <input
@@ -109,7 +89,7 @@ const Account = () => {
                                         type="text"
                                         name="cpassword"
                                         placeholder="Enter Password"
-                                        onChange={handlePasswordChange} 
+                                        onChange={user.user.password} 
                                     />
                                 </div>
 
