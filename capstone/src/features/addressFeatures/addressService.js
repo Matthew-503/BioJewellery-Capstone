@@ -1,71 +1,35 @@
 import axios from 'axios'
 
-const API_URL = '/api/addresses'
+const API_URL = '/api/address/'
 
-//create new address
-const createAddress = async (addressData, token) => {
+//Get address
+const getAddress = async (id, token) => {
+
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.post(API_URL, addressData, config)
-    return response.data
-}
-
-<<<<<<< Updated upstream
-//Get address object based on ID
-const getAddress = async (addressId, token) => {
-=======
-//Update address 
-const updateAddress = async (AddressInfo, token) => {
->>>>>>> Stashed changes
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-<<<<<<< Updated upstream
-
-    const response = await axios.get(API_URL+ addressId, config)
-=======
-    const response = await axios.put(API_URL, AddressInfo, config)
     
->>>>>>> Stashed changes
+    const response = await axios.get(API_URL + id , config)
     return response.data
 }
 
-
-//Get user addresses list and shipping address
-const getAddresses = async (token) => {
+//Update address 
+const updateAddress = async (id, newAddress, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.get(API_URL, config)
+    newAddress.userId = id
+    const response = await axios.put(API_URL, newAddress, config)
     return response.data
 }
 
-//Delete user address
-const deleteAddress = async (addressId, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-
-    const response = await axios.delete(API_URL + addressId, config)
-    return response.data
-}
-
-const addressService = {
-    createAddress,
+const addressService = {    
     getAddress,
-    getAddresses,
-    deleteAddress
+    updateAddress
 }
 
 export default addressService

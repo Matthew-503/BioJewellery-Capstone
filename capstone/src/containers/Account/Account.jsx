@@ -35,6 +35,7 @@ const Account = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateAccount(user.user.email));
+       
     }
 
     const handlePasswordChange = (e) => {
@@ -61,9 +62,10 @@ const Account = () => {
             dispatch(reset())
         }
         
-        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-            .then((data) => setVideos(data.items))
+ 
     }, [useNavigate, selectedCategory, isError, message]);
+
+    
 
     return (
         <div>
