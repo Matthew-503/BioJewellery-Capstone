@@ -167,8 +167,8 @@ const loginAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       user: {
         _id: user._id,
-        type: user.type
-
+        type: user.type,
+        name: user.name
       },
       address: {
         street: address.street,
@@ -219,9 +219,7 @@ const getAccount = asyncHandler(async (req, res) => {
 const updateAccount = asyncHandler(async (req, res) => {
 
 
-
-
-  if (!req.body.password || !req.body.name || !req.body.phoneNumber || !req.body.street || !req.body.city
+  if (!req.body.password || !req.body.name || !req.body.street || !req.body.city
 
     || !req.body.province || !req.body.country || !req.body.postalCode) {
 
@@ -295,7 +293,7 @@ const updateAccount = asyncHandler(async (req, res) => {
   //save apartment
   account.user.address.apartment = req.body.apartment || account.user.address.apartment
   await account.save()
-
+  
   res.status(200).json({ message: 'Account Updated' });
 
 })

@@ -26,7 +26,7 @@ const Header = () => (
 
         <div className='app__wrapper-info'>
             <h1 className='header__h1'>
-                Discover the beauty of the BioJewerly Collection
+                Discover the beauty of the BioJewelry Collection
             </h1>
 
             <p className='app__p' style={{ margin: '2rem 0' }}>

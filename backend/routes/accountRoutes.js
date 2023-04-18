@@ -18,6 +18,5 @@ router.post('/forgot-password', forgotPassword)
 router.post('/reset-password', authPassword, resetPassword)
 router.post('/login', loginAccount)
 router.get('/me', protect)
-router.put('/:email', updateAccount, appealAccount, suspendAccount)
-
+router.put('/update', updateAccount)
 module.exports = router

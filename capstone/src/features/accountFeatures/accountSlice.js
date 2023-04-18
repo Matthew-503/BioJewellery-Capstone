@@ -94,9 +94,9 @@ export const resetPassword = createAsyncThunk('auth/resetPassword', async (userD
     return thunkAPI.rejectWithValue(message)
   }
 })
-export const updateAccount = createAsyncThunk('auth/update', async (email, thunkAPI) => {
+export const updateAccount = createAsyncThunk('auth/update', async (formData, thunkAPI) => {
   try {
-    return await email
+    return await authService.updateAccount(formData)
   } catch (error) {
       const message = (
           error.response &&
@@ -173,7 +173,7 @@ export const authSlice = createSlice({
       .addCase(updateAccount.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.user = action.payload
+        
       })
       .addCase(updateAccount.rejected, (state, action) => {
         state.isLoading = false

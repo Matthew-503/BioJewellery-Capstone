@@ -13,7 +13,7 @@ const ReviewBlock = ({ review }) => {
     const userType ={
         user: {
             
-            type: (user !== null) ? user.user.type : "guest"
+            type: (user !== null || user !== undefined) ? user.user.type : "guest"
           }
     } 
     const [showForm, setShowForm] = useState(false);

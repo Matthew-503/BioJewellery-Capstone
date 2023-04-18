@@ -2,36 +2,70 @@ import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
 import { SubHeading, ProductDetailBar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 import { fetchFromAPI } from '../../constants';
 import { Box, Stack, Typography } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
 import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
+
 import './Account.css';
 
 const Account = () => {
+    const dispatch = useDispatch()
+    const { user, isError, message } = useSelector((state) => state.auth)
+
+
+    const [formData, setFormData] = useState({
+        email: user.email,
+        password: user.password,
+        name: user.user.name,
+        street: user.address.street,
+        city: user.address.city,
+        postalCode: user.address.postalCode,
+        province: user.address.province,
+        country: user.address.country
+    })
+
+    const {name, street, city, postalCode, province, country} = formData
+
+    const changeHandler = (e) => {
+
+        setFormData((prevState) => ({
+
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData)
+        // dispatch(updateAccount(formData));
+
+    }
+
+    const handlePasswordChange = (e) => {
+
+    }
+
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const { user, isError, message} = useSelector((state) => state.auth)
-   
-
     useEffect(() => {
-        
+
         {/*
         if (!user) {
             useNavigate('/home')
         } */}
 
 
-        if(isError) {
+        if (isError) {
             console.log(message)
         }
 
@@ -39,62 +73,50 @@ const Account = () => {
             dispatch(reset())
         }
 
+
     }, [useNavigate, selectedCategory, isError, message]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(updateAccount(user.user.email));
-       
-    }
 
-    const handlePasswordChange = (e) => {
 
-    }
-
-    
     return (
         <div>
             <Navbar />
-            <div>
-                <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
-                    <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
-                        <SideBarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-                    </Box>
+            <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
+                <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "0px solid #3d3d3d", px: { sx: 3, md: 2 } }}>
+                    <SideBarAccount selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                </Box>
 
-                    <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
-                        <div className="account">
+                <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+                    <div className="account">
+                        <form action={handleSubmit} method="GET">
                             <div className="account__table">
                                 <div className="account__table-column1">
-                                    {/* <div className="account__avatar">
-                                    <img src={images.avatar} alt="G_overlay" className="blur" />
 
-                                    <div className="account__overlay">
-                                        <ModeEditIcon className="account__icon" />
-                                    </div>
-                                </div> */}
                                     <h1 className='account__header'>
                                         Account
                                     </h1>
 
-                                    <h3>Username</h3>
+                                    <h3>Current Password</h3>
                                     <br />
                                     <div className='account__input-long'>
                                         <input
                                             className='account__input'
                                             type="text"
-                                            id="username"
-                                            placeholder={user.user.name}
+                                            name="cpassword"
+                                            placeholder="Enter Password"
+                                            onChange={handlePasswordChange}
                                         />
                                     </div>
 
-                                    <h3>Password</h3>
+                                    <h3>New Password</h3>
                                     <br />
                                     <div className='account__input-long'>
                                         <input
                                             className='account__input'
                                             type="password"
-                                            id="password"
+                                            name="npassword"
                                             placeholder="Enter Password"
+                                            onChange={handlePasswordChange}
                                         />
                                     </div>
                                 </div>
@@ -104,58 +126,54 @@ const Account = () => {
                                         Personal Information
                                     </h1>
 
-                                    <h3>First Name</h3>
+
+                                    {/* <h3>First Name</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="firstname"
+                                        placeholder="Enter First Name"
+                                    />
+                                </div>
+                                <h3>Last Name</h3>
+                                <br />
+                                <div className='account__input-long'>
+                                    <input
+                                        className='account__input'
+                                        type="text"
+                                        id="lastname"
+                                        placeholder="Enter Last Name"
+                                    />
+                            </div> */}
+
+                                    <h3>Name</h3>
                                     <br />
                                     <div className='account__input-long'>
                                         <input
                                             className='account__input'
                                             type="text"
-                                            id="firstname"
-                                            placeholder="Enter First Name"
+                                            name="name"
+                                            id="name"
+                                            placeholder="Enter a names"
+                                            value={name}
+                                            onChange={changeHandler}
                                         />
                                     </div>
 
-                                    <h3>Last Name</h3>
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="lastname"
-                                            placeholder="Enter Last Name"
-                                        />
-                                    </div>
 
-                                    <h3>Email</h3>
+                                    <h3>Street address</h3>
                                     <br />
                                     <div className='account__input-long'>
                                         <input
                                             className='account__input'
                                             type="text"
-                                            id="email"
-                                            placeholder="Enter Email Address"
-                                        />
-                                    </div>
-
-                                    <h3>Phone Number</h3>
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="phone"
-                                            placeholder="Enter Phone Number"
-                                        />
-                                    </div>
-
-                                    <h3>Address</h3>
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            id="address"
-                                            placeholder="Enter Address"
+                                            id="street"
+                                            name="street"
+                                            placeholder="Enter Address your address"
+                                            value={street}
+                                            onChange={changeHandler}
                                         />
                                     </div>
 
@@ -168,7 +186,10 @@ const Account = () => {
                                                     className='account__input'
                                                     type="text"
                                                     id="city"
+                                                    name="city"
                                                     placeholder="City"
+                                                    value={city}
+                                                    onChange={changeHandler}
                                                 />
                                             </div>
 
@@ -180,6 +201,8 @@ const Account = () => {
                                                     type="text"
                                                     id="province"
                                                     placeholder="Province"
+                                                    value={province}
+                                                    onChange={changeHandler}
                                                 />
                                             </div>
                                         </div>
@@ -192,7 +215,10 @@ const Account = () => {
                                                     className='account__input'
                                                     type="text"
                                                     id="postalCode"
+                                                    name="postalCode"
                                                     placeholder="Postal Code"
+                                                    value={postalCode}
+                                                    onChange={changeHandler}
                                                 />
                                             </div>
 
@@ -204,20 +230,33 @@ const Account = () => {
                                                     type="text"
                                                     id="country"
                                                     placeholder="Country"
+                                                    value={user.address.country}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </Box>
 
-                </Stack>
-            </div>
+                            <div className="account__action">
+                                <button
+                                    type="submit"
+    
+                                >
+                                    Save
+                                </button>
+
+                                <button>
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </Box>
+            </Stack>
             <Footer />
-        </div >
+        </div>
     );
 };
 
