@@ -74,11 +74,11 @@ const registerAccount = asyncHandler(async (req, res) => {
         name: user.name
       },
       address: {
-        street: address.street,
-        city: address.street,
-        province: address.province,
-        country: address.country,
-        postalCode: address.postalCode
+        street: shippingAddress.street,
+        city: shippingAddress.street,
+        province: shippingAddress.province,
+        country: shippingAddress.country,
+        postalCode: shippingAddress.postalCode
       }
     })
   }
@@ -112,7 +112,8 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
     //send email
     //http://localhost:8001/ --> when host the website we need to replace this part to the website server 
-    const url = `http://localhost:3000/reset-password/${token}`;
+    const url = `https://biojewelry.onrender.com/reset-password/${token}`;
+    // const url = `http://localhost:3000/reset-password/${token}`;
     const name = user.name;
     sendMail.sendEmailReset(email, url, "Reset your password", name)
 
