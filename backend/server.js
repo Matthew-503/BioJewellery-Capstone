@@ -27,9 +27,9 @@ app.use(express.static('public'));
 
 //Routes
 //Just to test server is running
-app.get("/", (req, res) => {
-    res.send("Whoohoo I am working!");
-});
+// app.get("/", (req, res) => {
+//     res.send("Whoohoo I am working!");
+// });
 
 //Connect the routes and controllers
 //For all product routes
