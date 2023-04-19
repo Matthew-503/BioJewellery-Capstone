@@ -10,6 +10,7 @@ const asyncHandler = require('express-async-handler')
 const Account = require('../models/accountModel')
 const Address = require('../models/addressModel')
 const User = require('../models/userModel')
+const sendMail = require('../helpers/sendEmail')
 
 // @desc    Register new Account
 // @route   POST /api/account
