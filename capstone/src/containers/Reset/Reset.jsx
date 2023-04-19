@@ -51,7 +51,7 @@ function Reset() {
     useEffect(() => {
         if (isError) {
             toast.error(message);
-            setErrorMessage("Account does not exist!");
+            setErrorMessage("Account does not exist!" + message);
         }     
   
         if (isSuccess) { 
