@@ -26,7 +26,7 @@ const registerAccount = asyncHandler(async (req, res) => {
   const emailLowerCase = email.toLowerCase()
 
   // Check if account exists
-  const accountExists = await Account.findOne({ emailLowerCase })
+  const accountExists = await Account.findOne({ 'email':emailLowerCase })
 
   if (accountExists) {
     res.status(400)
@@ -39,7 +39,6 @@ const registerAccount = asyncHandler(async (req, res) => {
 
   //Create Shipping Address
   const shippingAddress = await Address.create({
-    client: user._id,
     street,
     city,
     province,
@@ -54,7 +53,7 @@ const registerAccount = asyncHandler(async (req, res) => {
   })
 
   //push into address list as well
-  user.addresses.push(shippingAddress)
+  //user.addresses.push(shippingAddress)
 
   // Create account
   const account = await Account.create({
@@ -70,7 +69,16 @@ const registerAccount = asyncHandler(async (req, res) => {
       token: generateToken(account._id),
       name: name,
       user: {
-        _id: user._id
+        _id: user._id,
+        type:user.type,
+        name: user.name
+      },
+      address: {
+        street: address.street,
+        city: address.street,
+        province: address.province,
+        country: address.country,
+        postalCode: address.postalCode
       }
     })
   }

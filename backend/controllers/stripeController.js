@@ -70,10 +70,10 @@ const checkout = asyncHandler(async (req, res) => {
         line_items : lineItems,
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url:`https://biojewelryapp.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: "https://biojewelryapp.onrender.com/cancel",
-        // success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-        // cancel_url: "http://localhost:3000/cancel",
+        // success_url:`https://biojewelryapp.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
+        // cancel_url: "https://biojewelryapp.onrender.com/cancel",
+        success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
         customer: customerId
     });

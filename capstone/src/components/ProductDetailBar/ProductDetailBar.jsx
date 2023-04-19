@@ -36,7 +36,7 @@ const ProductDetailBar = () => {
 
     }, [isError, message])
 
-    let stars = 3;
+    let stars = 5;
 
     const [selectedValue, setSelectedValue] = useState("");
 

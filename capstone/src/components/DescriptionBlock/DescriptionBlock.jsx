@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 const DescriptionBlock = () => {
 
-    var stars = 3;
+    var stars = 5;
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products)
 
@@ -56,12 +56,10 @@ const DescriptionBlock = () => {
                     </p>
 
                     <p>
-                        Product Type:
+                        Description:
                     </p>
 
-                    <p>
-                        Color:
-                    </p>
+                 
 
                     <p>
                         Ratings:
@@ -74,12 +72,10 @@ const DescriptionBlock = () => {
                     </p>
 
                     <p>
-                        {selectedProduct.type}
+                        {selectedProduct.description}
                     </p>
 
-                    <p>
-                        {selectedProduct.colour}
-                    </p>
+                    
 
                     <div className="description__rating">
                         <Rating starRating={stars} />
