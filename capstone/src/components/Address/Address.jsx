@@ -1,4 +1,4 @@
-// Author: Sri Guru
+// Author: Sri, Naomy, Nick, Buola, Matthew
 // Version: 1.0
 // Date: 14/03/2023
 

@@ -1,0 +1,6 @@
+services:
+  - name: biojewelryapp
+    buildCommand: |
+      cd capstone && npm install && npm run build
+      cd .. && npm install && npm run build
+    startCommand: npm run start

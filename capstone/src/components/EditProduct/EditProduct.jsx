@@ -17,10 +17,7 @@ import { getProductByName, updateProduct } from '../../features/productFeatures/
 // Input: User Product Specifications 
 // Output: Page
 
-//useeffect load value of selected product based on the id passed from manage product list component
-//set imagelink to selected product url
-//attach id of the product in formData when sending
-//Need to fix the product name by useParams
+
 
 const EditProduct = () => {
 

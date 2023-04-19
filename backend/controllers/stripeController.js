@@ -1,4 +1,4 @@
-// Author: Sri
+// Author: Sri, Naomy, Buola, Nick, Matthew
 // Description: controller logic for Stripe Payment Process
 // Version 0.1
 // Date: 22/03/2023
@@ -15,11 +15,6 @@ app.use(express.static('public'));
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
-//TODO idea: 1] Change to test mode 2]console.log checkout session id and also test by passing it in url
-//next method to create order (or) 3]In the success url page, useEffect -> call the order creation api using url's session id  
-//4]In the api, call to retrieve the details of that checkout session and crerate an order object -> save in DB
-//5] Also return the order obj as response
-//6] show the order object details in front end.
 
 // @desc    create a checkout session for purchase
 // @route   POST /checkout
@@ -75,38 +70,17 @@ const checkout = asyncHandler(async (req, res) => {
         line_items : lineItems,
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: "http://localhost:3000/cancel",
+        success_url:`https://biojewelryapp.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: "https://biojewelryapp.onrender.com/cancel",
+        // success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
+        // cancel_url: "http://localhost:3000/cancel",
         currency: 'cad',
         customer: customerId
     });
 
-    //sending the invoice email to the customer after successful payment
+    //sending the receipt email to the customer after successful payment
     session.metadata = { email: email };
     session.payment_intent_data = { receipt_email: email };
-
-    // const orderItems = [];
-    // const orderTotal = 0;
-
-    // stripe.checkout.sessions.listLineItems(
-    //     session.id,
-    //     function(err, lineItems) 
-    //     {
-    //       // asynchronously called
-    //       for (let i = 0; i < lineItems.length; i++) 
-    //         {
-    //             const lineItem = lineItems[i];
-    //             const item = {
-    //                 name: lineItem.description,
-    //                 quantity: lineItem.quantity,
-    //                 price: lineItem.price.unit_amount / 100,
-    //             };
-    //             orderItems.push(item);
-    //             orderTotal += item.price * item.quantity;
-    //             console.log(orderItems);
-    //         }
-    //     }
-    // );
 
     //sending response to front end
     res.send(JSON.stringify({
@@ -212,7 +186,6 @@ const updateProductPriceInStripe = asyncHandler(async (req, res, next) => {
         next();
     }
     
-    // res.send(newPriceObj.id);
 
     } 
     catch (error) {

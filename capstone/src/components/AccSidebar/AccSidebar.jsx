@@ -1,4 +1,4 @@
-// Author: Nicholas Proc
+// Author: Nicholas Proc, Naomy, Matthew, Buola, Sri
 // Version: 0.1 
 // Date: 20/1/2023
 
@@ -6,18 +6,12 @@
 // Precondition: Must have a list of products
 // Postcondition: Display a list of products
 
-// Input 
-// N/A
-// Output
-// ShopProduct Container
 
 
 import React from 'react';
 
 import { ProductItems } from '..';
-// import { SubHeading } from '../../components';
 
-// import { cerrado } from './import.js';
 import { images } from '../../constants';
 
 import { useSelector, useDispatch } from "react-redux";
