@@ -7,8 +7,7 @@
     "start": "node backend/server.js",
     "server": "node backend/server.js",
     "client": "npm start --prefix capstone",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd capstone && npm install && npm run build  cd .. && npm install && npm run build"
+    "dev": "concurrently \"npm run server\" \"npm run client\""    
   },
   "repository": {
     "type": "git",

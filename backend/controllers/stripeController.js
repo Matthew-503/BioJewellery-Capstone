@@ -73,7 +73,7 @@ const checkout = asyncHandler(async (req, res) => {
         line_items : lineItems,
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url:`https://biojewelry.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url:"https://biojewelry.onrender.com/success",
         cancel_url: "https://biojewelry.onrender.com/cancel",
         // success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
         // cancel_url: "http://localhost:3000/cancel",
