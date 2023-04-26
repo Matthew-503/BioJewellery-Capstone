@@ -19,9 +19,8 @@ function CheckoutSummary() {
     
     const checkout = async () => {
     try {
-
       //a fetch request to backend
-      const response = await fetch("http://localhost:8001/checkout/",{
+      const response = await fetch("https://biojewelry.onrender.com/checkout/",{
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
