@@ -12,15 +12,9 @@
 // Notes: Aim to make the title text and button align centered 
 // Notes: Will implement related images
 
-
 import React from 'react';
-
 import { Article } from '../../components';
-// import { SubHeading } from '../../components';
-
 import { gallery02, gallery03, gallery04, gallery01 } from './import.js';
-
-
 import './ShopCategory.css';
 
 const ShopCategory = () => {

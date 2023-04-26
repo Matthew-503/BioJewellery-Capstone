@@ -1,4 +1,4 @@
-// Author: Nicholas Proc
+// Author: Matthew, Sri, Naomy, Buola, Nicholas
 // Version: 0.1 
 // Date: 20/1/2023
 
@@ -6,15 +6,14 @@
 // Precondition: There must be a product that can be displayed
 // Postcondition: Displays the Product details with the relavent information
 
-// Input 
-// N/A
+// Input
 // Output
 // Product Detail Container
 
 import React, { useState } from "react";
 
 import { images } from '../../constants';
-import { Rating, ReviewBlock, SubHeading } from '../../components';
+import { Rating } from '../../components';
 import { Link } from "react-router-dom";
 import { BsCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -54,65 +53,7 @@ const ProductDetailBar = () => {
     const icon = isTrue ? <BsCheckCircleFill /> : <BsFillXCircleFill />;
 
     return (
-        // <div className="detail__bar">
-        //     <div>
-        //         <table className='detail__table'>
-        //             <tbody>
-        //                 <tr>
-        //                     <th>Price ${299}</th>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         <div className="detail__bar-stock">
-        //                             In stock
-        //                             <BsCheckCircleFill className='detail__bar-icons' />
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         {selectedProduct.name}
-        //                     </td>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>Quantity: {selectedProduct.quantity}</td>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         <div className="detail__bar-add-button">
-        //                             <Link to="/cart">
-        //                                 <button className="detail__bar-add-button" onClick={() => dispatch(addItemToCart(selectedProduct))} >
-        //                                     <FaShoppingCart />  Add to Cart
-        //                                 </button>
-        //                             </Link>
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //                 <tr>
-        //                     <td >
-        //                         <div className="detail__bar-star">
-        //                             <Rating starRating={stars} className="detail__bar-rating" />
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         <div className="detail__bar-review-button">
-        //                             <Link to="/cart">
-        //                                 <button className="detail__bar-review-button">
-        //                                     Write a review
-        //                                 </button>
-        //                             </Link>
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //             </tbody>
-        //         </table>
-        //     </div>
-        // </div>
-
-
-
+        
         <div className="detail__bar">
             <h1>
                 {selectedProduct.name}
@@ -161,9 +102,6 @@ const ProductDetailBar = () => {
                     Write a review
                 </button>
             </Link>
-
-
-
 
         </div>
     )

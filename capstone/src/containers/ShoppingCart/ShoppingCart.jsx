@@ -8,7 +8,7 @@
 
 import './ShoppingCart.css';
 import { CartContent, CartSummary } from '../../components';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
+// import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect } from "react";

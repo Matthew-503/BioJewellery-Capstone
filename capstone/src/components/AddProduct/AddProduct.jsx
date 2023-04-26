@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
-import { setProduct } from '../../features/productFeatures/productSlice';
-import './AddProduct.css';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
 // Author: Buola Achor, Sri
 // Version 2.1
 // Date: 13/4/2023
 
 // Description: This is the add product employee page. 
 // Precondition: Must be connected and be able to add to the database also have the uploader component
-// Postcondition: nothing
 
-// Input: User Product Specifications, 
-// Output: Page
+
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
+import './AddProduct.css';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 
 function AddProduct() {
     

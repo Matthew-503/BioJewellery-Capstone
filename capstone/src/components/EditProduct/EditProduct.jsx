@@ -1,11 +1,3 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
-import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
-import './EditProduct.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { getProductByName, updateProduct } from '../../features/productFeatures/productSlice';
-
 // Author: Buola Achor
 // Version 0.1
 // Date: 18/1/2023
@@ -17,11 +9,16 @@ import { getProductByName, updateProduct } from '../../features/productFeatures/
 // Input: User Product Specifications 
 // Output: Page
 
+import React, { useState, useEffect } from 'react'
+import EmployeeMenu from '../EmployeeMenu/EmployeeMenu';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+import './EditProduct.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProductByName, updateProduct } from '../../features/productFeatures/productSlice';
 
 
 const EditProduct = () => {
 
-    // const { productName } = useParams();
     const productName  = 'Cerrado Leaf Bracelet';
     console.log(productName);
 
@@ -33,10 +30,7 @@ const EditProduct = () => {
     const [newData, setNewData] = useState(null);
 
     useEffect(() => {
-        // let formData = new FormData();
-        // formData.append('name', productName);
- 
-
+        
         dispatch(getProductByName(productName));
 
         console.log(selectedProduct)

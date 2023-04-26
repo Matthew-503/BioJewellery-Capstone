@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { images } from '../../constants';
-import { SubHeading, ProductDetailBar } from '../../components';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
-
-import { fetchFromAPI } from '../../constants';
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
 import { updateAccount, reset } from "../../features/accountFeatures/accountSlice";
 import { ToastContainer, toast } from 'react-toastify';
-
 import './Account.css';
 
 const Account = () => {
@@ -55,7 +48,6 @@ const Account = () => {
 
 
     const [selectedCategory, setSelectedCategory] = useState("Products");
-    const [setVideos] = useState(null);
 
     useEffect(() => {
 
@@ -87,14 +79,9 @@ const Account = () => {
             
         }
 
-        dispatch(reset())
-    
-
-        
+        dispatch(reset())        
 
     }, [isSuccess, isError, message]);
-
-
 
     return (
         <div>
@@ -110,63 +97,13 @@ const Account = () => {
                             <ToastContainer />
 
                             <div className="account__table">
-                                {/* <div className="account__table-column1">
-
-                                    <h1 className='account__header'>
-                                        Account
-                                    </h1>
-
-                                    <h3>Current Password</h3>
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="text"
-                                            name="cpassword"
-                                            placeholder="Enter Password"
-                                            onChange={handlePasswordChange}
-                                        />
-                                    </div>
-
-                                    <h3>New Password</h3>
-                                    <br />
-                                    <div className='account__input-long'>
-                                        <input
-                                            className='account__input'
-                                            type="password"
-                                            name="npassword"
-                                            placeholder="Enter Password"
-                                            onChange={handlePasswordChange}
-                                        />
-                                    </div>
-                                </div> */}
+                               
 
                                 <div className="account__table-column1">
                                     <h1 className='account__header'>
                                         Personal Information
                                     </h1>
 
-
-                                    {/* <h3>First Name</h3>
-                                <br />
-                                <div className='account__input-long'>
-                                    <input
-                                        className='account__input'
-                                        type="text"
-                                        id="firstname"
-                                        placeholder="Enter First Name"
-                                    />
-                                </div>
-                                <h3>Last Name</h3>
-                                <br />
-                                <div className='account__input-long'>
-                                    <input
-                                        className='account__input'
-                                        type="text"
-                                        id="lastname"
-                                        placeholder="Enter Last Name"
-                                    />
-                            </div> */}
 
                                     <h3>Name</h3>
                                     <br />
@@ -264,7 +201,6 @@ const Account = () => {
                             <div className="account__action">
                                 <button
                                     type="submit"
-    
                                 >
                                     Save
                                 </button>

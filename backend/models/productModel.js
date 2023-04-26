@@ -72,11 +72,7 @@ const productSchema = new mongoose.Schema({
     imageUrl:{
         type:String,
         required: true
-    },
-    images:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ProductImages'
-    }]
+    }
 });
 
 productSchema.virtual('finalPrice').get(function(){

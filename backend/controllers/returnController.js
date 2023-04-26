@@ -1,5 +1,5 @@
 /**
- * Add TYPE of user under userModel. We will identify what kind of user it is by a middleware thats gonna check this field
+ * 
  */
 // Author: Naomy, Sri
 // Version 1.0

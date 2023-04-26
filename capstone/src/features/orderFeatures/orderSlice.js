@@ -8,10 +8,8 @@ const initialState = {
     isLoading: false,
     message: ''
 }
+
 //Create and save an order
-//ThunkAPI has a method to get any state at any part of the app
-//register and login routes are not protected, so there is no need to send the token
-//but the order route is protected, so we send token along with the data.
 export const createOrder = createAsyncThunk('order/create', async (orderData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
@@ -64,7 +62,7 @@ export const orderSlice = createSlice({
         .addCase(createOrder.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.order.push(action.payload) //push() method adds one or more elements to the end of an array.
+            state.order.push(action.payload) 
         })
         .addCase(createOrder.rejected, (state, action) => {
             state.isLoading = false

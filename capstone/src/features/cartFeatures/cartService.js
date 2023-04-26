@@ -1,18 +1,5 @@
 import axios from 'axios'
-
 const API_URL = '/api/cart/'
-
-//Add item to cart
-const addItemToCart = async (cartData, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-    //cartData has full product json data
-    const response = await axios.get(API_URL +'/checkproduct', cartData, config)
-    return response.data
-}
 
 //Get user cart items
 const getCartItems = async (token) => {
@@ -58,28 +45,10 @@ const decreaseItemQuantity = async (item, token) => {
     return response.data
 }
 
-
-// //Update cart item
-// const updateCartItemQuantity = async (productId, token) => {
-//     const config = {
-//         headers: {
-//             Authorization: `Bearer ${token}`
-//         }
-//     }
-//     const response = await axios.patch(API_URL + productId, config)
-//     return response.data
-// }
-
-
-
-
-
 const cartService = {
-    addItemToCart,
     getCartItems,
     increaseItemQuantity,
-    decreaseItemQuantity,
-    
+    decreaseItemQuantity    
 }
 
 export default cartService

@@ -1,14 +1,11 @@
 // Author: Naomy
 // Date: 14/03/2023
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const productModel = require('../models/productModel');
 const cloudinary = require('../config/cloudinary');
 
 string = "test"
-
 
 const getAllByAvailableProducts = asyncHandler(async (req, res) => {
     try {
@@ -66,9 +63,7 @@ const setProduct = asyncHandler(async (req, res, next) => {
     if (!req.body.name || !req.body.description || !req.body.price || !req.body.quantity) {
         res.status(400)
         throw new Error('Please provide all fields!')
-    }
-
-    
+    }   
 
     const product = await productModel.create({
         name: req.body.name,
@@ -118,9 +113,9 @@ const updateProduct = asyncHandler(async (req, res) => {
         }
     }
 
-    //if new image is uploaded successfully to cludinary, delete the old one
+    //if new image is uploaded successfully to cloudinary, delete the old one
     if(result !== null){
-    // Delete image from cloudinary
+    // Delete old image from cloudinary
     await cloudinary.uploader.destroy(productObj.cloudinaryId);
     productObj.cloudinaryId = result.public_id ?? productObj.cloudinaryId
     productObj.imageUrl = result.secure_url ?? productObj.imageUrl
@@ -154,12 +149,6 @@ const updateProduct = asyncHandler(async (req, res) => {
     catch (error) {
         throw new Error(error);
     }    
-})
-
-
-const deleteProduct = asyncHandler(async (req, res) => {
-
-    res.status(200).json('Product deleted');
 })
 
 const sortProducts = asyncHandler(async (req, res) => {
@@ -199,7 +188,6 @@ const sortProducts = asyncHandler(async (req, res) => {
 })
 
 
-
 function sortByAsc(arr) {
     if (arr.length <= 1) {
         return arr;
@@ -225,8 +213,6 @@ function sortByAsc(arr) {
         return result.concat(left, right);
     }
 }
-
-
 
 
 function sortByDscd(arr) {
@@ -260,7 +246,6 @@ module.exports = {
     sortProducts,
     setProduct,
     updateProduct,
-    deleteProduct,
     getProduct,
     getAllProducts,
     getAllByAvailableProducts

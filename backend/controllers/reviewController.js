@@ -5,6 +5,7 @@ const Review = require('../models/reviewModel')
 const Product = require('../models/productModel')
 const User = require('../models/userModel')
 const Order = require('../models/orderModel')
+
 // @desc    Get all the reviews posted for a product
 // @route   GET /api/product/:productId/reviews
 // @access  Public
@@ -26,7 +27,6 @@ const getReview = asyncHandler(async (req, res) => {
     }
 
 })
-
 
 
 // @desc    Get order
@@ -170,8 +170,6 @@ const respondToReview = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Sorry not Authorized')
     }
-
-
 
     //set the review fields to the new values or by default the existing value
     review.reply = reply ?? review.reply

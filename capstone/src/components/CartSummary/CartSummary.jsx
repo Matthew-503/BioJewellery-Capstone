@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { PayButton } from '..';
 import { selectSubtotal} from '../../features/cartFeatures/cartSlice';
 const CartSummary = () => {
-    const { cartProducts,isError, message } = useSelector((state) => state.cart);
+    const { isError, message } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const subtotal = useSelector(selectSubtotal);
     useEffect(() => {
@@ -22,26 +22,7 @@ const CartSummary = () => {
 
     }, [isError, message])
     return (
-        // <div className="">
-        //     <div>
-        //         <table className='cartbar__table'>
-        //             <tbody>
-        //                 <tr>
-        //                     <th>Subtotal</th>
-        //                     <th>CA${299.99}</th>
-        //                 </tr>
-        //                 <tr>
-        //                     <td>
-        //                         <div className="cartbar__button">
-        //                             <PayButton/>
-        //                         </div>
-        //                     </td>
-        //                 </tr>
-        //             </tbody>                    
-        //         </table>
-        //     </div>
-        // </div>
-
+       
         <div className='cart__summary'>
             <div className='cart__summary-header'>
                 <h1>

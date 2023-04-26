@@ -13,13 +13,7 @@
 
 
 import React from 'react';
-
 import { ProductItems } from '../../components';
-// import { SubHeading } from '../../components';
-
-import { cerrado } from './import.js';
-import { images } from '../../constants';
-
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts, reset } from '../../features/productFeatures/productSlice';
 import { useEffect } from "react";

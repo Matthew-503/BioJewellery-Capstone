@@ -1,3 +1,5 @@
+// Author:  Nicholas, Naomy, Sri, Buola, Matthew
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductItems.css';

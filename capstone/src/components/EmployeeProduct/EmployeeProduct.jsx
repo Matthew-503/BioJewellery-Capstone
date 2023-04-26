@@ -9,7 +9,7 @@ const EmployeeProduct = () => {
             <div className="employee__product-container">
 
                 <div className="employee__image">
-                   {/* <img src={imgUrl} alt="employee__product-image" /> */}
+                  
                 </div>
 
                 <div className="employeee__product-title">

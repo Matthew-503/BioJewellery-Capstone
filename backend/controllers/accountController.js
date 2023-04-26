@@ -52,9 +52,7 @@ const registerAccount = asyncHandler(async (req, res) => {
     shippingAddress: shippingAddress._id
   })
 
-  //push into address list as well
-  //user.addresses.push(shippingAddress)
-
+ 
   // Create account
   const account = await Account.create({
     email: emailLowerCase,
@@ -252,25 +250,11 @@ const updateAccount = asyncHandler(async (req, res) => {
   }
 
 
-  // //Save password
-  // if (password) {
-  //   //Hasing password
-  //   const salt = await bcrypt.genSalt(10)
-
-  //   const hashedPassword = await bcrypt.hash(password, salt)
-  //   account.password = hashedPassword ?? account.password
-  // }
-
   //save name
   if (name) {
 
     user.name = req.body.name ?? account.user.name
   }
-
-
-
-  // //save address
-  // account.user.address = account.user.address || {}
 
 
 if(street){

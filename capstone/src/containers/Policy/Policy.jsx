@@ -13,11 +13,7 @@
 
 
 import React from 'react';
-import { images } from '../../constants';
-import { Link } from "react-router-dom"
-
 import { BsExclamationCircle } from 'react-icons/bs';
-
 import './Policy.css';
 
 const Policy = () => (

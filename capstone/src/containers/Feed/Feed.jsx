@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Box, Stack, Typography } from "@mui/material";
-
+import { Box, Stack } from "@mui/material";
 import { fetchFromAPI } from '../../constants';
-import { ProductSideBar, ShopSidebar } from '../../components';
+import { ShopSidebar } from '../../components';
 import ShopProduct from "../ShopProduct/ShopProduct";
-
 import './Feed.css';
-
 
 const Feed = () => {
     const [selectedCategory, setSelectedCategory] = useState("Products");
     const [setVideos] = useState(null);
 
     useEffect(() => {
-        // setVideos(null);
-
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
     }, [selectedCategory]);

@@ -34,7 +34,6 @@ export const updateAddress = createAsyncThunk('addresses/put', async (userId, ne
     }
 })
 
-//we didn't reset the address like this in users because we don't want them to reset like this. we want the user to persist
 export const addressSlice = createSlice({
     name: 'address',
     initialState,

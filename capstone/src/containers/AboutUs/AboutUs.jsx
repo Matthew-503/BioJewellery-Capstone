@@ -9,16 +9,9 @@
 // Input: Currently no input available
 // Output: Currently no specific output
 
-import React, { useState } from 'react';
-
-import { SubHeading } from '../../components';
-import { images } from '../../constants';
-import { Link } from "react-router-dom"
-
+import React from 'react';
 import './AboutUs.css';
-import { AboutCompany, AboutHeader, AboutProduction, AboutSustain } from '../AboutUs';
-
-
+import { AboutCompany, AboutHeader, AboutSustain } from '../AboutUs';
 
 const AboutUs = () => {
 

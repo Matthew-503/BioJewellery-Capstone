@@ -1,9 +1,7 @@
 import React from 'react';
 import { EmployeeMenu } from '../../components';
 import { ReturnBlock }  from '../../components';
-
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import './EmployeeReturn.css';
 
 const EmployeeReturn = () => {
@@ -46,9 +44,6 @@ const EmployeeReturn = () => {
                 </li>
             </ul>
 
-            {/* <div className="employee__reviews">
-
-            </div> */}
         </div>
     )
 }

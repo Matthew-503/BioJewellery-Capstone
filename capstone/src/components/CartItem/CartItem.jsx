@@ -89,28 +89,6 @@ const CartItem = () => {
                     <td>Warranty: 1 year from purchase</td>
                 </tr>
             </table>
-            {/* <ul className="cart__desc">
-
-                    <li className="cart__name">
-                         <h2>Product Name</h2>
-                    </li>
-
-                    <li className="cart__price">
-                         <h2>Price</h2>
-                    </li>
-
-                    <li className="cart__stock">
-                         <h2>Stock:</h2>
-                    </li>
-
-                    <li className="cart__qty">
-                         <h2>Qty:</h2>
-                    </li>
-                </ul>
-
-                <button type='button' className='custom__button-submit'>
-                    Remove
-                </button> */}
         </div>
     );
 }

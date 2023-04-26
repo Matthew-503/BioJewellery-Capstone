@@ -1,8 +1,3 @@
-import React from 'react';
-import { BsStar, BsFillStarFill } from 'react-icons/bs';
-// import images from '../../constants/images';
-import './Rating.css';
-
 /*
 // Author: Nicholas Proc
 // Version: 0.1 
@@ -18,6 +13,10 @@ starRating: int -- Amount of stars of the review
 An group of stars that filled or unfilled base on the input
 
 */
+import React from 'react';
+import { BsStar, BsFillStarFill } from 'react-icons/bs';
+import './Rating.css';
+
 const Rating = ({ starRating }) => {
     var stars = Array(5);
     for (let i = 0; i < stars.length; i++) {

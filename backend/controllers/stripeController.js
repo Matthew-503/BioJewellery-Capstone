@@ -8,10 +8,13 @@ const Product = require('../models/productModel')
 
 const express = require('express');
 const app = express();
+
 //allows any ip address to access our express server
 var cors = require('cors');
 app.use(cors());
+
 app.use(express.static('public'));
+
 //Initializing stripe client for our account using secret key
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 

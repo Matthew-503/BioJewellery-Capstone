@@ -1,29 +1,21 @@
 import React, { useEffect, useState } from "react";
-//import { animated, useSpring } from "react-spring";
-import { Rating, ReviewBlock, DescriptionBlock } from '..';
+import { ReviewBlock, DescriptionBlock } from '..';
 import { useDispatch, useSelector } from 'react-redux';
 import './SwitchProductDetail.css';
-import {getAllReviews } from '../../features/reviewFeatures/reviewSlice'
+import { getAllReviews } from '../../features/reviewFeatures/reviewSlice'
 const SwitchProductDetail = (name) => {
     const detailswitch = ["Description", "Review"];
-    const [myProfession, setMyProfession] = useState("Description");
-
-
-    //Default Variable for review block
-  
+    const [myProfession, setMyProfession] = useState("Description");  
     const dispatch = useDispatch();
     const reviews = useSelector(state => state.review.reviews);
     const { productName } = name;
     useEffect(() => {
-        
-    
+            
         dispatch(getAllReviews(productName));
- 
-        
+         
     }, [ dispatch])
     console.log("reviews:", reviews);
 
-   
     return (
         <>
             <div className="switch">
@@ -60,8 +52,6 @@ const SwitchProductDetail = (name) => {
   )) : (
     <p>no reviews yet!</p>
   )) }
-
-
                
             </div>
         </>

@@ -11,14 +11,10 @@
 
 // Notes: Aim to make the subheader text have better padding / margins
 
-
 import React from 'react';
 import { BiSupport } from 'react-icons/bi';
 import { FiPackage } from 'react-icons/fi';
 import { MdPayment } from 'react-icons/md';
-
-import { SubHeading } from '../../components';
-
 import './Benefits.css';
 
 const Benefits = () => (
@@ -67,7 +63,7 @@ const Benefits = () => (
                 </h1>
 
                 <p className='benefits__p'>
-                    Our customer service are available 24/7
+                    Our customer service is available 24/7
                 </p>
             </div>
         </div>

@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
-import { SubHeading, ProductDetailBar } from '../../components';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
-
 import { fetchFromAPI } from '../../constants';
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SideBarAccount from "./SideBarAccount";
-import { Outlet } from "react-router-dom";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';
-      
-
 import './AccountHistory.css';
 
 const AccountHistory = () => {
@@ -21,8 +15,7 @@ const AccountHistory = () => {
     const order_no = '23ru90h349v832v4';
 
     useEffect(() => {
-        // setVideos(null);
-
+        
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
     }, [selectedCategory]);
@@ -145,11 +138,6 @@ const AccountHistory = () => {
                                     </button>
                                 </div>
 
-                                {/* <ul className="accountHistory__list">
-                                    <li>Coffee Bracelet</li>
-                                    <li>Earring Cerrado</li>
-                                    <li>Coffee Bracelet</li>
-                                </ul> */}
                             </div>
                         </div>
                     </div>

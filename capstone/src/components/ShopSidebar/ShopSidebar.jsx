@@ -11,22 +11,13 @@
 // Output
 // ShopProduct Container
 
-
 import React from 'react';
-
-import { ProductItems } from '../../components';
-// import { SubHeading } from '../../components';
-
-// import { cerrado } from './import.js';
-import { images } from '../../constants';
-
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, reset } from '../../features/productFeatures/productSlice';
+import { getProducts } from '../../features/productFeatures/productSlice';
 import { useEffect } from "react";
 import { sortProducts } from '../../features/productFeatures/productSlice';
 import { Stack } from "@mui/material";
 import { sortCategory } from '../../constants';
-
 import './ShopSidebar.css';
 
 const ShopSidebar = ({ selectedCategory, setSelectedCategory }) => {
@@ -49,7 +40,7 @@ const ShopSidebar = ({ selectedCategory, setSelectedCategory }) => {
         <div>
             <div className='shop__sidebar'>
                 <div className="sidebar">
-                    <div class="grid-container">
+                    <div className="grid-container">
                         <Stack
                             direction="row"
                             sx={{

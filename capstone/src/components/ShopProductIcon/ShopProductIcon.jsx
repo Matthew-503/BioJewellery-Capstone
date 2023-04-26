@@ -16,8 +16,6 @@
 // ReviewBlock component
 
 import React from 'react';
-
-// import images from '../../constants/images';
 import './ShopProductIcon.css';
 import { Link, useParams } from "react-router-dom"
 

@@ -12,14 +12,7 @@
 // Product Detail Container
 
 import React from 'react';
-
-import { images } from '../../constants';
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from 'react-icons/fa';
-
 import './ReturnBlock.css';
-
-const productImage = images.gallery01;
 
 const ReturnBlock = () => {
     return (

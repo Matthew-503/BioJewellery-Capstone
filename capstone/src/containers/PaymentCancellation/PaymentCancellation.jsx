@@ -1,7 +1,6 @@
 // Author: Sri
 // Version 0.1
 // Date: 09/03/2023
-
 // Description: For payment cancel flow.
 import React from 'react'
 import './PaymentCancellation.css'

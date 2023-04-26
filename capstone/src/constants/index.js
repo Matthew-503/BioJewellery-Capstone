@@ -1,10 +1,6 @@
 import images from './images';
-
 //import video from '../assets/video.mp4';
 //import data from './data';
-
-
-// import video from '../assets/video.mp4';
 import sortCategory from './sortCategory'
 import empAccountCategory from './empAccountCategory'
 import accountCategory from './accountCategory'

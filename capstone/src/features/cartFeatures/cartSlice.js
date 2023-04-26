@@ -2,12 +2,11 @@
 // Version 1.0
 // Date: 15/03/2023
  
-//createSlice used to create a slice which manages a portion of the global state
 import {createSlice, createAsyncThunk, createSelector} from '@reduxjs/toolkit'
 import cartService from './cartService'
 
 const initialState = {
-    cartProducts: [], //product object
+    cartProducts: [], 
     itemCount: 0,       
     isError: false,
     isSuccess: false,
@@ -105,8 +104,6 @@ async (productName, thunkAPI) => {
         return thunkAPI.rejectWithValue(message) 
     }
 })
-
-
 
 //Slice creation to manage cart state
     export const cartSlice = createSlice({

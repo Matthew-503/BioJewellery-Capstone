@@ -11,12 +11,9 @@
 
 // Notes: Aim to make the subheader text have better padding / margins
 
-
 import React from 'react';
 import { TbRefresh } from 'react-icons/tb';
 import { MdOutlineEco, MdNaturePeople } from 'react-icons/md';
-
-import { SubHeading } from '../../components';
 
 const AboutSustain = () => (
     <div className='app__benefits app__section-padding about__sus' id='benefits'>

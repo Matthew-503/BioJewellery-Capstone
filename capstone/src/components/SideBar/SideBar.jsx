@@ -1,6 +1,5 @@
 import React from "react";
 import { Stack } from "@mui/material";
-
 import { sortCategory } from '../../constants';
 import './SideBar.css'
 

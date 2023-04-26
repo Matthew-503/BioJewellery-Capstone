@@ -12,25 +12,17 @@
 // Product Detail Container
 
 import React, { useState } from 'react';
-
-import { images } from '../../constants';
-import { SubHeading, ProductDetailBar } from '../../components';
-import { Rating, ReviewBlock } from '../../components';
-import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDetail';
+import { SubHeading } from '../../components';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useParams } from 'react-router-dom';
-import { getProductByName } from '../../features/productFeatures/productSlice';
 import './Return.css';
 import { Footer } from '../../containers';
 import { Navbar, SideBarAccount } from '../../components';
 import { fetchFromAPI } from '../../constants';
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
-import { Link, useNavigate } from "react-router-dom";
 import { returnRequest, reset } from '../../features/returnFeatures/returnSlice';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const Return = () => {
 
@@ -38,10 +30,8 @@ const Return = () => {
     const [setVideos] = useState(null);
 
     useEffect(() => {
-        // setVideos(null);
-
-        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-            .then((data) => setVideos(data.items))
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+        .then((data) => setVideos(data.items))
     }, [selectedCategory]);
 
     const [selectedOption, setSelectedOption] = useState('');
@@ -163,9 +153,7 @@ const Return = () => {
                                 />
 
                                 <button type="submit" className="return__button">Submit Claim</button>  
-                            </div>
-
-                                              
+                            </div>         
                          
                         </form> 
                     </div >

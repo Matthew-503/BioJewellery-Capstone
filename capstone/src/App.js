@@ -14,19 +14,11 @@
 // Notes: Have figured out which component is causing issues
 
 import React from 'react';
-import { Link, Route, Routes } from "react-router-dom"
-
-import { Navbar, EditProduct, EmployeeMenu, Uploader } from './components';
-import {EmpManage,Feedback, EmpEdit, EmpAdd, Account, Reset, Return, ResetConfirm, AccountHistory, Home, Header, Gallery, EmployeeReturn, Benefits, Footer, Follow, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, ShopCategory, Feed, Login, EmployeeSettings, AboutUs, EmpAccount, SignUp } from './containers';
-
-
+import { Route, Routes } from "react-router-dom"
+import {EmpManage,Feedback, EmpEdit, EmpAdd, Account, Reset, Return, ResetConfirm, Home, ShopProduct, ProductDetail, OrderConfirmation, ShoppingCart, UserNavigation, Feed, Login, AboutUs, SignUp } from './containers';
 import './App.css';
 import PaymentCancellation from './containers/PaymentCancellation/PaymentCancellation';
 import Shipping from './containers/Shipping/Shipping';
-
-//AddProduct import to be removed
-import AddProduct from './components/AddProduct/AddProduct';
-
 import { ProtectedRoute } from './features/ProtectedRoute';
 import { ProtectedRouteUser } from './features/ProtectedRouteUser';
 
@@ -65,18 +57,10 @@ const App = () => (
                 <Route path="/addproduct" element={<EmpAdd />} />
                 <Route path="/editproduct/:name" element={<EmpEdit/>} />
                 <Route path="/manageproduct" element={<EmpManage />} />
-
             </Route>
-
-            
-
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            
+            <Route path="/signup" element={<SignUp />} />            
         </Routes>
-
-
-
     </div>
 );
 

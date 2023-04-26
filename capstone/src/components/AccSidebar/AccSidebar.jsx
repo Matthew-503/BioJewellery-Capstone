@@ -2,11 +2,9 @@
 // Version: 0.1 
 // Date: 20/1/2023
 
-// Description: This container is for displaying a list of products
+// Description: This component is for displaying a list of products
 // Precondition: Must have a list of products
 // Postcondition: Display a list of products
-
-
 
 import React from 'react';
 

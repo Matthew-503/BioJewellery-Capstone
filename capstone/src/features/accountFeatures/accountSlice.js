@@ -94,6 +94,8 @@ export const resetPassword = createAsyncThunk('auth/resetPassword', async (userD
     return thunkAPI.rejectWithValue(message)
   }
 })
+
+//Update account info
 export const updateAccount = createAsyncThunk('auth/update', async (formData, thunkAPI) => {
   try { 
     console.log(formData)

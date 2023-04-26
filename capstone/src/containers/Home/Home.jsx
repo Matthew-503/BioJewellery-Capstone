@@ -1,6 +1,7 @@
 import React from 'react'
-import { Header, Gallery, Follow, Benefits, ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpAdd, EmpManage, Return, Reset, ResetConfirm, Feed, ShopProduct } from '../../containers';
-import { ShopSidebar } from '../../components';
+import { Header, Gallery, Follow, Benefits } from '../../containers';
+// import { ProductDetail, Login, SignUp, AboutUs, Error, Policy, Feedback, Account, AccountHistory, OrderConfirmation, Shipping, EmpAddProduct, EmployeeSettings, EmpAccount, EmpAdd, EmpManage, Return, Reset, ResetConfirm, Feed, ShopProduct } from '../../containers';
+// import { ShopSidebar } from '../../components';
 const Home = () => {
   return (
     <div>

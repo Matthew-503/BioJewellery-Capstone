@@ -8,14 +8,11 @@
 
 // Input: Currently no input available
 // Output: Currently no specific output
-
 // Notes: The background image has been cropped to fit the styling. If any changes are needed, feel free to do the same thing
-
 
 import React from 'react';
 import { images } from '../../constants';
 import { Link } from "react-router-dom"
-
 import './Header.css';
 
 const Header = () => (

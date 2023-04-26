@@ -1,4 +1,4 @@
-// Author: Ling Shan Matthew Ng, Sri, Naomy Tung
+// Author: Matthew, Sri, Naomy, Buola, Nicholas
 // Version 1.0
 // Date: 17/03/2023
 
@@ -12,29 +12,23 @@
 // Notes: The animation of the logo will be done soon
 // Notes: Styling of the search area will be modified soon
 
-
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
-import { NavLink, Link, useNavigate } from "react-router-dom"
-import { MdSearch, MdAccountCircle, MdOutlineClose } from 'react-icons/md';
+import { NavLink, useNavigate } from "react-router-dom"
+import { MdAccountCircle, MdOutlineClose } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
-//import { updateItemCount } from '../../features/cartFeatures/cartSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../components';
 import { DropdownMenuEmp } from '../../components';
-import { useAuthU } from '../../features/ProtectedRouteUser';
-import { useAuth } from '../../features/ProtectedRoute';
-import { Navigate, Outlet } from "react-router-dom";
-import { logout, reset } from '../../features/accountFeatures/accountSlice'
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const { cartProducts, itemCount } = useSelector((state) => state.cart);
-    const {isAuthU, setAuthU}  = useState(false);	
-    const {isAuthA, setAuthA}  = useState(false);
+    const { itemCount } = useSelector((state) => state.cart);
+    const { setAuthU }  = useState(false);	
+    const { setAuthA }  = useState(false);
 
     const { user } = useSelector(
         (state) => state.auth
@@ -58,7 +52,6 @@ const Navbar = () => {
 
     useEffect(() => {
 
-//        dispatch(updateItemCount());
 
     }, [dispatch, itemCount]);
 
@@ -99,13 +92,7 @@ const Navbar = () => {
                 </li>
             </ul>
 
-            {/* <div className="navbar-input">
-                <input className='navbar-input-search' type='text' placeholder='Search BioJewellery' />
-
-                <a href="#login">
-                    <MdSearch className="navbar-icons" />
-                </a>
-            </div> */}
+            
 
             <div className="navbar-input">
                 <a href="/cart">

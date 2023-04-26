@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-
 import { Navbar, SubHeading } from '../../components';
-import { SwitchDetail } from '../../containers';
 import { images } from '../../constants';
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { register, reset } from '../../features/accountFeatures/accountSlice'
-
 import PasswordChecklist from "react-password-checklist"
-
-
 import './SignUp.css';
 
 const SignUpForm = () => {
@@ -28,7 +21,6 @@ const SignUpForm = () => {
     const [province, setProvince] = useState('');
     const [country, setCountry] = useState('');
     const [postalCode, setPostalCode] = useState('');
-
     const [progress, setProgress] = useState(0);
     const [display, setDisplay] = useState(1);
     const [clickCount, setClickCount] = useState(0);
@@ -54,7 +46,7 @@ const SignUpForm = () => {
 
             dispatch(register(userData))
         }
-        //console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
+        
     };
 
     const handleClick = () => {
@@ -93,9 +85,7 @@ const SignUpForm = () => {
         else {
             setCurrentInput(currentInput);
         }
-        console.log(name, email, password, confirmPassword, apartment, street, city, province, country, postalCode);
-
-
+        
         setProgress(prevProgress => (prevProgress + 1) % 3);
         setClickCount(clickCount + 1);
 
@@ -109,7 +99,7 @@ const SignUpForm = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const { user, isLoading, isError, isSuccess, message } = useSelector(
+    const { user, isError, isSuccess, message } = useSelector(
         (state) => state.auth
     )
 
@@ -328,7 +318,7 @@ const SignUpForm = () => {
                     </div>
                 </Box>
             </Stack>
-                                                    </div>
+        </div>
     );
 };
 

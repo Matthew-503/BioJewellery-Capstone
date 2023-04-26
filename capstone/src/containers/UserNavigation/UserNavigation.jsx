@@ -3,7 +3,6 @@
 // Date: 18/1/2023
 
 import React from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from "react-router-dom";
 import { Footer } from '../../containers';
 import { Navbar } from '../../components';

@@ -11,30 +11,21 @@
 
 import React from 'react';
 import { useState } from 'react';
-
-import { SubHeading } from '../../components';
 import { images } from '../../constants';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Box, Stack, Typography } from "@mui/material";
-
+import { Box, Stack } from "@mui/material";
 import { toast } from 'react-toastify';
 import { forgetPassword, reset } from '../../features/accountFeatures/accountSlice';
-import { Navbar } from '../../components';
-
-
 import './Reset.css';
-
-
-
 
 function Reset() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const { message, isSuccess, isError} = useSelector(
-        (state) => state.auth
+      (state) => state.auth
     )
 
     const [accountEmail, setAccountEmail]  = useState({
@@ -47,7 +38,6 @@ function Reset() {
 
     const [email, setEmail] = useState('');
 
-
     useEffect(() => {
         if (isError) {
             toast.error(message);
@@ -59,11 +49,8 @@ function Reset() {
           setSuccessful(true);
           dispatch(reset());    
         }
-    
-       
+           
       }, [isError, isSuccess, navigate, dispatch])
-
-
     
       const onSubmit = (e) => {
         e.preventDefault()
@@ -77,8 +64,6 @@ function Reset() {
 
     return (
         <>
-            {/* <Navbar /> */}
-
             <Stack sx={{ flexDirection: { sx: "column", md: "row" }, background: "var(--color-lightgreen)" }}>
                 <Box p={0} sx={{ overflowY: "auto", height: "100vh", flex: 2 }}>
                     <div className="account">
@@ -125,61 +110,6 @@ function Reset() {
                 </Box>
             </Stack>
 
-
-            {/* <div className='login'>
-        <div className="login__wrapper">
-          <img src={images.login} alt="G_overlay" className='left' />
-          <h1 className='HeaderText left '>Turn your dreams into reality</h1>
-        </div>
-        <form onSubmit={onSubmit}>
-          <div className='right login__form'>
-            <SubHeading title={"Login"} className='login__subheading' />
-
-            <p>Welcome back! Please enter your details</p>
-
-            {isError ? <p className='login__error-message'>{errorMessage}</p> : null}
-
-
-            <input
-              className='login__input'
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={onChange}
-              required
-            />
-
-            <input
-              className='login__input'
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={onChange}
-              required
-            />
-
-            <div className='login__lower-functions login__forget-link'>
-              <div className="login__link">
-                <Link to="/">Forgot password?</Link>
-              </div>
-              <br />
-              <button type="submit" className="login__button">Login</button>
-              <br />
-              <Link to='/signup'>
-                <button className="login__button">Register</button>
-              </Link>
-              <br />
-              <div className="login__link">
-                <Link to="/">Continue as guest</Link>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div> */}
         </>
     );
 };

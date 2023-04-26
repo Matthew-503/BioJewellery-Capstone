@@ -1,15 +1,10 @@
 import React from "react";
-import { Stack } from "@mui/material";
-import { images } from '../../constants';
 import { empAccountCategory } from '../../constants';
 import './EmpSidebar.css'
-
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { toast } from 'react-toastify'
 import { logout, reset } from '../../features/accountFeatures/accountSlice'
-import { useState } from 'react';
 import { MdAccountCircle } from 'react-icons/md';
 
 const EmpSidebarAccount = (selectedCategory, setSelectedCategory ) => {

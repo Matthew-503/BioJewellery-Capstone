@@ -16,7 +16,6 @@ import React from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaTiktok } from 'react-icons/fa';
 import { Link } from "react-router-dom"
-
 import './Footer.css';
 
 const Footer = () => (

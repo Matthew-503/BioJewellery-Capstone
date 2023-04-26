@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BsFillPersonFill } from "react-icons/bs";
 import { EmployeeMenu } from '../../components';
-
 import './EmployeeSettings.css';
 
 const EmployeeSettings = () => {

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { images } from '../../constants';
-import { SubHeading, ProductDetailBar, Navbar } from '../../components';
+import { Navbar } from '../../components';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-
 import { fetchFromAPI } from '../../constants';
-import { Box, Stack, Typography } from "@mui/material";
-import SideBarAccount from "./EmpSidebar";
-
+import { Box, Stack } from "@mui/material";
 import './EmpAccount.css';
 import EmpSidebar from "./EmpSidebar";
 
@@ -16,8 +13,6 @@ const EmpAccount = (props) => {
     const [setVideos] = useState(null);
 
     useEffect(() => {
-        // setVideos(null);
-
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
     }, [selectedCategory]);
@@ -255,7 +250,7 @@ const EmpAccount = (props) => {
                     </div>
                 </Box>
             </Stack>
-        </div >
+        </div>
     );
 };
 

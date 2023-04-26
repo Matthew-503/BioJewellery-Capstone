@@ -1,7 +1,5 @@
 import React from 'react';
 import Rating from '../Rating/Rating';
-
-// import images from '../../constants/images';
 import './ReviewBlock.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -12,15 +10,11 @@ const ReviewBlock = ({ review }) => {
     const { user } = useSelector((state) => state.auth);
     console.log(user.user.type)
     const userType = {
-
-
         type: (user !== null || user !== undefined) ? user.user.type : "guest"
-
     }
     console.log(userType)
     const [showForm, setShowForm] = useState(false);
     const [replyText, setReplyText] = useState("");
-    const { selectedProduct } = useSelector((state) => state.products);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

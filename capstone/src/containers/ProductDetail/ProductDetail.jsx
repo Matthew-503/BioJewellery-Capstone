@@ -12,24 +12,18 @@
 // Product Detail Container
 
 import React from 'react';
-
-import { images } from '../../constants';
-import { SubHeading, ProductDetailBar } from '../../components';
-import { Rating, ReviewBlock } from '../../components';
+import { ProductDetailBar } from '../../components';
 import './ProductDetail.css';
 import SwitchDetail from '../../components/SwitchProductDetail/SwitchProductDetail';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getProductByName, reset } from '../../features/productFeatures/productSlice';
-import {getAllReviews } from '../../features/reviewFeatures/reviewSlice'
-const productImage = images.cerrado;
+import { getAllReviews } from '../../features/reviewFeatures/reviewSlice'
 
 const ProductDetail = () => {
 
     const { selectedProduct, isError, message } = useSelector((state) => state.products);
-
-
     let { name } = useParams();
     const dispatch = useDispatch();
    

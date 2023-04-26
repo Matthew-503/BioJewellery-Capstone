@@ -13,10 +13,8 @@
 // Notes: Images used will remain the same for now
 // Notes: May consider about the color theme of the arrows 
 
-
 import React from 'react';
 import { BsInstagram, BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
-import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import { Link } from 'react-router-dom'; 
 import './Gallery.css';

@@ -17,15 +17,6 @@ function CheckoutSummary() {
     const cartItems = cartProducts
     const email = user.email;
     
-    // console.log({'cartItems': cartItems, 'email': email});
-
-
-    // const cartItems = [
-    //   { name: "Flower stud earring", quantity: 2}
-    // ]
-
-    // const email = 'blossomshini@gmail.com';
-
     const checkout = async () => {
     try {
 

@@ -1,11 +1,6 @@
 import React from 'react';
-import { SubHeading, Title } from '../../components';
-import { data, images } from '../../constants';
-
-
 import { FiInstagram } from 'react-icons/fi';
 import { FaTiktok } from 'react-icons/fa';
-
 import './Follow.css';
 
 const Follow = () => (
