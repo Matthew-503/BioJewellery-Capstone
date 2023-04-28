@@ -62,7 +62,7 @@ const EmpProductItem = ({ product }) => {
 
                         <div className='emp__product-item-action'>
                             <div className='emp__product-item-toggle'>
-                                <Switch onClick={handleToggle} />
+                                {/* <Switch onClick={handleToggle} /> */}
                                 {/* {toggle ?
                                 <span>
                                     true
