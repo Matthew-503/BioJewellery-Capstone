@@ -64,10 +64,10 @@ const Gallery = () => {
                             key={`gallery_image-${index + 1}`}
                         >
 
-                            <img
+{/*                             <img
                                 src={image}
                                 alt="gallery_image"
-                            />
+                            /> */}
 
                             <BsInstagram className="gallery__images-icon" />
                         </div>
